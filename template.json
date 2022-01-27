@@ -7,13 +7,7 @@
           "value": 10,
           "min": 0,
           "max": 10
-        },
-        "power": {
-          "value": 5,
-          "min": 0,
-          "max": 5
-        },
-        "biography": ""
+        }
       }
     },
     "character": {

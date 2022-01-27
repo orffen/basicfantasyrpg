@@ -20,7 +20,7 @@
   "gridDistance": 5,
   "gridUnits": "ft",
   "primaryTokenAttribute": "health",
-  "secondaryTokenAttribute": "power",
+  "secondaryTokenAttribute": null,
   "url": "https://github.com/orffen/basicfantasyrpg",
   "manifest": "https://raw.githubusercontent.com/orffen/basicfantasyrpg/master/system.json",
   "download": "https://github.com/orffen/basicfantasyrpg/archive/refs/tags/r1.zip",
