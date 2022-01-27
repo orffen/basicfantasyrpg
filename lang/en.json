@@ -1,0 +1,22 @@
+{
+  "BASICFANTASYRPG.AbilityStr": "Strength",
+  "BASICFANTASYRPG.AbilityCon": "Constitution",
+  "BASICFANTASYRPG.AbilityDex": "Dexterity",
+  "BASICFANTASYRPG.AbilityInt": "Intelligence",
+  "BASICFANTASYRPG.AbilityWis": "Wisdom",
+  "BASICFANTASYRPG.AbilityCha": "Charisma",
+
+  "BASICFANTASYRPG.AbilityStrAbbr": "str",
+  "BASICFANTASYRPG.AbilityConAbbr": "con",
+  "BASICFANTASYRPG.AbilityDexAbbr": "dex",
+  "BASICFANTASYRPG.AbilityIntAbbr": "int",
+  "BASICFANTASYRPG.AbilityWisAbbr": "wis",
+  "BASICFANTASYRPG.AbilityChaAbbr": "cha",
+
+  "BASICFANTASYRPG.EffectCreate": "Create Effect",
+  "BASICFANTASYRPG.EffectToggle": "Toggle Effect",
+  "BASICFANTASYRPG.EffectEdit": "Edit Effect",
+  "BASICFANTASYRPG.EffectDelete": "Delete Effect",
+
+  "BASICFANTASYRPG.Add": "Add"
+}

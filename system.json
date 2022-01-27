@@ -1,0 +1,28 @@
+{
+  "name": "basicfantasyrpg",
+  "title": "Basic Fantasy RPG",
+  "description": "The Basic Fantasy RPG system for FoundryVTT!",
+  "version": "r1",
+  "minimumCoreVersion": "0.8.6",
+  "compatibleCoreVersion": "9",
+  "author": "Orffen",
+  "esmodules": ["module/basicfantasyrpg.mjs"],
+  "styles": ["css/basicfantasyrpg.css"],
+  "scripts": [],
+  "packs": [],
+  "languages": [
+    {
+      "lang": "en",
+      "name": "English",
+      "path": "lang/en.json"
+    }
+  ],
+  "gridDistance": 5,
+  "gridUnits": "ft",
+  "primaryTokenAttribute": "health",
+  "secondaryTokenAttribute": "power",
+  "url": "",
+  "manifest": "",
+  "download": "",
+  "license": "LICENSE.txt"
+}
