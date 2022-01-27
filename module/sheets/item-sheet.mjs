@@ -2,7 +2,7 @@
  * Extend the basic ItemSheet with some very simple modifications
  * @extends {ItemSheet}
  */
-export class Basic Fantasy RPGItemSheet extends ItemSheet {
+export class BasicFantasyRPGItemSheet extends ItemSheet {
 
   /** @override */
   static get defaultOptions() {
