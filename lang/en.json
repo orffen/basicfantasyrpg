@@ -1,4 +1,12 @@
 {
+  "ACTOR.TypeCharacter": "Character",
+  "ACTOR.TypeMonster": "Monster",
+
+  "ITEM.TypeItem": "Equipment",
+  "ITEM.TypeWeapon": "Weapon",
+  "ITEM.TypeArmor": "Armor",
+  "ITEM.TypeSpell": "Spell",
+
   "BASICFANTASYRPG.AbilityStr": "Strength",
   "BASICFANTASYRPG.AbilityCon": "Constitution",
   "BASICFANTASYRPG.AbilityDex": "Dexterity",
