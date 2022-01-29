@@ -82,24 +82,38 @@
     }
   },
   "Item": {
-    "types": ["item", "weapon", "spell"],
+    "types": ["item", "weapon", "armor", "spell"],
     "templates": {
       "base": {
         "description": ""
+      },
+      "valuable": {
+        "price": "",
+        "weight": 1
       }
     },
     "item": {
-      "templates": ["base"],
-      "quantity": 1,
-      "weight": 0,
-      "formula": "d20 + @str.bonus + ceil(@lvl / 2)"
+      "templates": ["base", "valuable"],
+      "quantity": 1
     },
     "weapon": {
-      "templates": ["base"]
+      "templates": ["base", "valuable"],
+      "size": "M",
+      "damage": "1d6",
+      "bonusAb": 0,
+      "ranged": false,
+      "range": "Melee"
+    },
+    "armor": {
+      "templates": ["base", "valuable"],
+      "armorClass": 11
     },
     "spell": {
       "templates": ["base"],
-      "spellLevel": 1
+      "class": "",
+      "level": 1,
+      "range": "",
+      "duration": ""
     }
   }
 }
