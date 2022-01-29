@@ -11,14 +11,15 @@
           <label for="data.hitPoints.value" class="resource-label">Hit Points</label>
           <div class="resource-content flexrow flex-center flex-between">
             <input type="text" name="data.hitPoints.value" value="{{data.hitPoints.value}}" data-dtype="Number"/>
-            <span> / </span>
+            <span class="flexshrink">&nbsp;/&nbsp;</span>
             <input type="text" name="data.hitPoints.max" value="{{data.hitPoints.max}}" data-dtype="Number"/>
           </div>
         </div>
 
         <div class="resource flex-group-center">
-          <label for="data.level.value" class="resource-label">Level</label>
+          <label for="data.level.value" class="resource-label">Class / Level</label>
           <div class="resource-content flexrow flex-center flex-between">
+            <input type="text" name="data.class" value="{{data.class}}" data-dtype="String"/>
             <input type="text" name="data.level.value" value="{{data.level.value}}" data-dtype="Number"/>
           </div>
         </div>
@@ -27,7 +28,7 @@
           <label for="data.xp.value" class="resource-label">XP / Next Level</label>
           <div class="resource-content flexrow flex-center flex-between">
             <input type="text" name="data.xp.value" value="{{data.xp.value}}" data-dtype="Number"/>
-            <span> / </span>
+            <span class="flexshrink">&nbsp;/&nbsp;</span>
             <input type="text" name="data.xp.next" value="{{data.xp.next}}" data-dtype="Number"/>
           </div>
         </div>
@@ -85,13 +86,12 @@
 
     {{!-- Biography Tab --}}
     <div class="tab biography" data-group="primary" data-tab="description">
-      {{!-- If you want TinyMCE editors to output inline rolls when rendered, you need to pass the actor's roll data to the rollData property. --}}
-      {{editor content=data.biography target="data.biography" rollData=rollData button=true owner=owner editable=editable}}
+      {{> "systems/basicfantasyrpg/templates/actor/parts/actor-description.html"}}
     </div>
 
     {{!-- Owned Items Tab --}}
     <div class="tab items" data-group="primary" data-tab="items">
-       {{> "systems/basicfantasyrpg/templates/actor/parts/actor-items.html"}}
+      {{> "systems/basicfantasyrpg/templates/actor/parts/actor-items.html"}}
     </div>
 
     {{!-- Owned Spells Tab --}}

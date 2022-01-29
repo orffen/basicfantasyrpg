@@ -9,6 +9,7 @@
         "attackBonus": {
           "value": 1
         },
+        "biography": "",
         "hitPoints": {
           "value": 10,
           "min": 0,
@@ -44,6 +45,7 @@
     },
     "character": {
       "templates": ["base"],
+      "class": "Fighter",
       "level": {
         "value": 1
       },
@@ -109,7 +111,7 @@
     "spell": {
       "templates": ["base"],
       "class": "",
-      "level": 1,
+      "spellLevel": 1,
       "range": "",
       "duration": ""
     }
