@@ -42,11 +42,11 @@
     "character": {
       "templates": ["base"],
       "attributes": {
+        "initBonus": {
+          "value": 0
+        },
         "level": {
           "value": 1
-        },
-        "levelXp": {
-          "value": 2000
         },
         "xp": {
           "value": 0,
