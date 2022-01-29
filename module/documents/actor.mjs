@@ -50,8 +50,8 @@ export class BasicFantasyRPGActor extends Actor {
 
     // Loop through ability scores, and add their modifiers to our sheet output.
     for (let [key, ability] of Object.entries(data.abilities)) {
-      // Calculate the ability modifier
-      ability.mod = this._calculateAbilityModifier(ability.value);
+      // Calculate the ability bonus
+      ability.bonus = this._calculateAbilityBonus(ability.value);
     }
   }
 
@@ -59,7 +59,7 @@ export class BasicFantasyRPGActor extends Actor {
    * Determine ability score modifiers
    */
 
-  _calculateAbilityModifier(abilityScore) {
+  _calculateAbilityBonus(abilityScore) {
     switch (abilityScore) {
       case 3: return -3;
       case 4:
@@ -112,7 +112,7 @@ export class BasicFantasyRPGActor extends Actor {
     if (this.data.type !== 'character') return;
 
     // Copy the ability scores to the top level, so that rolls can use
-    // formulas like `@str.mod + 4`.
+    // formulas like `@str.bonus + 4`.
     if (data.abilities) {
       for (let [k, v] of Object.entries(data.abilities)) {
         data[k] = foundry.utils.deepClone(v);

@@ -65,7 +65,7 @@
       "templates": ["base"],
       "quantity": 1,
       "weight": 0,
-      "formula": "d20 + @str.mod + ceil(@lvl / 2)"
+      "formula": "d20 + @str.bonus + ceil(@lvl / 2)"
     },
     "feature": {
       "templates": ["base"]
