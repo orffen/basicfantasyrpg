@@ -9,8 +9,7 @@ export class BasicFantasyRPGItemSheet extends ItemSheet {
     return mergeObject(super.defaultOptions, {
       classes: ["basicfantasyrpg", "sheet", "item"],
       width: 520,
-      height: 480,
-      tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "description" }]
+      height: 480
     });
   }
 
