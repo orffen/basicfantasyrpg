@@ -2,10 +2,10 @@
   <li class="item flexrow items-header">
     <div class="item-name">Name</div>
     <div class="item-controls">
-      <a class="item-control item-create" title="Create item" data-type="feature"><i class="fas fa-plus"></i> Add item</a>
+      <a class="item-control item-create" title="Create item" data-type="weapon"><i class="fas fa-plus"></i>Add weapon</a>
     </div>
   </li>
-  {{#each features as |item id|}}
+  {{#each weapons as |item id|}}
     <li class="item flexrow" data-item-id="{{item._id}}">
       <div class="item-name">
         <div class="item-image">

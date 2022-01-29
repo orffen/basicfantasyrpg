@@ -7,7 +7,7 @@
   return loadTemplates([
 
     // Actor partials.
-    "systems/basicfantasyrpg/templates/actor/parts/actor-features.html",
+    "systems/basicfantasyrpg/templates/actor/parts/actor-combat.html",
     "systems/basicfantasyrpg/templates/actor/parts/actor-items.html",
     "systems/basicfantasyrpg/templates/actor/parts/actor-spells.html",
     "systems/basicfantasyrpg/templates/actor/parts/actor-effects.html",

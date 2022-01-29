@@ -73,7 +73,7 @@
     }
   },
   "Item": {
-    "types": ["item", "feature", "spell"],
+    "types": ["item", "weapon", "spell"],
     "templates": {
       "base": {
         "description": ""
@@ -85,7 +85,7 @@
       "weight": 0,
       "formula": "d20 + @str.bonus + ceil(@lvl / 2)"
     },
-    "feature": {
+    "weapon": {
       "templates": ["base"]
     },
     "spell": {
