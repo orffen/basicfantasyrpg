@@ -23,12 +23,18 @@
         </div>
 
         <div class="resource flex-group-center">
-          <label for="data.cr" class="resource-label">CR / XP</label>
+          <label for="data.hitDice" class="resource-label">HD / Special Abilities</label>
           <div class="resource-content flexrow flex-center flex-between">
-            <input type="text" name="data.cr" value="{{data.cr}}" data-dtype="Number"/>
+            <input type="text" name="data.hitDice" value="{{data.hitDice}}" data-dtype="Number"/>
             <span> / </span>
-            <input type="text" disabled="true" name="data.xp" value="{{data.xp}}" data-dtype="Number"/>
+            <input type="text" name="data.specialAbility" value="{{data.specialAbility}}" data-dtype="Number"/>
           </div>
+        </div>
+
+        <div class="resource flex-group-center">
+          <label for="data.xp" class="resource-label">XP</label>
+            <div class="resource-content flexrow flex-center flex-between">
+            <input type="text" disabled="true" name="data.xp" value="{{data.xp}}" data-dtype="Number"/>
         </div>
 
       </div>

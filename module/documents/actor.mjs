@@ -51,8 +51,30 @@ export class BasicFantasyRPGActor extends Actor {
     // Loop through ability scores, and add their modifiers to our sheet output.
     for (let [key, ability] of Object.entries(data.abilities)) {
       // Calculate the modifier using d20 rules.
-      ability.mod = Math.floor((ability.value - 10) / 2);
+      ability.mod = this._calculateAbilityModifier(ability.value);
     }
+  }
+
+  /**
+   * Determine ability score modifiers
+   */
+
+  _calculateAbilityModifier(abilityScore) {
+    switch (abilityScore) {
+      case 3: return -3;
+      case 4:
+      case 5: return -2;
+      case 6:
+      case 7:
+      case 8: return -1;
+      case 13:
+      case 14:
+      case 15: return 1;
+      case 16:
+      case 17: return 2;
+      case 18: return 3;
+      default: return 0;
+    };
   }
 
   /**
@@ -63,7 +85,11 @@ export class BasicFantasyRPGActor extends Actor {
 
     // Make modifications to data here. For example:
     const data = actorData.data;
-    data.xp = (data.cr * data.cr) * 100;
+    data.xp = function () {
+      let xpLookup = [10, 25, 75, 145, 240, 360, 500, 670, 875, 1075, 1300, 1575, 1875, 2175, 2500, 2850, 3250, 3600, 4000, 4500, 5250, 6000, 6750, 7500, 8250, 9000];
+      let specialAbilityLookup = [3, 12, 25, 30, 40, 45, 55, 65, 70, 75, 90, 95, 100, 110, 115, 125, 135, 145, 160, 175, 200, 225, 250, 275, 300, 325];
+      return xpLookup[data.hitDice] + (specialAbilityLookup[data.hitDice] * data.specialAbility);
+    };
   }
 
   /**
