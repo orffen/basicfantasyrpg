@@ -88,6 +88,7 @@ export class BasicFantasyRPGActorSheet extends ActorSheet {
     // Initialize containers.
     const gear = [];
     const weapons = [];
+    const armors = [];
     const spells = {
       0: [],
       1: [],
@@ -112,6 +113,10 @@ export class BasicFantasyRPGActorSheet extends ActorSheet {
       else if (i.type === 'weapon') {
         weapons.push(i);
       }
+      // Append to armors.
+      else if (i.type === 'armor') {
+        armors.push(i);
+      }
       // Append to spells.
       else if (i.type === 'spell') {
         if (i.data.spellLevel != undefined) {
@@ -123,6 +128,7 @@ export class BasicFantasyRPGActorSheet extends ActorSheet {
     // Assign and return
     context.gear = gear;
     context.weapons = weapons;
+    context.armors = armors;
     context.spells = spells;
   }
 
