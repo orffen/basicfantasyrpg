@@ -56,7 +56,11 @@
 
 /* Global styles */
 .window-app {
-  font-family: "Century Gothic", "Soutane", sans-serif;
+  font-family: "Century Gothic", "Soutane", var(--font-primary);
+}
+
+.game {
+  font-family: "Soutane", "Century Gothic", var(--font-primary);
 }
 
 .rollable:hover, .rollable:focus {
@@ -287,7 +291,7 @@
 }
 
 .basicfantasyrpg .item-form {
-  font-family: "Soutane", sans-serif;
+  font-family: "Soutane", var(--font-primary);
 }
 
 .basicfantasyrpg .sheet-header {
@@ -346,6 +350,7 @@
 .basicfantasyrpg .sheet-body,
 .basicfantasyrpg .sheet-body .tab,
 .basicfantasyrpg .sheet-body .tab .editor {
+  font-family: "Century Gothic", "Soutane", var(--font-primary);
   height: 100%;
 }
 
@@ -358,6 +363,7 @@
 }
 
 .basicfantasyrpg .resource-label {
+  font-family: "Century Gothic", "Soutane", var(--font-primary);
   font-weight: bold;
 }
 
