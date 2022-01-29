@@ -3,6 +3,12 @@
     "types": ["character", "monster"],
     "templates": {
       "base": {
+        "armorClass": {
+          "value": 11
+        },
+        "attackBonus": {
+          "value": 1
+        },
         "hitPoints": {
           "value": 10,
           "min": 0,
@@ -11,11 +17,8 @@
         "hitDiceSize": {
           "value": "1d8"
         },
-        "armorClass": {
-          "value": 11
-        },
-        "attackBonus": {
-          "value": 1
+        "initBonus": {
+          "value": 0
         },
         "move": {
           "value": 30
@@ -41,17 +44,12 @@
     },
     "character": {
       "templates": ["base"],
-      "attributes": {
-        "initBonus": {
-          "value": 0
-        },
-        "level": {
-          "value": 1
-        },
-        "xp": {
-          "value": 0,
-          "next": 2000
-        }
+      "level": {
+        "value": 1
+      },
+      "xp": {
+        "value": 0,
+        "next": 2000
       },
       "abilities": {
         "str": {
