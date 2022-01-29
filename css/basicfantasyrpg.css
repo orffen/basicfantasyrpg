@@ -54,13 +54,53 @@
     font-style: normal;
 }
 
-/* Global styles */
-.window-app {
-  font-family: "Century Gothic", "Soutane", var(--font-primary);
+@font-face {
+    font-family: 'Tex Gyre Adventor';
+    src: url('texgyreadventor-regular-webfont.eot');
+    src: url('texgyreadventor-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('texgyreadventor-regular-webfont.woff') format('woff'),
+         url('texgyreadventor-regular-webfont.ttf') format('truetype'),
+         url('texgyreadventor-regular-webfont.svg#tex_gyre_adventorregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
 }
 
+@font-face {
+    font-family: 'Tex Gyre Adventor';
+    src: url('texgyreadventor-italic-webfont.eot');
+    src: url('texgyreadventor-italic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('texgyreadventor-italic-webfont.woff') format('woff'),
+         url('texgyreadventor-italic-webfont.ttf') format('truetype'),
+         url('texgyreadventor-italic-webfont.svg#tex_gyre_adventoritalic') format('svg');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Tex Gyre Adventor';
+    src: url('texgyreadventor-bold-webfont.eot');
+    src: url('texgyreadventor-bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('texgyreadventor-bold-webfont.woff') format('woff'),
+         url('texgyreadventor-bold-webfont.ttf') format('truetype'),
+         url('texgyreadventor-bold-webfont.svg#tex_gyre_adventorbold') format('svg');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Tex Gyre Adventor';
+    src: url('texgyreadventor-bolditalic-webfont.eot');
+    src: url('texgyreadventor-bolditalic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('texgyreadventor-bolditalic-webfont.woff') format('woff'),
+         url('texgyreadventor-bolditalic-webfont.ttf') format('truetype'),
+         url('texgyreadventor-bolditalic-webfont.svg#tex_gyre_adventorbold_italic') format('svg');
+    font-weight: bold;
+    font-style: italic;
+}
+
+/* Global styles */
 .game {
-  font-family: "Soutane", "Century Gothic", var(--font-primary);
+  font-family: "Soutane", "Tex Gyre Adventor", var(--font-primary);
 }
 
 .rollable:hover, .rollable:focus {
@@ -283,15 +323,9 @@
 }
 
 /* Styles limited to basicfantasyrpg sheets */
-.basicfantasyrpg {
-  /* ----------------------------------------- */
-  /*  Items Lists                              */
-  /* ----------------------------------------- */
-  /* Example style for Basic Fantasy RPG (can be removed if not needed) */
-}
 
-.basicfantasyrpg .item-form {
-  font-family: "Soutane", var(--font-primary);
+.basicfantasyrpg.sheet.actor {
+  font-family: "Tex Gyre Adventor", "Soutane", var(--font-primary);
 }
 
 .basicfantasyrpg .sheet-header {
@@ -352,7 +386,6 @@
 .basicfantasyrpg .sheet-body .editor,
 .basicfantasyrpg .sheet-body .tab,
 .basicfantasyrpg .sheet-body .tab .editor {
-  font-family: "Century Gothic", "Soutane", var(--font-primary);
   height: 100%;
 }
 
@@ -365,7 +398,6 @@
 }
 
 .basicfantasyrpg .resource-label {
-  font-family: "Century Gothic", "Soutane", var(--font-primary);
   font-weight: bold;
 }
 
