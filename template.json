@@ -23,7 +23,8 @@
           "value": 2000
         },
         "xp": {
-          "value": 0
+          "value": 0,
+          "next": 2000
         }
       },
       "abilities": {
@@ -44,6 +45,23 @@
         },
         "cha": {
           "value": 10
+        }
+      },
+      "saves": {
+        "death": {
+          "value": 13
+        },
+        "wands": {
+          "value": 14
+        },
+        "paralysis": {
+          "value": 15
+        },
+        "breath": {
+          "value": 16
+        },
+        "spells": {
+          "value": 18
         }
       }
     },

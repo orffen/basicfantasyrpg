@@ -29,6 +29,14 @@
           </div>
         </div>
 
+        <div class="resource flex-group-center">
+          <label for="data.attributes.xp.value" class="resource-label">XP / Next Level</label>
+          <div class="resource-content flexrow flex-center flex-between">
+            <input type="text" name="data.attributes.xp.value" value="{{data.attributes.xp.value}}" data-dtype="Number"/>
+            <input type="text" name="data.attributes.xp.next" value="{{data.attributes.xp.next}}" data-dtype="Number"/>
+          </div>
+        </div>
+
       </div>
     </div>
   </header>
@@ -60,6 +68,15 @@
               <label for="data.abilities.{{key}}.value" class="resource-label rollable flexlarge align-left" data-roll="d20+@abilities.{{key}}.bonus" data-label="{{ability.label}}">{{ability.label}}</label>
               <input type="text" name="data.abilities.{{key}}.value" value="{{ability.value}}" data-dtype="Number"/>
               <span class="ability-mod rollable" data-roll="d20+@abilities.{{key}}.bonus" data-label="{{ability.label}}">{{numberFormat ability.bonus decimals=0 sign=true}}</span>
+            </div>
+            {{/each}}
+
+            <hr>
+
+            {{#each data.saves as |save key|}}
+            <div class="ability flexrow flex-group-center">
+              <label for="data.saves.{{key}}.value" class="resource-label rollable flexlarge align-left" data-roll="d20" data-label="{{save.label}}">{{save.label}}</label>
+              <input type="text" name="data.saves.{{key}}.value" value="{{save.value}}" data-dtype="Number"/>
             </div>
             {{/each}}
           </div>

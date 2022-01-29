@@ -13,6 +13,12 @@
   "BASICFANTASYRPG.AbilityWisAbbr": "wis",
   "BASICFANTASYRPG.AbilityChaAbbr": "cha",
 
+  "BASICFANTASYRPG.SaveDeath": "Death Ray or Poison",
+  "BASICFANTASYRPG.SaveWands": "Magic Wands",
+  "BASICFANTASYRPG.SaveParalysis": "Paralysis or Turn to Stone",
+  "BASICFANTASYRPG.SaveBreath": "Dragon Breath",
+  "BASICFANTASYRPG.SaveSpells": "Rods, Staves, and Spells",
+
   "BASICFANTASYRPG.EffectCreate": "Create Effect",
   "BASICFANTASYRPG.EffectToggle": "Toggle Effect",
   "BASICFANTASYRPG.EffectEdit": "Edit Effect",

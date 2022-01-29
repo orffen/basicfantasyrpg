@@ -71,6 +71,10 @@ export class BasicFantasyRPGActorSheet extends ActorSheet {
     for (let [k, v] of Object.entries(context.data.abilities)) {
       v.label = game.i18n.localize(CONFIG.BASICFANTASYRPG.abilities[k]) ?? k;
     }
+    // Handle saves.
+    for (let [k, v] of Object.entries(context.data.saves)) {
+      v.label = game.i18n.localize(CONFIG.BASICFANTASYRPG.saves[k]) ?? k;
+    }
   }
 
   /**
@@ -215,7 +219,7 @@ export class BasicFantasyRPGActorSheet extends ActorSheet {
 
     // Handle rolls that supply the formula directly.
     if (dataset.roll) {
-      let label = dataset.label ? `[ability] ${dataset.label}` : '';
+      let label = dataset.label ? `Roll: ${dataset.label}` : '';
       let roll = new Roll(dataset.roll, this.actor.getRollData());
       roll.toMessage({
         speaker: ChatMessage.getSpeaker({ actor: this.actor }),

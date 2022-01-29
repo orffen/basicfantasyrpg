@@ -21,3 +21,11 @@ BASICFANTASYRPG.abilityAbbreviations = {
   "wis": "BASICFANTASYRPG.AbilityWisAbbr",
   "cha": "BASICFANTASYRPG.AbilityChaAbbr"
 };
+
+BASICFANTASYRPG.saves = {
+  "death": "BASICFANTASYRPG.SaveDeath",
+  "wands": "BASICFANTASYRPG.SaveWands",
+  "paralysis": "BASICFANTASYRPG.SaveParalysis",
+  "breath": "BASICFANTASYRPG.SaveBreath",
+  "spells": "BASICFANTASYRPG.SaveSpells"
+};
