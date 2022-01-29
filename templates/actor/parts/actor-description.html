@@ -1,4 +1,26 @@
-<section class="resources grid grid-4col">
+<section class="resources grid grid-3col">
+
+  <div class="resource flex-group-center">
+    <label for="data.race.value" class="resource-label">Race</label>
+    <div class="resource-content flexrow flex-center flex-between">
+      <input type="text" name="data.race.value" value="{{data.race.value}}" data-dtype="String"/>
+    </div>
+  </div>
+
+  <div class="resource flex-group-center">
+    <label for="data.sex.value" class="resource-label">Sex</label>
+    <div class="resource-content flexrow flex-center flex-between">
+      <input type="text" name="data.sex.value" value="{{data.sex.value}}" data-dtype="String"/>
+    </div>
+  </div>
+
+  <div class="resource flex-group-center">
+    <label for="data.age.value" class="resource-label">Age</label>
+    <div class="resource-content flexrow flex-center flex-between">
+      <input type="text" name="data.age.value" value="{{data.age.value}}" data-dtype="String"/>
+    </div>
+  </div>
+
 </section>
 
   {{!-- If you want TinyMCE editors to output inline rolls when rendered, you need to pass the actor's roll data to the rollData property. --}}

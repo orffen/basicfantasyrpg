@@ -45,7 +45,18 @@
     },
     "character": {
       "templates": ["base"],
-      "class": "Fighter",
+      "age": {
+        "value": ""
+      },
+      "class": {
+        "value": ""
+      },
+      "race": {
+        "value": ""
+      },
+      "sex": {
+        "value": ""
+      },
       "level": {
         "value": 1
       },
