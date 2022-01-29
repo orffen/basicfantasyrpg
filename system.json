@@ -7,7 +7,7 @@
   "compatibleCoreVersion": "9",
   "author": "Orffen",
   "esmodules": ["module/basicfantasyrpg.mjs"],
-  "styles": ["css/basicfantasyrpg.css"],
+  "styles": ["styles/basicfantasyrpg.css"],
   "scripts": [],
   "packs": [],
   "languages": [
