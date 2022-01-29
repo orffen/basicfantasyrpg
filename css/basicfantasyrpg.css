@@ -55,7 +55,7 @@
 }
 
 @font-face {
-    font-family: 'Tex Gyre Adventor';
+    font-family: 'TeX Gyre Adventor';
     src: url('texgyreadventor-regular-webfont.eot');
     src: url('texgyreadventor-regular-webfont.eot?#iefix') format('embedded-opentype'),
          url('texgyreadventor-regular-webfont.woff') format('woff'),
@@ -66,7 +66,7 @@
 }
 
 @font-face {
-    font-family: 'Tex Gyre Adventor';
+    font-family: 'TeX Gyre Adventor';
     src: url('texgyreadventor-italic-webfont.eot');
     src: url('texgyreadventor-italic-webfont.eot?#iefix') format('embedded-opentype'),
          url('texgyreadventor-italic-webfont.woff') format('woff'),
@@ -77,7 +77,7 @@
 }
 
 @font-face {
-    font-family: 'Tex Gyre Adventor';
+    font-family: 'TeX Gyre Adventor';
     src: url('texgyreadventor-bold-webfont.eot');
     src: url('texgyreadventor-bold-webfont.eot?#iefix') format('embedded-opentype'),
          url('texgyreadventor-bold-webfont.woff') format('woff'),
@@ -88,7 +88,7 @@
 }
 
 @font-face {
-    font-family: 'Tex Gyre Adventor';
+    font-family: 'TeX Gyre Adventor';
     src: url('texgyreadventor-bolditalic-webfont.eot');
     src: url('texgyreadventor-bolditalic-webfont.eot?#iefix') format('embedded-opentype'),
          url('texgyreadventor-bolditalic-webfont.woff') format('woff'),
@@ -100,7 +100,7 @@
 
 /* Global styles */
 .game {
-  font-family: "Soutane", "Tex Gyre Adventor", var(--font-primary);
+  font-family: "Soutane", "TeX Gyre Adventor", var(--font-primary);
 }
 
 .rollable:hover, .rollable:focus {
@@ -325,7 +325,7 @@
 /* Styles limited to basicfantasyrpg sheets */
 
 .basicfantasyrpg.sheet.actor {
-  font-family: "Tex Gyre Adventor", "Soutane", var(--font-primary);
+  font-family: "TeX Gyre Adventor", "Soutane", var(--font-primary);
 }
 
 .basicfantasyrpg .sheet-header {
