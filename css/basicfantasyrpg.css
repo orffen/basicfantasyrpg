@@ -348,6 +348,8 @@
 }
 
 .basicfantasyrpg .sheet-body,
+.basicfantasyrpg .sheet-body .description,
+.basicfantasyrpg .sheet-body .editor,
 .basicfantasyrpg .sheet-body .tab,
 .basicfantasyrpg .sheet-body .tab .editor {
   font-family: "Century Gothic", "Soutane", var(--font-primary);
