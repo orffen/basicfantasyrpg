@@ -10,6 +10,15 @@
         },
         "hitDiceSize": {
           "value": "1d8"
+        },
+        "armorClass": {
+          "value": 11
+        },
+        "attackBonus": {
+          "value": 1
+        },
+        "move": {
+          "value": 30
         }
       }
     },
