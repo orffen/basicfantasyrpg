@@ -86,7 +86,18 @@ export class BasicFantasyRPGActor extends Actor {
     data.xp.value = function () {
       let xpLookup = [10, 25, 75, 145, 240, 360, 500, 670, 875, 1075, 1300, 1575, 1875, 2175, 2500, 2850, 3250, 3600, 4000, 4500, 5250, 6000, 6750, 7500, 8250, 9000];
       let specialAbilityLookup = [3, 12, 25, 30, 40, 45, 55, 65, 70, 75, 90, 95, 100, 110, 115, 125, 135, 145, 160, 175, 200, 225, 250, 275, 300, 325];
-      return xpLookup[data.hitDice.number] + (specialAbilityLookup[data.hitDice.number] * data.specialAbility.value);
+      let xpValue = 0;
+      let xpSpecialAbilityBonus = 0;
+      switch (data.hitDice.size ) {
+        case "d8": 
+          xpValue = xpLookup[data.hitDice.number];
+          xpSpecialAbilityBonus = specialAbilityLookup[data.hitDice.number] * data.specialAbility.value;
+          break;
+        default:
+          xpValue = xpLookup[0];
+          xpSpecialAbilityBonus = specialAbilityLookup[0] * data.specialAbility.value;
+      }
+      return xpValue + xpSpecialAbilityBonus;
     };
 
     data.attackBonus.value = function () {
