@@ -5,33 +5,33 @@
       <h1 class="charname"><input name="name" type="text" value="{{item.name}}" placeholder="Name"/></h1>
       <div class="grid grid-3col">
         <div class="resource">
-          <label class="resource-label">Price</label>
+          <label for="data.price.value" class="resource-label">Price</label>
           <input type="text" name="data.price.value" value="{{data.price.value}}" data-dtype="String"/>
         </div>
         <div class="resource">
-          <label class="resource-label">Size</label>
+          <label for="data.size" class="resource-label">Size</label>
           <input type="text" name="data.size" value="{{data.size}}" data-dtype="String"/>
         </div>
         <div class="resource">
-          <label class="resource-label">Weight</label>
+          <label for="data.weight.value" class="resource-label">Weight</label>
           <input type="text" name="data.weight.value" value="{{data.weight.value}}" data-dtype="String"/>
         </div>
       </div>
       <div class="grid grid-4col">
         <div class="resource">
-          <label class="resource-label">Damage</label>
+          <label for="data.damage" class="resource-label">Damage</label>
           <input type="text" name="data.damage" value="{{data.damage}}" data-dtype="String"/>
         </div>
         <div class="resource">
-          <label class="resource-label">Bonus AB</label>
+          <label for="data.bonusAb" class="resource-label">Bonus AB</label>
           <input type="text" name="data.bonusAb" value="{{data.bonusAb}}" data-dtype="Number"/>
         </div>
         <div class="resource">
-          <label class="resource-label">Range</label>
+          <label for="data.range" class="resource-label">Range</label>
           <input type="text" name="data.range" value="{{data.range}}" data-dtype="String"/>
         </div>
         <div class="resource">
-          <label class="resource-label">Ranged</label><br>
+          <label for="data.ranged" class="resource-label">Ranged</label><br>
           <input type="checkbox" name="data.ranged" value="{{data.ranged}}" {{checked data.ranged}} data-dtype="Boolean"/>
         </div>
       </div>

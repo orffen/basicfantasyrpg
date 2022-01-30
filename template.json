@@ -12,11 +12,7 @@
         "biography": "",
         "hitPoints": {
           "value": 10,
-          "min": 0,
           "max": 10
-        },
-        "hitDiceSize": {
-          "value": "1d8"
         },
         "initBonus": {
           "value": 0
@@ -104,9 +100,26 @@
     },
     "monster": {
       "templates": ["base"],
-      "hitDice": 0,
-      "specialAbility": 0,
-      "xp": 0
+      "hitDice": {
+        "size": "d8",
+        "number": 1,
+        "modifier": 0
+      },
+      "morale": {
+        "value": 7
+      },
+      "numberAppearing": {
+        "value": "1d4"
+      },
+      "specialAbility": {
+        "value": 0
+      },
+      "treasureType": {
+        "value": "None"
+      },
+      "xp": {
+        "value": 0
+      }
     }
   },
   "Item": {
