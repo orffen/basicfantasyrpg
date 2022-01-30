@@ -29,3 +29,11 @@ BASICFANTASYRPG.saves = {
   "breath": "BASICFANTASYRPG.SaveBreath",
   "spells": "BASICFANTASYRPG.SaveSpells"
 };
+
+BASICFANTASYRPG.money = {
+  "pp": "BASICFANTASYRPG.Platinum",
+  "gp": "BASICFANTASYRPG.Gold",
+  "ep": "BASICFANTASYRPG.Electrum",
+  "sp": "BASICFANTASYRPG.Silver",
+  "cp": "BASICFANTASYRPG.Copper"
+};

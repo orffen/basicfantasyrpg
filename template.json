@@ -60,6 +60,23 @@
       "level": {
         "value": 1
       },
+      "money": {
+        "pp": {
+          "value": 0
+        },
+        "gp": {
+          "value": 0
+        },
+        "ep": {
+          "value": 0
+        },
+        "sp": {
+          "value": 0
+        },
+        "cp": {
+          "value": 0
+        }
+      },
       "xp": {
         "value": 0,
         "next": 2000
@@ -68,16 +85,16 @@
         "str": {
           "value": 10
         },
-        "dex": {
-          "value": 10
-        },
-        "con": {
-          "value": 10
-        },
         "int": {
           "value": 10
         },
         "wis": {
+          "value": 10
+        },
+        "dex": {
+          "value": 10
+        },
+        "con": {
           "value": 10
         },
         "cha": {

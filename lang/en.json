@@ -27,6 +27,12 @@
   "BASICFANTASYRPG.SaveBreath": "Dragon Breath",
   "BASICFANTASYRPG.SaveSpells": "Rods, Staves, and Spells",
 
+  "BASICFANTASYRPG.Platinum": "Platinum",
+  "BASICFANTASYRPG.Gold": "Gold",
+  "BASICFANTASYRPG.Electrum": "Electrum",
+  "BASICFANTASYRPG.Silver": "Silver",
+  "BASICFANTASYRPG.Copper": "Copper",
+
   "BASICFANTASYRPG.EffectCreate": "Create Effect",
   "BASICFANTASYRPG.EffectToggle": "Toggle Effect",
   "BASICFANTASYRPG.EffectEdit": "Edit Effect",

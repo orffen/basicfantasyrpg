@@ -75,6 +75,10 @@ export class BasicFantasyRPGActorSheet extends ActorSheet {
     for (let [k, v] of Object.entries(context.data.saves)) {
       v.label = game.i18n.localize(CONFIG.BASICFANTASYRPG.saves[k]) ?? k;
     }
+    // Handle money.
+    for (let [k, v] of Object.entries(context.data.money)) {
+      v.label = game.i18n.localize(CONFIG.BASICFANTASYRPG.money[k]) ?? k;
+    }
   }
 
   /**
