@@ -7,6 +7,12 @@
   "ITEM.TypeArmor": "Armor",
   "ITEM.TypeSpell": "Spell",
 
+  "BASICFANTASYRPG.CombatTab": "Combat",
+  "BASICFANTASYRPG.DescriptionTab": "Biography",
+  "BASICFANTASYRPG.ItemsTab": "Equipment",
+  "BASICFANTASYRPG.SpellsTab": "Spells",
+  "BASICFANTASYRPG.EffectsTab": "Effects",
+
   "BASICFANTASYRPG.AbilityStr": "Strength",
   "BASICFANTASYRPG.AbilityCon": "Constitution",
   "BASICFANTASYRPG.AbilityDex": "Dexterity",
