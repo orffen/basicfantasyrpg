@@ -116,13 +116,19 @@
         "description": ""
       },
       "valuable": {
-        "price": "",
-        "weight": 1
+        "price": {
+          "value": ""
+        },
+        "weight": {
+          "value": 1
+        }
       }
     },
     "item": {
       "templates": ["base", "valuable"],
-      "quantity": 1
+      "quantity": {
+        "value": 1
+      }
     },
     "weapon": {
       "templates": ["base", "valuable"],
