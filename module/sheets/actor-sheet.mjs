@@ -43,11 +43,13 @@ export class BasicFantasyRPGActorSheet extends ActorSheet {
     if (actorData.type == 'character') {
       this._prepareItems(context);
       this._prepareCharacterData(context);
+      this._prepareActorData(context);
     }
 
     // Prepare NPC data and items.
     if (actorData.type == 'monster') {
       this._prepareItems(context);
+      this._prepareActorData(context);
     }
 
     // Add roll data for TinyMCE editors.
@@ -57,6 +59,20 @@ export class BasicFantasyRPGActorSheet extends ActorSheet {
     context.effects = prepareActiveEffectCategories(this.actor.effects);
 
     return context;
+  }
+
+  /**
+   * Organize and classify Items for Actor sheets.
+   *
+   * @param {Object} actorData The actor to prepare.
+   *
+   * @return {undefined}
+   */
+  _prepareActorData(context) {
+    // Handle saves.
+    for (let [k, v] of Object.entries(context.data.saves)) {
+      v.label = game.i18n.localize(CONFIG.BASICFANTASYRPG.saves[k]) ?? k;
+    }
   }
 
   /**
@@ -70,10 +86,6 @@ export class BasicFantasyRPGActorSheet extends ActorSheet {
     // Handle ability scores.
     for (let [k, v] of Object.entries(context.data.abilities)) {
       v.label = game.i18n.localize(CONFIG.BASICFANTASYRPG.abilities[k]) ?? k;
-    }
-    // Handle saves.
-    for (let [k, v] of Object.entries(context.data.saves)) {
-      v.label = game.i18n.localize(CONFIG.BASICFANTASYRPG.saves[k]) ?? k;
     }
     // Handle money.
     for (let [k, v] of Object.entries(context.data.money)) {

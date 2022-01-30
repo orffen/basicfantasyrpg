@@ -58,7 +58,6 @@ export class BasicFantasyRPGActor extends Actor {
   /**
    * Determine ability score modifiers
    */
-
   _calculateAbilityBonus(abilityScore) {
     switch (abilityScore) {
       case 3: return -3;
@@ -83,14 +82,47 @@ export class BasicFantasyRPGActor extends Actor {
   _prepareMonsterData(actorData) {
     if (actorData.type !== 'monster') return;
 
-    // Make modifications to data here. For example:
     const data = actorData.data;
-    data.xp = function () {
+    data.xp.value = function () {
       let xpLookup = [10, 25, 75, 145, 240, 360, 500, 670, 875, 1075, 1300, 1575, 1875, 2175, 2500, 2850, 3250, 3600, 4000, 4500, 5250, 6000, 6750, 7500, 8250, 9000];
       let specialAbilityLookup = [3, 12, 25, 30, 40, 45, 55, 65, 70, 75, 90, 95, 100, 110, 115, 125, 135, 145, 160, 175, 200, 225, 250, 275, 300, 325];
-      return xpLookup[data.hitDice] + (specialAbilityLookup[data.hitDice] * data.specialAbility);
+      return xpLookup[data.hitDice.number] + (specialAbilityLookup[data.hitDice.number] * data.specialAbility.value);
+    };
+
+    data.attackBonus.value = function () {
+      if (this.data.hitDice.number < 1) {
+        return 0;
+      } 
+      switch (this.data.hitDice.number) {
+        case 9: return 8;
+        case 10:
+        case 11: return 9
+        case 12:
+        case 13: return 10;
+        case 14:
+        case 15: return 11;
+        case 16:
+        case 17:
+        case 18:
+        case 19: return 12;
+        case 20:
+        case 21:
+        case 22:
+        case 23: return 13;
+        case 24:
+        case 25:
+        case 26:
+        case 27: return 14;
+        case 28:
+        case 29:
+        case 30:
+        case 31: return 15;
+        default: return this.data.hitDice.number;
+      }
     };
   }
+
+
 
   /**
    * Override getRollData() that's supplied to rolls.

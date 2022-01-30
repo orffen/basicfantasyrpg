@@ -8,7 +8,7 @@
       {{!-- The grid classes are defined in scss/global/_grid.scss. To use,
       use both the "grid" and "grid-Ncol" class where "N" can be any number
       from 1 to 12 and will create that number of columns.  --}}
-      <div class="resources grid grid-3col">
+      <div class="resources grid grid-2col">
 
         {{!-- "flex-group-center" is also defined in the _grid.scss file
         and it will add a small amount of padding, a border, and will
@@ -16,25 +16,54 @@
         <div class="resource flex-group-center">
           <label for="data.hitPoints.value" class="resource-label">Hit Points</label>
           <div class="resource-content flexrow flex-center flex-between">
-            <input type="text" name="data.hitPoints.value" value="{{data.hitPoints.value}}" data-dtype="Number"/>
-            <span> / </span>
-            <input type="text" name="data.hitPoints.max" value="{{data.hitPoints.max}}" data-dtype="Number"/>
+            <input type="number" name="data.hitPoints.value" value="{{data.hitPoints.value}}" data-dtype="Number"/>
+            <span class="flexshrink">&nbsp;/&nbsp;</span>
+            <input type="number" name="data.hitPoints.max" value="{{data.hitPoints.max}}" data-dtype="Number"/>
           </div>
         </div>
 
         <div class="resource flex-group-center">
           <label for="data.hitDice" class="resource-label">HD / Special Abilities</label>
           <div class="resource-content flexrow flex-center flex-between">
-            <input type="text" name="data.hitDice" value="{{data.hitDice}}" data-dtype="Number"/>
-            <span> / </span>
-            <input type="text" name="data.specialAbility" value="{{data.specialAbility}}" data-dtype="Number"/>
+            <input type="number" name="data.hitDice.number" value="{{data.hitDice.number}}" data-dtype="Number"/>
+            <input type="text" name="data.hitDice.size" value="{{data.hitDice.size}}" data-dtype="String"/>
+            <span class="flexshrink">+</span>
+            <input type="number" name="data.hitDice.modifier" value="{{data.hitDice.modifier}}" data-dtype="Number" sign="true"/>
+            <span class="flexshrink">&nbsp;/&nbsp;</span>
+            <input type="number" name="data.specialAbility.value" value="{{data.specialAbility.value}}" data-dtype="Number"/>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="resources grid grid-4col">
+
+        <div class="resource flex-group-center">
+          <label for="data.numberAppearing.value" class="resource-label">No. Appearing</label>
+          <div class="resource-content flexrow flex-center flex-between">
+            <input type="text" name="data.numberAppearing.value" value="{{data.numberAppearing.value}}" data-dtype="String"/>
           </div>
         </div>
 
         <div class="resource flex-group-center">
-          <label for="data.xp" class="resource-label">XP</label>
-            <div class="resource-content flexrow flex-center flex-between">
-            <input type="text" disabled="true" name="data.xp" value="{{data.xp}}" data-dtype="Number"/>
+          <label for="data.morale.value" class="resource-label">Morale</label>
+          <div class="resource-content flexrow flex-center flex-between">
+            <input type="number" name="data.morale.value" value="{{data.morale.value}}" data-dtype="Number"/>
+          </div>
+        </div>
+
+        <div class="resource flex-group-center">
+          <label for="data.treasureType.value" class="resource-label">Treasure Type</label>
+          <div class="resource-content flexrow flex-center flex-between">
+            <input type="text" name="data.treasureType.value" value="{{data.treasureType.value}}" data-dtype="String"/>
+          </div>
+        </div>
+
+        <div class="resource flex-group-center">
+          <label for="data.xp.value" class="resource-label">XP</label>
+          <div class="resource-content flexrow flex-center flex-between">
+            <input type="number" disabled="true" name="data.xp.value" value="{{data.xp.value}}" data-dtype="Number"/>
+          </div>
         </div>
 
       </div>
@@ -44,28 +73,41 @@
   {{!-- Sheet Tab Navigation --}}
   <nav class="sheet-tabs tabs" data-group="primary">
     {{!-- Default tab is specified in actor-sheet.mjs --}}
+    <a class="item" data-tab="combat">Combat</a>
     <a class="item" data-tab="description">Description</a>
-    <a class="item" data-tab="items">Items</a>
-    <a class="item" data-tab="effects">Effects</a>
   </nav>
 
   {{!-- Sheet Body --}}
   <section class="sheet-body">
 
+    {{!-- Combat Tab --}}
+    <div class="tab combat" data-group="primary" data-tab="combat">
+      <section class="grid grid-3col">
+        <aside class="sidebar">
+
+          <div class="abilities flexcol">
+            {{#each data.saves as |save key|}}
+            <div class="ability flexrow flex-group-center">
+              <label for="data.saves.{{key}}.value" class="resource-label rollable flexlarge align-left" data-roll="d20" data-label="{{save.label}}">{{save.label}}</label>
+              <input type="text" name="data.saves.{{key}}.value" value="{{save.value}}" data-dtype="Number"/>
+            </div>
+            {{/each}}
+          </div>
+        </aside>
+
+        {{!-- For the main combat list, span the right two columns --}}
+        <section class="main grid-span-2">
+          {{!-- This is a Handlebars partial. They're stored in the `/parts` folder next to this sheet, and defined in module/helpers/templates.mjs --}}
+          {{> "systems/basicfantasyrpg/templates/actor/parts/actor-combat.html"}}
+        </section>
+
+      </section>
+    </div>
+
     {{!-- Biography Tab --}}
-    <div class="tab biography" data-group="primary" data-tab="description">
+    <div class="tab description" data-group="primary" data-tab="description">
       {{!-- If you want TinyMCE editors to output inline rolls when rendered, you need to pass the actor's roll data to the rollData property. --}}
       {{editor content=data.biography target="data.biography" rollData=rollData button=true owner=owner editable=editable}}
-    </div>
-
-    {{!-- Owned Items Tab --}}
-    <div class="tab items" data-group="primary" data-tab="items">
-       {{> "systems/basicfantasyrpg/templates/actor/parts/actor-items.html"}}
-    </div>
-
-    {{!-- Active Effects Tab --}}
-    <div class="tab effects flexcol" data-group="primary" data-tab="effects">
-      {{> "systems/basicfantasyrpg/templates/actor/parts/actor-effects.html"}}
     </div>
 
   </section>
