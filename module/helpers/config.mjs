@@ -22,6 +22,10 @@ BASICFANTASYRPG.abilityAbbreviations = {
   "cha": "BASICFANTASYRPG.AbilityChaAbbr"
 };
 
+/**
+ * The set of Saving Throws used within the sytem.
+ * @type {Object}
+ */
 BASICFANTASYRPG.saves = {
   "death": "BASICFANTASYRPG.SaveDeath",
   "wands": "BASICFANTASYRPG.SaveWands",
@@ -30,6 +34,10 @@ BASICFANTASYRPG.saves = {
   "spells": "BASICFANTASYRPG.SaveSpells"
 };
 
+/**
+ * Money used within the sytem.
+ * @type {Object}
+ */
 BASICFANTASYRPG.money = {
   "pp": "BASICFANTASYRPG.Platinum",
   "gp": "BASICFANTASYRPG.Gold",
