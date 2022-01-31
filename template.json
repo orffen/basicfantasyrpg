@@ -166,10 +166,18 @@
     },
     "spell": {
       "templates": ["base"],
-      "class": "",
-      "spellLevel": 1,
-      "range": "",
-      "duration": ""
+      "class": {
+        "value": ""
+      },
+      "spellLevel": {
+        "value": 1
+      },
+      "range": {
+        "value": ""
+      },
+      "duration": {
+        "value": ""
+      }
     }
   }
 }

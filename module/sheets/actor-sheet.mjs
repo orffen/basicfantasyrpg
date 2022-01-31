@@ -106,16 +106,12 @@ export class BasicFantasyRPGActorSheet extends ActorSheet {
     const weapons = [];
     const armors = [];
     const spells = {
-      0: [],
       1: [],
       2: [],
       3: [],
       4: [],
       5: [],
-      6: [],
-      7: [],
-      8: [],
-      9: []
+      6: []
     };
 
     // Iterate through items, allocating to containers
@@ -136,7 +132,7 @@ export class BasicFantasyRPGActorSheet extends ActorSheet {
       // Append to spells.
       else if (i.type === 'spell') {
         if (i.data.spellLevel != undefined) {
-          spells[i.data.spellLevel].push(i);
+          spells[i.data.spellLevel.value].push(i);
         }
       }
     }
