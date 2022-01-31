@@ -46,9 +46,7 @@ export class BasicFantasyRPGItem extends Item {
         flavor: label,
         content: item.data.description ?? ''
       });
-    }
-    // Otherwise, create a roll and send a chat message from it.
-    else {
+    } else { // Otherwise, create a roll and send a chat message from it.
       // Retrieve roll data.
       const rollData = this.getRollData();
 
