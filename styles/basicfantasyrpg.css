@@ -100,7 +100,7 @@
 
 /* Global styles */
 .game {
-  font-family: "Soutane", "TeX Gyre Adventor", var(--font-primary);
+  font-family: "Soutane", "Century Gothic", "TeX Gyre Adventor", var(--font-primary);
 }
 
 .rollable:hover, .rollable:focus {
@@ -325,7 +325,7 @@
 /* Styles limited to basicfantasyrpg sheets */
 
 .basicfantasyrpg.sheet.actor {
-  font-family: "TeX Gyre Adventor", "Soutane", var(--font-primary);
+  font-family: "Century Gothic", "TeX Gyre Adventor", "Soutane", var(--font-primary);
 }
 
 .basicfantasyrpg .sheet-header {
@@ -387,6 +387,11 @@
 .basicfantasyrpg .sheet-body .tab,
 .basicfantasyrpg .sheet-body .tab .editor {
   height: 100%;
+}
+
+.basicfantasyrpg .editor-content {
+  font-family: "Soutane", "Century Gothic", "TeX Gyre Adventor", var(--font-primary);
+  font-size: 18px;
 }
 
 .basicfantasyrpg .tox .tox-editor-container {
