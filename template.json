@@ -145,14 +145,16 @@
     },
     "weapon": {
       "templates": ["base", "valuable"],
-      "size": "M",
-      "damage": "1d6",
       "bonusAb": 0,
-      "range": "Melee"
+      "damage": "1d6",
+      "range": "Melee",
+      "size": "M"
     },
     "armor": {
       "templates": ["base", "valuable"],
-      "armorClass": 11
+      "armorClass": {
+        "value": 11
+      }
     },
     "spell": {
       "templates": ["base"],
