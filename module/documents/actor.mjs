@@ -98,40 +98,44 @@ export class BasicFantasyRPGActor extends Actor {
       return xpValue + xpSpecialAbilityBonus;
     };
 
-    data.attackBonus.value = function () {
-      if (this.data.hitDice.number < 1) {
-        return 0;
-      } 
-      switch (this.data.hitDice.number) {
-        case 9: return 8;
-        case 10:
-        case 11: return 9
-        case 12:
-        case 13: return 10;
-        case 14:
-        case 15: return 11;
-        case 16:
-        case 17:
-        case 18:
-        case 19: return 12;
-        case 20:
-        case 21:
-        case 22:
-        case 23: return 13;
-        case 24:
-        case 25:
-        case 26:
-        case 27: return 14;
-        case 28:
-        case 29:
-        case 30:
-        case 31: return 15;
-        default: return this.data.hitDice.number;
-      }
-    };
+    data.attackBonus.value = this._calculateMonsterAttackBonus();
+ 
   }
 
-
+  /**
+   * Calculate monster attack bonus
+   */
+  _calculateMonsterAttackBonus() {
+    if (this.data.data.hitDice.number < 1) {
+      return 0;
+    } 
+    switch (this.data.data.hitDice.number) {
+      case 9: return 8;
+      case 10:
+      case 11: return 9
+      case 12:
+      case 13: return 10;
+      case 14:
+      case 15: return 11;
+      case 16:
+      case 17:
+      case 18:
+      case 19: return 12;
+      case 20:
+      case 21:
+      case 22:
+      case 23: return 13;
+      case 24:
+      case 25:
+      case 26:
+      case 27: return 14;
+      case 28:
+      case 29:
+      case 30:
+      case 31: return 15;
+      default: return this.data.data.hitDice.number;
+    }
+  }
 
   /**
    * Override getRollData() that's supplied to rolls.
@@ -142,6 +146,7 @@ export class BasicFantasyRPGActor extends Actor {
     // Prepare character roll data.
     this._getCharacterRollData(data);
     this._getMonsterRollData(data);
+    this._getActorRollData(data);
 
     return data;
   }
@@ -173,6 +178,16 @@ export class BasicFantasyRPGActor extends Actor {
     if (this.data.type !== 'monster') return;
 
     // Process additional NPC data here.
+
   }
 
+  /**
+   * Prepare shared Actor roll data.
+   */
+  _getActorRollData(data) {
+    // Add attack bonus for easier access, or fall back to 0.
+    if (data.attackBonus) {
+      data.ab = data.attackBonus.value ?? 0;
+    }
+  }
 }

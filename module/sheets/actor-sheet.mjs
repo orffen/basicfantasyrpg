@@ -230,8 +230,31 @@ export class BasicFantasyRPGActorSheet extends ActorSheet {
     const element = event.currentTarget;
     const dataset = element.dataset;
 
-    // Handle item rolls.
     if (dataset.rollType) {
+      // Handle weapon rolls. TODO: this needs to be moved into the item.roll() function instead
+      if (dataset.rollType == 'weapon') {
+        const itemId = element.closest('.item').dataset.itemId;
+        const item = this.actor.items.get(itemId);
+        let label = dataset.label ? `Roll: ${dataset.label}` : `Roll: ${dataset.attack.capitalize()} attack with ${item.name}`;
+        let rollFormula = 'd20+@ab';
+        if (this.actor.data.type == 'character') {
+          if (dataset.attack == 'melee') {
+            rollFormula += '+@str.bonus';
+          } else if (dataset.attack == 'ranged') {
+            rollFormula += '+@dex.bonus';
+          }
+        }
+        rollFormula += '+' + item.data.data.bonusAb.value;
+        let roll = new Roll(rollFormula, this.actor.getRollData());
+        roll.toMessage({
+          speaker: ChatMessage.getSpeaker({ actor: this.actor }),
+          flavor: label,
+          rollMode: game.settings.get('core', 'rollMode'),
+        });
+        return roll;
+      }
+
+      // Handle item rolls.
       if (dataset.rollType == 'item') {
         const itemId = element.closest('.item').dataset.itemId;
         const item = this.actor.items.get(itemId);
