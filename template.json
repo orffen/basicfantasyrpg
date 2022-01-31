@@ -145,10 +145,18 @@
     },
     "weapon": {
       "templates": ["base", "valuable"],
-      "bonusAb": 0,
-      "damage": "1d6",
-      "range": "Melee",
-      "size": "M"
+      "bonusAb": {
+        "value": 0
+      },
+      "damage": {
+        "value": "1d6"
+      },
+      "range":{
+        "value": "Melee"
+      },
+      "size": {
+        "value": "M"
+      }
     },
     "armor": {
       "templates": ["base", "valuable"],
