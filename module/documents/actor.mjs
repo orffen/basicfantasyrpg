@@ -88,14 +88,12 @@ export class BasicFantasyRPGActor extends Actor {
       let specialAbilityLookup = [3, 12, 25, 30, 40, 45, 55, 65, 70, 75, 90, 95, 100, 110, 115, 125, 135, 145, 160, 175, 200, 225, 250, 275, 300, 325];
       let xpValue = 0;
       let xpSpecialAbilityBonus = 0;
-      switch (data.hitDice.size ) {
-        case "d8": 
-          xpValue = xpLookup[data.hitDice.number];
-          xpSpecialAbilityBonus = specialAbilityLookup[data.hitDice.number] * data.specialAbility.value;
-          break;
-        default:
-          xpValue = xpLookup[0];
-          xpSpecialAbilityBonus = specialAbilityLookup[0] * data.specialAbility.value;
+      if (data.hitDice.size == "d8" && data.hitDice.mod >= 0) {
+        xpValue = xpLookup[data.hitDice.number];
+        xpSpecialAbilityBonus = specialAbilityLookup[data.hitDice.number] * data.specialAbility.value;
+      } else {
+        xpValue = xpLookup[0];
+        xpSpecialAbilityBonus = specialAbilityLookup[0] * data.specialAbility.value;
       }
       return xpValue + xpSpecialAbilityBonus;
     };

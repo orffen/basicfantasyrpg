@@ -103,7 +103,7 @@
       "hitDice": {
         "size": "d8",
         "number": 1,
-        "modifier": 0
+        "mod": 0
       },
       "morale": {
         "value": 7
