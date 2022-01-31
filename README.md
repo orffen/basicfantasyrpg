@@ -16,6 +16,10 @@ Initiative automatically includes the character's Dexterity modifier. The charac
 
 The system does not yet automatically reset initiative at the end of each combat round, but this can be manually done in FoundryVTT's initiative tracker.
 
+### Monster Special Abilities
+
+The monster sheet has a "special abilities" field. This field should be 0, 1, or 2, depending on how many asterisks appear after the monster's hit dice value. XP values for monsters are automatically calculated.
+
 ## License
 
 All software components are licensed under the MIT license - see *LICENSE.txt* for details.
