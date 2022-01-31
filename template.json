@@ -148,7 +148,6 @@
       "size": "M",
       "damage": "1d6",
       "bonusAb": 0,
-      "ranged": false,
       "range": "Melee"
     },
     "armor": {
