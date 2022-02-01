@@ -172,7 +172,8 @@
     "weapon": {
       "templates": ["base", "valuable"],
       "bonusAb": {
-        "value": 0
+        "value": 0,
+        "label": "BASICFANTASYRPG.BonusAttackBonus"
       },
       "damage": {
         "value": "1d6",
@@ -184,7 +185,8 @@
         "label": "BASICFANTASYRPG.Range"
       },
       "size": {
-        "value": "M"
+        "value": "M",
+        "label": "BASICFANTASYRPG.Size"
       }
     },
     "armor": {
