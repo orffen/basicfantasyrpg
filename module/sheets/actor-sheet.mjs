@@ -114,7 +114,7 @@ export class BasicFantasyRPGActorSheet extends ActorSheet {
       6: []
     };
 
-    // Define an object to store total weight.
+    // Define an object to store carried weight.
     let carriedWeight = {
       "value": 0,
       _addWeight (moreWeight, quantity) {
@@ -136,14 +136,21 @@ export class BasicFantasyRPGActorSheet extends ActorSheet {
         carriedWeight._addWeight(i.data.weight.value, i.data.quantity.value);
       } else if (i.type === 'weapon') { // Append to weapons.
         weapons.push(i);
-        carriedWeight._addWeight(i.data.weight.value, 1); // Weapons/armor is always quantity 1
+        carriedWeight._addWeight(i.data.weight.value, 1); // Weapons are always quantity 1
       } else if (i.type === 'armor') { // Append to armors.
         armors.push(i);
-        carriedWeight._addWeight(i.data.weight.value, 1); // Weapons/armor is always quantity 1
+        carriedWeight._addWeight(i.data.weight.value, 1); // Armor is always quantity 1
       } else if (i.type === 'spell') { // Append to spells.
         if (i.data.spellLevel != undefined) {
           spells[i.data.spellLevel.value].push(i);
         }
+      }
+    }
+
+    // Iterate through money, add to carried weight
+    if (context.data.money) {
+      for (let [k, v] of Object.entries(context.data.money)) {
+        carriedWeight._addWeight('*', v.value);
       }
     }
 
