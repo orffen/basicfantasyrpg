@@ -5,15 +5,15 @@
       <h1 class="charname"><input name="name" type="text" value="{{item.name}}" placeholder="Name"/></h1>
       <div class="grid grid-3col">
         <div class="resource">
-          <label for="data.price.value" class="resource-label">Price</label>
+          <label for="data.price.value" class="resource-label">{{localize data.price.label}}</label>
           <input type="text" name="data.price.value" value="{{data.price.value}}" data-dtype="String"/>
         </div>
         <div class="resource">
-          <label for="data.weight.value" class="resource-label">Weight</label>
+          <label for="data.weight.value" class="resource-label">{{localize data.weight.label}}</label>
           <input type="text" name="data.weight.value" value="{{data.weight.value}}" data-dtype="Number"/>
         </div>
         <div class="resource">
-          <label for="data.armorClass.value" class="resource-label">AC</label>
+          <label for="data.armorClass.value" class="resource-label">{{localize data.armorClass.abbr}}</label>
           <input type="text" name="data.armorClass.value" value="{{data.armorClass.value}}" data-dtype="Number"/>
         </div>
       </div>
