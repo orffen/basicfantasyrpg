@@ -142,7 +142,7 @@ export class BasicFantasyRPGActorSheet extends ActorSheet {
         armors.push(i);
         carriedWeight._addWeight(i.data.weight.value, 1); // Armor is always quantity 1
       } else if (i.type === 'spell') { // Append to spells.
-        if (i.data.spellLevel != undefined) {
+        if (i.data.spellLevel.value != undefined) {
           spells[i.data.spellLevel.value].push(i);
         }
       } else if (i.type === 'feature') { // Append to features.
@@ -223,6 +223,13 @@ export class BasicFantasyRPGActorSheet extends ActorSheet {
     const type = header.dataset.type;
     // Grab any data associated with this control.
     const data = duplicate(header.dataset);
+    if (type === 'spell') {
+      // Move dataset spellLevelValue into spellLevel.value
+      data.spellLevel = {
+        "value": data.spellLevelValue
+      };
+      delete data.spellLevelValue;
+    }
     // Initialize a default name.
     const name = `New ${type.capitalize()}`;
     // Prepare the item object.
