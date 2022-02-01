@@ -114,23 +114,33 @@ export class BasicFantasyRPGActorSheet extends ActorSheet {
       6: []
     };
 
+    // Define an object to store total weight.
+    let carriedWeight = {
+      "value": 0,
+      _addWeight (moreWeight, quantity) {
+        let q = Math.floor(quantity / 10);
+        if (!Number.isNaN(parseInt(moreWeight))) {
+          this.value += parseInt(moreWeight) * quantity;
+        } else if (moreWeight === '*' && q > 0) {
+          this.value += q;
+        }
+      }
+    };
+
     // Iterate through items, allocating to containers
     for (let i of context.items) {
       i.img = i.img || DEFAULT_TOKEN;
       // Append to gear.
       if (i.type === 'item') {
         gear.push(i);
-      }
-      // Append to weapons.
-      else if (i.type === 'weapon') {
+        carriedWeight._addWeight(i.data.weight.value, i.data.quantity.value);
+      } else if (i.type === 'weapon') { // Append to weapons.
         weapons.push(i);
-      }
-      // Append to armors.
-      else if (i.type === 'armor') {
+        carriedWeight._addWeight(i.data.weight.value, 1); // Weapons/armor is always quantity 1
+      } else if (i.type === 'armor') { // Append to armors.
         armors.push(i);
-      }
-      // Append to spells.
-      else if (i.type === 'spell') {
+        carriedWeight._addWeight(i.data.weight.value, 1); // Weapons/armor is always quantity 1
+      } else if (i.type === 'spell') { // Append to spells.
         if (i.data.spellLevel != undefined) {
           spells[i.data.spellLevel.value].push(i);
         }
@@ -142,6 +152,7 @@ export class BasicFantasyRPGActorSheet extends ActorSheet {
     context.weapons = weapons;
     context.armors = armors;
     context.spells = spells;
+    context.carriedWeight = carriedWeight.value;
   }
 
   /* -------------------------------------------- */
