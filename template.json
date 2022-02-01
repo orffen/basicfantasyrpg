@@ -4,21 +4,26 @@
     "templates": {
       "base": {
         "armorClass": {
-          "value": 11
+          "value": 11,
+          "label": "BASICFANTASYRPG.ArmorClassAbbr"
         },
         "attackBonus": {
-          "value": 1
+          "value": 1,
+          "label": "BASICFANTASYRPG.AttackBonusAbbr"
         },
         "biography": "",
         "hitPoints": {
           "value": 10,
-          "max": 10
+          "max": 10,
+          "label": "BASICFANTASYRPG.HitPoints"
         },
         "initBonus": {
-          "value": 0
+          "value": 0,
+          "label": "BASICFANTASYRPG.InitiativeBonus"
         },
         "move": {
-          "value": 30
+          "value": 30,
+          "label": "BASICFANTASYRPG.Movement"
         },
         "saves": {
           "death": {
@@ -42,19 +47,24 @@
     "character": {
       "templates": ["base"],
       "age": {
-        "value": ""
+        "value": "",
+        "label": "BASICFANTASYRPG.Age"
       },
       "class": {
-        "value": ""
+        "value": "",
+        "label": "BASICFANTASYRPG.Class"
       },
       "race": {
-        "value": ""
+        "value": "",
+        "label": "BASICFANTASYRPG.Race"
       },
       "sex": {
-        "value": ""
+        "value": "",
+        "label": "BASICFANTASYRPG.Sex"
       },
       "level": {
-        "value": 1
+        "value": 1,
+        "label": "BASICFANTASYRPG.Level"
       },
       "money": {
         "pp": {
@@ -75,7 +85,8 @@
       },
       "xp": {
         "value": 0,
-        "next": 2000
+        "next": 2000,
+        "label": "BASICFANTASYRPG.ExperiencePoints"
       },
       "abilities": {
         "str": {

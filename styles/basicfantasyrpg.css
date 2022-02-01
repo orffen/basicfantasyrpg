@@ -432,13 +432,13 @@
   display: flex;
 }
 
-.basicfantasyrpg .items-header .item-detail {
+/*.basicfantasyrpg .items-header .item-detail {
   font-weight: bold;
   text-align: left;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-}
+}*/
 
 .basicfantasyrpg .items-list {
   list-style: none;
@@ -566,7 +566,7 @@
   text-align: left;
 }
 
-.basicfantasyrpg .item-formula {
+.basicfantasyrpg .item-detail {
   -webkit-box-flex: 0;
   -ms-flex: 0 0 200px;
   flex: 0 0 200px;

@@ -11,7 +11,7 @@
   "BASICFANTASYRPG.DescriptionTab": "Biography",
   "BASICFANTASYRPG.ItemsTab": "Equipment",
   "BASICFANTASYRPG.SpellsTab": "Spells",
-  "BASICFANTASYRPG.EffectsTab": "Effects",
+  "BASICFANTASYRPG.FeaturesTab": "Special Abilities",
 
   "BASICFANTASYRPG.AbilityStr": "Strength",
   "BASICFANTASYRPG.AbilityCon": "Constitution",
@@ -19,7 +19,6 @@
   "BASICFANTASYRPG.AbilityInt": "Intelligence",
   "BASICFANTASYRPG.AbilityWis": "Wisdom",
   "BASICFANTASYRPG.AbilityCha": "Charisma",
-
   "BASICFANTASYRPG.AbilityStrAbbr": "str",
   "BASICFANTASYRPG.AbilityConAbbr": "con",
   "BASICFANTASYRPG.AbilityDexAbbr": "dex",
@@ -33,18 +32,36 @@
   "BASICFANTASYRPG.SaveBreath": "Dragon Breath",
   "BASICFANTASYRPG.SaveSpells": "Rods, Staves, and Spells",
 
-  "BASICFANTASYRPG.CarriedWeight": "Load",
-
   "BASICFANTASYRPG.Platinum": "Platinum",
   "BASICFANTASYRPG.Gold": "Gold",
   "BASICFANTASYRPG.Electrum": "Electrum",
   "BASICFANTASYRPG.Silver": "Silver",
   "BASICFANTASYRPG.Copper": "Copper",
 
+  "BASICFANTASYRPG.Add": "Add",
+  "BASICFANTASYRPG.Age": "Age",
+  "BASICFANTASYRPG.ArmorClass": "Armor Class",
+  "BASICFANTASYRPG.ArmorClassAbbr": "AC",
+  "BASICFANTASYRPG.Attack": "Attack",
+  "BASICFANTASYRPG.AttackBonus": "Attack Bonus",
+  "BASICFANTASYRPG.AttackBonusAbbr": "AB",
+  "BASICFANTASYRPG.CarriedWeight": "Load",
+  "BASICFANTASYRPG.Class": "Class",
+  "BASICFANTASYRPG.Damage": "Damage",
+  "BASICFANTASYRPG.DamageAbbr": "Dmg",
+  "BASICFANTASYRPG.ExperiencePoints": "XP",
+  "BASICFANTASYRPG.HitPoints": "Hit Points",
+  "BASICFANTASYRPG.InitiativeBonus": "Init. Bonus",
+  "BASICFANTASYRPG.Level": "Level",
+  "BASICFANTASYRPG.Melee": "Melee",
+  "BASICFANTASYRPG.Movement": "Move",
+  "BASICFANTASYRPG.NextLevel": "Next Level",
+  "BASICFANTASYRPG.Race": "Race",
+  "BASICFANTASYRPG.Ranged": "Ranged",
+  "BASICFANTASYRPG.Sex": "Gender",
+
   "BASICFANTASYRPG.EffectCreate": "Create Effect",
   "BASICFANTASYRPG.EffectToggle": "Toggle Effect",
   "BASICFANTASYRPG.EffectEdit": "Edit Effect",
-  "BASICFANTASYRPG.EffectDelete": "Delete Effect",
-
-  "BASICFANTASYRPG.Add": "Add"
+  "BASICFANTASYRPG.EffectDelete": "Delete Effect"
 }

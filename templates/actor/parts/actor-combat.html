@@ -1,28 +1,28 @@
 <section class="resources grid grid-4col">
 
   <div class="resource flex-group-center">
-    <label for="data.armorClass.value" class="resource-label">AC</label>
+    <label for="data.armorClass.value" class="resource-label">{{localize data.armorClass.label}}</label>
     <div class="resource-content flexrow flex-center flex-between">
       <input type="number" name="data.armorClass.value" value="{{data.armorClass.value}}" data-dtype="Number"/>
     </div>
   </div>
 
   <div class="resource flex-group-center">
-    <label for="data.attackBonus.value" class="resource-label">AB</label>
+    <label for="data.attackBonus.value" class="resource-label">{{localize data.attackBonus.label}}</label>
     <div class="resource-content flexrow flex-center flex-between">
       <input type="number" name="data.attackBonus.value" value="{{data.attackBonus.value}}" data-dtype="Number"/>
     </div>
   </div>
 
   <div class="resource flex-group-center">
-    <label for="data.move.value" class="resource-label">Move</label>
+    <label for="data.move.value" class="resource-label">{{localize data.move.label}}</label>
     <div class="resource-content flexrow flex-center flex-between">
       <input type="text" name="data.move.value" value="{{data.move.value}}" data-dtype="String"/>
     </div>
   </div>
 
   <div class="resource flex-group-center">
-    <label for="data.initBonus.value" class="resource-label">Init. Bonus</label>
+    <label for="data.initBonus.value" class="resource-label">{{localize data.initBonus.label}}</label>
     <div class="resource-content flexrow flex-center flex-between">
       <input type="number" name="data.initBonus.value" value="{{data.initBonus.value}}" data-dtype="Number"/>
     </div>
@@ -32,10 +32,10 @@
 
 <ol class="items-list">
   <li class="item flexrow items-header">
-    <div class="item-name">Name</div>
-    <div class="item-detail">Attack / Dmg</div>
+    <div class="item-name">{{localize 'ITEM.TypeWeapon'}}</div>
+    <div class="item-detail">{{localize 'BASICFANTASYRPG.Attack'}} / {{localize 'BASICFANTASYRPG.DamageAbbr'}}</div>
     <div class="item-controls">
-      <a class="item-control item-create" title="Create item" data-type="weapon"><i class="fas fa-plus"></i>Add weapon</a>
+      <a class="item-control item-create" title="Create item" data-type="weapon"><i class="fas fa-plus"></i> {{localize 'BASICFANTASYRPG.Add'}}</a>
     </div>
   </li>
   {{#each weapons as |weapon id|}}
@@ -46,11 +46,11 @@
         </div>
         <h4>{{weapon.name}}</h4>
       </div>
-      <div class="item-image">
-        <a class="rollable" data-roll-type="weapon" data-attack="melee"><img src="icons/skills/melee/strike-sword-gray.webp" title="Melee Attack" width="24" height="24"/></a>
-        <a class="rollable" data-roll-type="weapon" data-attack="ranged"><img src="icons/skills/ranged/arrow-flying-gray-brown.webp" title="Ranged Attack" width="24" height="24"/></a>
+      <div class="item-prop item-image">
+        <a class="rollable" data-roll-type="weapon" data-attack="melee"><img src="icons/skills/melee/strike-sword-gray.webp" title="{{localize 'BASICFANTASYRPG.Melee'}} {{localize 'BASICFANTASYRPG.Attack'}}" width="24" height="24"/></a>
+        <a class="rollable" data-roll-type="weapon" data-attack="ranged"><img src="icons/skills/ranged/arrow-flying-gray-brown.webp" title="{{localize 'BASICFANTASYRPG.Ranged'}} {{localize 'BASICFANTASYRPG.Attack'}}" width="24" height="24"/></a>
         <span class="flexshrink">/</span>
-        <a class="rollable" data-roll-type="damage" data-roll="{{weapon.data.damage.value}}" data-label="{{weapon.name}} damage"><img src="icons/skills/melee/shield-damaged-broken-blue.webp" title="{{weapon.data.damage.value}}" width="24" height="24"/></a>
+        <a class="rollable" data-roll-type="damage" data-roll="{{weapon.data.damage.value}}" data-label="{{weapon.name}} damage"><img src="icons/skills/melee/shield-damaged-broken-blue.webp" title="{{localize 'BASICFANTASYRPG.Damage'}} {{weapon.data.damage.value}}" width="24" height="24"/></a>
       </div>
       <div class="item-controls">
         <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
@@ -62,10 +62,10 @@
 
 <ol class="items-list">
   <li class="item flexrow items-header">
-    <div class="item-name">Name</div>
-    <div class="item-detail">AC</div>
+    <div class="item-name">{{localize 'ITEM.TypeArmor'}}</div>
+    <div class="item-detail">{{localize 'BASICFANTASYRPG.ArmorClass'}}</div>
     <div class="item-controls">
-      <a class="item-control item-create" title="Create item" data-type="armor"><i class="fas fa-plus"></i>Add armor</a>
+      <a class="item-control item-create" title="Create item" data-type="armor"><i class="fas fa-plus"></i> {{localize 'BASICFANTASYRPG.Add'}}</a>
     </div>
   </li>
   {{#each armors as |armor id|}}
@@ -76,7 +76,7 @@
         </div>
         <h4>{{armor.name}}</h4>
       </div>
-      <div class="item-detail">AC {{armor.data.armorClass.value}}</div>
+      <div class="item-prop">{{localize armor.data.armorClass.label}} {{armor.data.armorClass.value}}</div>
       <div class="item-controls">
         <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
         <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
