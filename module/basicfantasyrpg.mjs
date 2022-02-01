@@ -67,6 +67,10 @@ Handlebars.registerHelper('toLowerCase', function(str) {
   return str.toLowerCase();
 });
 
+Handlebars.registerHelper('localizeLowerCase', function(str) {
+  return game.i18n.localize(str).toLowerCase();
+});
+
 /* -------------------------------------------- */
 /*  Ready Hook                                  */
 /* -------------------------------------------- */

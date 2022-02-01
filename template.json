@@ -5,17 +5,20 @@
       "base": {
         "armorClass": {
           "value": 11,
-          "label": "BASICFANTASYRPG.ArmorClassAbbr"
+          "label": "BASICFANTASYRPG.ArmorClass",
+          "abbr": "BASICFANTASYRPG.ArmorClassAbbr"
         },
         "attackBonus": {
           "value": 1,
-          "label": "BASICFANTASYRPG.AttackBonusAbbr"
+          "label": "BASICFANTASYRPG.AttackBonus",
+          "abbr": "BASICFANTASYRPG.AttackBonusAbbr"
         },
         "biography": "",
         "hitPoints": {
           "value": 10,
           "max": 10,
-          "label": "BASICFANTASYRPG.HitPoints"
+          "label": "BASICFANTASYRPG.HitPoints",
+          "abbr": "BASICFANTASYRPG.HitPointsAbbr"
         },
         "initBonus": {
           "value": 0,
@@ -86,7 +89,8 @@
       "xp": {
         "value": 0,
         "next": 2000,
-        "label": "BASICFANTASYRPG.ExperiencePoints"
+        "label": "BASICFANTASYRPG.ExperiencePoints",
+        "abbr": "BASICFANTASYRPG.ExperiencePointsAbbr"
       },
       "abilities": {
         "str": {
@@ -114,22 +118,30 @@
       "hitDice": {
         "size": "d8",
         "number": 1,
-        "mod": 0
+        "mod": 0,
+        "label": "BASICFANTASYRPG.HitDice",
+        "abbr": "BASICFANTASYRPG.HitDiceAbbr"
       },
       "morale": {
-        "value": 7
+        "value": 7,
+        "label": "BASICFANTASYRPG.Morale"
       },
       "numberAppearing": {
-        "value": "1d4"
+        "value": "1d4",
+        "label": "BASICFANTASYRPG.NumberAppearing"
       },
       "specialAbility": {
-        "value": 0
+        "value": 0,
+        "label": "BASICFANTASYRPG.SpecialAbility"
       },
       "treasureType": {
-        "value": "None"
+        "value": "None",
+        "label": "BASICFANTASYRPG.TreasureType"
       },
       "xp": {
-        "value": 0
+        "value": 0,
+        "label": "BASICFANTASYRPG.ExperiencePoints",
+        "abbr": "BASICFANTASYRPG.ExperiencePointsAbbr"
       }
     }
   },
@@ -160,7 +172,9 @@
         "value": 0
       },
       "damage": {
-        "value": "1d6"
+        "value": "1d6",
+        "label": "BASICFANTASYRPG.Damage",
+        "abbr": "BASICFANTASYRPG.DamageAbbr"
       },
       "range":{
         "value": "Melee"
@@ -172,7 +186,9 @@
     "armor": {
       "templates": ["base", "valuable"],
       "armorClass": {
-        "value": 11
+        "value": 11,
+        "label": "BASICFANTASYRPG.ArmorClass",
+        "abbr": "BASICFANTASYRPG.ArmorClassAbbr"
       }
     },
     "spell": {

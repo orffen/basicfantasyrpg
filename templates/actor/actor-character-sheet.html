@@ -26,7 +26,7 @@
         </div>
 
         <div class="resource flex-group-center">
-          <label for="data.xp.value" class="resource-label">{{localize 'BASICFANTASYRPG.ExperiencePoints'}} / {{localize 'BASICFANTASYRPG.NextLevel'}}</label>
+          <label for="data.xp.value" class="resource-label">{{localize data.xp.abbr}} / {{localize 'BASICFANTASYRPG.NextLevel'}}</label>
           <div class="resource-content flexrow flex-center flex-between">
             <input type="text" name="data.xp.value" value="{{data.xp.value}}" data-dtype="Number"/>
             <span class="flexshrink">&nbsp;/&nbsp;</span>
@@ -85,7 +85,7 @@
       </section>
     </div>
 
-    {{!-- Biography Tab --}}
+    {{!-- Description Tab --}}
     <div class="tab biography" data-group="primary" data-tab="description">
       {{> "systems/basicfantasyrpg/templates/actor/parts/actor-description.html"}}
     </div>
