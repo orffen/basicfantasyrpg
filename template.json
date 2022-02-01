@@ -180,7 +180,8 @@
         "abbr": "BASICFANTASYRPG.DamageAbbr"
       },
       "range":{
-        "value": "Melee"
+        "value": "Melee",
+        "label": "BASICFANTASYRPG.Range"
       },
       "size": {
         "value": "M"
@@ -197,16 +198,20 @@
     "spell": {
       "templates": ["base"],
       "class": {
-        "value": ""
+        "value": "",
+        "label": "BASICFANTASYRPG.Class"
       },
       "spellLevel": {
-        "value": 1
+        "value": 1,
+        "label": "BASICFANTASYRPG.SpellLevel"
       },
       "range": {
-        "value": ""
+        "value": "",
+        "label": "BASICFANTASYRPG.Range"
       },
       "duration": {
-        "value": ""
+        "value": "",
+        "label": "BASICFANTASYRPG.Duration"
       }
     }
   }
