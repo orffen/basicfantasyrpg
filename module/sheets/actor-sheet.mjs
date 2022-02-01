@@ -113,6 +113,7 @@ export class BasicFantasyRPGActorSheet extends ActorSheet {
       5: [],
       6: []
     };
+    const features = [];
 
     // Define an object to store carried weight.
     let carriedWeight = {
@@ -144,6 +145,8 @@ export class BasicFantasyRPGActorSheet extends ActorSheet {
         if (i.data.spellLevel != undefined) {
           spells[i.data.spellLevel.value].push(i);
         }
+      } else if (i.type === 'feature') { // Append to features.
+        features.push(i);
       }
     }
 
@@ -159,6 +162,7 @@ export class BasicFantasyRPGActorSheet extends ActorSheet {
     context.weapons = weapons;
     context.armors = armors;
     context.spells = spells;
+    context.features = features;
     context.carriedWeight = carriedWeight.value;
   }
 

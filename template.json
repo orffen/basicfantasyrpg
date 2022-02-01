@@ -146,7 +146,7 @@
     }
   },
   "Item": {
-    "types": ["item", "weapon", "armor", "spell"],
+    "types": ["item", "weapon", "armor", "spell", "feature"],
     "templates": {
       "base": {
         "description": ""
@@ -214,6 +214,13 @@
       "duration": {
         "value": "",
         "label": "BASICFANTASYRPG.Duration"
+      }
+    },
+    "feature": {
+      "templates": ["base"],
+      "formula": {
+        "value": "d100",
+        "label": "BASICFANTASYRPG.Formula"
       }
     }
   }

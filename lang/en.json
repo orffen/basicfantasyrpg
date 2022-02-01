@@ -6,6 +6,7 @@
   "ITEM.TypeWeapon": "Weapon",
   "ITEM.TypeArmor": "Armor",
   "ITEM.TypeSpell": "Spell",
+  "ITEM.TypeFeature": "Special Ability",
 
   "BASICFANTASYRPG.CombatTab": "Combat",
   "BASICFANTASYRPG.DescriptionTab": "Description",
@@ -53,6 +54,7 @@
   "BASICFANTASYRPG.Duration": "Duration",
   "BASICFANTASYRPG.ExperiencePoints": "Experience Points",
   "BASICFANTASYRPG.ExperiencePointsAbbr": "XP",
+  "BASICFANTASYRPG.Formula": "Roll Formula",
   "BASICFANTASYRPG.HitDice": "Hit Dice",
   "BASICFANTASYRPG.HitDiceAbbr": "HD",
   "BASICFANTASYRPG.HitPoints": "Hit Points",
