@@ -153,17 +153,20 @@
       },
       "valuable": {
         "price": {
-          "value": ""
+          "value": "",
+          "label": "BASICFANTASYRPG.Price"
         },
         "weight": {
-          "value": 1
+          "value": 1,
+          "label": "BASICFANTASYRPG.Weight"
         }
       }
     },
     "item": {
       "templates": ["base", "valuable"],
       "quantity": {
-        "value": 1
+        "value": 1,
+        "label": "BASICFANTASYRPG.Quantity"
       }
     },
     "weapon": {
