@@ -39,7 +39,7 @@ export class BasicFantasyRPGItem extends Item {
     const label = `${game.i18n.localize('ITEM.Type' + item.type.capitalize())} - ${item.name}`;
 
     // If there's no roll data, or the formula is empty, send a chat message.
-    if (!this.data.data.formula.value) {
+    if (!this.data.data.formula || !this.data.data.formula.value) {
       ChatMessage.create({
         speaker: speaker,
         rollMode: rollMode,

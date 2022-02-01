@@ -256,7 +256,7 @@ export class BasicFantasyRPGActorSheet extends ActorSheet {
     const dataset = element.dataset;
 
     if (dataset.rollType) {
-      // Handle weapon rolls. TODO: this needs to be moved into the item.roll() function instead
+      // Handle weapon rolls. TODO: this could be moved into the item.roll() function instead
       if (dataset.rollType == 'weapon') {
         const itemId = element.closest('.item').dataset.itemId;
         const item = this.actor.items.get(itemId);
