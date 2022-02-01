@@ -6,7 +6,7 @@ This is the [Basic Fantasy RPG](https://www.basicfantasy.org/) system for Foundr
 
 This system is not yet available within FoundryVTT, but you can manually install it by using the manifest link below:
 
-https://raw.githubusercontent.com/orffen/basicfantasyrpg/master/system.json
+https://raw.githubusercontent.com/orffen/basicfantasyrpg/main/system.json
 
 ## Usage
 
