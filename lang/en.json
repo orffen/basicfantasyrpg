@@ -67,6 +67,7 @@
   "BASICFANTASYRPG.Name": "Name",
   "BASICFANTASYRPG.NextLevel": "Next Level",
   "BASICFANTASYRPG.NumberAppearing": "No. Appearing",
+  "BASICFANTASYRPG.Prepared": "Prepared",
   "BASICFANTASYRPG.Price": "Price",
   "BASICFANTASYRPG.Quantity": "Quantity",
   "BASICFANTASYRPG.Race": "Race",
@@ -77,6 +78,7 @@
   "BASICFANTASYRPG.SpecialAbility": "Special Abilities",
   "BASICFANTASYRPG.Spells": "Spells",
   "BASICFANTASYRPG.SpellLevel": "Level",
+  "BASICFANTASYRPG.SpellsPerLevel": "Spells",
   "BASICFANTASYRPG.TreasureType": "Treasure Type",
   "BASICFANTASYRPG.Weight": "Weight",
 
