@@ -2,7 +2,7 @@
   "name": "basicfantasyrpg",
   "title": "Basic Fantasy RPG",
   "description": "The Basic Fantasy RPG system for FoundryVTT!",
-  "version": "r1",
+  "version": "r2",
   "minimumCoreVersion": "0.8.9",
   "compatibleCoreVersion": "9",
   "author": "Orffen",
