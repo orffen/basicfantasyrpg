@@ -119,9 +119,12 @@ export class BasicFantasyRPGActorSheet extends ActorSheet {
     let carriedWeight = {
       "value": 0,
       _addWeight (moreWeight, quantity) {
+        if (!quantity || quantity == '' || Number.isNaN(quantity) || quantity < 0) {
+          return; // check we have a valid quantity, and do nothing if we do not
+        }
         let q = Math.floor(quantity / 10);
-        if (!Number.isNaN(parseInt(moreWeight))) {
-          this.value += parseInt(moreWeight) * quantity;
+        if (!Number.isNaN(parseFloat(moreWeight))) {
+          this.value += parseFloat(moreWeight) * quantity;
         } else if (moreWeight === '*' && q > 0) {
           this.value += q;
         }
@@ -163,7 +166,7 @@ export class BasicFantasyRPGActorSheet extends ActorSheet {
     context.armors = armors;
     context.spells = spells;
     context.features = features;
-    context.carriedWeight = carriedWeight.value;
+    context.carriedWeight = Math.floor(carriedWeight.value); // we discard fractions of weight when we update the sheet
   }
 
   /* -------------------------------------------- */
