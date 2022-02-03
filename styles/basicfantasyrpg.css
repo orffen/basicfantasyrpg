@@ -386,7 +386,11 @@
 .basicfantasyrpg .sheet-body .editor,
 .basicfantasyrpg .sheet-body .tab,
 .basicfantasyrpg .sheet-body .tab .editor {
-  height: 100%;
+  height: calc(100% - 2px);
+}
+
+.basicfantasyrpg .sheet-body .tab.biography {
+  max-height: calc(100% - 53px);
 }
 
 .basicfantasyrpg .editor-content {
