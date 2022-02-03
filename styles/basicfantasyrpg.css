@@ -396,6 +396,7 @@
 .basicfantasyrpg .editor-content {
   font-family: "Soutane", "Century Gothic", "TeX Gyre Adventor", var(--font-primary);
   font-size: 18px;
+  overflow-y: hidden;
 }
 
 .basicfantasyrpg .tox .tox-editor-container {
