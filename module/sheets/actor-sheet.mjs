@@ -197,6 +197,17 @@ export class BasicFantasyRPGActorSheet extends ActorSheet {
       li.slideUp(200, () => this.render(false));
     });
 
+    // Prepare Spells
+    html.find('.spell-prepare').click(ev => {
+      const change = event.currentTarget.dataset.change;
+      if (parseInt(change)) {
+        const li = $(ev.currentTarget).parents(".item");
+        const item = this.actor.items.get(li.data("itemId"));
+        let newValue = item.data.data.prepared.value + parseInt(change);
+        item.update({"data.prepared.value": newValue});
+      }
+    });
+
     // Active Effect management
     html.find(".effect-control").click(ev => onManageActiveEffect(ev, this.actor));
 
