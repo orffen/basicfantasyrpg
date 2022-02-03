@@ -10,7 +10,7 @@
   <div class="resource flex-group-center">
     <label for="data.attackBonus.value" class="resource-label">{{localize data.attackBonus.abbr}}</label>
     <div class="resource-content flexrow flex-center flex-between">
-      <input type="number" name="data.attackBonus.value" value="{{data.attackBonus.value}}" data-dtype="Number"/>
+      <input type="number" name="data.attackBonus.value" value="{{data.attackBonus.value}}" data-dtype="Number" {{#if (eq actor.type "monster")}}disabled{{/if}}/>
     </div>
   </div>
 
