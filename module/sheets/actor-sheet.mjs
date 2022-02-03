@@ -119,9 +119,12 @@ export class BasicFantasyRPGActorSheet extends ActorSheet {
     let carriedWeight = {
       "value": 0,
       _addWeight (moreWeight, quantity) {
+        if (!quantity || quantity == '' || Number.isNaN(quantity) || quantity < 0) {
+          return; // check we have a valid quantity, and do nothing if we do not
+        }
         let q = Math.floor(quantity / 10);
-        if (!Number.isNaN(parseInt(moreWeight))) {
-          this.value += parseInt(moreWeight) * quantity;
+        if (!Number.isNaN(parseFloat(moreWeight))) {
+          this.value += parseFloat(moreWeight) * quantity;
         } else if (moreWeight === '*' && q > 0) {
           this.value += q;
         }
@@ -163,7 +166,7 @@ export class BasicFantasyRPGActorSheet extends ActorSheet {
     context.armors = armors;
     context.spells = spells;
     context.features = features;
-    context.carriedWeight = carriedWeight.value;
+    context.carriedWeight = Math.floor(carriedWeight.value); // we discard fractions of weight when we update the sheet
   }
 
   /* -------------------------------------------- */
@@ -192,6 +195,17 @@ export class BasicFantasyRPGActorSheet extends ActorSheet {
       const item = this.actor.items.get(li.data("itemId"));
       item.delete();
       li.slideUp(200, () => this.render(false));
+    });
+
+    // Prepare Spells
+    html.find('.spell-prepare').click(ev => {
+      const change = event.currentTarget.dataset.change;
+      if (parseInt(change)) {
+        const li = $(ev.currentTarget).parents(".item");
+        const item = this.actor.items.get(li.data("itemId"));
+        let newValue = item.data.data.prepared.value + parseInt(change);
+        item.update({"data.prepared.value": newValue});
+      }
     });
 
     // Active Effect management

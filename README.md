@@ -16,9 +16,17 @@ Initiative automatically includes the character's Dexterity modifier. The charac
 
 The system does not yet automatically reset initiative at the end of each combat round, but this can be manually done in FoundryVTT's initiative tracker.
 
+### Roll Formulas
+
+To add ability bonuses/penalties to roll formulas (damage or special ability), you can use `@str.bonus`. Replace `str` with `int`, `wis`, `dex`, `con` or `cha`. You can use the full ability with just `@str`, for example if you wanted to do something like `d20<=@str`. `@lvl` is available as short-hand for the character level.
+
+### Character Special Abilities
+
+Special Abilities are a flexible item type with just a description and a roll formula. They can be used for thief abilities (formula: d100), open doors checks (d6), or even just as text (formula left blank). Clicking the icon in the list will either roll the formula if present, or output the description to the chat window.
+
 ### Monster Special Abilities
 
-The monster sheet has a "special abilities" field. This field should be 0, 1, or 2, depending on how many asterisks appear after the monster's hit dice value. XP values for monsters are automatically calculated.
+The monster sheet has a "special abilities" field. This field should be 0, 1, or 2, depending on how many asterisks appear after the monster's hit dice value. XP values and attack bonus for monsters are automatically calculated.
 
 ## License
 

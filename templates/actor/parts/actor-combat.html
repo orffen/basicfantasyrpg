@@ -10,7 +10,7 @@
   <div class="resource flex-group-center">
     <label for="data.attackBonus.value" class="resource-label">{{localize data.attackBonus.abbr}}</label>
     <div class="resource-content flexrow flex-center flex-between">
-      <input type="number" name="data.attackBonus.value" value="{{data.attackBonus.value}}" data-dtype="Number"/>
+      <input type="number" name="data.attackBonus.value" value="{{data.attackBonus.value}}" data-dtype="Number" {{#if (eq actor.type "monster")}}disabled{{/if}}/>
     </div>
   </div>
 
@@ -50,7 +50,7 @@
         <a class="rollable" data-roll-type="weapon" data-attack="melee"><img src="icons/skills/melee/strike-sword-gray.webp" title="{{localize 'BASICFANTASYRPG.Melee'}} {{localize 'BASICFANTASYRPG.Attack'}}" width="24" height="24"/></a>
         <a class="rollable" data-roll-type="weapon" data-attack="ranged"><img src="icons/skills/ranged/arrow-flying-gray-brown.webp" title="{{localize 'BASICFANTASYRPG.Ranged'}} {{localize 'BASICFANTASYRPG.Attack'}}" width="24" height="24"/></a>
         <span class="flexshrink">/</span>
-        <a class="rollable" data-roll-type="damage" data-roll="{{weapon.data.damage.value}}" data-label="{{weapon.name}} {{localizeLowerCase weapon.data.damage.label}}"><img src="icons/skills/melee/shield-damaged-broken-blue.webp" title="{{weapon.data.damage.value}} {{weapon.data.damage.value}}" width="24" height="24"/></a>
+        <a class="rollable" data-roll-type="damage" data-roll="{{weapon.data.damage.value}}" data-label="{{weapon.name}} {{localizeLowerCase weapon.data.damage.label}}"><img src="icons/skills/melee/shield-damaged-broken-blue.webp" title="{{weapon.data.damage.value}}" width="24" height="24"/></a>
       </div>
       <div class="item-controls">
         <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
