@@ -36,7 +36,7 @@ export class BasicFantasyRPGItem extends Item {
     // Initialize chat data.
     const speaker = ChatMessage.getSpeaker({ actor: this.actor });
     const rollMode = game.settings.get('core', 'rollMode');
-    const label = `${game.i18n.localize('ITEM.Type' + item.type.capitalize())} - ${item.name}`;
+    const label = `Roll: ${game.i18n.localize('ITEM.Type' + item.type.capitalize())} - ${item.name}`;
 
     // If there's no roll data, or the formula is empty, send a chat message.
     if (!this.data.data.formula || !this.data.data.formula.value) {
@@ -57,7 +57,7 @@ export class BasicFantasyRPGItem extends Item {
       roll.toMessage({
         speaker: speaker,
         rollMode: rollMode,
-        flavor: label,
+        flavor: label
       });
       return roll;
     }
