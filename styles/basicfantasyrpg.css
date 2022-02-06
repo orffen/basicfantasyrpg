@@ -301,6 +301,10 @@
   flex: 2;
 }
 
+.flex-align-center {
+  align-self: center;
+}
+
 .align-left {
   -webkit-box-pack: start;
   -ms-flex-pack: start;
