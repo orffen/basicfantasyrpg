@@ -129,15 +129,3 @@ function rollItemMacro(itemName) {
   // Trigger the item roll
   return item.roll();
 }
-
-/* -------------------------------------------- */
-/*  Token HitDice Hook                          */
-/* -------------------------------------------- */
-
-Hooks.on("preCreateToken", async function(token, options, id) {
-  if (token.actor.type === 'monster') {
-    let newHitPoints = new Roll(`${token.actor.data.data.hitDice.number}${token.actor.data.data.hitDice.size}+${token.actor.data.data.hitDice.mod}`);
-    await newHitPoints.evaluate({ async: true });
-    token.actor.update({"data.hitPoints.value": newHitPoints.total, "data.hitPoints.max": newHitPoints.total});
-  }
-});
