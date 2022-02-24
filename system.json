@@ -11,6 +11,12 @@
   "scripts": [],
   "packs": [
     {
+      "name": "armor-and-shields",
+      "label": "Armor and Shields",
+      "path": "packs/armor-and-shields.db",
+      "entity": "Item"
+    },
+    {
       "name": "equipment",
       "label": "Equipment",
       "path": "packs/equipment.db",
