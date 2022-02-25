@@ -21,6 +21,12 @@
       "label": "Equipment",
       "path": "packs/equipment.db",
       "entity": "Item"
+    },
+    {
+      "name": "weapons",
+      "label": "Weapons",
+      "path": "packs/weapons.db",
+      "entity": "Item"
     }
   ],
   "languages": [
