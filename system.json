@@ -2,14 +2,33 @@
   "name": "basicfantasyrpg",
   "title": "Basic Fantasy RPG",
   "description": "The Basic Fantasy RPG system for FoundryVTT!",
-  "version": "r4",
+  "version": "r5",
   "minimumCoreVersion": "0.8.9",
   "compatibleCoreVersion": "9",
   "author": "Orffen",
   "esmodules": ["module/basicfantasyrpg.mjs"],
   "styles": ["styles/basicfantasyrpg.css"],
   "scripts": [],
-  "packs": [],
+  "packs": [
+    {
+      "name": "armor-and-shields",
+      "label": "Armor and Shields",
+      "path": "packs/armor-and-shields.db",
+      "entity": "Item"
+    },
+    {
+      "name": "equipment",
+      "label": "Equipment",
+      "path": "packs/equipment.db",
+      "entity": "Item"
+    },
+    {
+      "name": "weapons",
+      "label": "Weapons",
+      "path": "packs/weapons.db",
+      "entity": "Item"
+    }
+  ],
   "languages": [
     {
       "lang": "en",
@@ -23,6 +42,6 @@
   "secondaryTokenAttribute": null,
   "url": "https://github.com/orffen/basicfantasyrpg",
   "manifest": "https://raw.githubusercontent.com/orffen/basicfantasyrpg/main/system.json",
-  "download": "https://github.com/orffen/basicfantasyrpg/archive/refs/tags/r4.zip",
+  "download": "https://github.com/orffen/basicfantasyrpg/archive/refs/tags/r5.zip",
   "license": "LICENSE.txt"
 }
