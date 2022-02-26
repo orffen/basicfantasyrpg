@@ -27,7 +27,86 @@
       "label": "Weapons",
       "path": "packs/weapons.db",
       "entity": "Item"
-    }
+    },
+    {
+      "name": "spell-effects",
+      "label": "Spell Effects",
+      "path": "packs/spell-effects.db",
+      "entity": "RollTable"
+    },
+    {
+      "name": "spells-clerical-1st-level",
+      "label": "Spells Clerical 1st Level",
+      "path": "packs/spells-clerical-1st-level.db",
+      "entity": "Item"
+    },
+    {
+      "name": "spells-clerical-2nd-level",
+      "label": "Spells Clerical 2nd Level",
+      "path": "packs/spells-clerical-2nd-level.db",
+      "entity": "Item"
+    },
+    {
+      "name": "spells-clerical-3rd-level",
+      "label": "Spells Clerical 3rd Level",
+      "path": "packs/spells-clerical-3rd-level.db",
+      "entity": "Item"
+    },
+    {
+      "name": "spells-clerical-4th-level",
+      "label": "Spells Clerical 4th Level",
+      "path": "packs/spells-clerical-4th-level.db",
+      "entity": "Item"
+    },
+    {
+      "name": "spells-clerical-5th-level",
+      "label": "Spells Clerical 5th Level",
+      "path": "packs/spells-clerical-5th-level.db",
+      "entity": "Item"
+    },
+    {
+      "name": "spells-clerical-6th-level",
+      "label": "Spells Clerical 6th Level",
+      "path": "packs/spells-clerical-6th-level.db",
+      "entity": "Item"
+    },
+    {
+      "name": "spells-magic-user-1st-level",
+      "label": "Spells Magic-User 1st Level",
+      "path": "packs/spells-magic-user-1st-level.db",
+      "entity": "Item"
+    },
+        {
+      "name": "spells-magic-user-2nd-level",
+      "label": "Spells Magic-User 2nd Level",
+      "path": "packs/spells-magic-user-2nd-level.db",
+      "entity": "Item"
+    },
+        {
+      "name": "spells-magic-user-3rd-level",
+      "label": "Spells Magic-User 3rd Level",
+      "path": "packs/spells-magic-user-3rd-level.db",
+      "entity": "Item"
+    },
+        {
+      "name": "spells-magic-user-4th-level",
+      "label": "Spells Magic-User 4th Level",
+      "path": "packs/spells-magic-user-4th-level.db",
+      "entity": "Item"
+    },
+        {
+      "name": "spells-magic-user-5th-level",
+      "label": "Spells Magic-User 5th Level",
+      "path": "packs/spells-magic-user-5th-level.db",
+      "entity": "Item"
+    },
+        {
+      "name": "spells-magic-user-6th-level",
+      "label": "Spells Magic-User 6th Level",
+      "path": "packs/spells-magic-user-6th-level.db",
+      "entity": "Item"
+    },
+
   ],
   "languages": [
     {
