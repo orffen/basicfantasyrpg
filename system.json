@@ -105,8 +105,7 @@
       "label": "Spells Magic-User 6th Level",
       "path": "packs/spells-magic-user-6th-level.db",
       "entity": "Item"
-    },
-
+    }
   ],
   "languages": [
     {
