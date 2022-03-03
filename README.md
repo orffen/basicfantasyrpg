@@ -1,10 +1,10 @@
 # Basic Fantasy RPG for FoundryVTT
 
-This is the [Basic Fantasy RPG](https://www.basicfantasy.org/) system for FoundryVTT.
+This is the [Basic Fantasy RPG](https://www.basicfantasy.org/) system for FoundryVTT. Please also see the [companium compendium module](https://github.com/Stew-rt/basicfantasyrpg-corerules-en), which contains items, spells, monsters etc. for easy use with the system.
 
 ## Installation
 
-This system is not yet available within FoundryVTT, but you can manually install it by using the manifest link below:
+This system is available within FoundryVTT, or you can manually install it by using the manifest link below:
 
 https://raw.githubusercontent.com/orffen/basicfantasyrpg/main/system.json
 
