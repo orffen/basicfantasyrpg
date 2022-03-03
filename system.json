@@ -9,33 +9,7 @@
   "esmodules": ["module/basicfantasyrpg.mjs"],
   "styles": ["styles/basicfantasyrpg.css"],
   "scripts": [],
-  "packs": [
-    {
-      "name": "armor-and-shields",
-      "label": "Armor and Shields",
-      "path": "packs/armor-and-shields.db",
-      "entity": "Item"
-    },
-    {
-      "name": "equipment",
-      "label": "Equipment",
-      "path": "packs/equipment.db",
-      "entity": "Item"
-    },
-    {
-      "name": "weapons",
-      "label": "Weapons",
-      "path": "packs/weapons.db",
-      "entity": "Item"
-    }
-  ],
-  "languages": [
-    {
-      "lang": "en",
-      "name": "English",
-      "path": "lang/en.json"
-    }
-  ],
+  "packs": [],
   "gridDistance": 5,
   "gridUnits": "ft",
   "primaryTokenAttribute": "hitPoints",
