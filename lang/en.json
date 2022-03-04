@@ -27,6 +27,9 @@
   "BASICFANTASYRPG.AbilityWisAbbr": "wis",
   "BASICFANTASYRPG.AbilityChaAbbr": "cha",
 
+  "BASICFANTASYRPG.NoOfAttacks": "No. of Attacks",
+  "BASICFANTASYRPG.MonsterDamage": "Damage",
+
   "BASICFANTASYRPG.SaveDeath": "Death Ray or Poison",
   "BASICFANTASYRPG.SaveWands": "Magic Wands",
   "BASICFANTASYRPG.SaveParalysis": "Paralysis or Petrify",

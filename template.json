@@ -141,6 +141,14 @@
         "value": "1d4",
         "label": "BASICFANTASYRPG.NumberAppearing"
       },
+      "noOfAttacks": {
+        "value": "",
+        "label": "BASICFANTASYRPG.NoOfAttacks"
+      },
+      "monsterDamage": {
+        "value": "",
+        "label": "BASICFANTASYRPG.MonsterDamage"
+      },
       "specialAbility": {
         "value": 0,
         "label": "BASICFANTASYRPG.SpecialAbility"
