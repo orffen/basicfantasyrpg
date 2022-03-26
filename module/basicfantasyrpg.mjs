@@ -81,6 +81,16 @@ Hooks.once("ready", async function() {
 });
 
 /* -------------------------------------------- */
+/*  Character Creation Hooks                    */
+/* -------------------------------------------- */
+
+Hooks.on("createActor", async function(actor) {
+  if (actor.type === "character") {
+    actor.data.token.actorLink = true;
+  }
+});
+
+/* -------------------------------------------- */
 /*  Token Creation Hooks                        */
 /* -------------------------------------------- */
 
