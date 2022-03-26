@@ -81,6 +81,16 @@ Hooks.once("ready", async function() {
 });
 
 /* -------------------------------------------- */
+/*  Character Creation Hooks                    */
+/* -------------------------------------------- */
+
+Hooks.on("createActor", async function(actor) {
+  if (actor.type === "character") {
+    actor.data.token.actorLink = true;
+  }
+});
+
+/* -------------------------------------------- */
 /*  Token Creation Hooks                        */
 /* -------------------------------------------- */
 
@@ -92,7 +102,7 @@ Hooks.on("createToken", async function(token, options, id) {
     token.actor.data.data.hitPoints.max = Math.max(1, newHitPoints.total);
   }
 });
-
+  
 /* -------------------------------------------- */
 /*  Hotbar Macros                               */
 /* -------------------------------------------- */
