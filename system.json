@@ -3,9 +3,18 @@
   "title": "Basic Fantasy RPG",
   "description": "The Basic Fantasy RPG system for FoundryVTT!",
   "version": "r7",
-  "minimumCoreVersion": "0.8.9",
-  "compatibleCoreVersion": "9",
-  "author": "Orffen",
+  "compatibility": {
+    "minimum": "0.8.9",
+    "compatible": "10",
+    "maximum": "10"
+  },
+  "authors": [
+    {
+      "name": "Orffen",
+      "email": "orffen@orffenspace.com",
+      "discord": "Orffen#4571"
+    }
+  ],
   "esmodules": ["module/basicfantasyrpg.mjs"],
   "styles": ["styles/basicfantasyrpg.css"],
   "scripts": [],
