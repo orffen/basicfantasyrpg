@@ -1,11 +1,11 @@
 {
-  "name": "basicfantasyrpg",
+  "id": "basicfantasyrpg",
   "title": "Basic Fantasy RPG",
   "description": "The Basic Fantasy RPG system for FoundryVTT!",
   "version": "r7",
   "compatibility": {
-    "minimum": "0.8.9",
-    "compatible": "10",
+    "minimum": "10",
+    "verified": "10",
     "maximum": "10"
   },
   "authors": [
