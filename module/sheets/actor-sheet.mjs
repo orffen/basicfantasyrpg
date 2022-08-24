@@ -19,7 +19,7 @@ export class BasicFantasyRPGActorSheet extends ActorSheet {
 
   /** @override */
   get template() {
-    return `systems/basicfantasyrpg/templates/actor/actor-${this.actor.data.type}-sheet.html`;
+    return `systems/basicfantasyrpg/templates/actor/actor-${this.actor.type}-sheet.html`;
   }
 
   /* -------------------------------------------- */
@@ -33,10 +33,10 @@ export class BasicFantasyRPGActorSheet extends ActorSheet {
     const context = super.getData();
 
     // Use a safe clone of the actor data for further operations.
-    const actorData = this.actor.data.toObject(false);
+    const actorData = this.actor.toObject(false);
 
     // Add the actor's data to context.data for easier access, as well as flags.
-    context.data = actorData.data;
+    context.data = actorData.system;
     context.flags = actorData.flags;
 
     // Prepare character data and items.
@@ -137,16 +137,16 @@ export class BasicFantasyRPGActorSheet extends ActorSheet {
       // Append to gear.
       if (i.type === 'item') {
         gear.push(i);
-        carriedWeight._addWeight(i.data.weight.value, i.data.quantity.value);
+        carriedWeight._addWeight(i.system.weight.value, i.system.quantity.value);
       } else if (i.type === 'weapon') { // Append to weapons.
         weapons.push(i);
-        carriedWeight._addWeight(i.data.weight.value, 1); // Weapons are always quantity 1
+        carriedWeight._addWeight(i.system.weight.value, 1); // Weapons are always quantity 1
       } else if (i.type === 'armor') { // Append to armors.
         armors.push(i);
-        carriedWeight._addWeight(i.data.weight.value, 1); // Armor is always quantity 1
+        carriedWeight._addWeight(i.system.weight.value, 1); // Armor is always quantity 1
       } else if (i.type === 'spell') { // Append to spells.
-        if (i.data.spellLevel.value != undefined) {
-          spells[i.data.spellLevel.value].push(i);
+        if (i.system.spellLevel.value != undefined) {
+          spells[i.system.spellLevel.value].push(i);
         }
       } else if (i.type === 'feature') { // Append to features.
         features.push(i);
