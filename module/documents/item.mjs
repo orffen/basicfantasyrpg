@@ -20,7 +20,7 @@ export class BasicFantasyRPGItem extends Item {
     // If present, return the actor's roll data.
     if ( !this.actor ) return null;
     const rollData = this.actor.getRollData();
-    rollData.item = foundry.utils.deepClone(this.data.data);
+    rollData.item = foundry.utils.deepClone(this.system);
 
     return rollData;
   }
@@ -31,7 +31,7 @@ export class BasicFantasyRPGItem extends Item {
    * @private
    */
   async roll() {
-    const item = this.data;
+    const item = this;
 
     // Initialize chat data.
     const speaker = ChatMessage.getSpeaker({ actor: this.actor });
@@ -39,12 +39,12 @@ export class BasicFantasyRPGItem extends Item {
     const label = `Roll: ${game.i18n.localize('ITEM.Type' + item.type.capitalize())} - ${item.name}`;
 
     // If there's no roll data, or the formula is empty, send a chat message.
-    if (!this.data.data.formula || !this.data.data.formula.value) {
+    if (!this.system.formula || !this.system.formula.value) {
       ChatMessage.create({
         speaker: speaker,
         rollMode: rollMode,
         flavor: label,
-        content: item.data.description ?? ''
+        content: item.description ?? ''
       });
     } else { // Otherwise, create a roll and send a chat message from it.
       // Retrieve roll data.
