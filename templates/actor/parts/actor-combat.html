@@ -50,7 +50,7 @@
         <a class="rollable" data-roll-type="weapon" data-attack="melee"><img src="systems/basicfantasyrpg/styles/melee.svg" title="{{localize 'BASICFANTASYRPG.Melee'}} {{localize 'BASICFANTASYRPG.Attack'}}" width="24" height="24"/></a>
         <a class="rollable" data-roll-type="weapon" data-attack="ranged"><img src="systems/basicfantasyrpg/styles/ranged.svg" title="{{localize 'BASICFANTASYRPG.Ranged'}} {{localize 'BASICFANTASYRPG.Attack'}}" width="24" height="24"/></a>
         <span class="flexshrink">/</span>
-        <a class="rollable" data-roll-type="damage" data-roll="{{weapon.data.damage.value}}" data-label="{{weapon.name}} {{localizeLowerCase weapon.data.damage.label}}"><img src="systems/basicfantasyrpg/styles/damage.svg" title="{{weapon.data.damage.value}}" width="24" height="24"/></a>
+        <a class="rollable" data-roll-type="damage" data-roll="{{weapon.system.damage.value}}" data-label="{{weapon.name}} {{localizeLowerCase weapon.system.damage.label}}"><img src="systems/basicfantasyrpg/styles/damage.svg" title="{{weapon.system.damage.value}}" width="24" height="24"/></a>
       </div>
       <div class="item-controls">
         <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
@@ -76,7 +76,7 @@
         </div>
         <h4>{{armor.name}}</h4>
       </div>
-      <div class="item-prop">{{localize armor.data.armorClass.abbr}} {{armor.data.armorClass.value}}</div>
+      <div class="item-prop">{{localize armor.system.armorClass.abbr}} {{armor.system.armorClass.value}}</div>
       <div class="item-controls">
         <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
         <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>

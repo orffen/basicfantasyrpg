@@ -53,11 +53,11 @@
         <div class="item-image">
           <a class="rollable" data-roll-type="item"><img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/></a>
         </div>
-        <h4>{{item.data.quantity.value}} {{item.name}}</h4>
+        <h4>{{item.system.quantity.value}} {{item.name}}</h4>
       </div>
       <div class="item-prop grid grid-2col">
-        <div class="flex-left align-right">{{item.data.weight.value}} lbs.</div>
-        <div class="flex-right">{{item.data.price.value}}</div>
+        <div class="flex-left align-right">{{item.system.weight.value}} lbs.</div>
+        <div class="flex-right">{{item.system.price.value}}</div>
       </div>
       <div class="item-controls">
         <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
