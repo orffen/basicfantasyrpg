@@ -1,11 +1,20 @@
 {
-  "name": "basicfantasyrpg",
+  "id": "basicfantasyrpg",
   "title": "Basic Fantasy RPG",
   "description": "The Basic Fantasy RPG system for FoundryVTT!",
-  "version": "r6",
-  "minimumCoreVersion": "0.8.9",
-  "compatibleCoreVersion": "9",
-  "author": "Orffen",
+  "version": "r7",
+  "compatibility": {
+    "minimum": "10",
+    "verified": "10",
+    "maximum": "10"
+  },
+  "authors": [
+    {
+      "name": "Orffen",
+      "email": "orffen@orffenspace.com",
+      "discord": "Orffen#4571"
+    }
+  ],
   "esmodules": ["module/basicfantasyrpg.mjs"],
   "styles": ["styles/basicfantasyrpg.css"],
   "scripts": [],
@@ -23,6 +32,6 @@
   "secondaryTokenAttribute": null,
   "url": "https://github.com/orffen/basicfantasyrpg",
   "manifest": "https://raw.githubusercontent.com/orffen/basicfantasyrpg/main/system.json",
-  "download": "https://github.com/orffen/basicfantasyrpg/archive/refs/tags/r6.zip",
+  "download": "https://github.com/orffen/basicfantasyrpg/archive/refs/tags/r7.zip",
   "license": "LICENSE.txt"
 }

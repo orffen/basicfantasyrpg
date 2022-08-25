@@ -29,8 +29,8 @@ export class BasicFantasyRPGActor extends Actor {
    * is queried and has a roll executed directly from it).
    */
   prepareDerivedData() {
-    const actorData = this.data;
-    const data = actorData.data;
+    const actorData = this;
+    const data = actorData.system;
     const flags = actorData.flags.basicfantasyrpg || {};
 
     // Make separate methods for each Actor type (character, monster, etc.) to keep
@@ -46,7 +46,7 @@ export class BasicFantasyRPGActor extends Actor {
     if (actorData.type !== 'character') return;
 
     // Make modifications to data here. For example:
-    const data = actorData.data;
+    const data = actorData.system;
 
     // Loop through ability scores, and add their modifiers to our sheet output.
     for (let [key, ability] of Object.entries(data.abilities)) {
@@ -82,7 +82,7 @@ export class BasicFantasyRPGActor extends Actor {
   _prepareMonsterData(actorData) {
     if (actorData.type !== 'monster') return;
 
-    const data = actorData.data;
+    const data = actorData.system;
     data.xp.value = function () {
       let xpLookup = [10, 25, 75, 145, 240, 360, 500, 670, 875, 1075, 1300, 1575, 1875, 2175, 2500, 2850, 3250, 3600, 4000, 4500, 5250, 6000, 6750, 7500, 8250, 9000];
       let specialAbilityLookup = [3, 12, 25, 30, 40, 45, 55, 65, 70, 75, 90, 95, 100, 110, 115, 125, 135, 145, 160, 175, 200, 225, 250, 275, 300, 325];
@@ -106,10 +106,10 @@ export class BasicFantasyRPGActor extends Actor {
    * Calculate monster attack bonus
    */
   _calculateMonsterAttackBonus() {
-    if (this.data.data.hitDice.number < 1) {
+    if (this.system.hitDice.number < 1) {
       return 0;
     } 
-    switch (this.data.data.hitDice.number) {
+    switch (this.system.hitDice.number) {
       case 9: return 8;
       case 10:
       case 11: return 9
@@ -133,7 +133,7 @@ export class BasicFantasyRPGActor extends Actor {
       case 29:
       case 30:
       case 31: return 15;
-      default: return this.data.data.hitDice.number;
+      default: return this.system.hitDice.number;
     }
   }
 
@@ -155,7 +155,7 @@ export class BasicFantasyRPGActor extends Actor {
    * Prepare character roll data.
    */
   _getCharacterRollData(data) {
-    if (this.data.type !== 'character') return;
+    if (this.system.type !== 'character') return;
 
     // Copy the ability scores to the top level, so that rolls can use
     // formulas like `@str.bonus + 4`.
@@ -175,7 +175,7 @@ export class BasicFantasyRPGActor extends Actor {
    * Prepare NPC roll data.
    */
   _getMonsterRollData(data) {
-    if (this.data.type !== 'monster') return;
+    if (this.system.type !== 'monster') return;
 
     // Process additional NPC data here.
 

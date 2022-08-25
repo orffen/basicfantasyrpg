@@ -19,24 +19,27 @@ export class BasicFantasyRPGActorSheet extends ActorSheet {
 
   /** @override */
   get template() {
-    return `systems/basicfantasyrpg/templates/actor/actor-${this.actor.data.type}-sheet.html`;
+    return `systems/basicfantasyrpg/templates/actor/actor-${this.actor.type}-sheet.html`;
   }
 
   /* -------------------------------------------- */
 
   /** @override */
-  getData() {
+  async getData() {
     // Retrieve the data structure from the base sheet. You can inspect or log
     // the context variable to see the structure, but some key properties for
     // sheets are the actor object, the data object, whether or not it's
     // editable, the items array, and the effects array.
     const context = super.getData();
 
+    //enrichedBiography -- enriches system.biography for editor
+    context.enrichedBiography = await TextEditor.enrichHTML(this.object.system.biography, {async: true});
+
     // Use a safe clone of the actor data for further operations.
-    const actorData = this.actor.data.toObject(false);
+    const actorData = this.actor.toObject(false);
 
     // Add the actor's data to context.data for easier access, as well as flags.
-    context.data = actorData.data;
+    context.data = actorData.system;
     context.flags = actorData.flags;
 
     // Prepare character data and items.
@@ -137,16 +140,16 @@ export class BasicFantasyRPGActorSheet extends ActorSheet {
       // Append to gear.
       if (i.type === 'item') {
         gear.push(i);
-        carriedWeight._addWeight(i.data.weight.value, i.data.quantity.value);
+        carriedWeight._addWeight(i.system.weight.value, i.system.quantity.value);
       } else if (i.type === 'weapon') { // Append to weapons.
         weapons.push(i);
-        carriedWeight._addWeight(i.data.weight.value, 1); // Weapons are always quantity 1
+        carriedWeight._addWeight(i.system.weight.value, 1); // Weapons are always quantity 1
       } else if (i.type === 'armor') { // Append to armors.
         armors.push(i);
-        carriedWeight._addWeight(i.data.weight.value, 1); // Armor is always quantity 1
+        carriedWeight._addWeight(i.system.weight.value, 1); // Armor is always quantity 1
       } else if (i.type === 'spell') { // Append to spells.
-        if (i.data.spellLevel.value != undefined) {
-          spells[i.data.spellLevel.value].push(i);
+        if (i.system.spellLevel.value != undefined) {
+          spells[i.system.spellLevel.value].push(i);
         }
       } else if (i.type === 'feature') { // Append to features.
         features.push(i);
@@ -199,12 +202,12 @@ export class BasicFantasyRPGActorSheet extends ActorSheet {
 
     // Prepare Spells
     html.find('.spell-prepare').click(ev => {
-      const change = event.currentTarget.dataset.change;
+      const change = ev.currentTarget.dataset.change;
       if (parseInt(change)) {
         const li = $(ev.currentTarget).parents(".item");
         const item = this.actor.items.get(li.data("itemId"));
-        let newValue = item.data.data.prepared.value + parseInt(change);
-        item.update({"data.prepared.value": newValue});
+        let newValue = item.system.prepared.value + parseInt(change);
+        item.update({"system.prepared.value": newValue});
       }
     });
 
@@ -276,14 +279,14 @@ export class BasicFantasyRPGActorSheet extends ActorSheet {
         const item = this.actor.items.get(itemId);
         let label = dataset.label ? `Roll: ${dataset.label}` : `Roll: ${dataset.attack.capitalize()} attack with ${item.name}`;
         let rollFormula = 'd20+@ab';
-        if (this.actor.data.type == 'character') {
+        if (this.actor.type == 'character') {
           if (dataset.attack == 'melee') {
             rollFormula += '+@str.bonus';
           } else if (dataset.attack == 'ranged') {
             rollFormula += '+@dex.bonus';
           }
         }
-        rollFormula += '+' + item.data.data.bonusAb.value;
+        rollFormula += '+' + item.system.bonusAb.value;
         let roll = new Roll(rollFormula, this.actor.getRollData());
         roll.toMessage({
           speaker: ChatMessage.getSpeaker({ actor: this.actor }),
