@@ -27,9 +27,12 @@ export class BasicFantasyRPGItemSheet extends ItemSheet {
   /* -------------------------------------------- */
 
   /** @override */
-  getData() {
+  async getData() {
     // Retrieve base data structure.
     const context = super.getData();
+
+    // enrichedDescription - enriches system.description
+    context.enrichedDescription = await TextEditor.enrichHTML(this.object.system.description, {async: true});
 
     // Use a safe clone of the item data for further operations.
     const itemData = context.item;
