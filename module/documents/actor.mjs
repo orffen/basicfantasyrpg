@@ -88,18 +88,20 @@ export class BasicFantasyRPGActor extends Actor {
       let specialAbilityLookup = [3, 12, 25, 30, 40, 45, 55, 65, 70, 75, 90, 95, 100, 110, 115, 125, 135, 145, 160, 175, 200, 225, 250, 275, 300, 325];
       let xpValue = 0;
       let xpSpecialAbilityBonus = 0;
-      if (data.hitDice.size == "d8" && data.hitDice.mod >= 0) {
-        xpValue = xpLookup[data.hitDice.number];
-        xpSpecialAbilityBonus = specialAbilityLookup[data.hitDice.number] * data.specialAbility.value;
-      } else {
+      if (data.hitDice.number < 1 || (data.hitDice.number == 1 && data.hitDice.mod < 0) || data.hitDice.size < "d8") {
         xpValue = xpLookup[0];
         xpSpecialAbilityBonus = specialAbilityLookup[0] * data.specialAbility.value;
+      } else if (data.hitDice.number > 25) {
+        xpValue = 9000 + (data.hitDice.number - 25) * 750;
+        xpSpecialAbilityBonus = (325 + (data.hitDice.number - 25) * 25) * data.specialAbility.value;
+      } else {
+        xpValue = xpLookup[data.hitDice.number];
+        xpSpecialAbilityBonus = specialAbilityLookup[data.hitDice.number] * data.specialAbility.value;
       }
-      return xpValue + xpSpecialAbilityBonus;
+      return xpValue + Math.max(0, xpSpecialAbilityBonus); // never return a negative special ability bonus
     };
 
     data.attackBonus.value = this._calculateMonsterAttackBonus();
- 
   }
 
   /**
