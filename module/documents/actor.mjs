@@ -108,7 +108,9 @@ export class BasicFantasyRPGActor extends Actor {
   _calculateMonsterAttackBonus() {
     if (this.system.hitDice.number < 1) {
       return 0;
-    } 
+    } else if (this.system.hitDice.number > 31) {
+      return 16;
+    }
     switch (this.system.hitDice.number) {
       case 9: return 8;
       case 10:
@@ -133,7 +135,7 @@ export class BasicFantasyRPGActor extends Actor {
       case 29:
       case 30:
       case 31: return 15;
-      default: return this.system.hitDice.number;
+      default: return this.system.hitDice.number; // this handles 1-9
     }
   }
 
