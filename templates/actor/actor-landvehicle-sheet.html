@@ -1,0 +1,80 @@
+<form class="{{cssClass}} {{actor.type}} flexcol" autocomplete="off">
+
+  {{!-- Sheet Header --}}
+  <header class="sheet-header">
+    <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="100" width="100"/>
+    <div class="header-fields">
+      <h1 class="charname"><input name="name" type="text" value="{{actor.name}}" placeholder="{{localize 'BASICFANTASYRPG.Name'}}"/></h1>
+      <div class="resources grid grid-2col">
+
+        <div class="resource flex-group-center">
+          <label for="data.hitPoints.value" class="resource-label">{{localize 'BASICFANTASYRPG.HitPoints'}}</label>
+          <div class="resource-content flexrow flex-center flex-between">
+            <input type="number" name="data.hitPoints.value" value="{{data.hitPoints.value}}" data-dtype="Number"/>
+            <span class="flexshrink flex-align-center">&nbsp;/&nbsp;</span>
+            <input type="number" name="data.hitPoints.max" value="{{data.hitPoints.max}}" data-dtype="Number"/>
+          </div>
+        </div>
+
+        <div class="resource flex-group-center">
+          <label for="data.hardness.value" class="resource-label">{{localize 'BASICFANTASYRPG.Hardness'}}</label>
+          <div class="resource-content flexrow flex-center flex-between">
+            <input type="number" name="data.hardness.value" value="{{data.hardness.value}}" data-dtype="Number"/>
+            <span class="flexshrink flex-align-center">&nbsp;/&nbsp;</span>
+            <input type="number" name="data.hardness.max" value="{{data.hardness.max}}" data-dtype="number"/>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="resources grid grid-5col">
+
+        <div class="resource flex-group-center">
+          <label for="data.size.value" class="resource-label">{{localize 'BASICFANTASYRPG.VehicleSize'}}</label>
+          <div class="resource-content flexrow flex-center flex-between">
+            <input type="text" name="data.size.value" value="{{data.size.value}}" data-dtype="String"/>
+          </div>
+        </div>
+
+        <div class="resource flex-group-center">
+          <label for="data.weight.value" class="resource-label">{{localize 'BASICFANTASYRPG.Weight'}}</label>
+          <div class="resource-content flexrow flex-center flex-between">
+            <input type="number" name="data.weight.value" value="{{data.weight.value}}" data-dtype="Number"/>
+          </div>
+        </div>
+
+        <div class="resource flex-group-center">
+          <label for="data.cargo.value" class="resource-label">{{localize 'BASICFANTASYRPG.VehicleCargo'}}</label>
+          <div class="resource-content flexrow flex-center flex-between">
+            <input type="text" name="data.cargo.value" value="{{data.cargo.value}}" data-dtype="String"/>
+          </div>
+        </div>
+
+        <div class="resource flex-group-center">
+          <label for="data.move.value" class="resource-label">{{localize 'BASICFANTASYRPG.Movement'}}</label>
+          <div class="resource-content flexrow flex-center flex-between">
+            <input type="text" name="data.move.value" value="{{data.move.value}}" data-dtype="String"/>
+          </div>
+        </div>
+
+        <div class="resource flex-group-center">
+          <label for="data.price.value" class="resource-label">{{localize 'BASICFANTASYRPG.Price'}}</label>
+          <div class="resource-content flexrow flex-center flex-between">
+            <input type="text" name="data.price.value" value="{{data.price.value}}" data-dtype="String"/>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </header>
+
+  {{!-- Sheet Body --}}
+  <section class="sheet-body">
+
+    {{!-- Description --}}
+    <div class="description">
+      {{editor enrichedBiography target="system.biography" button=true editable=editable}}
+    </div>
+
+  </section>
+</form>
