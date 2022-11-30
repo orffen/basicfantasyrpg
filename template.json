@@ -1,6 +1,6 @@
 {
   "Actor": {
-    "types": ["character", "monster"],
+    "types": ["character", "monster", "landvehicle", "watervehicle"],
     "templates": {
       "base": {
         "armorClass": {
@@ -44,6 +44,25 @@
           "spells": {
             "value": 18
           }
+        }
+      },
+      "vehiclebase": {
+        "size": {
+          "value": "",
+          "label": "BASICFANTASYRPG.VehicleSize"
+        },
+        "cargo": {
+          "value": "",
+          "label": "BASICFANTASYRPG.VehicleCargo"
+        },
+        "hardness": {
+          "value": 10,
+          "max": 10,
+          "label": "BASICFANTASYRPG.Hardness"
+        },
+        "price": {
+          "value": "",
+          "label": "BASICFANTASYRPG.Price"
         }
       }
     },
@@ -154,6 +173,24 @@
         "label": "BASICFANTASYRPG.ExperiencePoints",
         "abbr": "BASICFANTASYRPG.ExperiencePointsAbbr"
       }
+    },
+    "landvehicle": {
+    "templates": ["base", "vehiclebase"],
+      "weight": {
+        "value": "",
+        "label": "BASICFANTASYRPG.Weight"
+      }
+    },
+    "watervehicle": {
+    "templates": ["base", "vehiclebase"],
+     "crew": {
+      "value": "",
+      "label": "BASICFANTASYRPG.Crew"
+     },
+     "milesperday": {
+      "value": "",
+      "label": "BASICFANTASY.Miles"
+     }
     }
   },
   "Item": {
