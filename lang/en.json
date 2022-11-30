@@ -1,6 +1,8 @@
 {
   "ACTOR.TypeCharacter": "Character",
   "ACTOR.TypeMonster": "Monster",
+  "ACTOR.TypeLandvehicle": "Land Vehicle",
+  "ACTOR.TypeWatervehicle": "Water Vehicle",
 
   "ITEM.TypeItem": "Equipment",
   "ITEM.TypeWeapon": "Weapon",
@@ -49,6 +51,7 @@
   "BASICFANTASYRPG.BonusAttackBonus": "Bonus AB",
   "BASICFANTASYRPG.CarriedWeight": "Load",
   "BASICFANTASYRPG.Class": "Class",
+  "BASICFANTASYRPG.Crew": "Crew",
   "BASICFANTASYRPG.Damage": "Damage",
   "BASICFANTASYRPG.DamageAbbr": "Dmg",
   "BASICFANTASYRPG.Duration": "Duration",
@@ -62,6 +65,7 @@
   "BASICFANTASYRPG.InitiativeBonus": "Init. Bonus",
   "BASICFANTASYRPG.Level": "Level",
   "BASICFANTASYRPG.Melee": "Melee",
+  "BASICFANTASYRPG.Miles": "Miles/Day",
   "BASICFANTASYRPG.Morale": "Morale",
   "BASICFANTASYRPG.Movement": "Move",
   "BASICFANTASYRPG.Name": "Name",
@@ -80,6 +84,9 @@
   "BASICFANTASYRPG.SpellLevel": "Level",
   "BASICFANTASYRPG.SpellsPerLevel": "Spells",
   "BASICFANTASYRPG.TreasureType": "Treasure Type",
+  "BASICFANTASYRPG.VehicleCargo": "Cargo",
+  "BASICFANTASYRPG.Hardness": "Hardness",
+  "BASICFANTASYRPG.VehicleSize": "Length/Width",
   "BASICFANTASYRPG.Weight": "Weight",
 
   "BASICFANTASYRPG.EffectCreate": "Create Effect",
