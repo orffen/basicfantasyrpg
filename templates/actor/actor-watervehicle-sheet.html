@@ -5,7 +5,7 @@
     <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="100" width="100"/>
     <div class="header-fields">
       <h1 class="charname"><input name="name" type="text" value="{{actor.name}}" placeholder="{{localize 'BASICFANTASYRPG.Name'}}"/></h1>
-      <div class="resources grid grid-3col">
+      <div class="resources grid grid-4col">
 
         <div class="resource flex-group-center">
           <label for="data.hitPoints.value" class="resource-label">{{localize 'BASICFANTASYRPG.HitPoints'}}</label>
@@ -20,8 +20,6 @@
           <label for="data.hardness.value" class="resource-label">{{localize 'BASICFANTASYRPG.Hardness'}}</label>
           <div class="resource-content flexrow flex-center flex-between">
             <input type="number" name="data.hardness.value" value="{{data.hardness.value}}" data-dtype="Number"/>
-            <span class="flexshrink flex-align-center">&nbsp;/&nbsp;</span>
-            <input type="number" name="data.hardness.max" value="{{data.hardness.max}}" data-dtype="number"/>
           </div>
         </div>
 
@@ -32,9 +30,16 @@
           </div>
         </div>
 
+        <div class="resource flex-group-center">
+          <label for="data.miles.value" class="resource-label">{{localize 'BASICFANTASYRPG.Miles'}}</label>
+          <div class="resource-content flexrow flex-center flex-between">
+            <input type="text" name="data.miles.value" value="{{data.miles.value}}" data-dtype="String"/>
+          </div>
+        </div>
+
       </div>
 
-      <div class="resources grid grid-5col">
+      <div class="resources grid grid-4col">
 
         <div class="resource flex-group-center">
           <label for="data.size.value" class="resource-label">{{localize 'BASICFANTASYRPG.VehicleSize'}}</label>
@@ -54,13 +59,6 @@
           <label for="data.crew.value" class="resource-label">{{localize 'BASICFANTASYRPG.Crew'}}</label>
           <div class="resource-content flexrow flex-center flex-between">
             <input type="text" name="data.crew.value" value="{{data.crew.value}}" data-dtype="String"/>
-          </div>
-        </div>
-
-        <div class="resource flex-group-center">
-          <label for="data.miles.value" class="resource-label">{{localize 'BASICFANTASYRPG.Miles'}}</label>
-          <div class="resource-content flexrow flex-center flex-between">
-            <input type="text" name="data.miles.value" value="{{data.miles.value}}" data-dtype="String"/>
           </div>
         </div>
 
