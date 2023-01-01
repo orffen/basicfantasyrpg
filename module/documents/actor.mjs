@@ -162,7 +162,7 @@ export class BasicFantasyRPGActor extends Actor {
     if (this.system.type !== 'character') return;
 
     // Copy the ability scores to the top level, so that rolls can use
-    // formulas like `@str.bonus + 4`.
+    // formulas like `@abilities.str.bonus + 4`.
     if (data.abilities) {
       for (let [k, v] of Object.entries(data.abilities)) {
         data[k] = foundry.utils.deepClone(v);

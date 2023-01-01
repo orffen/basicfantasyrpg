@@ -281,9 +281,9 @@ export class BasicFantasyRPGActorSheet extends ActorSheet {
         let rollFormula = 'd20+@ab';
         if (this.actor.type == 'character') {
           if (dataset.attack == 'melee') {
-            rollFormula += '+@str.bonus';
+            rollFormula += '+@abilities.str.bonus';
           } else if (dataset.attack == 'ranged') {
-            rollFormula += '+@dex.bonus';
+            rollFormula += '+@abilities.dex.bonus';
           }
         }
         rollFormula += '+' + item.system.bonusAb.value;

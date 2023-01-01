@@ -18,7 +18,7 @@ The system does not yet automatically reset initiative at the end of each combat
 
 ### Roll Formulas
 
-To add ability bonuses/penalties to roll formulas (damage or special ability), you can use `@str.bonus`. Replace `str` with `int`, `wis`, `dex`, `con` or `cha`. You can use the full ability with just `@str`, for example if you wanted to do something like `d20<=@str`. `@lvl` is available as short-hand for the character level.
+To add ability bonuses/penalties to roll formulas (damage or special ability), you can use `@abilities.str.bonus`. Replace `str` with `int`, `wis`, `dex`, `con` or `cha`. You can use the full ability with just `@str`, for example if you wanted to do something like `d20<=@str`. `@lvl` is available as short-hand for the character level.
 
 ### Character Special Abilities
 
