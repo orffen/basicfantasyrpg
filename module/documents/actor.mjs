@@ -159,7 +159,7 @@ export class BasicFantasyRPGActor extends Actor {
    * Prepare character roll data.
    */
   _getCharacterRollData(data) {
-    if (this.system.type !== 'character') return;
+    if (this.type !== 'character') return;
 
     // Copy the ability scores to the top level, so that rolls can use
     // formulas like `@str.bonus + 4`.
@@ -179,7 +179,7 @@ export class BasicFantasyRPGActor extends Actor {
    * Prepare NPC roll data.
    */
   _getMonsterRollData(data) {
-    if (this.system.type !== 'monster') return;
+    if (this.type !== 'monster') return;
 
     // Process additional NPC data here.
 
