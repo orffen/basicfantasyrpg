@@ -86,7 +86,7 @@ Hooks.once("ready", async function() {
 
 Hooks.on("createActor", async function(actor) {
   if (actor.type === "character") {
-    actor.data.token.actorLink = true;
+    actor.updateSource({prototypeToken: {actorLink: true, disposition: 1}});
   }
 });
 
