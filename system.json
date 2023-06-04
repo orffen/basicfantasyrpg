@@ -4,7 +4,7 @@
   "description": "The Basic Fantasy RPG system for FoundryVTT!",
   "version": "r10",
   "compatibility": {
-    "minimum": "10",
+    "minimum": "11",
     "verified": "11",
     "maximum": "11"
   },
