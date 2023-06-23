@@ -86,7 +86,20 @@ Hooks.once("ready", async function() {
 
 Hooks.on("createActor", async function(actor) {
   if (actor.type === "character") {
-    actor.data.token.actorLink = true;
+    actor.updateSource({
+      prototypeToken: {
+        actorLink: true,
+        disposition: CONST.TOKEN_DISPOSITIONS.FRIENDLY
+      }
+    });
+  }
+  else if (actor.type === "monster") {
+    actor.updateSource({
+      prototypeToken: {
+        appendNumber: true,
+        displayName: CONST.TOKEN_DISPLAY_MODES.OWNER
+      }
+    });
   }
 });
 
