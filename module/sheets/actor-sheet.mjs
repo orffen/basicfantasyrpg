@@ -158,9 +158,12 @@ export class BasicFantasyRPGActorSheet extends ActorSheet {
 
     // Iterate through money, add to carried weight
     if (context.data.money) {
-      for (let [k, v] of Object.entries(context.data.money)) {
-        carriedWeight._addWeight('*', v.value);
-      }
+      let gp = Number(context.data.money.gp.value);
+      gp += context.data.money.pp.value * 5;
+      gp += context.data.money.ep.value / 5;
+      gp += context.data.money.sp.value / 10;
+      gp += context.data.money.cp.value / 100;
+      carriedWeight._addWeight('*', gp);  // '*' will calculate GP weight
     }
 
     // Assign and return
