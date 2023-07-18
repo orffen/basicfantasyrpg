@@ -125,10 +125,10 @@ export class BasicFantasyRPGActorSheet extends ActorSheet {
         if (!quantity || quantity == '' || Number.isNaN(quantity) || quantity < 0) {
           return; // check we have a valid quantity, and do nothing if we do not
         }
-        let q = Math.floor(quantity / 10);
+        let q = Math.floor(quantity / 20);
         if (!Number.isNaN(parseFloat(moreWeight))) {
           this.value += parseFloat(moreWeight) * quantity;
-        } else if (moreWeight === '*' && q > 0) {
+        } else if (moreWeight === '*' && q > 0) { // '*' is gold pieces
           this.value += q;
         }
       }
