@@ -125,10 +125,10 @@ export class BasicFantasyRPGActorSheet extends ActorSheet {
         if (!quantity || quantity == '' || Number.isNaN(quantity) || quantity < 0) {
           return; // check we have a valid quantity, and do nothing if we do not
         }
-        let q = Math.floor(quantity / 10);
+        let q = Math.floor(quantity / 20);
         if (!Number.isNaN(parseFloat(moreWeight))) {
           this.value += parseFloat(moreWeight) * quantity;
-        } else if (moreWeight === '*' && q > 0) {
+        } else if (moreWeight === '*' && q > 0) { // '*' is gold pieces
           this.value += q;
         }
       }
@@ -158,9 +158,12 @@ export class BasicFantasyRPGActorSheet extends ActorSheet {
 
     // Iterate through money, add to carried weight
     if (context.data.money) {
-      for (let [k, v] of Object.entries(context.data.money)) {
-        carriedWeight._addWeight('*', v.value);
-      }
+      let gp = Number(context.data.money.gp.value);
+      gp += context.data.money.pp.value * 5;
+      gp += context.data.money.ep.value / 5;
+      gp += context.data.money.sp.value / 10;
+      gp += context.data.money.cp.value / 100;
+      carriedWeight._addWeight('*', gp);  // '*' will calculate GP weight
     }
 
     // Assign and return
