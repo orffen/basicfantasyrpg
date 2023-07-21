@@ -46,7 +46,7 @@ export class BasicFantasyRPGItem extends Item {
         content: item.system.description ? `<span class="chat-item-description">${item.system.description}</span>` : ''
       });
     } else { // Otherwise, create a roll and send a chat message from it.
-      let label = `<span class="chat-item-name">Roll: ${game.i18n.localize('ITEM.Type' + item.type.capitalize())} - ${item.name}</span>`;
+      let label = `<span class="chat-item-name">${game.i18n.localize('BASICFANTASYRPG.Roll')}: ${game.i18n.localize('ITEM.Type' + item.type.capitalize())} - ${item.name}</span>`;
       if (item.type == 'feature' && item.system.description) {
         label += `<span class="chat-item-description">${item.system.description}</span>`;
       }
