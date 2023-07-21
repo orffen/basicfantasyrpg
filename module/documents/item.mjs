@@ -1,3 +1,5 @@
+import {successChatMessage} from "../helpers/chat.mjs";
+
 /**
  * Extend the basic Item with some very simple modifications.
  * @extends {Item}
@@ -51,13 +53,11 @@ export class BasicFantasyRPGItem extends Item {
         label += `<span class="chat-item-description">${item.system.description}</span>`;
       }
 
-      // Retrieve roll data.
+      // Retrieve roll data and invoke the roll
       const rollData = item.getRollData();
-
-      // Invoke the roll and submit it to chat.
       const roll = new Roll(rollData.item.formula.value, rollData);
-      // If you need to store the value first, uncomment the next line.
-      // let result = await roll.roll({async: true});
+      await roll.roll();
+      label += successChatMessage(roll.total, rollData.item.targetNumber.value, true);
       roll.toMessage({
         speaker: speaker,
         rollMode: rollMode,
