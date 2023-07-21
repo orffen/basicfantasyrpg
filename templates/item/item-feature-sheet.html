@@ -3,10 +3,14 @@
     <img class="profile-img" src="{{item.img}}" data-edit="img" title="{{item.name}}"/>
     <div class="header-fields">
       <h1 class="charname"><input name="name" type="text" value="{{item.name}}" placeholder="{{localize 'BASICFANTASYRPG.Name'}}"/></h1>
-      <div class="grid grid-1col">
+      <div class="grid grid-2col">
         <div class="resource">
           <label for="data.formula.value" class="resource-label">{{localize data.formula.label}}</label>
           <input type="text" name="data.formula.value" value="{{data.formula.value}}" data-dtype="String"/>
+        </div>
+        <div class="resource">
+          <label for="data.targetNumber.value" class="resource-label">{{localize data.targetNumber.label}}</label>
+          <input type="text" name="data.targetNumber.value" value="{{data.targetNumber.value}}" data-dtype="String"/>
         </div>
       </div>
     </div>

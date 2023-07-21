@@ -236,6 +236,10 @@
       "formula": {
         "value": "d100",
         "label": "BASICFANTASYRPG.Formula"
+      },
+      "targetNumber": {
+        "value": "",
+        "label": "BASICFANTASYRPG.TargetNumber"
       }
     }
   }
