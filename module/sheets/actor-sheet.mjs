@@ -312,7 +312,7 @@ export class BasicFantasyRPGActorSheet extends ActorSheet {
       let label = dataset.label ? `<span class="chat-item-name">${game.i18n.localize('BASICFANTASYRPG.Roll')}: ${dataset.label}</span>` : '';
       let roll = new Roll(dataset.roll, this.actor.getRollData());
       await roll.roll();
-      if (dataset.targetNumber) {
+      if (dataset.targetNumber && !isNaN(dataset.targetNumber)) {
         label += `<span class="chat-item-description">`;
         if (Number(roll.total) == 20 || (Number(roll.total) > 1 && Number(roll.total) >= Number(dataset.targetNumber))) {
           label += `<span class="chat-roll-success">${game.i18n.localize('BASICFANTASYRPG.Success')}</span>`;
