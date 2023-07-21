@@ -18,11 +18,11 @@ The system does not yet automatically reset initiative at the end of each combat
 
 ### Roll Formulas
 
-To add ability bonuses/penalties to roll formulas (damage or special ability), you can use `@str.bonus`. Replace `str` with `int`, `wis`, `dex`, `con` or `cha`. You can use the full ability with just `@str`, for example if you wanted to do something like `d20<=@str`. `@lvl` is available as short-hand for the character level.
+To add ability bonuses/penalties to roll formulas (damage or special ability), you can use `@str.bonus`. Replace `str` with `int`, `wis`, `dex`, `con` or `cha`. You can use the full ability value with `@str.value`, for example if you wanted to do something like `d20<=@str.value`. `@lvl` is available as short-hand for the character level.
 
 ### Character Special Abilities
 
-Special Abilities are a flexible item type with just a description and a roll formula. They can be used for thief abilities (formula: d100), open doors checks (d6), or even just as text (formula left blank). Clicking the icon in the list will either roll the formula if present, or output the description to the chat window.
+Special Abilities are a flexible item type with just a description and a roll formula and an optional target number. They can be used for thief abilities (formula: d100), open doors checks (d6), or even just as text (formula left blank). Clicking the icon in the list will either roll the formula if present, or output the description to the chat window.
 
 ### Monster Special Abilities
 
@@ -30,7 +30,7 @@ The monster sheet has a "special abilities" field. This field should be 0, 1, or
 
 ## License
 
-All software components are licensed under the MIT license - see *LICENSE.txt* for details.
+All software components are licensed under the MIT license - see [LICENSE.txt](https://raw.githubusercontent.com/orffen/basicfantasyrpg/main/LICENSE.txt) for details.
 
 Basic Fantasy Role-Playing Game content is distributed under the terms of the [Creative Commons Attribution-ShareAlike 4.0 International License](https://creativecommons.org/licenses/by-sa/4.0/).
 
