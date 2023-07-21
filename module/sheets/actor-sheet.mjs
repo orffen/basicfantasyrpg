@@ -270,7 +270,7 @@ export class BasicFantasyRPGActorSheet extends ActorSheet {
    * @param {Event} event   The originating click event
    * @private
    */
-  _onRoll(event) {
+  async _onRoll(event) {
     event.preventDefault();
     const element = event.currentTarget;
     const dataset = element.dataset;
@@ -280,7 +280,7 @@ export class BasicFantasyRPGActorSheet extends ActorSheet {
       if (dataset.rollType == 'weapon') {
         const itemId = element.closest('.item').dataset.itemId;
         const item = this.actor.items.get(itemId);
-        let label = dataset.label ? `<span class="chat-item-name">Roll: ${dataset.label}</span>` : `<span class="chat-item-name">Roll: ${dataset.attack.capitalize()} attack with ${item.name}</span>`;
+        let label = dataset.label ? `<span class="chat-item-name">${game.i18n.localize('BASICFANTASYRPG.Roll')}: ${dataset.label}</span>` : `<span class="chat-item-name">${game.i18n.localize('BASICFANTASYRPG.Roll')}: ${dataset.attack.capitalize()} attack with ${item.name}</span>`;
         let rollFormula = 'd20+@ab';
         if (this.actor.type == 'character') {
           if (dataset.attack == 'melee') {
@@ -309,8 +309,18 @@ export class BasicFantasyRPGActorSheet extends ActorSheet {
 
     // Handle rolls that supply the formula directly.
     if (dataset.roll) {
-      let label = dataset.label ? `<span class="chat-item-name">Roll: ${dataset.label}</span>` : '';
+      let label = dataset.label ? `<span class="chat-item-name">${game.i18n.localize('BASICFANTASYRPG.Roll')}: ${dataset.label}</span>` : '';
       let roll = new Roll(dataset.roll, this.actor.getRollData());
+      await roll.roll();
+      if (dataset.targetNumber) {
+        label += `<span class="chat-item-description">`;
+        if (Number(roll.total) == 20 || (Number(roll.total) > 1 && Number(roll.total) >= Number(dataset.targetNumber))) {
+          label += `<span class="chat-roll-success">${game.i18n.localize('BASICFANTASYRPG.Success')}</span>`;
+        } else {
+          label += `<span class="chat-roll-failure">${game.i18n.localize('BASICFANTASYRPG.Failure')}</span>`;
+        }
+        label += ` ${game.i18n.localize('BASICFANTASYRPG.VersusAbbr')} ${game.i18n.localize('BASICFANTASYRPG.TargetNumber').toLowerCase()} <span class="chat-roll-target-number">${dataset.targetNumber}</span></span>`;
+      }
       roll.toMessage({
         speaker: ChatMessage.getSpeaker({ actor: this.actor }),
         flavor: label,
