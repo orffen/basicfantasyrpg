@@ -315,9 +315,9 @@ export class BasicFantasyRPGActorSheet extends ActorSheet {
       if (dataset.targetNumber && !isNaN(dataset.targetNumber)) {
         label += `<span class="chat-item-description">`;
         if (Number(roll.total) == 20 || (Number(roll.total) > 1 && Number(roll.total) >= Number(dataset.targetNumber))) {
-          label += `<span class="chat-roll-success">${game.i18n.localize('BASICFANTASYRPG.Success')}</span>`;
+          label += `<span class="chat-roll-success">&#9989;&nbsp;${game.i18n.localize('BASICFANTASYRPG.Success')}</span>`;
         } else {
-          label += `<span class="chat-roll-failure">${game.i18n.localize('BASICFANTASYRPG.Failure')}</span>`;
+          label += `<span class="chat-roll-failure">&#9940;&nbsp;${game.i18n.localize('BASICFANTASYRPG.Failure')}</span>`;
         }
         label += ` ${game.i18n.localize('BASICFANTASYRPG.VersusAbbr')} ${game.i18n.localize('BASICFANTASYRPG.TargetNumber').toLowerCase()} <span class="chat-roll-target-number">${dataset.targetNumber}</span></span>`;
       }
