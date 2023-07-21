@@ -1,3 +1,4 @@
+import {successChatMessage} from "../helpers/chat.mjs";
 import {onManageActiveEffect, prepareActiveEffectCategories} from "../helpers/effects.mjs";
 
 /**
@@ -270,17 +271,17 @@ export class BasicFantasyRPGActorSheet extends ActorSheet {
    * @param {Event} event   The originating click event
    * @private
    */
-  _onRoll(event) {
+  async _onRoll(event) {
     event.preventDefault();
     const element = event.currentTarget;
     const dataset = element.dataset;
 
     if (dataset.rollType) {
-      // Handle weapon rolls. TODO: this could be moved into the item.roll() function instead
+      // Handle weapon rolls.
       if (dataset.rollType == 'weapon') {
         const itemId = element.closest('.item').dataset.itemId;
         const item = this.actor.items.get(itemId);
-        let label = dataset.label ? `Roll: ${dataset.label}` : `Roll: ${dataset.attack.capitalize()} attack with ${item.name}`;
+        let label = dataset.label ? `<span class="chat-item-name">${game.i18n.localize('BASICFANTASYRPG.Roll')}: ${dataset.label}</span>` : `<span class="chat-item-name">${game.i18n.localize('BASICFANTASYRPG.Roll')}: ${dataset.attack.capitalize()} attack with ${item.name}</span>`;
         let rollFormula = 'd20+@ab';
         if (this.actor.type == 'character') {
           if (dataset.attack == 'melee') {
@@ -309,8 +310,10 @@ export class BasicFantasyRPGActorSheet extends ActorSheet {
 
     // Handle rolls that supply the formula directly.
     if (dataset.roll) {
-      let label = dataset.label ? `Roll: ${dataset.label}` : '';
+      let label = dataset.label ? `<span class="chat-item-name">${game.i18n.localize('BASICFANTASYRPG.Roll')}: ${dataset.label}</span>` : '';
       let roll = new Roll(dataset.roll, this.actor.getRollData());
+      await roll.roll();
+      label += successChatMessage(roll.total, dataset.targetNumber);
       roll.toMessage({
         speaker: ChatMessage.getSpeaker({ actor: this.actor }),
         flavor: label,
@@ -319,5 +322,4 @@ export class BasicFantasyRPGActorSheet extends ActorSheet {
       return roll;
     }
   }
-
 }

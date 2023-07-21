@@ -1,3 +1,5 @@
+import {successChatMessage} from "../helpers/chat.mjs";
+
 /**
  * Extend the basic Item with some very simple modifications.
  * @extends {Item}
@@ -34,26 +36,28 @@ export class BasicFantasyRPGItem extends Item {
     const item = this;
 
     // Initialize chat data.
-    const speaker = ChatMessage.getSpeaker({ actor: this.actor });
+    const speaker = ChatMessage.getSpeaker({ actor: item.actor });
     const rollMode = game.settings.get('core', 'rollMode');
-    const label = `Roll: ${game.i18n.localize('ITEM.Type' + item.type.capitalize())} - ${item.name}`;
 
-    // If there's no roll data, or the formula is empty, send a chat message.
-    if (!this.system.formula || !this.system.formula.value) {
+    // If there's no roll data, or the formula is empty, just send a chat message.
+    if (!item.system.formula || !item.system.formula.value) {
       ChatMessage.create({
         speaker: speaker,
         rollMode: rollMode,
-        flavor: label,
-        content: item.description ?? ''
+        flavor: `<span class="chat-item-name">${game.i18n.localize('ITEM.Type' + item.type.capitalize())} - ${item.name}</span>`,
+        content: item.system.description ? `<span class="chat-item-description">${item.system.description}</span>` : ''
       });
     } else { // Otherwise, create a roll and send a chat message from it.
-      // Retrieve roll data.
-      const rollData = this.getRollData();
+      let label = `<span class="chat-item-name">${game.i18n.localize('BASICFANTASYRPG.Roll')}: ${game.i18n.localize('ITEM.Type' + item.type.capitalize())} - ${item.name}</span>`;
+      if (item.type == 'feature' && item.system.description) {
+        label += `<span class="chat-item-description">${item.system.description}</span>`;
+      }
 
-      // Invoke the roll and submit it to chat.
+      // Retrieve roll data and invoke the roll
+      const rollData = item.getRollData();
       const roll = new Roll(rollData.item.formula.value, rollData);
-      // If you need to store the value first, uncomment the next line.
-      // let result = await roll.roll({async: true});
+      await roll.roll();
+      label += successChatMessage(roll.total, rollData.item.targetNumber.value, true);
       roll.toMessage({
         speaker: speaker,
         rollMode: rollMode,

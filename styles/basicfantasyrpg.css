@@ -109,6 +109,42 @@
   cursor: pointer;
 }
 
+.chat-message {
+  font-family: "Century Gothic", "TeX Gyre Adventor", var(--font-primary);
+}
+
+.chat-message .chat-item-name {
+  color: black;
+  display: block;
+  font-size: 14px;
+  font-weight: bold;
+  text-shadow: 1px 1px 2px #aaa;
+}
+
+.chat-message .chat-item-description {
+  font-family: "Soutane", "Century Gothic", "TeX Gyre Adventor", var(--font-primary);
+  font-size: 14px;
+}
+
+.chat-message .chat-item-description .chat-roll-success {
+  color: green;
+  font-variant: small-caps;
+  font-weight: bold;
+  text-shadow: 0 0 2px;
+}
+
+.chat-message .chat-item-description .chat-roll-failure {
+  color: darkred;
+  font-variant: small-caps;
+  font-weight: bold;
+  text-shadow: 0 0 2px;
+}
+
+.chat-message .chat-item-description .chat-roll-target-number {
+  font-weight: bold;
+  text-shadow: 0 0 2px;
+}
+
 .grid,
 .grid-2col {
   display: grid;
@@ -440,14 +476,6 @@
   display: -ms-flexbox;
   display: flex;
 }
-
-/*.basicfantasyrpg .items-header .item-detail {
-  font-weight: bold;
-  text-align: left;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}*/
 
 .basicfantasyrpg .items-list {
   list-style: none;
