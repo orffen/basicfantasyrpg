@@ -43,7 +43,7 @@ export class BasicFantasyRPGItem extends Item {
         speaker: speaker,
         rollMode: rollMode,
         flavor: `<span class="chat-item-name">${game.i18n.localize('ITEM.Type' + item.type.capitalize())} - ${item.name}</span>`,
-        content: item.description ?? ''
+        content: item.system.description ? `<span class="chat-item-description">${item.system.description}</span>` : ''
       });
     } else { // Otherwise, create a roll and send a chat message from it.
       let label = `<span class="chat-item-name">Roll: ${game.i18n.localize('ITEM.Type' + item.type.capitalize())} - ${item.name}</span>`;
