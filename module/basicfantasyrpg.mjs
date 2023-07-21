@@ -71,6 +71,10 @@ Handlebars.registerHelper('localizeLowerCase', function(str) {
   return game.i18n.localize(str).toLowerCase();
 });
 
+Handlebars.registerHelper('calculateAbilityTargetNumber', function(lvl) {
+  return Math.floor(17 - (lvl / 2 - lvl % 2));
+})
+
 /* -------------------------------------------- */
 /*  Ready Hook                                  */
 /* -------------------------------------------- */
