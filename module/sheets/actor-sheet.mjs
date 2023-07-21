@@ -276,11 +276,11 @@ export class BasicFantasyRPGActorSheet extends ActorSheet {
     const dataset = element.dataset;
 
     if (dataset.rollType) {
-      // Handle weapon rolls. TODO: this could be moved into the item.roll() function instead
+      // Handle weapon rolls. TODO: this should be moved into the item.roll() function instead
       if (dataset.rollType == 'weapon') {
         const itemId = element.closest('.item').dataset.itemId;
         const item = this.actor.items.get(itemId);
-        let label = dataset.label ? `Roll: ${dataset.label}` : `Roll: ${dataset.attack.capitalize()} attack with ${item.name}`;
+        let label = dataset.label ? `<span class="chat-item-name">Roll: ${dataset.label}</span>` : `<span class="chat-item-name">Roll: ${dataset.attack.capitalize()} attack with ${item.name}</span>`;
         let rollFormula = 'd20+@ab';
         if (this.actor.type == 'character') {
           if (dataset.attack == 'melee') {
@@ -309,7 +309,7 @@ export class BasicFantasyRPGActorSheet extends ActorSheet {
 
     // Handle rolls that supply the formula directly.
     if (dataset.roll) {
-      let label = dataset.label ? `Roll: ${dataset.label}` : '';
+      let label = dataset.label ? `<span class="chat-item-name">Roll: ${dataset.label}</span>` : '';
       let roll = new Roll(dataset.roll, this.actor.getRollData());
       roll.toMessage({
         speaker: ChatMessage.getSpeaker({ actor: this.actor }),
@@ -319,5 +319,4 @@ export class BasicFantasyRPGActorSheet extends ActorSheet {
       return roll;
     }
   }
-
 }
