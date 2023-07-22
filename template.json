@@ -1,6 +1,6 @@
 {
   "Actor": {
-    "types": ["character", "monster"],
+    "types": ["character", "monster", "siegeEngine"],
     "templates": {
       "base": {
         "armorClass": {
@@ -153,6 +153,33 @@
         "value": 0,
         "label": "BASICFANTASYRPG.ExperiencePoints",
         "abbr": "BASICFANTASYRPG.ExperiencePointsAbbr"
+      }
+    },
+    "siegeEngine": {
+      "templates": ["base"],
+      "rateOfFire": {
+        "value": 0,
+        "label": "BASICFANTASYRPG.RateOfFire"
+      },
+      "damage": {
+        "value": 0,
+        "label": "BASICFANTASYRPG.Damage"
+      },
+      "shortRange": {
+        "value": 0,
+        "label": "BASICFANTASYRPG.ShortRange"
+      },
+      "mediumRange": {
+        "value": 0,
+        "label": "BASICFANTASYRPG.MediumRange"
+      },
+      "longRange": {
+        "value": 0,
+        "label": "BASICFANTASYRPG.LongRange"
+      },
+      "targetAC": {
+        "value": 20,
+        "label": "BASICFANTASYRPG.TargetAC"
       }
     }
   },
