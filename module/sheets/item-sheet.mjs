@@ -7,7 +7,7 @@ export class BasicFantasyRPGItemSheet extends ItemSheet {
   /** @override */
   static get defaultOptions() {
     return mergeObject(super.defaultOptions, {
-      classes: ["basicfantasyrpg", "sheet", "item"],
+      classes: ['basicfantasyrpg', 'sheet', 'item'],
       width: 520,
       height: 480
     });
@@ -15,7 +15,7 @@ export class BasicFantasyRPGItemSheet extends ItemSheet {
 
   /** @override */
   get template() {
-    const path = "systems/basicfantasyrpg/templates/item";
+    const path = 'systems/basicfantasyrpg/templates/item';
     // Return a single sheet for all item types.
     // return `${path}/item-sheet.html`;
 
