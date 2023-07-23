@@ -157,10 +157,6 @@
     },
     "siegeEngine": {
       "templates": ["base"],
-      "rateOfFire": {
-        "value": "",
-        "label": "BASICFANTASYRPG.RateOfFire"
-      },
       "cost": {
         "value": "",
         "label": "BASICFANTASYRPG.Cost"
@@ -169,17 +165,25 @@
         "value": 0,
         "label": "BASICFANTASYRPG.Damage"
       },
-      "shortRange": {
-        "value": "",
-        "label": "BASICFANTASYRPG.ShortRange"
+      "rangeBonus": {
+        "value": 0,
+        "label": "BASICFANTASYRPG.RangeBonus"
       },
-      "mediumRange": {
+      "rangeShort": {
         "value": "",
-        "label": "BASICFANTASYRPG.MediumRange"
+        "label": "BASICFANTASYRPG.RangeShort"
       },
-      "longRange": {
+      "rangeMedium": {
         "value": "",
-        "label": "BASICFANTASYRPG.LongRange"
+        "label": "BASICFANTASYRPG.RangeMedium"
+      },
+      "rangeLong": {
+        "value": "",
+        "label": "BASICFANTASYRPG.RangeLong"
+      },
+      "rateOfFire": {
+        "value": "",
+        "label": "BASICFANTASYRPG.RateOfFire"
       },
       "targetAC": {
         "value": 20,

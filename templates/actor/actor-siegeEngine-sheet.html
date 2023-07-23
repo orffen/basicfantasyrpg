@@ -38,9 +38,9 @@
     <aside class="sidebar">
       <div class="abilities flexcol">
         <div class="ability flexrow flex-group-center">
-          <label for="data.targetAC.value" class="resource-label flexlarge align-left"><a class="rollable" data-roll="d20{{numberFormat data.attackBonus.value decimals=0 sign=true}}+{{../input.radio.range.value}}" data-label="{{localize 'ACTOR.TypeSiegeEngine'}} {{localize 'BASICFANTASYRPG.Attack'}}" data-target-number="{{data.targetAC.value}}">{{localize 'BASICFANTASYRPG.TargetAC'}}</a></label>
+          <label for="data.targetAC.value" class="resource-label flexlarge align-left"><a class="rollable" data-roll="d20{{numberFormat data.attackBonus.value decimals=0 sign=true}}{{numberFormat data.rangeBonus.value decimals=0 sign=true}}" data-label="{{localize 'ACTOR.TypeSiegeEngine'}} {{localize 'BASICFANTASYRPG.Attack'}}" data-target-number="{{data.targetAC.value}}">{{localize 'BASICFANTASYRPG.TargetAC'}}</a></label>
           <input class="flexlarge" type="number" name="data.targetAC.value" value="{{data.targetAC.value}}" data-dtype="Number"/>
-          <a class="rollable align-right" data-roll="d20{{numberFormat data.attackBonus.value decimals=0 sign=true}}+{{../input.radio.range.value}}" data-label="{{localize 'ACTOR.TypeSiegeEngine'}} {{localize 'BASICFANTASYRPG.Attack'}}" data-target-number="{{data.targetAC.value}}"><img src="systems/basicfantasyrpg/styles/ranged.svg" title="{{localize 'BASICFANTASYRPG.Roll'}} {{localize 'BASICFANTASYRPG.Attack'}}" width="24" height="24"/></a>
+          <a class="rollable align-right" data-roll="d20{{numberFormat data.attackBonus.value decimals=0 sign=true}}{{numberFormat data.rangeBonus.value decimals=0 sign=true}}" data-label="{{localize 'ACTOR.TypeSiegeEngine'}} {{localize 'BASICFANTASYRPG.Attack'}}" data-target-number="{{data.targetAC.value}}"><img src="systems/basicfantasyrpg/styles/ranged.svg" title="{{localize 'BASICFANTASYRPG.Roll'}} {{localize 'BASICFANTASYRPG.Attack'}}" width="24" height="24"/></a>
         </div>
         <div class="ability flexrow flex-group-center">
           <label for="data.damage.value" class="resource-label flexlarge align-left"><a class="rollable" data-roll="{{data.damage.value}}" data-label="{{localize 'ACTOR.TypeSiegeEngine'}} {{localize 'BASICFANTASYRPG.Damage'}}">{{localize 'BASICFANTASYRPG.Damage'}}</a></label>
@@ -51,19 +51,19 @@
           <h2 class="resource-label">{{localize 'BASICFANTASYRPG.Range'}}</h2>
         </div>
         <div class="ability flexrow flex-group-center">
-          <label for="shortRange" class="resource-label flexlarge align-left">{{localize data.shortRange.label}}</label>
-          <input type="text" name="data.shortRange.value" value="{{data.shortRange.value}}"/>
-          <span class="flexshrink"><input type="radio" id="shortRange" name="range" value="+1"></span>
+          <label for="rangeShort" class="resource-label flexlarge align-left">{{localize data.rangeShort.label}}</label>
+          <input type="text" name="data.rangeShort.value" value="{{data.rangeShort.value}}"/>
+          <span class="flexshrink"><input type="radio" id="rangeShort" name="rangeBonus" value="1" {{#if (eq data.rangeBonus.value 1)}}checked{{/if}}></span>
         </div>
         <div class="ability flexrow flex-group-center">
-          <label for="mediumRange" class="resource-label flexlarge align-left">{{localize data.mediumRange.label}}</label>
-          <input type="text" name="data.mediumRange.value" value="{{data.mediumRange.value}}"/>
-          <span class="flexshrink"><input type="radio" id="mediumRange" name="range" value="0" checked></span>
+          <label for="rangeMedium" class="resource-label flexlarge align-left">{{localize data.rangeMedium.label}}</label>
+          <input type="text" name="data.rangeMedium.value" value="{{data.rangeMedium.value}}"/>
+          <span class="flexshrink"><input type="radio" id="rangeMedium" name="rangeBonus" value="0" {{#if (eq data.rangeBonus.value 0)}}checked{{/if}}></span>
         </div>
         <div class="ability flexrow flex-group-center">
-          <label for="longRange" class="resource-label flexlarge align-left">{{localize data.longRange.label}}</label>
-          <input type="text" name="data.longRange.value" value="{{data.longRange.value}}"/>
-          <span class="flexshrink"><input type="radio" id="longRange" name="range" value="-2"></span>
+          <label for="rangeLong" class="resource-label flexlarge align-left">{{localize data.rangeLong.label}}</label>
+          <input type="text" name="data.rangeLong.value" value="{{data.rangeLong.value}}"/>
+          <span class="flexshrink"><input type="radio" id="rangeLong" name="rangeBonus" value="-2" {{#if (eq data.rangeBonus.value -2)}}checked{{/if}}></span>
         </div>
       </div>
     </aside>

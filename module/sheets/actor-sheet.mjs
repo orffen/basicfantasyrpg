@@ -221,6 +221,11 @@ export class BasicFantasyRPGActorSheet extends ActorSheet {
     // Rollable abilities.
     html.find('.rollable').click(this._onRoll.bind(this));
 
+    // Siege Engine range bonuses
+    if (this.actor.type == "siegeEngine") {
+      html.find('input[name="rangeBonus"]').click(ev => this.actor.update({"system.rangeBonus.value": Number(ev.currentTarget.value)}));
+    }
+
     // Drag events for macros.
     if (this.actor.isOwner) {
       let handler = ev => this._onDragStart(ev);
