@@ -14,7 +14,7 @@ export function successChatMessage(result, targetNumber, percentile=false) {
     if (percentile) {
       success = (Number(result) <= Number(targetNumber));
     } else {
-      success = (Number(result) == 20 || (Number(result) > 1 && Number(result) >= Number(targetNumber)));
+      success = (Number(result) === 20 || (Number(result) > 1 && Number(result) >= Number(targetNumber)));
     }
     msg += `<span class="chat-item-description">`;
     if (success) {
