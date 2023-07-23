@@ -581,6 +581,13 @@
   font-size: 12px;
 }
 
+.basicfantasyrpg .abilities img,
+.basicfantasyrpg .items-list .item .item-name .item-image img,
+.basicfantasyrpg .items-list .item-prop img {
+  border: none;
+  vertical-align: middle;
+}
+
 .basicfantasyrpg .items-list .items-header {
   height: 28px;
   margin: 2px 0;
