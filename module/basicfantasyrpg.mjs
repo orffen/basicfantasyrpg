@@ -1,12 +1,12 @@
 // Import document classes.
-import { BasicFantasyRPGActor } from "./documents/actor.mjs";
-import { BasicFantasyRPGItem } from "./documents/item.mjs";
+import { BasicFantasyRPGActor } from './documents/actor.mjs';
+import { BasicFantasyRPGItem } from './documents/item.mjs';
 // Import sheet classes.
-import { BasicFantasyRPGActorSheet } from "./sheets/actor-sheet.mjs";
-import { BasicFantasyRPGItemSheet } from "./sheets/item-sheet.mjs";
+import { BasicFantasyRPGActorSheet } from './sheets/actor-sheet.mjs';
+import { BasicFantasyRPGItemSheet } from './sheets/item-sheet.mjs';
 // Import helper/utility classes and constants.
-import { preloadHandlebarsTemplates } from "./helpers/templates.mjs";
-import { BASICFANTASYRPG } from "./helpers/config.mjs";
+import { preloadHandlebarsTemplates } from './helpers/templates.mjs';
+import { BASICFANTASYRPG } from './helpers/config.mjs';
 
 /* -------------------------------------------- */
 /*  Init Hook                                   */
@@ -30,7 +30,7 @@ Hooks.once('init', async function() {
    * @type {String}
    */
   CONFIG.Combat.initiative = {
-    formula: "max(1, 1d6 + @abilities.dex.bonus + @initBonus.value)",
+    formula: 'max(1, 1d6 + @abilities.dex.bonus + @initBonus.value)',
     decimals: 0
   };
 
@@ -39,10 +39,10 @@ Hooks.once('init', async function() {
   CONFIG.Item.documentClass = BasicFantasyRPGItem;
 
   // Register sheet application classes
-  Actors.unregisterSheet("core", ActorSheet);
-  Actors.registerSheet("basicfantasyrpg", BasicFantasyRPGActorSheet, { makeDefault: true });
-  Items.unregisterSheet("core", ItemSheet);
-  Items.registerSheet("basicfantasyrpg", BasicFantasyRPGItemSheet, { makeDefault: true });
+  Actors.unregisterSheet('core', ActorSheet);
+  Actors.registerSheet('basicfantasyrpg', BasicFantasyRPGActorSheet, { makeDefault: true });
+  Items.unregisterSheet('core', ItemSheet);
+  Items.registerSheet('basicfantasyrpg', BasicFantasyRPGItemSheet, { makeDefault: true });
 
   // Preload Handlebars templates.
   return preloadHandlebarsTemplates();
@@ -68,17 +68,17 @@ Handlebars.registerHelper('calculateAbilityTargetNumber', function(lvl) {
 /*  Ready Hook                                  */
 /* -------------------------------------------- */
 
-Hooks.once("ready", async function() {
+Hooks.once('ready', async function() {
   // Wait to register hotbar drop hook on ready so that modules could register earlier if they want to
-  Hooks.on("hotbarDrop", (bar, data, slot) => createItemMacro(data, slot));
+  Hooks.on('hotbarDrop', (bar, data, slot) => createItemMacro(data, slot));
 });
 
 /* -------------------------------------------- */
 /*  Character Creation Hooks                    */
 /* -------------------------------------------- */
 
-Hooks.on("createActor", async function(actor) {
-  if (actor.type === "character") {
+Hooks.on('createActor', async function(actor) {
+  if (actor.type === 'character') {
     actor.updateSource({
       prototypeToken: {
         actorLink: true,
@@ -86,7 +86,7 @@ Hooks.on("createActor", async function(actor) {
       }
     });
   }
-  else if (actor.type === "monster") {
+  else if (actor.type === 'monster') {
     actor.updateSource({
       prototypeToken: {
         appendNumber: true,
@@ -100,8 +100,8 @@ Hooks.on("createActor", async function(actor) {
 /*  Token Creation Hooks                        */
 /* -------------------------------------------- */
 
-Hooks.on("createToken", async function(token, options, id) {
-  if (token.actor.type === "monster") {
+Hooks.on('createToken', async function(token, options, id) {
+  if (token.actor.type === 'monster') {
     let newHitPoints = new Roll(`${token.actor.system.hitDice.number}${token.actor.system.hitDice.size}+${token.actor.system.hitDice.mod}`);
     await newHitPoints.evaluate({ async: true });
     token.actor.system.hitPoints.value = Math.max(1, newHitPoints.total);
@@ -121,20 +121,20 @@ Hooks.on("createToken", async function(token, options, id) {
  * @returns {Promise}
  */
 async function createItemMacro(data, slot) {
-  if (data.type !== "Item") return;
-  if (!("data" in data)) return ui.notifications.warn("You can only create macro buttons for owned Items");
+  if (data.type !== 'Item') return;
+  if (!('data' in data)) return ui.notifications.warn('You can only create macro buttons for owned Items');
   const item = data.data;
 
   // Create the macro command
-  const command = `game.basicfantasyrpg.rollItemMacro("${item.name}");`;
+  const command = `game.basicfantasyrpg.rollItemMacro('${item.name}');`;
   let macro = game.macros.find(m => (m.name === item.name) && (m.command === command));
   if (!macro) {
     macro = await Macro.create({
       name: item.name,
-      type: "script",
+      type: 'script',
       img: item.img,
       command: command,
-      flags: { "basicfantasyrpg.itemMacro": true }
+      flags: { 'basicfantasyrpg.itemMacro': true }
     });
   }
   game.user.assignHotbarMacro(macro, slot);
