@@ -158,23 +158,27 @@
     "siegeEngine": {
       "templates": ["base"],
       "rateOfFire": {
-        "value": 0,
+        "value": "",
         "label": "BASICFANTASYRPG.RateOfFire"
+      },
+      "cost": {
+        "value": "",
+        "label": "BASICFANTASYRPG.Cost"
       },
       "damage": {
         "value": 0,
         "label": "BASICFANTASYRPG.Damage"
       },
       "shortRange": {
-        "value": 0,
+        "value": "",
         "label": "BASICFANTASYRPG.ShortRange"
       },
       "mediumRange": {
-        "value": 0,
+        "value": "",
         "label": "BASICFANTASYRPG.MediumRange"
       },
       "longRange": {
-        "value": 0,
+        "value": "",
         "label": "BASICFANTASYRPG.LongRange"
       },
       "targetAC": {
