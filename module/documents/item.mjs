@@ -1,4 +1,4 @@
-import {successChatMessage} from "../helpers/chat.mjs";
+import {successChatMessage} from '../helpers/chat.mjs';
 
 /**
  * Extend the basic Item with some very simple modifications.
@@ -49,7 +49,7 @@ export class BasicFantasyRPGItem extends Item {
       });
     } else { // Otherwise, create a roll and send a chat message from it.
       let label = `<span class="chat-item-name">${game.i18n.localize('BASICFANTASYRPG.Roll')}: ${game.i18n.localize('ITEM.Type' + item.type.capitalize())} - ${item.name}</span>`;
-      if (item.type == 'feature' && item.system.description) {
+      if (item.type === 'feature' && item.system.description) {
         label += `<span class="chat-item-description">${item.system.description}</span>`;
       }
 
