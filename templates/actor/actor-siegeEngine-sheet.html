@@ -4,7 +4,7 @@
   <header class="sheet-header">
     <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="100" width="100"/>
     <div class="header-fields">
-      <h1 class="charname"><input name="name" type="text" value="{{actor.name}}" placeholder="{{localize 'BASICFANTASYRPG.Name'}}"/></h1>
+      <h1 class="charname"><input name="name" type="text" value="{{actor.name}}" placeholder="{{localize 'BASICFANTASYRPG.Name'}}" data-dtype="String"/></h1>
       <div class="resources grid grid-3col">
 
         <div class="resource flex-group-center">
@@ -17,14 +17,14 @@
         <div class="resource flex-group-center">
           <label for="data.rateOfFire.value" class="resource-label">{{localize data.rateOfFire.label}}</label>
           <div class="resource-content flexrow flex-center flex-between">
-            <input type="text" name="data.rateOfFire.value" value="{{data.rateOfFire.value}}"/>
+            <input type="text" name="data.rateOfFire.value" value="{{data.rateOfFire.value}}" data-dtype="String"/>
           </div>
         </div>
 
         <div class="resource flex-group-center">
           <label for="data.cost.value" class="resource-label">{{localize data.cost.label}}</label>
           <div class="resource-content flexrow flex-center flex-between">
-            <input type="text" name="data.cost.value" value="{{data.cost.value}}"/>
+            <input type="text" name="data.cost.value" value="{{data.cost.value}}" data-dtype="String"/>
           </div>
         </div>
 
@@ -44,7 +44,7 @@
         </div>
         <div class="ability flexrow flex-group-center">
           <label for="data.damage.value" class="resource-label flexlarge align-left"><a class="rollable" data-roll="{{data.damage.value}}" data-label="{{localize 'ACTOR.TypeSiegeEngine'}} {{localize 'BASICFANTASYRPG.Damage'}}">{{localize 'BASICFANTASYRPG.Damage'}}</a></label>
-          <input class="flexlarge" type="text" name="data.damage.value" value="{{data.damage.value}}"/>
+          <input class="flexlarge" type="text" name="data.damage.value" value="{{data.damage.value}}" data-dtype="String"/>
           <a class="rollable align-right" data-roll="{{data.damage.value}}" data-label="{{localize 'ACTOR.TypeSiegeEngine'}} {{localize 'BASICFANTASYRPG.Damage'}}"><img src="systems/basicfantasyrpg/styles/damage.svg" title="{{localize 'BASICFANTASYRPG.Roll'}} {{localize 'BASICFANTASYRPG.Damage'}}" width="24" height="24"/></a>
         </div>
         <div class="ability flexrow flex-group-center">
@@ -52,17 +52,17 @@
         </div>
         <div class="ability flexrow flex-group-center">
           <label for="rangeShort" class="resource-label flexlarge align-left">{{localize data.rangeShort.label}}</label>
-          <input type="text" name="data.rangeShort.value" value="{{data.rangeShort.value}}"/>
+          <input type="text" name="data.rangeShort.value" value="{{data.rangeShort.value}}" data-dtype="String"/>
           <span class="flexshrink"><input type="radio" id="rangeShort" name="rangeBonus" value="1" {{#if (eq data.rangeBonus.value 1)}}checked{{/if}}></span>
         </div>
         <div class="ability flexrow flex-group-center">
           <label for="rangeMedium" class="resource-label flexlarge align-left">{{localize data.rangeMedium.label}}</label>
-          <input type="text" name="data.rangeMedium.value" value="{{data.rangeMedium.value}}"/>
+          <input type="text" name="data.rangeMedium.value" value="{{data.rangeMedium.value}}" data-dtype="String"/>
           <span class="flexshrink"><input type="radio" id="rangeMedium" name="rangeBonus" value="0" {{#if (eq data.rangeBonus.value 0)}}checked{{/if}}></span>
         </div>
         <div class="ability flexrow flex-group-center">
           <label for="rangeLong" class="resource-label flexlarge align-left">{{localize data.rangeLong.label}}</label>
-          <input type="text" name="data.rangeLong.value" value="{{data.rangeLong.value}}"/>
+          <input type="text" name="data.rangeLong.value" value="{{data.rangeLong.value}}" data-dtype="String"/>
           <span class="flexshrink"><input type="radio" id="rangeLong" name="rangeBonus" value="-2" {{#if (eq data.rangeBonus.value -2)}}checked{{/if}}></span>
         </div>
       </div>
