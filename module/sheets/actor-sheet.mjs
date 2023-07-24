@@ -318,7 +318,7 @@ export class BasicFantasyRPGActorSheet extends ActorSheet {
       let label = dataset.label ? `<span class="chat-item-name">${game.i18n.localize('BASICFANTASYRPG.Roll')}: ${dataset.label}</span>` : '';
       let roll = new Roll(dataset.roll, this.actor.getRollData());
       await roll.roll();
-      label += successChatMessage(roll.total, dataset.targetNumber);
+      label += successChatMessage(roll.total, dataset.targetNumber, dataset.rollUnder);
       roll.toMessage({
         speaker: ChatMessage.getSpeaker({ actor: this.actor }),
         flavor: label,

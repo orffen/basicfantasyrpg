@@ -52,6 +52,7 @@
   "BASICFANTASYRPG.Silver": "Silver",
   "BASICFANTASYRPG.Copper": "Copper",
 
+  "BASICFANTASYRPG.AbilityCheck": "Ability Check",
   "BASICFANTASYRPG.Add": "Add",
   "BASICFANTASYRPG.Age": "Age",
   "BASICFANTASYRPG.ArmorClass": "Armor Class",
@@ -95,6 +96,7 @@
   "BASICFANTASYRPG.RangeShort": "Short (+1)",
   "BASICFANTASYRPG.RateOfFire": "Rate of Fire",
   "BASICFANTASYRPG.Roll": "Roll",
+  "BASICFANTASYRPG.SavingThrow": "Saving Throw",
   "BASICFANTASYRPG.Sex": "Gender",
   "BASICFANTASYRPG.Size": "Size",
   "BASICFANTASYRPG.SpecialAbility": "Special Abilities",

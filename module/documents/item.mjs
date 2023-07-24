@@ -70,7 +70,7 @@ export class BasicFantasyRPGItem extends Item {
           ui.notifications.warn(`${game.i18n.localize('ERROR.InvalidTargetNumber')} ${game.i18n.localize('TYPES.Item.' + item.type)} - ${item.name}`, {localize: false, permanent: true});
         }
       }
-      label += successChatMessage(roll.total, targetParsed, true);
+      label += successChatMessage(roll.total, targetParsed, rollData.rollUnder);
       roll.toMessage({
         speaker: speaker,
         rollMode: rollMode,
