@@ -57,7 +57,20 @@ export class BasicFantasyRPGItem extends Item {
       const rollData = item.getRollData();
       const roll = new Roll(rollData.item.formula.value, rollData);
       await roll.roll();
-      label += successChatMessage(roll.total, rollData.item.targetNumber.value, true);
+
+      let targetParsed = rollData.item.targetNumber.value;
+      // targetNumber may be a formula - use a Roll object to parse it if it's not a number already
+      if (targetParsed && isNaN(targetParsed) && typeof targetParsed === 'string') {
+        try {
+          const rollTN = new Roll(targetParsed, rollData);
+          await rollTN.roll();
+          targetParsed = rollTN.total;
+        } catch {
+          targetParsed = '';
+          ui.notifications.warn(`${game.i18n.localize('ERROR.InvalidTargetNumber')} ${game.i18n.localize('TYPES.Item.' + item.type)} - ${item.name}`, {localize: false, permanent: true});
+        }
+      }
+      label += successChatMessage(roll.total, targetParsed, true);
       roll.toMessage({
         speaker: speaker,
         rollMode: rollMode,

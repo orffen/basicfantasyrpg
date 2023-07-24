@@ -3,6 +3,8 @@
   "ACTOR.TypeMonster": "Monster",
   "ACTOR.TypeSiegeEngine": "Siege Engine",
 
+  "ERROR.InvalidTargetNumber": "Couldn't parse target number:",
+
   "ITEM.TypeItem": "Equipment",
   "ITEM.TypeWeapon": "Weapon",
   "ITEM.TypeArmor": "Armor",
