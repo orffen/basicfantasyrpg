@@ -5,7 +5,7 @@
  * @param {Number} targetNumber The target number to beat for the roll to be successful
  * @param {Boolean} rollUnder Whether to check for rolling under the target number (defaults to false)
  *
- * @return {String}
+ * @return {String} Will return a blank message if it cannot parse result or targetNumber
  */
 export function successChatMessage(result, targetNumber, rollUnder=false) {
   let msg = '';
