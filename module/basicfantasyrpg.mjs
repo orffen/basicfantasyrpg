@@ -49,7 +49,7 @@ Hooks.once('init', async function() {
 });
 
 /* -------------------------------------------- */
-/*  Handlebars Helpers                          */
+/*  Handlebars Helpers & Partials               */
 /* -------------------------------------------- */
 
 Handlebars.registerHelper('toLowerCase', function(str) {
@@ -63,6 +63,15 @@ Handlebars.registerHelper('localizeLowerCase', function(str) {
 Handlebars.registerHelper('calculateAbilityTargetNumber', function(lvl) {
   return Math.floor(17 - (lvl / 2 - lvl % 2));
 })
+
+Handlebars.registerPartial('iconMelee', `<i class="fa-solid fa-hand-fist fa-2xl" title="{{localize 'BASICFANTASYRPG.Roll'}} {{localize 'BASICFANTASYRPG.Melee'}} {{localize 'BASICFANTASYRPG.Attack'}}"></i>`);
+//`<img src="systems/basicfantasyrpg/styles/melee.svg" title="{{localize 'BASICFANTASYRPG.Roll'}} {{localize 'BASICFANTASYRPG.Melee'}} {{localize 'BASICFANTASYRPG.Attack'}}" width="24" height="24"/>`
+
+Handlebars.registerPartial('iconRanged', `<i class="fa-solid fa-crosshairs fa-2xl" title="{{localize 'BASICFANTASYRPG.Roll'}} {{localize 'BASICFANTASYRPG.Ranged'}} {{localize 'BASICFANTASYRPG.Attack'}}"></i>`);
+//`<img src="systems/basicfantasyrpg/styles/ranged.svg" title="{{localize 'BASICFANTASYRPG.Roll'}} {{localize 'BASICFANTASYRPG.Ranged'}} {{localize 'BASICFANTASYRPG.Attack'}}" width="24" height="24"/>`
+
+Handlebars.registerPartial('iconDamage', `<i class="fa-solid fa-heart-crack fa-2xl" title="{{localize 'BASICFANTASYRPG.Roll'}} {{localize 'BASICFANTASYRPG.Damage'}}"></i>`);
+//`<img src="systems/basicfantasyrpg/styles/damage.svg" title="{{localize 'BASICFANTASYRPG.Roll'}} {{localize 'BASICFANTASYRPG.Damage'}}" width="24" height="24"/>`
 
 /* -------------------------------------------- */
 /*  Ready Hook                                  */
