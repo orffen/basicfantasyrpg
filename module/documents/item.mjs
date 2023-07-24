@@ -21,10 +21,10 @@ export class BasicFantasyRPGItem extends Item {
    getRollData() {
     // If present, return the actor's roll data.
     if ( !this.actor ) return null;
-    const rollData = this.actor.getRollData();
-    rollData.item = foundry.utils.deepClone(this.system);
+    const data = this.actor.getRollData();
+    data.item = foundry.utils.deepClone(this.system);
 
-    return rollData;
+    return data;
   }
 
   /**
