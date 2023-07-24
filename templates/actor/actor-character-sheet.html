@@ -59,9 +59,9 @@
           <div class="abilities flexcol">
             {{#each data.abilities as |ability key|}}
             <div class="ability flexrow flex-group-center">
-              <label for="data.abilities.{{key}}.value" class="resource-label rollable flexlarge align-left" title="{{localize 'BASICFANTASYRPG.Roll'}} {{localize 'BASICFANTASYRPG.AbilityCheck'}}" data-roll="d20+@abilities.{{key}}.bonus" data-label="{{ability.label}}" data-target-number="{{calculateAbilityTargetNumber ../data.level.value}}">{{ability.label}}</label>
+              <label for="data.abilities.{{key}}.value" class="resource-label rollable flexlarge align-left" title="{{localize 'BASICFANTASYRPG.Roll'}} {{localize 'BASICFANTASYRPG.AbilityCheck'}}" data-roll="d20{{numberFormat ability.bonus decimals=0 sign=true}}" data-label="{{ability.label}}" data-target-number="{{calculateAbilityTargetNumber ../data.level.value}}">{{ability.label}}</label>
               <input type="text" name="data.abilities.{{key}}.value" value="{{ability.value}}" data-dtype="Number"/>
-              <span class="ability-mod rollable" title="{{localize 'BASICFANTASYRPG.Roll'}} {{localize 'BASICFANTASYRPG.AbilityCheck'}}" data-roll="d20+@abilities.{{key}}.bonus" data-label="{{ability.label}}" data-target-number="{{calculateAbilityTargetNumber ../data.level.value}}">{{numberFormat ability.bonus decimals=0 sign=true}}</span>
+              <span class="ability-mod rollable" title="{{localize 'BASICFANTASYRPG.Roll'}} {{localize 'BASICFANTASYRPG.AbilityCheck'}}" data-roll="d20{{numberFormat ability.bonus decimals=0 sign=true}}" data-label="{{ability.label}}" data-target-number="{{calculateAbilityTargetNumber ../data.level.value}}">{{numberFormat ability.bonus decimals=0 sign=true}}</span>
             </div>
             {{/each}}
 
