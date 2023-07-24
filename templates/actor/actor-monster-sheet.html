@@ -17,7 +17,7 @@
         </div>
 
         <div class="resource flex-group-center">
-          <label for="data.hitDice" class="resource-label"><a class="rollable" data-roll="{{data.hitDice.number}}{{data.hitDice.size}}+{{data.hitDice.mod}}" data-label="{{localize data.hitDice.label}}">{{localize data.hitDice.abbr}}&nbsp;/&nbsp;{{localize data.specialAbility.label}}</a></label>
+          <label for="data.hitDice" class="resource-label rollable" title="{{localize 'BASICFANTASYRPG.Roll'}} {{localize data.hitDice.label}}" data-roll="{{data.hitDice.number}}{{data.hitDice.size}}+{{data.hitDice.mod}}" data-label="{{localize data.hitDice.label}}">{{localize data.hitDice.abbr}}&nbsp;/&nbsp;{{localize data.specialAbility.label}}</label>
           <div class="resource-content flexrow flex-center flex-between">
             <input type="number" name="data.hitDice.number" value="{{data.hitDice.number}}" data-dtype="Number"/>
             <input type="text" name="data.hitDice.size" value="{{data.hitDice.size}}" data-dtype="String"/>
@@ -33,14 +33,14 @@
       <div class="resources grid grid-4col">
 
         <div class="resource flex-group-center">
-          <label for="data.numberAppearing.value" class="resource-label"><a class="rollable" data-roll="{{data.numberAppearing.value}}" data-label="{{localize data.numberAppearing.label}}">{{localize data.numberAppearing.label}}</a></label>
+          <label for="data.numberAppearing.value" class="resource-label rollable" title="{{localize 'BASICFANTASYRPG.Roll'}} {{localize data.numberAppearing.label}}" data-roll="{{data.numberAppearing.value}}" data-label="{{localize data.numberAppearing.label}}">{{localize data.numberAppearing.label}}</label>
           <div class="resource-content flexrow flex-center flex-between">
             <input type="text" name="data.numberAppearing.value" value="{{data.numberAppearing.value}}" data-dtype="String"/>
           </div>
         </div>
 
         <div class="resource flex-group-center">
-          <label for="data.morale.value" class="resource-label"><a class="rollable" data-roll="2d6" data-label="{{localize data.morale.label}} ({{data.morale.value}})">{{localize data.morale.label}}</a></label>
+          <label for="data.morale.value" class="resource-label rollable" title="{{localize 'BASICFANTASYRPG.Roll'}} {{localize data.morale.label}}" data-roll="2d6" data-label="{{localize data.morale.label}}" data-target-number="{{data.morale.value}}" data-roll-under="true">{{localize data.morale.label}}</label>
           <div class="resource-content flexrow flex-center flex-between">
             <input type="number" name="data.morale.value" value="{{data.morale.value}}" data-dtype="Number"/>
           </div>
@@ -82,7 +82,7 @@
           <div class="abilities flexcol">
             {{#each data.saves as |save key|}}
             <div class="ability flexrow flex-group-center">
-              <label for="data.saves.{{key}}.value" class="resource-label rollable flexlarge align-left" data-roll="d20" data-label="Saving Throw - {{save.label}}" data-target-number="{{save.value}}">{{save.label}}</label>
+              <label for="data.saves.{{key}}.value" class="resource-label rollable flexlarge align-left" title="{{localize 'BASICFANTASYRPG.Roll'}} {{localize 'BASICFANTASYRPG.SavingThrow'}}" data-roll="d20" data-label="Saving Throw - {{save.label}}" data-target-number="{{save.value}}">{{save.label}}</label>
               <input type="text" name="data.saves.{{key}}.value" value="{{save.value}}" data-dtype="Number"/>
             </div>
             {{/each}}
