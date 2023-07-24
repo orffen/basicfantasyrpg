@@ -17,7 +17,7 @@
         </div>
 
         <div class="resource flex-group-center">
-          <label for="data.hitDice" class="resource-label rollable" title="{{localize 'BASICFANTASYRPG.Roll'}} {{localize data.hitDice.label}}" data-roll="{{data.hitDice.number}}{{data.hitDice.size}}+{{data.hitDice.mod}}" data-label="{{localize data.hitDice.label}}">{{localize data.hitDice.abbr}}&nbsp;/&nbsp;{{localize data.specialAbility.label}}</label>
+          <label for="data.hitDice" class="resource-label rollable" title="{{localize 'BASICFANTASYRPG.Roll'}} {{localize data.hitDice.label}}" data-roll="{{data.hitDice.number}}{{data.hitDice.size}}{{numberFormat data.hitDice.mod decimals=0 sign=true}}" data-label="{{localize data.hitDice.label}}">{{localize data.hitDice.abbr}}&nbsp;/&nbsp;{{localize data.specialAbility.label}}</label>
           <div class="resource-content flexrow flex-center flex-between">
             <input type="number" name="data.hitDice.number" value="{{data.hitDice.number}}" data-dtype="Number"/>
             <input type="text" name="data.hitDice.size" value="{{data.hitDice.size}}" data-dtype="String"/>
