@@ -66,11 +66,11 @@ export class BasicFantasyRPGItem extends Item {
           await rollTN.roll();
           targetParsed = rollTN.total;
         } catch {
+          ui.notifications.warn(`${game.i18n.localize('ERROR.InvalidTargetNumber')} ${game.i18n.localize('TYPES.Item.' + item.type)} - ${item.name}: ${targetParsed}`, {localize: false, permanent: true});
           targetParsed = '';
-          ui.notifications.warn(`${game.i18n.localize('ERROR.InvalidTargetNumber')} ${game.i18n.localize('TYPES.Item.' + item.type)} - ${item.name}`, {localize: false, permanent: true});
         }
       }
-      label += successChatMessage(roll.total, targetParsed, rollData.item.rollUnder);
+      label += successChatMessage(roll.total, targetParsed, rollData.item.rollUnder.value);
       roll.toMessage({
         speaker: speaker,
         rollMode: rollMode,
