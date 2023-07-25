@@ -156,7 +156,13 @@
       }
     },
     "siegeEngine": {
-      "templates": ["base"],
+      "templates": [],
+      "attackBonus": {
+        "value": 0,
+        "label": "BASICFANTASYRPG.AttackBonus",
+        "abbr": "BASICFANTASYRPG.AttackBonusAbbr"
+      },
+      "biography": "",
       "cost": {
         "value": "",
         "label": "BASICFANTASYRPG.Cost"
