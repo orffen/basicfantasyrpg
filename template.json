@@ -204,20 +204,24 @@
         "abbr": "BASICFANTASYRPG.ArmorClassAbbr"
       },
       "biography": "",
+      "cargo": {
+        "value": 0,
+        "label": "BASICFANTASYRPG.Cargo"
+      },
       "hardness": {
         "value": 0,
         "label": "BASICFANTASYRPG.Hardness"
       },
       "hitPoints": {
-        "forward": {
-          "value": 10,
-          "max": 10,
-          "label": "BASICFANTASYRPG.SideForward"
-        },
         "aft": {
           "value": 10,
           "max": 10,
           "label": "BASICFANTASYRPG.SideAft"
+        },
+        "forward": {
+          "value": 10,
+          "max": 10,
+          "label": "BASICFANTASYRPG.SideForward"
         },
         "port": {
           "value": 10,
@@ -232,6 +236,10 @@
         "label": "BASICFANTASYRPG.HitPoints",
         "abbr": "BASICFANTASYRPG.HitPointsAbbr"
       },
+      "length": {
+        "value": 35,
+        "label": "BASICFANTASYRPG.Length"
+      },
       "maneuverability": {
         "value": "15'",
         "label": "BASICFANTASYRPG.Maneuverability"
@@ -239,6 +247,10 @@
       "move": {
         "value": 20,
         "label": "BASICFANTASYRPG.Movement"
+      },
+      "width": {
+        "value": 8,
+        "label": "BASICFANTASYRPG.Width"
       }
     }
   },
