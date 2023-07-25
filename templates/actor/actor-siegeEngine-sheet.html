@@ -53,17 +53,17 @@
         <div class="resource flexrow flex-group-center">
           <label for="rangeShort" class="resource-label flexlarge align-left">{{localize data.rangeShort.label}}</label>
           <input type="text" name="data.rangeShort.value" value="{{data.rangeShort.value}}" data-dtype="String"/>
-          <span class="flexshrink"><input type="radio" id="rangeShort" name="rangeBonus" value="1" {{#if (eq data.rangeBonus.value 1)}}checked{{/if}}></span>
+          <span class="flexshrink"><input type="radio" id="rangeShort" name="rangeBonus" value="1" {{checked (eq data.rangeBonus.value 1)}}></span>
         </div>
         <div class="resource flexrow flex-group-center">
           <label for="rangeMedium" class="resource-label flexlarge align-left">{{localize data.rangeMedium.label}}</label>
           <input type="text" name="data.rangeMedium.value" value="{{data.rangeMedium.value}}" data-dtype="String"/>
-          <span class="flexshrink"><input type="radio" id="rangeMedium" name="rangeBonus" value="0" {{#if (eq data.rangeBonus.value 0)}}checked{{/if}}></span>
+          <span class="flexshrink"><input type="radio" id="rangeMedium" name="rangeBonus" value="0" {{checked (eq data.rangeBonus.value 0)}}></span>
         </div>
         <div class="resource flexrow flex-group-center">
           <label for="rangeLong" class="resource-label flexlarge align-left">{{localize data.rangeLong.label}}</label>
           <input type="text" name="data.rangeLong.value" value="{{data.rangeLong.value}}" data-dtype="String"/>
-          <span class="flexshrink"><input type="radio" id="rangeLong" name="rangeBonus" value="-2" {{#if (eq data.rangeBonus.value -2)}}checked{{/if}}></span>
+          <span class="flexshrink"><input type="radio" id="rangeLong" name="rangeBonus" value="-2" {{checked (eq data.rangeBonus.value -2)}}></span>
         </div>
       </div>
     </aside>
