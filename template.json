@@ -143,7 +143,7 @@
       },
       "specialAbility": {
         "value": 0,
-        "label": "BASICFANTASYRPG.SpecialAbility"
+        "label": "BASICFANTASYRPG.SpecialAbilityXPBonus"
       },
       "treasureType": {
         "value": "None",

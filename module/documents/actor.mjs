@@ -99,6 +99,9 @@ export class BasicFantasyRPGActor extends Actor {
 
     const data = actorData.system;
 
+    // Handle changed label for monster special ability XP bonus -- this will be handled in the system data model when it's implemented
+    data.specialAbility.label = 'BASICFANTASYRPG.SpecialAbilityXPBonus';
+
     data.xp.value = this._calculateMonsterXPValue();
     data.attackBonus.value = this._calculateMonsterAttackBonus();
   }
