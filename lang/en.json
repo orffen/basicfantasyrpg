@@ -4,7 +4,7 @@
   "ACTOR.TypeSiegeEngine": "Siege Engine",
   "ACTOR.TypeVehicle": "Vehicle",
 
-  "ERROR.InvalidTargetNumber": "Couldn't parse target number:",
+  "ERROR.InvalidTargetNumber": "Couldn't parse target number for",
 
   "ITEM.TypeItem": "Equipment",
   "ITEM.TypeWeapon": "Weapon",
@@ -104,6 +104,7 @@
   "BASICFANTASYRPG.RangeShort": "Short (+1)",
   "BASICFANTASYRPG.RateOfFire": "Rate of Fire",
   "BASICFANTASYRPG.Roll": "Roll",
+  "BASICFANTASYRPG.RollUnder": "Roll Under",
   "BASICFANTASYRPG.SavingThrow": "Saving Throw",
   "BASICFANTASYRPG.Sex": "Gender",
   "BASICFANTASYRPG.SideAft": "Aft",

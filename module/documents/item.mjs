@@ -14,6 +14,17 @@ export class BasicFantasyRPGItem extends Item {
     super.prepareData();
   }
 
+  /** @override */
+  prepareBaseData() {
+    const itemData = this;
+
+    // Handle items which are missing system.rollUnder.value -- this will be handled in the system data model when it's implemented
+    if (itemData.type === 'feature' && !itemData.system.rollUnder) {
+      itemData.system.rollUnder.value = true;
+      itemData.system.rollUnder.label = 'BASICFANTASYRPG.RollUnder';
+    }
+  }
+
   /**
    * Prepare a data object which is passed to any Roll formulas which are created related to this Item
    * @private

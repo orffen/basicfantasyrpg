@@ -335,6 +335,10 @@
         "value": "d100",
         "label": "BASICFANTASYRPG.Formula"
       },
+      "rollUnder": {
+        "value": true,
+        "label": "BASICFANTASYRPG.RollUnder"
+      },
       "targetNumber": {
         "value": "",
         "label": "BASICFANTASYRPG.TargetNumber"
