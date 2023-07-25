@@ -217,7 +217,7 @@ export class BasicFantasyRPGActor extends Actor {
     // Check if any 1 or 2 sides are reduced to 0 HP
     let sidesAtZeroHP = 0;
     for (let [key, side] of Object.entries(data.hitPoints)) {
-      if (['forward', 'aft', 'port', 'starboard'].includes(key) && side.value === 0) {
+      if (['forward', 'aft', 'port', 'starboard'].includes(key) && side.value === 0 && side.max !== 0) {
         ++sidesAtZeroHP;
       }
     }
