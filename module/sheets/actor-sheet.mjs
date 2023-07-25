@@ -56,6 +56,11 @@ export class BasicFantasyRPGActorSheet extends ActorSheet {
       this._prepareActorData(context);
     }
 
+    // Prepare Vehicle data and items
+    if (actorData.type === 'vehicle') {
+      this._prepareItems(context);
+    }
+
     // Add roll data for TinyMCE editors.
     context.rollData = context.actor.getRollData();
 

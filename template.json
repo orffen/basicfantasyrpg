@@ -209,28 +209,28 @@
         "label": "BASICFANTASYRPG.Cargo"
       },
       "hardness": {
-        "value": 0,
+        "value": 6,
         "label": "BASICFANTASYRPG.Hardness"
       },
       "hitPoints": {
         "aft": {
-          "value": 10,
-          "max": 10,
+          "value": 16,
+          "max": 16,
           "label": "BASICFANTASYRPG.SideAft"
         },
         "forward": {
-          "value": 10,
-          "max": 10,
+          "value": 16,
+          "max": 16,
           "label": "BASICFANTASYRPG.SideForward"
         },
         "port": {
-          "value": 10,
-          "max": 10,
+          "value": 16,
+          "max": 16,
           "label": "BASICFANTASYRPG.SidePort"
         },
         "starboard": {
-          "value": 10,
-          "max": 10,
+          "value": 16,
+          "max": 16,
           "label": "BASICFANTASYRPG.SideStarboard"
         },
         "label": "BASICFANTASYRPG.HitPoints",

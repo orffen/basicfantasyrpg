@@ -133,6 +133,7 @@
   text-shadow: 0 0 2px;
 }
 
+.basicfantasyrpg .failure-text,
 .chat-message .chat-item-description .chat-roll-failure {
   color: darkred;
   font-variant: small-caps;
@@ -362,6 +363,13 @@
   text-align: center;
 }
 
+.vertical-line {
+  border: none;
+  border-left: 1px solid var(--color-border-light-primary);
+  border-right: 1px solid var(--color-border-light-highlight);
+  width: 0;
+}
+
 /* Styles limited to basicfantasyrpg sheets */
 
 .basicfantasyrpg.sheet.actor {
@@ -581,9 +589,9 @@
   font-size: 12px;
 }
 
-.basicfantasyrpg .abilities img,
 .basicfantasyrpg .items-list .item .item-name .item-image img,
-.basicfantasyrpg .items-list .item-prop img {
+.basicfantasyrpg .items-list .item-prop img,
+.basicfantasyrpg .resources img {
   border: none;
   vertical-align: middle;
 }
