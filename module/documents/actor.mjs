@@ -17,6 +17,13 @@ export class BasicFantasyRPGActor extends Actor {
   prepareBaseData() {
     // Data modifications in this step occur before processing embedded
     // documents or derived data.
+    const actorData = this;
+
+    // Make separate methods for each Actor type to keep things organized.
+    this._prepareCharacterData(actorData);
+    this._prepareMonsterData(actorData);
+    this._prepareSiegeEngineData(actorData);
+    this._prepareVehicleData(actorData);
   }
 
   /**
@@ -30,21 +37,26 @@ export class BasicFantasyRPGActor extends Actor {
    */
   prepareDerivedData() {
     const actorData = this;
-    const data = actorData.system;
-    const flags = actorData.flags.basicfantasyrpg || {};
 
-    // Make separate methods for each Actor type (character, monster, etc.) to keep
-    // things organized.
-    this._prepareCharacterData(actorData);
-    this._prepareMonsterData(actorData);
-    this._prepareSiegeEngineData(actorData);
-    this._prepareVehicleData(actorData);
+    // Make separate methods for each Actor type to keep things organized.
+    this._prepareCharacterDerivedData(actorData);
+    this._prepareMonsterDerivedData(actorData);
+    this._prepareSiegeEngineDerivedData(actorData);
+    this._prepareVehicleDerivedData(actorData);
+  }
+
+
+  /**
+   * Prepare Character type template data
+   */
+  _prepareCharacterData(actorData) {
+    if (actorData.type !== 'character') return;
   }
 
   /**
-   * Prepare Character type specific data
+   * Prepare Character type derived data
    */
-  _prepareCharacterData(actorData) {
+  _prepareCharacterDerivedData(actorData) {
     if (actorData.type !== 'character') return;
 
     // Make modifications to data here. For example:
@@ -75,35 +87,19 @@ export class BasicFantasyRPGActor extends Actor {
       case 17: return 2;
       case 18: return 3;
       default: return 0;
-    };
+    }
   }
 
 
   /**
-   * Prepare Monster type specific data.
+   * Prepare Monster type template data.
    */
   _prepareMonsterData(actorData) {
     if (actorData.type !== 'monster') return;
 
     const data = actorData.system;
-    data.xp.value = function () {
-      let xpLookup = [10, 25, 75, 145, 240, 360, 500, 670, 875, 1075, 1300, 1575, 1875, 2175, 2500, 2850, 3250, 3600, 4000, 4500, 5250, 6000, 6750, 7500, 8250, 9000];
-      let specialAbilityLookup = [3, 12, 25, 30, 40, 45, 55, 65, 70, 75, 90, 95, 100, 110, 115, 125, 135, 145, 160, 175, 200, 225, 250, 275, 300, 325];
-      let xpValue = 0;
-      let xpSpecialAbilityBonus = 0;
-      if (data.hitDice.number < 1 || (data.hitDice.number === 1 && data.hitDice.mod < 0) || data.hitDice.size < 'd8') {
-        xpValue = xpLookup[0];
-        xpSpecialAbilityBonus = specialAbilityLookup[0] * data.specialAbility.value;
-      } else if (data.hitDice.number > 25) {
-        xpValue = 9000 + (data.hitDice.number - 25) * 750;
-        xpSpecialAbilityBonus = (325 + (data.hitDice.number - 25) * 25) * data.specialAbility.value;
-      } else {
-        xpValue = xpLookup[data.hitDice.number];
-        xpSpecialAbilityBonus = specialAbilityLookup[data.hitDice.number] * data.specialAbility.value;
-      }
-      return xpValue + Math.max(0, xpSpecialAbilityBonus); // never return a negative special ability bonus
-    };
 
+    data.xp.value = this._calculateMonsterXPValue();
     data.attackBonus.value = this._calculateMonsterAttackBonus();
   }
 
@@ -111,12 +107,13 @@ export class BasicFantasyRPGActor extends Actor {
    * Calculate monster attack bonus
    */
   _calculateMonsterAttackBonus() {
-    if (this.system.hitDice.number < 1) {
+    const hitDiceNumber = this.system.hitDice.number;
+    if (hitDiceNumber < 1) {
       return 0;
-    } else if (this.system.hitDice.number > 31) {
+    } else if (hitDiceNumber > 31) {
       return 16;
     }
-    switch (this.system.hitDice.number) {
+    switch (hitDiceNumber) {
       case 9: return 8;
       case 10:
       case 11: return 9
@@ -140,24 +137,58 @@ export class BasicFantasyRPGActor extends Actor {
       case 29:
       case 30:
       case 31: return 15;
-      default: return this.system.hitDice.number; // this handles 1-9
+      default: return hitDiceNumber; // this handles 1-9
     }
   }
 
+  /**
+   * Calculate Monster XP value
+   */
+  _calculateMonsterXPValue() {
+    const hitDice = this.system.hitDice;
+    const specialAbility = this.system.specialAbility.value;
+    let xpLookup = [10, 25, 75, 145, 240, 360, 500, 670, 875, 1075, 1300, 1575, 1875, 2175, 2500, 2850, 3250, 3600, 4000, 4500, 5250, 6000, 6750, 7500, 8250, 9000];
+    let specialAbilityLookup = [3, 12, 25, 30, 40, 45, 55, 65, 70, 75, 90, 95, 100, 110, 115, 125, 135, 145, 160, 175, 200, 225, 250, 275, 300, 325];
+    let xpValue = 0;
+    let xpSpecialAbilityBonus = 0;
+    if (hitDice.number < 1 || (hitDice.number === 1 && hitDice.mod < 0) || hitDice.size < 'd8') {
+      xpValue = xpLookup[0];
+      xpSpecialAbilityBonus = specialAbilityLookup[0] * specialAbility;
+    } else if (hitDice.number > 25) {
+      xpValue = 9000 + (hitDice.number - 25) * 750;
+      xpSpecialAbilityBonus = (325 + (hitDice.number - 25) * 25) * specialAbility;
+    } else {
+      xpValue = xpLookup[hitDice.number];
+      xpSpecialAbilityBonus = specialAbilityLookup[hitDice.number] * specialAbility;
+    }
+    return xpValue + Math.max(0, xpSpecialAbilityBonus); // never return a negative special ability bonus
+  }
 
   /**
-   * Prepare Siege Engine type specific data
+   * Prepare Monster type derived data.
    */
-  _prepareSiegeEngineData(actorData) {
-    if (actorData.type !== 'siegeEngine') return;
-
-    // Prepare additional Siege Engine data here
-
+  _prepareMonsterDerivedData(actorData) {
+    if (actorData.type !== 'monster') return;
   }
 
 
   /**
-   * Prepare Vehicle type specific data
+   * Prepare Siege Engine type template data
+   */
+  _prepareSiegeEngineData(actorData) {
+    if (actorData.type !== 'siegeEngine') return;
+  }
+
+  /**
+   * Prepare Siege Engine type derived data
+   */
+  _prepareSiegeEngineDerivedData(actorData) {
+    if (actorData.type !== 'siegeEngine') return;
+  }
+
+
+  /**
+   * Prepare Vehicle type template data
    */
   _prepareVehicleData(actorData) {
     if (actorData.type !== 'vehicle') return;
@@ -173,6 +204,15 @@ export class BasicFantasyRPGActor extends Actor {
         data.hitPoints.max += side.max;
       }
     }
+  }
+
+  /**
+   * Prepare Vehicle type derived data
+   */
+  _prepareVehicleDerivedData(actorData) {
+    if (actorData.type !== 'vehicle') return;
+
+    const data = actorData.system;
 
     // Check if any 1 or 2 sides are reduced to 0 HP
     let sidesAtZeroHP = 0;
@@ -189,7 +229,6 @@ export class BasicFantasyRPGActor extends Actor {
       data.move.current = data.move.value;
     }
   }
-
 
 
   /**
