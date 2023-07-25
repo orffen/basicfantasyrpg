@@ -1,6 +1,6 @@
 {
   "Actor": {
-    "types": ["character", "monster", "siegeEngine"],
+    "types": ["character", "monster", "siegeEngine", "vehicle"],
     "templates": {
       "base": {
         "armorClass": {
@@ -194,6 +194,51 @@
       "targetAC": {
         "value": 20,
         "label": "BASICFANTASYRPG.TargetAC"
+      }
+    },
+    "vehicle": {
+      "templates": [],
+      "armorClass": {
+        "value": 11,
+        "label": "BASICFANTASYRPG.ArmorClass",
+        "abbr": "BASICFANTASYRPG.ArmorClassAbbr"
+      },
+      "biography": "",
+      "hardness": {
+        "value": 0,
+        "label": "BASICFANTASYRPG.Hardness"
+      },
+      "hitPoints": {
+        "forward": {
+          "value": 10,
+          "max": 10,
+          "label": "BASICFANTASYRPG.SideForward"
+        },
+        "aft": {
+          "value": 10,
+          "max": 10,
+          "label": "BASICFANTASYRPG.SideAft"
+        },
+        "port": {
+          "value": 10,
+          "max": 10,
+          "label": "BASICFANTASYRPG.SidePort"
+        },
+        "starboard": {
+          "value": 10,
+          "max": 10,
+          "label": "BASICFANTASYRPG.SideStarboard"
+        },
+        "label": "BASICFANTASYRPG.HitPoints",
+        "abbr": "BASICFANTASYRPG.HitPointsAbbr"
+      },
+      "maneuverability": {
+        "value": "15'",
+        "label": "BASICFANTASYRPG.Maneuverability"
+      },
+      "move": {
+        "value": 20,
+        "label": "BASICFANTASYRPG.Movement"
       }
     }
   },
