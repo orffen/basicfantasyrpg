@@ -36,31 +36,31 @@
   <section class="sheet-body grid grid-3col">
 
     <aside class="sidebar">
-      <div class="abilities flexcol">
-        <div class="ability flexrow flex-group-center">
+      <div class="resources flexcol">
+        <div class="resource flexrow flex-group-center">
           <label for="data.targetAC.value" class="resource-label flexlarge align-left rollable" title="{{localize 'BASICFANTASYRPG.Roll'}} {{localize 'BASICFANTASYRPG.Attack'}}" data-roll="d20{{numberFormat data.attackBonus.value decimals=0 sign=true}}{{numberFormat data.rangeBonus.value decimals=0 sign=true}}" data-label="{{localize 'ACTOR.TypeSiegeEngine'}} {{localize 'BASICFANTASYRPG.Attack'}}" data-target-number="{{data.targetAC.value}}">{{localize 'BASICFANTASYRPG.TargetAC'}}</label>
           <input class="flexlarge" type="number" name="data.targetAC.value" value="{{data.targetAC.value}}" data-dtype="Number"/>
           <a class="rollable align-right" data-roll="d20{{numberFormat data.attackBonus.value decimals=0 sign=true}}{{numberFormat data.rangeBonus.value decimals=0 sign=true}}" data-label="{{localize 'ACTOR.TypeSiegeEngine'}} {{localize 'BASICFANTASYRPG.Attack'}}" data-target-number="{{data.targetAC.value}}">{{> iconRanged}}</a>
         </div>
-        <div class="ability flexrow flex-group-center">
+        <div class="resource flexrow flex-group-center">
           <label for="data.damage.value" class="resource-label flexlarge align-left rollable" title="{{localize 'BASICFANTASYRPG.Roll'}} {{localize 'BASICFANTASYRPG.Damage'}}" data-roll="{{data.damage.value}}" data-label="{{localize 'ACTOR.TypeSiegeEngine'}} {{localize 'BASICFANTASYRPG.Damage'}}">{{localize 'BASICFANTASYRPG.Damage'}}</label>
           <input class="flexlarge" type="text" name="data.damage.value" value="{{data.damage.value}}" data-dtype="String"/>
           <a class="rollable align-right" data-roll="{{data.damage.value}}" data-label="{{localize 'ACTOR.TypeSiegeEngine'}} {{localize 'BASICFANTASYRPG.Damage'}}">{{> iconDamage}}</a>
         </div>
-        <div class="ability flexrow flex-group-center">
+        <div class="resource flexrow flex-group-center">
           <h2 class="resource-label">{{localize 'BASICFANTASYRPG.Range'}}</h2>
         </div>
-        <div class="ability flexrow flex-group-center">
+        <div class="resource flexrow flex-group-center">
           <label for="rangeShort" class="resource-label flexlarge align-left">{{localize data.rangeShort.label}}</label>
           <input type="text" name="data.rangeShort.value" value="{{data.rangeShort.value}}" data-dtype="String"/>
           <span class="flexshrink"><input type="radio" id="rangeShort" name="rangeBonus" value="1" {{#if (eq data.rangeBonus.value 1)}}checked{{/if}}></span>
         </div>
-        <div class="ability flexrow flex-group-center">
+        <div class="resource flexrow flex-group-center">
           <label for="rangeMedium" class="resource-label flexlarge align-left">{{localize data.rangeMedium.label}}</label>
           <input type="text" name="data.rangeMedium.value" value="{{data.rangeMedium.value}}" data-dtype="String"/>
           <span class="flexshrink"><input type="radio" id="rangeMedium" name="rangeBonus" value="0" {{#if (eq data.rangeBonus.value 0)}}checked{{/if}}></span>
         </div>
-        <div class="ability flexrow flex-group-center">
+        <div class="resource flexrow flex-group-center">
           <label for="rangeLong" class="resource-label flexlarge align-left">{{localize data.rangeLong.label}}</label>
           <input type="text" name="data.rangeLong.value" value="{{data.rangeLong.value}}" data-dtype="String"/>
           <span class="flexshrink"><input type="radio" id="rangeLong" name="rangeBonus" value="-2" {{#if (eq data.rangeBonus.value -2)}}checked{{/if}}></span>
