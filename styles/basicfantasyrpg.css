@@ -126,6 +126,7 @@
   font-size: 14px;
 }
 
+.basicfantasyrpg .success-text,
 .chat-message .chat-item-description .chat-roll-success {
   color: green;
   font-variant: small-caps;
