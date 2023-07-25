@@ -23,12 +23,12 @@
   "TYPES.Item.spell": "Spell",
   "TYPES.Item.feature": "Special Ability",
 
-  "BASICFANTASYRPG.CargoTab": "Cargo",
-  "BASICFANTASYRPG.CombatTab": "Combat",
-  "BASICFANTASYRPG.DescriptionTab": "Description",
-  "BASICFANTASYRPG.ItemsTab": "Equipment",
-  "BASICFANTASYRPG.SpellsTab": "Spells",
-  "BASICFANTASYRPG.FeaturesTab": "Special Abilities",
+  "BASICFANTASYRPG.TabCargo": "Cargo",
+  "BASICFANTASYRPG.TabCombat": "Combat",
+  "BASICFANTASYRPG.TabDescription": "Description",
+  "BASICFANTASYRPG.TabFeatures": "Special Abilities",
+  "BASICFANTASYRPG.TabItems": "Equipment",
+  "BASICFANTASYRPG.TabSpells": "Spells",
 
   "BASICFANTASYRPG.AbilityStr": "Strength",
   "BASICFANTASYRPG.AbilityCon": "Constitution",
