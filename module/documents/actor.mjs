@@ -37,6 +37,8 @@ export class BasicFantasyRPGActor extends Actor {
     // things organized.
     this._prepareCharacterData(actorData);
     this._prepareMonsterData(actorData);
+    this._prepareSiegeEngineData(actorData);
+    this._prepareVehicleData(actorData);
   }
 
   /**
@@ -75,6 +77,7 @@ export class BasicFantasyRPGActor extends Actor {
       default: return 0;
     };
   }
+
 
   /**
    * Prepare Monster type specific data.
@@ -141,6 +144,54 @@ export class BasicFantasyRPGActor extends Actor {
     }
   }
 
+
+  /**
+   * Prepare Siege Engine type specific data
+   */
+  _prepareSiegeEngineData(actorData) {
+    if (actorData.type !== 'siegeEngine') return;
+
+    // Prepare additional Siege Engine data here
+
+  }
+
+
+  /**
+   * Prepare Vehicle type specific data
+   */
+  _prepareVehicleData(actorData) {
+    if (actorData.type !== 'vehicle') return;
+
+    const data = actorData.system;
+    data.hitPoints.value = 0;
+    data.hitPoints.max = 0;
+
+    // Calculate totals for HP value and HP max
+    for (let [key, side] of Object.entries(data.hitPoints)) {
+      if (['forward', 'aft', 'port', 'starboard'].includes(key)) {
+        data.hitPoints.value += side.value;
+        data.hitPoints.max += side.max;
+      }
+    }
+
+    // Check if any 1 or 2 sides are reduced to 0 HP
+    let sidesAtZeroHP = 0;
+    for (let [key, side] of Object.entries(data.hitPoints)) {
+      if (['forward', 'aft', 'port', 'starboard'].includes(key) && side.value === 0) {
+        ++sidesAtZeroHP;
+      }
+    }
+    if (sidesAtZeroHP === 1) {
+      data.move.current = Math.floor(data.move.value / 2);
+    } else if (sidesAtZeroHP > 1) {
+      data.move.current = 0;
+    } else {
+      data.move.current = data.move.value;
+    }
+  }
+
+
+
   /**
    * Override getRollData() that's supplied to rolls.
    */
@@ -150,6 +201,8 @@ export class BasicFantasyRPGActor extends Actor {
     // Prepare character roll data.
     this._getCharacterRollData(data);
     this._getMonsterRollData(data);
+    this._getSiegeEngineRollData(data);
+    this._getVehicleRollData(data);
     this._getActorRollData(data);
 
     return data;
@@ -182,6 +235,26 @@ export class BasicFantasyRPGActor extends Actor {
     if (this.type !== 'monster') return;
 
     // Process additional NPC data here.
+
+  }
+
+  /**
+   * Prepare Siege Engine roll data.
+   */
+  _getSiegeEngineRollData(data) {
+    if (this.type !== 'siegeEngine') return;
+
+    // Process additional Siege Engine data here.
+
+  }
+
+  /**
+   * Prepare Vehicle roll data.
+   */
+  _getVehicleRollData(data) {
+    if (this.type !== 'vehicle') return;
+
+    // Process additional Vehicle data here.
 
   }
 
