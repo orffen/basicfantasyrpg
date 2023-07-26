@@ -42,7 +42,7 @@
 <ol class="items-list">
   <li class="item flexrow items-header">
     <div class="item-name">{{localizeItemNameForActor actor.type}}</div>
-    <div class="item-detail">{{localize 'BASICFANTASYRPG.CarriedWeight'}}: {{carriedWeight}} lbs.</div>
+    <div class="item-detail">{{localize 'BASICFANTASYRPG.CarriedWeight'}}: {{carriedWeight}}&nbsp;{{localize 'BASICFANTASYRPG.PoundsAbbr'}}</div>
     <div class="item-controls">
       <a class="item-control item-create" title="Create item" data-type="item"><i class="fas fa-plus"></i> {{localize 'BASICFANTASYRPG.Add'}}</a>
     </div>
@@ -56,7 +56,7 @@
         <h4>{{item.system.quantity.value}} {{item.name}}</h4>
       </div>
       <div class="item-prop grid grid-2col">
-        <div class="flex-left align-right">{{item.system.weight.value}} lbs.</div>
+        <div class="flex-left align-right">{{item.system.weight.value}}&nbsp;{{localize 'BASICFANTASYRPG.PoundsAbbr'}}</div>
         <div class="flex-right">{{item.system.price.value}}</div>
       </div>
       <div class="item-controls">
