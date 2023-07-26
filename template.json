@@ -1,6 +1,6 @@
 {
   "Actor": {
-    "types": ["character", "monster", "siegeEngine", "vehicle"],
+    "types": ["character", "monster", "siegeEngine", "stronghold", "vehicle"],
     "templates": {
       "base": {
         "armorClass": {
@@ -196,6 +196,27 @@
         "label": "BASICFANTASYRPG.TargetAC"
       }
     },
+    "stronghold": {
+      "templates": [],
+      "biography": "",
+      "cost": {
+        "value": "",
+        "label": "BASICFANTASYRPG.Cost"
+      },
+      "costMultiplier": {
+        "value": 1,
+        "label": "BASICFANTASYRPG.CostMultiplier"
+      },
+      "floors": [],
+      "followers": {
+        "value": 0,
+        "label": "BASICFANTASYRPG.Followers"
+      },
+      "height": {
+        "value": 10,
+        "label": "BASICFANTASYRPG.Height"
+      }
+    },
     "vehicle": {
       "templates": [],
       "armorClass": {
@@ -255,7 +276,7 @@
     }
   },
   "Item": {
-    "types": ["item", "weapon", "armor", "spell", "feature"],
+    "types": ["item", "weapon", "armor", "spell", "feature", "floor", "wall"],
     "templates": {
       "base": {
         "description": ""
@@ -342,6 +363,33 @@
       "targetNumber": {
         "value": "",
         "label": "BASICFANTASYRPG.TargetNumber"
+      }
+    },
+    "floor": {
+      "templates": ["base", "item", "valuable"],
+      "area": {
+        "value": 0,
+        "label": "BASICFANTASYRPG.Area"
+      },
+      "walls": []
+    },
+    "wall": {
+      "templates": ["base", "item", "valuable"],
+      "floor": {
+        "value": 0,
+        "label": "TYPES.Item.floor"
+      },
+      "hardness": {
+        "value": 6,
+        "label": "BASICFANTASYRPG.Hardness"
+      },
+      "material": {
+        "value": "wood",
+        "label": "BASICFANTASYRPG.Material"
+      },
+      "thickness": {
+        "value": 1,
+        "label": "BASICFANTASYRPG.Thickness"
       }
     }
   }

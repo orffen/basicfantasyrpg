@@ -75,6 +75,7 @@
   "BASICFANTASYRPG.CarriedWeight": "Load",
   "BASICFANTASYRPG.Class": "Class",
   "BASICFANTASYRPG.Cost": "Cost",
+  "BASICFANTASYRPG.CostMultiplier": "Cost Multiplier",
   "BASICFANTASYRPG.Damage": "Damage",
   "BASICFANTASYRPG.DamageAbbr": "Dmg",
   "BASICFANTASYRPG.Duration": "Duration",
