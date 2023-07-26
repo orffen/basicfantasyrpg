@@ -33,6 +33,7 @@
   "BASICFANTASYRPG.TabCombat": "Combat",
   "BASICFANTASYRPG.TabDescription": "Description",
   "BASICFANTASYRPG.TabFeatures": "Special Abilities",
+  "BASICFANTASYRPG.TabFloors": "Floors & Walls",
   "BASICFANTASYRPG.TabItems": "Equipment",
   "BASICFANTASYRPG.TabSpells": "Spells",
 
@@ -87,6 +88,7 @@
   "BASICFANTASYRPG.FeetAbbr": "ft.",
   "BASICFANTASYRPG.Followers": "Followers",
   "BASICFANTASYRPG.Formula": "Roll Formula",
+  "BASICFANTASYRPG.Floors": "Floors",
   "BASICFANTASYRPG.Hardness": "Hardness",
   "BASICFANTASYRPG.Height": "Height",
   "BASICFANTASYRPG.HitDice": "Hit Dice",

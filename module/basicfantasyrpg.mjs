@@ -57,7 +57,9 @@ Handlebars.registerHelper('calculateAbilityTargetNumber', function(lvl) {
 })
 
 Handlebars.registerHelper('localizeItemNameForActor', function(type) {
-  if (type == 'vehicle') {
+  if (type === 'stronghold') {
+    return game.i18n.localize('ITEM.TypeFloor');
+  } else if (type === 'vehicle') {
     return game.i18n.localize('BASICFANTASYRPG.Cargo');
   } else {
     return game.i18n.localize('ITEM.TypeItem');
