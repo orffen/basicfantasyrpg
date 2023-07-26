@@ -82,12 +82,18 @@ Handlebars.registerPartial('iconRanged', `<i class="fa-solid fa-crosshairs fa-2x
 //`<img src="systems/basicfantasyrpg/styles/ranged.svg" title="{{localize 'BASICFANTASYRPG.Roll'}} {{localize 'BASICFANTASYRPG.Ranged'}} {{localize 'BASICFANTASYRPG.Attack'}}" width="24" height="24"/>`
 
 /* -------------------------------------------- */
-/*  Ready Hook                                  */
+/*  Ready Hook & Others                         */
 /* -------------------------------------------- */
 
 Hooks.once('ready', async function() {
   // Wait to register hotbar drop hook on ready so that modules could register earlier if they want to
   Hooks.on('hotbarDrop', (bar, data, slot) => createItemMacro(data, slot));
+});
+
+// Hide certain types from being created through the UI
+Hooks.on("renderDialog", (dialog, html) => {
+  let hiddenTypes = ["floor", "wall"];
+  Array.from(html.find("#document-create option")).forEach(i => {if (hiddenTypes.includes(i.value)) i.remove()});
 });
 
 /* -------------------------------------------- */
