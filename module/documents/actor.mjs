@@ -23,6 +23,7 @@ export class BasicFantasyRPGActor extends Actor {
     this._prepareCharacterData(actorData);
     this._prepareMonsterData(actorData);
     this._prepareSiegeEngineData(actorData);
+    this._prepareStrongholdData(actorData);
     this._prepareVehicleData(actorData);
   }
 
@@ -42,6 +43,7 @@ export class BasicFantasyRPGActor extends Actor {
     this._prepareCharacterDerivedData(actorData);
     this._prepareMonsterDerivedData(actorData);
     this._prepareSiegeEngineDerivedData(actorData);
+    this._prepareStrongholdDerivedData(actorData);
     this._prepareVehicleDerivedData(actorData);
   }
 
@@ -189,6 +191,20 @@ export class BasicFantasyRPGActor extends Actor {
     if (actorData.type !== 'siegeEngine') return;
   }
 
+  /**
+   * Prepare Stronghold type template data
+   */
+  _prepareStrongholdData(actorData) {
+    if (actorData.type !== 'stronghold') return;
+  }
+
+  /**
+   * Prepare Stronghold type derived data
+   */
+  _prepareStrongholdDerivedData(actorData) {
+    if (actorData.type !== 'stronghold') return;
+  }
+
 
   /**
    * Prepare Vehicle type template data
@@ -244,6 +260,7 @@ export class BasicFantasyRPGActor extends Actor {
     this._getCharacterRollData(data);
     this._getMonsterRollData(data);
     this._getSiegeEngineRollData(data);
+    this._getStrongholdRollData(data);
     this._getVehicleRollData(data);
     this._getActorRollData(data);
 
@@ -287,6 +304,16 @@ export class BasicFantasyRPGActor extends Actor {
     if (this.type !== 'siegeEngine') return;
 
     // Process additional Siege Engine data here.
+
+  }
+
+  /**
+   * Prepare Stronghold roll data.
+   */
+  _getStrongholdRollData(data) {
+    if (this.type !== 'stronghold') return;
+
+    // Process additional Stronghold data here.
 
   }
 
