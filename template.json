@@ -199,10 +199,6 @@
     "stronghold": {
       "templates": [],
       "biography": "",
-      "cost": {
-        "value": "",
-        "label": "BASICFANTASYRPG.Cost"
-      },
       "costMultiplier": {
         "value": 1,
         "label": "BASICFANTASYRPG.CostMultiplier"
@@ -212,9 +208,9 @@
         "value": 0,
         "label": "BASICFANTASYRPG.Followers"
       },
-      "height": {
-        "value": 10,
-        "label": "BASICFANTASYRPG.Height"
+      "workers": {
+        "value": 1,
+        "label": "BASICFANTASYRPG.Workers"
       }
     },
     "vehicle": {

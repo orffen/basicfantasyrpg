@@ -1,0 +1,103 @@
+<form class="{{cssClass}} {{actor.type}} flexcol" autocomplete="off">
+
+  {{!-- Sheet Header --}}
+  <header class="sheet-header">
+    <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="100" width="100"/>
+    <div class="header-fields">
+      <h1 class="charname"><input name="name" type="text" value="{{actor.name}}" placeholder="{{localize 'BASICFANTASYRPG.Name'}}" data-dtype="String"/></h1>
+      <div class="resources grid grid-3col">
+
+        <div class="resource flex-group-center">
+          <label for="data.height.value" class="resource-label">{{localize data.height.label}}</label>
+          <div class="resource-content flexrow flex-center flex-between">
+            <input type="number" name="data.height.value" value="{{data.height.value}}" data-dtype="Number" disabled/>
+            <span class="flexshrink flex-align-center">&nbsp;{{localize 'BASICFANTASYRPG.FeetAbbr'}}</span>
+          </div>
+        </div>
+
+        <div class="resource flex-group-center">
+          <label for="data.costMultiplier.value" class="resource-label">{{localize data.costMultiplier.label}}</label>
+          <div class="resource-content flexrow flex-center flex-between">
+            <input type="number" name="data.costMultiplier.value" value="{{data.costMultiplier.value}}" data-dtype="Number"/>
+          </div>
+        </div>
+
+        <div class="resource flex-group-center">
+          <label for="data.cost.value" class="resource-label">{{localize data.cost.label}}</label>
+          <div class="resource-content flexrow flex-center flex-between">
+            <input type="number" name="data.cost.value" value="{{data.cost.value}}" data-dtype="Number" disabled/>
+            <span class="flexshrink flex-align-center">&nbsp;{{localizeLowerCase 'BASICFANTASYRPG.Gold'}}</span>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="resources grid grid-3col">
+
+        <div class="resource flex-group-center">
+          <label for="data.workers.value" class="resource-label">{{localize data.workers.label}}</label>
+          <div class="resource-content flexrow flex-center flex-between">
+            <input type="number" name="data.workers.value" value="{{data.workers.value}}" data-dtype="Number"/>
+          </div>
+        </div>
+
+        <div class="resource flex-group-center">
+          <label for="data.buildTime.value" class="resource-label">{{localize data.buildTime.label}}</label>
+          <div class="resource-content flexrow flex-center flex-between">
+            <input type="number" name="data.buildTime.value" value="{{data.buildTime.value}}" data-dtype="Number" disabled/>
+          </div>
+        </div>
+
+        <div class="resource flex-group-center">
+          <label for="data.followers.value" class="resource-label">{{localize data.followers.label}}</label>
+          <div class="resource-content flexrow flex-center flex-between">
+            <input type="number" name="data.followers.value" value="{{data.followers.value}}" data-dtype="Number"/>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </header>
+
+  {{!-- Sheet Tab Navigation --}}
+  <nav class="sheet-tabs tabs" data-group="primary">
+    {{!-- Default tab is specified in actor-sheet.mjs --}}
+    <a class="item" data-tab="combat">{{localize 'BASICFANTASYRPG.TabCombat'}}</a>
+    <a class="item" data-tab="description">{{localize 'BASICFANTASYRPG.TabDescription'}}</a>
+  </nav>
+
+  {{!-- Sheet Body --}}
+  <section class="sheet-body">
+
+    {{!-- Combat Tab --}}
+    <div class="tab combat" data-group="primary" data-tab="combat">
+      <section class="grid grid-3col">
+        <aside class="sidebar">
+
+          <div class="abilities flexcol">
+            {{#each data.saves as |save key|}}
+            <div class="ability flexrow flex-group-center">
+              <label for="data.saves.{{key}}.value" class="resource-label rollable flexlarge align-left" title="{{localize 'BASICFANTASYRPG.Roll'}} {{localize 'BASICFANTASYRPG.SavingThrow'}}" data-roll="d20" data-label="Saving Throw - {{save.label}}" data-target-number="{{save.value}}">{{save.label}}</label>
+              <input type="text" name="data.saves.{{key}}.value" value="{{save.value}}" data-dtype="Number"/>
+            </div>
+            {{/each}}
+          </div>
+        </aside>
+
+        {{!-- For the main combat list, span the right two columns --}}
+        <section class="main grid-span-2">
+          {{> "systems/basicfantasyrpg/templates/actor/parts/actor-combat.html"}}
+          {{> "systems/basicfantasyrpg/templates/actor/parts/actor-features.html"}}
+        </section>
+
+      </section>
+    </div>
+
+    {{!-- Description Tab --}}
+    <div class="tab description" data-group="primary" data-tab="description">
+      {{editor enrichedBiography target="system.biography" button=true editable=editable}}
+    </div>
+
+  </section>
+</form>

@@ -196,6 +196,14 @@ export class BasicFantasyRPGActor extends Actor {
    */
   _prepareStrongholdData(actorData) {
     if (actorData.type !== 'stronghold') return;
+
+    const data = actorData.system;
+
+    if (!data.floors.length) {
+      //TODO: Create a new floor
+      console.warn(`create a new floor with parent ${this._id}`);
+      //await Item.create(itemData, {parent: this});
+    }
   }
 
   /**
@@ -203,6 +211,29 @@ export class BasicFantasyRPGActor extends Actor {
    */
   _prepareStrongholdDerivedData(actorData) {
     if (actorData.type !== 'stronghold') return;
+
+    const data = actorData.system;
+
+    data.height = {
+      "value": data.floors.length * 10,
+      "label": 'BASICFANTASYRPG.Height'
+    };
+
+    let totalCost = 0;
+    data.floors.forEach(floor => {
+      floor.walls.forEach(wall => {
+        totalCost += wall.price.value;
+      })
+    });
+    data.cost = {
+      "value": (totalCost + (0.1 * data.floors.length * totalCost)) * data.costMultiplier.value,
+      "label": 'BASICFANTASYRPG.Cost'
+    };
+
+    data.buildTime = {
+      "value": Math.max(data.cost.value / data.workers.value, Math.sqrt(data.cost.value)), //TODO: check if this is correct!
+      "label": 'BASICFANTASYRPG.BuildTime'
+    };
   }
 
 
