@@ -196,14 +196,6 @@ export class BasicFantasyRPGActor extends Actor {
    */
   _prepareStrongholdData(actorData) {
     if (actorData.type !== 'stronghold') return;
-
-    const data = actorData.system;
-
-    if (!data.floors.length) {
-      //TODO: Create a new floor
-      console.warn(`create a new floor with parent ${this._id}`);
-      //await Item.create(itemData, {parent: this});
-    }
   }
 
   /**

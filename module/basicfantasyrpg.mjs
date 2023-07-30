@@ -110,14 +110,19 @@ Hooks.on('createActor', async function(actor) {
         disposition: CONST.TOKEN_DISPOSITIONS.FRIENDLY
       }
     });
-  }
-  else if (actor.type === 'monster') {
+  } else if (actor.type === 'monster') {
     actor.updateSource({
       prototypeToken: {
         appendNumber: true,
         displayName: CONST.TOKEN_DISPLAY_MODES.OWNER
       }
     });
+  } else if (actor.type === 'stronghold') {
+    const floor = {
+      name: `New ${game.i18n.localize('ITEM.TypeFloor')}`,
+      type: 'floor'
+    };
+    if (!actor.items.size) await actor.createEmbeddedDocuments('Item', [floor]);
   }
 });
 
