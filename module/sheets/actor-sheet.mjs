@@ -56,6 +56,11 @@ export class BasicFantasyRPGActorSheet extends ActorSheet {
       this._prepareActorData(context);
     }
 
+    // Prepare Stronghold data and items
+    if (actorData.type === 'stronghold') {
+      this._prepareItems(context);
+    }
+
     // Prepare Vehicle data and items
     if (actorData.type === 'vehicle') {
       this._prepareItems(context);
@@ -103,7 +108,7 @@ export class BasicFantasyRPGActorSheet extends ActorSheet {
   }
 
   /**
-   * Organize and classify Items for Character sheets.
+   * Organize and classify Items for Actor sheets.
    *
    * @param {Object} actorData The actor to prepare.
    *
@@ -123,6 +128,9 @@ export class BasicFantasyRPGActorSheet extends ActorSheet {
       6: []
     };
     const features = [];
+    const floors = [];
+    const walls = {};
+    for (let i = 0; i <= 28; ++i) walls[i] = []; // 28 max floors + roof based on maximum heights of wall thickness; this should really be dynamic in future
 
     // Define an object to store carried weight.
     let carriedWeight = {
@@ -159,6 +167,12 @@ export class BasicFantasyRPGActorSheet extends ActorSheet {
         }
       } else if (i.type === 'feature') { // Append to features.
         features.push(i);
+      } else if (i.type === 'floor') { // Append to floors for strongholds.
+        floors.push(i);
+      } else if (i.type === 'wall') { // Append to walls for strongholds.
+        if (i.system.floor.value !== undefined) {
+          walls[i.system.floor.value].push(i);
+        }
       }
     }
 
@@ -178,6 +192,8 @@ export class BasicFantasyRPGActorSheet extends ActorSheet {
     context.armors = armors;
     context.spells = spells;
     context.features = features;
+    context.floors = floors;
+    context.walls = walls;
     context.carriedWeight = Math.floor(carriedWeight.value); // we discard fractions of weight when we update the sheet
   }
 
@@ -260,6 +276,11 @@ export class BasicFantasyRPGActorSheet extends ActorSheet {
         'value': data.spellLevelValue
       };
       delete data.spellLevelValue;
+    } else if (type === 'wall') {
+      data.floor = {
+        "value": data.floorNumber
+      };
+      delete data.floorNumber;
     }
     // Initialize a default name.
     const name = `New ${type.capitalize()}`;
