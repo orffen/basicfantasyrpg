@@ -129,8 +129,7 @@ export class BasicFantasyRPGActorSheet extends ActorSheet {
     };
     const features = [];
     const floors = [];
-    const walls = {};
-    for (let i = 0; i <= 28; ++i) walls[i] = []; // 28 max floors + roof based on maximum heights of wall thickness; this should really be dynamic in future
+    const walls = [];
 
     // Define an object to store carried weight.
     let carriedWeight = {
@@ -171,6 +170,7 @@ export class BasicFantasyRPGActorSheet extends ActorSheet {
         floors.push(i);
       } else if (i.type === 'wall') { // Append to walls for strongholds.
         if (i.system.floor.value !== undefined) {
+          if (!walls[i.system.floor.value]) walls[i.system.floor.value] = [];
           walls[i.system.floor.value].push(i);
         }
       }
