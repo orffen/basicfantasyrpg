@@ -18,7 +18,6 @@
         <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
       </div>
       {{#each (lookup ../walls @floorLevel) as |wall id|}}
-      {{log wall level="warn"}}
       <li class="item flexrow" data-item-id="{{wall._id}}">
         <div class="item-name flexrow">
           <div class="item-image">
