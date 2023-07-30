@@ -362,12 +362,11 @@
       }
     },
     "floor": {
-      "templates": ["base", "item", "valuable"],
+      "templates": ["base", "valuable"],
       "area": {
         "value": 0,
         "label": "BASICFANTASYRPG.Area"
-      },
-      "walls": []
+      }
     },
     "wall": {
       "templates": ["base", "item", "valuable"],
