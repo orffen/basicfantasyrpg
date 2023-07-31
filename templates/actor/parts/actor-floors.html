@@ -10,7 +10,7 @@
 <ol class="items-list">
   {{#each floors as |floor floorLevel|}}
     <li class="item flexrow items-header" data-item-id="{{floor._id}}">
-      <div class="item-name">{{floorLevel}}: {{localizeFloorMaterial floor.system.material.value}}</div>
+      <div class="item-name">{{floorLevel}}: {{floor.name}} ({{localizeFloorMaterial floor.system.material.value}})</div>
       <div class="item-detail">{{localize 'BASICFANTASYRPG.Height'}}: {{floor.system.height.value}} {{localize 'BASICFANTASYRPG.FeetAbbr'}}</div>
       <div class="item-detail">{{localize 'BASICFANTASYRPG.Area'}}: {{floor.system.area.value}} {{localize 'BASICFANTASYRPG.FeetAbbr'}}<sup>2</sup></div>
       <div class="item-controls">
