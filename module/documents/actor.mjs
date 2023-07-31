@@ -205,18 +205,19 @@ export class BasicFantasyRPGActor extends Actor {
     if (actorData.type !== 'stronghold') return;
 
     const data = actorData.system;
+    const floors = actorData.itemTypes.floor;
+    const walls = actorData.itemTypes.wall;
+
+    let totalCost = 0;
+    let totalHeight = 0;
+    floors.forEach(floor => {totalHeight += floor.system.height.value});
+    walls.forEach(wall => {totalCost += wall.system.price.value});
 
     data.height = {
-      "value": data.floors.length * 10,
+      "value": totalHeight,
       "label": 'BASICFANTASYRPG.Height'
     };
 
-    let totalCost = 0;
-    data.floors.forEach(floor => {
-      floor.walls.forEach(wall => {
-        totalCost += wall.price.value;
-      })
-    });
     data.cost = {
       "value": (totalCost + (0.1 * data.floors.length * totalCost)) * data.costMultiplier.value,
       "label": 'BASICFANTASYRPG.Cost'
