@@ -32,7 +32,7 @@
 
       </div>
 
-      <div class="resources grid grid-3col">
+      <div class="resources grid grid-4col">
 
         <div class="resource flex-group-center">
           <label for="data.workers.value" class="resource-label">{{localize data.workers.label}}</label>
@@ -41,10 +41,11 @@
           </div>
         </div>
 
-        <div class="resource flex-group-center">
+        <div class="resource flex-group-center grid-span-2">
           <label for="data.buildTime.value" class="resource-label">{{localize data.buildTime.label}}</label>
           <div class="resource-content flexrow flex-center flex-between">
             <input type="number" name="data.buildTime.value" value="{{data.buildTime.value}}" data-dtype="Number" disabled/>
+            <span class="flexshrink flex-align-center">&nbsp;{{localizeLowerCase 'BASICFANTASYRPG.WorkerDays'}}</span>
           </div>
         </div>
 
