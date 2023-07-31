@@ -456,6 +456,10 @@
   padding: 0 8px;
 }
 
+.basicfantasyrpg .resource-content {
+  white-space: nowrap;
+}
+
 .basicfantasyrpg .resource-label {
   font-weight: bold;
 }
