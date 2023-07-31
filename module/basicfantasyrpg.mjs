@@ -56,7 +56,16 @@ Handlebars.registerHelper('calculateAbilityTargetNumber', function(lvl) {
   return Math.floor(17 - (lvl / 2 - lvl % 2));
 });
 
-Handlebars.registerHelper('localizeItemNameForActor', function(type) {
+Handlebars.registerHelper('localizeFloorMaterial', function(type) {
+  switch (type) {
+    case 'roofThatch': return game.i18n.localize('BASICFANTASYRPG.RoofThatched');
+    case 'roofSlate' : return game.i18n.localize('BASICFANTASYRPG.RoofSlate');
+    case 'roofWood'  : return game.i18n.localize('BASICFANTASYRPG.RoofWood');
+    default          : return game.i18n.localize('ITEM.TypeFloor');
+  }
+});
+
+  Handlebars.registerHelper('localizeItemNameForActor', function(type) {
   if (type === 'stronghold') {
     return game.i18n.localize('ITEM.TypeFloor');
   } else if (type === 'vehicle') {

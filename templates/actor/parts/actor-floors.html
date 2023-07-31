@@ -10,8 +10,9 @@
 <ol class="items-list">
   {{#each floors as |floor floorLevel|}}
     <li class="item flexrow items-header" data-item-id="{{floor._id}}">
-      <div class="item-name">{{localize 'ITEM.TypeFloor'}} {{floorLevel}}</div>
-      <div class="item-detail">{{localize 'BASICFANTASYRPG.Prepared'}}</div>{{!-- TODO: --}}
+      <div class="item-name">{{floorLevel}}: {{localizeFloorMaterial floor.system.material.value}}</div>
+      <div class="item-detail">{{localize 'BASICFANTASYRPG.Height'}}: {{floor.system.height.value}} {{localize 'BASICFANTASYRPG.FeetAbbr'}}</div>
+      <div class="item-detail">{{localize 'BASICFANTASYRPG.Area'}}: {{floor.system.area.value}} {{localize 'BASICFANTASYRPG.FeetAbbr'}}<sup>2</sup></div>
       <div class="item-controls">
         <a class="item-control item-create" title="Create item" data-type="wall" data-floor-number="{{floorLevel}}"><i class="fas fa-plus"></i> {{localize 'TYPES.Item.wall'}}</a>
         <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
@@ -23,7 +24,7 @@
           <div class="item-image">
             <img src="{{wall.img}}" title="{{wall.name}}" width="24" height="24"/>
           </div>
-          <h4>{{wall.name}} TEMP</h4>
+          <h4>{{wall.name}}</h4>
         </div>
         <div class="item-prop grid grid-3col">
           <div class="flex-group-right"><a class="item-control spell-prepare" data-change="-1"><i class="fas fa-minus"></i></a></div>
