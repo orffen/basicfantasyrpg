@@ -367,8 +367,12 @@
         "value": 0,
         "label": "BASICFANTASYRPG.Area"
       },
+      "height": {
+        "value": 0,
+        "label": "BASICFANTASYRPG.Height"
+      },
       "material": {
-        "value": "floor",
+        "value": "Floor",
         "label": "BASICFANTASYRPG.Material"
       }
     },
