@@ -366,6 +366,10 @@
       "area": {
         "value": 0,
         "label": "BASICFANTASYRPG.Area"
+      },
+      "material": {
+        "value": "floor",
+        "label": "BASICFANTASYRPG.Material"
       }
     },
     "wall": {

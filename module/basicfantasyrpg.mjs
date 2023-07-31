@@ -54,7 +54,7 @@ Hooks.once('init', async function() {
 
 Handlebars.registerHelper('calculateAbilityTargetNumber', function(lvl) {
   return Math.floor(17 - (lvl / 2 - lvl % 2));
-})
+});
 
 Handlebars.registerHelper('localizeItemNameForActor', function(type) {
   if (type === 'stronghold') {
@@ -64,7 +64,7 @@ Handlebars.registerHelper('localizeItemNameForActor', function(type) {
   } else {
     return game.i18n.localize('ITEM.TypeItem');
   }
-})
+});
 
 Handlebars.registerHelper('localizeLowerCase', function(str) {
   return game.i18n.localize(str).toLowerCase();
@@ -72,6 +72,10 @@ Handlebars.registerHelper('localizeLowerCase', function(str) {
 
 Handlebars.registerHelper('toLowerCase', function(str) {
   return str.toLowerCase();
+});
+
+Handlebars.registerHelper('selected', function(value) {
+  return Boolean(value) ? "selected" : "";
 });
 
 Handlebars.registerPartial('iconDamage', `<i class="fa-solid fa-heart-crack fa-2xl" title="{{localize 'BASICFANTASYRPG.Roll'}} {{localize 'BASICFANTASYRPG.Damage'}}"></i>`);
