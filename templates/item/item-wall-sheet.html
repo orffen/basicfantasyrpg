@@ -1,0 +1,45 @@
+<form class="{{cssClass}}" autocomplete="off">
+  <header class="sheet-header">
+    <img class="profile-img" src="{{item.img}}" data-edit="img" title="{{item.name}}"/>
+    <div class="header-fields">
+      <h1 class="charname"><input name="name" type="text" value="{{item.name}}" placeholder="{{localize 'BASICFANTASYRPG.Name'}}"/></h1>
+      <div class="grid grid-6col">
+        <div class="resource">
+          <label for="data.quantity.value" class="resource-label">{{localize data.quantity.label}}</label>
+          <input type="number" name="data.quantity.value" value="{{data.quantity.value}}" data-dtype="Number"/>
+        </div>
+        <div class="resource grid-span-2">
+          <label for="data.material.value" class="resource-label">{{localize data.material.label}}</label>
+          <select name="data.material.value" id="data.material.value">
+            <option value="wood" {{selected (eq data.material.value "wood")}}>{{localize 'BASICFANTASYRPG.MaterialWood'}}</option>
+            <option value="brick" {{selected (eq data.material.value "brick")}}>{{localize 'BASICFANTASYRPG.MaterialBrick'}}</option>
+            <option value="stoneSoft" {{selected (eq data.material.value "stoneSoft")}}>{{localize 'BASICFANTASYRPG.MaterialStoneSoft'}}</option>
+            <option value="stoneHard" {{selected (eq data.material.value "stoneHard")}}>{{localize 'BASICFANTASYRPG.MaterialStoneHard'}}</option>
+          </select>
+        </div>
+        <div class="resource">
+          <label for="data.hardness.value" class="resource-label">{{localize data.hardness.label}}</label>
+          <input type="number" name="data.hardness.value" value="{{data.hardness.value}}" data-dtype="Number" disabled/>
+        </div>
+        <div class="resource">
+          <label for="data.thickness.value" class="resource-label">{{localize data.thickness.label}}</label>
+          <input type="number" name="data.thickness.value" value="{{data.thickness.value}}" data-dtype="Number"/>
+        </div>
+        <div class="resource">
+          <label for="data.price.value" class="resource-label">{{localize data.price.label}}</label>
+          <input type="number" name="data.price.value" value="{{data.price.value}}" data-dtype="Number" disabled/>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  {{!-- Sheet Body --}}
+  <section class="sheet-body">
+
+    {{!-- Description --}}
+    <div class="description">
+      {{editor enrichedDescription target="system.description" button=true editable=editable}}
+    </div>
+
+  </section>
+</form>

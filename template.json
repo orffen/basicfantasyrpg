@@ -372,12 +372,12 @@
         "label": "BASICFANTASYRPG.Height"
       },
       "material": {
-        "value": "Floor",
+        "value": "floor",
         "label": "BASICFANTASYRPG.Material"
       }
     },
     "wall": {
-      "templates": ["base", "item", "valuable"],
+      "templates": ["base", "valuable"],
       "floor": {
         "value": 0,
         "label": "TYPES.Item.floor"
@@ -389,6 +389,10 @@
       "material": {
         "value": "wood",
         "label": "BASICFANTASYRPG.Material"
+      },
+      "quantity": {
+        "value": 1,
+        "label": "BASICFANTASYRPG.Quantity"
       },
       "thickness": {
         "value": 1,
