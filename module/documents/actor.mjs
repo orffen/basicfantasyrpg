@@ -196,6 +196,20 @@ export class BasicFantasyRPGActor extends Actor {
    */
   _prepareStrongholdData(actorData) {
     if (actorData.type !== 'stronghold') return;
+
+    const data = actorData.system;
+    const floors = actorData.itemTypes.floor;
+    const walls = actorData.itemTypes.wall;
+
+    walls.forEach(wall => {
+      switch (wall.system.material.value) {
+        case 'stoneHard': wall.system.hardness.value = 16; break;
+        case 'stoneSoft': wall.system.hardness.value = 12; break;
+        case 'brick': wall.system.hardness.value = 8; break;
+        case 'wood':
+        default: wall.system.hardness.value = 6; break;
+      }
+    });
   }
 
   /**
