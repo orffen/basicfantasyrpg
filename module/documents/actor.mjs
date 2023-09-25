@@ -203,11 +203,36 @@ export class BasicFantasyRPGActor extends Actor {
 
     walls.forEach(wall => {
       switch (wall.system.material.value) {
-        case 'stoneHard': wall.system.hardness.value = 16; break;
-        case 'stoneSoft': wall.system.hardness.value = 12; break;
-        case 'brick': wall.system.hardness.value = 8; break;
+        case 'stoneHard':
+          wall.system.hardness.value = 16;
+          switch (wall.system.thickness.value) {
+            case 15: wall.system.price.value = 350; break;
+            case 10: wall.system.price.value = 260; break;
+            case 5: wall.system.price.value = 90; break;
+            default: wall.system.price.value = 40; break;
+          }
+          break;
+        case 'stoneSoft':
+          wall.system.hardness.value = 12;
+          switch (wall.system.thickness.value) {
+            case 10: wall.system.price.value = 200; break;
+            case 5: wall.system.price.value = 70; break;
+            default: wall.system.price.value = 30; break;
+          }
+          break;
+        case 'brick':
+          wall.system.hardness.value = 8;
+          switch (wall.system.thickness.value) {
+            case 5: wall.system.price.value = 50; break;
+            default: wall.system.price.value = 20; break;
+          }
+          break;
         case 'wood':
-        default: wall.system.hardness.value = 6; break;
+        default:
+          wall.system.hardness.value = 6;
+          wall.system.thickness.value = 1;
+          wall.system.price.value = 10;
+          break;
       }
     });
   }
