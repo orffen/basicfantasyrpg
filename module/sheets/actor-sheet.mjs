@@ -236,6 +236,17 @@ export class BasicFantasyRPGActorSheet extends ActorSheet {
       }
     });
 
+    // Quantity
+    html.find('.quantity').click(ev => {
+      const change = ev.currentTarget.dataset.change;
+      if (parseInt(change)) {
+        const li = $(ev.currentTarget).parents('.item');
+        const item = this.actor.items.get(li.data('itemId'));
+        let newValue = item.system.quantity.value + parseInt(change);
+        item.update({'system.quantity.value': newValue});
+      }
+    });
+
     // Active Effect management
     html.find('.effect-control').click(ev => onManageActiveEffect(ev, this.actor));
 
