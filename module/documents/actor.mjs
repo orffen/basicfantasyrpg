@@ -244,6 +244,7 @@ export class BasicFantasyRPGActor extends Actor {
           wall.system.price.value = 10;
           break;
       }
+      wall.system.price.value *= wall.system.quantity.value;
     });
   }
 
