@@ -201,6 +201,16 @@ export class BasicFantasyRPGActor extends Actor {
     const floors = actorData.itemTypes.floor;
     const walls = actorData.itemTypes.wall;
 
+    floors.forEach(floor => {
+      switch (floor.system.material.value) {
+        case 'roofSlate': floor.system.price.value = floor.system.area.value * 10 * 4; break;
+        case 'roofWood': floor.system.price.value = floor.system.area.value * 10 * 2; break;
+        case 'floor':
+        case 'roofThatch':
+        default: floor.system.price.value = floor.system.area.value * 10; break;
+      }
+    });
+
     walls.forEach(wall => {
       switch (wall.system.material.value) {
         case 'stoneHard':
@@ -249,8 +259,13 @@ export class BasicFantasyRPGActor extends Actor {
 
     let totalCost = 0;
     let totalHeight = 0;
-    floors.forEach(floor => {totalHeight += floor.system.height.value});
-    walls.forEach(wall => {totalCost += wall.system.price.value});
+    floors.forEach(floor => {
+      totalHeight += floor.system.height.value;
+      totalCost += floor.system.price.value;
+    });
+    walls.forEach(wall => {
+      totalCost += wall.system.price.value;
+    });
 
     data.height = {
       "value": totalHeight,
