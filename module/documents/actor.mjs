@@ -203,11 +203,11 @@ export class BasicFantasyRPGActor extends Actor {
 
     floors.forEach(floor => {
       switch (floor.system.material.value) {
-        case 'roofSlate': floor.system.price.value = floor.system.area.value * 10 * 4; break;
-        case 'roofWood': floor.system.price.value = floor.system.area.value * 10 * 2; break;
+        case 'roofSlate': floor.system.price.value = floor.system.area.value / 10 * 4; break;
+        case 'roofWood': floor.system.price.value = floor.system.area.value / 10 * 2; break;
         case 'floor':
         case 'roofThatch':
-        default: floor.system.price.value = floor.system.area.value * 10; break;
+        default: floor.system.price.value = floor.system.area.value / 10; break;
       }
     });
 
@@ -273,13 +273,15 @@ export class BasicFantasyRPGActor extends Actor {
       "label": 'BASICFANTASYRPG.Height'
     };
 
+    console.warn('totalCost: ' + totalCost);
     data.cost = {
-      "value": totalCost * data.costMultiplier.value * (totalHeight / 100), // each 10' of height adds 10% to the costs in both time and money
+      "value": (totalCost + (totalCost * (totalHeight / 100))) * data.costMultiplier.value, // each 10' of height adds 10% to the costs in both time and money
       "label": 'BASICFANTASYRPG.Cost'
     };
+    console.warn('data.cost.value: ' + data.cost.value);
 
     data.buildTime = {
-      "value": Math.ceil(Math.max(data.cost.value / data.workers.value, Math.sqrt(data.cost.value))), //TODO: check if this is correct!
+      "value": Math.ceil(Math.max(data.cost.value / data.workers.value, Math.sqrt(data.cost.value))),
       "label": 'BASICFANTASYRPG.BuildTime'
     };
   }
