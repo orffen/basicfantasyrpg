@@ -65,7 +65,17 @@ Handlebars.registerHelper('localizeFloorMaterial', function(type) {
   }
 });
 
-  Handlebars.registerHelper('localizeItemNameForActor', function(type) {
+Handlebars.registerHelper('localizeWallMaterial', function(type) {
+  switch (type) {
+    case 'stoneHard' : return game.i18n.localize('BASICFANTASYRPG.MaterialStoneHard');
+    case 'stoneSoft' : return game.i18n.localize('BASICFANTASYRPG.MaterialStoneSoft');
+    case 'brick'     : return game.i18n.localize('BASICFANTASYRPG.MaterialBrick');
+    case 'wood'      : return game.i18n.localize('BASICFANTASYRPG.MaterialWood');
+    default          : return game.i18n.localize('ITEM.TypeFloor');
+  }
+});
+
+Handlebars.registerHelper('localizeItemNameForActor', function(type) {
   if (type === 'stronghold') {
     return game.i18n.localize('ITEM.TypeFloor');
   } else if (type === 'vehicle') {
