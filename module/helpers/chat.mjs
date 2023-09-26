@@ -3,18 +3,18 @@
  *
  * @param {Number} result The result of the roll
  * @param {Number} targetNumber The target number to beat for the roll to be successful
- * @param {Boolean} percentile Whether to check for rolling under on percentile dice instead of a d20 roll (defaults to false)
+ * @param {Boolean} rollUnder Whether to check for rolling under the target number (defaults to false)
  *
- * @return {String}
+ * @return {String} Will return a blank message if it cannot parse result or targetNumber
  */
-export function successChatMessage(result, targetNumber, percentile=false) {
+export function successChatMessage(result, targetNumber, rollUnder=false) {
   let msg = '';
   let success = false;
   if (result && !isNaN(result) && targetNumber && !isNaN(targetNumber)) {
-    if (percentile) {
+    if (rollUnder) {
       success = (Number(result) <= Number(targetNumber));
     } else {
-      success = (Number(result) == 20 || (Number(result) > 1 && Number(result) >= Number(targetNumber)));
+      success = (Number(result) === 20 || (Number(result) > 1 && Number(result) >= Number(targetNumber)));
     }
     msg += `<span class="chat-item-description">`;
     if (success) {

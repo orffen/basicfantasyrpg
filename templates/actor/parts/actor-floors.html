@@ -1,0 +1,39 @@
+<section class="resources">
+  <div class="resource flex-group-right">
+    <div class="item-controls">
+      <a class="item-control item-create" title="Create item" data-type="floor""><i class="fas fa-plus"></i> {{localize 'BASICFANTASYRPG.Add'}} {{localize 'TYPES.Item.floor'}}</a>
+    </div>
+  </div>
+</section>
+
+
+<ol class="items-list">
+  {{#each floors as |floor floorLevel|}}
+    <li class="item flexrow items-header" data-item-id="{{floor._id}}">
+      <div class="item-name">{{floorLevel}}: {{floor.name}} ({{localizeFloorMaterial floor.system.material.value}})</div>
+      <div class="item-detail">{{localize 'BASICFANTASYRPG.Height'}}: {{floor.system.height.value}} {{localize 'BASICFANTASYRPG.FeetAbbr'}}</div>
+      <div class="item-detail">{{localize 'BASICFANTASYRPG.Area'}}: {{floor.system.area.value}} {{localize 'BASICFANTASYRPG.FeetAbbr'}}<sup>2</sup></div>
+      <div class="item-controls">
+        <a class="item-control item-create" title="Create item" data-type="wall" data-floor-number="{{floorLevel}}"><i class="fas fa-plus"></i> {{localize 'TYPES.Item.wall'}}</a>
+        <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
+        <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
+      </div>
+      {{#each (lookup ../walls @floorLevel) as |wall id|}}
+      <li class="item flexrow" data-item-id="{{wall._id}}">
+        <div class="item-name flexrow">
+          <h4>{{wall.name}} - {{wall.system.thickness.value}}{{localize 'BASICFANTASYRPG.FeetAbbr'}} {{localizeLowerCase 'BASICFANTASYRPG.Thick'}} {{localizeWallMaterial wall.system.material.value}}</h4>
+        </div>
+        <div class="item-prop grid grid-3col">
+          <div class="flex-group-right"><a class="item-control quantity" data-change="-1"><i class="fas fa-minus"></i></a></div>
+          <div class="flex-group-center">{{wall.system.quantity.value}}</div>
+          <div class="flex-group-left"><a class="item-control quantity" data-change="+1"><i class="fas fa-plus"></i></a></div>
+        </div>
+        <div class="item-controls">
+          <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
+          <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
+        </div>
+      </li>
+      {{/each}}
+    </li>
+  {{/each}}
+</ol>

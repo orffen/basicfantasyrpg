@@ -1,48 +1,48 @@
+{{#if (eq actor.type 'character')}}
 <section class="resources grid grid-5col">
 
   <div class="resource flex-group-center">
     <label for="data.money.pp.value" class="resource-label">{{data.money.pp.label}}</label>
     <div class="resource-content flexrow flex-center flex-between">
-      <input type="text" name="data.money.pp.value" value="{{data.money.pp.value}}" data-dtype="String"/>
+      <input type="number" name="data.money.pp.value" value="{{data.money.pp.value}}" data-dtype="Number"/>
     </div>
   </div>
 
   <div class="resource flex-group-center">
     <label for="data.money.gp.value" class="resource-label">{{data.money.gp.label}}</label>
     <div class="resource-content flexrow flex-center flex-between">
-      <input type="text" name="data.money.gp.value" value="{{data.money.gp.value}}" data-dtype="String"/>
+      <input type="number" name="data.money.gp.value" value="{{data.money.gp.value}}" data-dtype="Number"/>
     </div>
   </div>
 
   <div class="resource flex-group-center">
     <label for="data.money.ep.value" class="resource-label">{{data.money.ep.label}}</label>
     <div class="resource-content flexrow flex-center flex-between">
-      <input type="text" name="data.money.ep.value" value="{{data.money.ep.value}}" data-dtype="String"/>
+      <input type="number" name="data.money.ep.value" value="{{data.money.ep.value}}" data-dtype="Number"/>
     </div>
   </div>
 
   <div class="resource flex-group-center">
     <label for="data.money.sp.value" class="resource-label">{{data.money.sp.label}}</label>
     <div class="resource-content flexrow flex-center flex-between">
-      <input type="text" name="data.money.sp.value" value="{{data.money.sp.value}}" data-dtype="String"/>
+      <input type="number" name="data.money.sp.value" value="{{data.money.sp.value}}" data-dtype="Number"/>
     </div>
   </div>
 
   <div class="resource flex-group-center">
     <label for="data.money.cp.value" class="resource-label">{{data.money.cp.label}}</label>
     <div class="resource-content flexrow flex-center flex-between">
-      <input type="text" name="data.money.cp.value" value="{{data.money.cp.value}}" data-dtype="String"/>
+      <input type="number" name="data.money.cp.value" value="{{data.money.cp.value}}" data-dtype="Number"/>
     </div>
   </div>
 
 </section>
-
-
+{{/if}}
 
 <ol class="items-list">
   <li class="item flexrow items-header">
-    <div class="item-name">{{localize 'TYPES.Item.item'}}</div>
-    <div class="item-detail">{{localize 'BASICFANTASYRPG.CarriedWeight'}}: {{carriedWeight}} lbs.</div>
+    <div class="item-name">{{localizeItemNameForActor actor.type}}</div>
+    <div class="item-detail">{{localize 'BASICFANTASYRPG.CarriedWeight'}}: {{carriedWeight}}&nbsp;{{localize 'BASICFANTASYRPG.PoundsAbbr'}}</div>
     <div class="item-controls">
       <a class="item-control item-create" title="Create item" data-type="item"><i class="fas fa-plus"></i> {{localize 'BASICFANTASYRPG.Add'}}</a>
     </div>
@@ -56,7 +56,7 @@
         <h4>{{item.system.quantity.value}} {{item.name}}</h4>
       </div>
       <div class="item-prop grid grid-2col">
-        <div class="flex-left align-right">{{item.system.weight.value}} lbs.</div>
+        <div class="flex-left align-right">{{item.system.weight.value}}&nbsp;{{localize 'BASICFANTASYRPG.PoundsAbbr'}}</div>
         <div class="flex-right">{{item.system.price.value}}</div>
       </div>
       <div class="item-controls">

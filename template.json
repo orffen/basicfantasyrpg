@@ -1,6 +1,6 @@
 {
   "Actor": {
-    "types": ["character", "monster"],
+    "types": ["character", "monster", "siegeEngine", "stronghold", "vehicle"],
     "templates": {
       "base": {
         "armorClass": {
@@ -143,7 +143,7 @@
       },
       "specialAbility": {
         "value": 0,
-        "label": "BASICFANTASYRPG.SpecialAbility"
+        "label": "BASICFANTASYRPG.SpecialAbilityXPBonus"
       },
       "treasureType": {
         "value": "None",
@@ -154,10 +154,125 @@
         "label": "BASICFANTASYRPG.ExperiencePoints",
         "abbr": "BASICFANTASYRPG.ExperiencePointsAbbr"
       }
+    },
+    "siegeEngine": {
+      "templates": [],
+      "attackBonus": {
+        "value": 0,
+        "label": "BASICFANTASYRPG.AttackBonus",
+        "abbr": "BASICFANTASYRPG.AttackBonusAbbr"
+      },
+      "biography": "",
+      "cost": {
+        "value": "",
+        "label": "BASICFANTASYRPG.Cost"
+      },
+      "damage": {
+        "value": 0,
+        "label": "BASICFANTASYRPG.Damage"
+      },
+      "rangeBonus": {
+        "value": 0,
+        "label": "BASICFANTASYRPG.RangeBonus"
+      },
+      "rangeShort": {
+        "value": "",
+        "label": "BASICFANTASYRPG.RangeShort"
+      },
+      "rangeMedium": {
+        "value": "",
+        "label": "BASICFANTASYRPG.RangeMedium"
+      },
+      "rangeLong": {
+        "value": "",
+        "label": "BASICFANTASYRPG.RangeLong"
+      },
+      "rateOfFire": {
+        "value": "",
+        "label": "BASICFANTASYRPG.RateOfFire"
+      },
+      "targetAC": {
+        "value": 20,
+        "label": "BASICFANTASYRPG.TargetAC"
+      }
+    },
+    "stronghold": {
+      "templates": [],
+      "biography": "",
+      "costMultiplier": {
+        "value": 1,
+        "label": "BASICFANTASYRPG.CostMultiplier"
+      },
+      "floors": [],
+      "followers": {
+        "value": 0,
+        "label": "BASICFANTASYRPG.Followers"
+      },
+      "workers": {
+        "value": 1,
+        "label": "BASICFANTASYRPG.Workers"
+      }
+    },
+    "vehicle": {
+      "templates": [],
+      "armorClass": {
+        "value": 11,
+        "label": "BASICFANTASYRPG.ArmorClass",
+        "abbr": "BASICFANTASYRPG.ArmorClassAbbr"
+      },
+      "biography": "",
+      "cargo": {
+        "value": 0,
+        "label": "BASICFANTASYRPG.Cargo"
+      },
+      "hardness": {
+        "value": 6,
+        "label": "BASICFANTASYRPG.Hardness"
+      },
+      "hitPoints": {
+        "aft": {
+          "value": 16,
+          "max": 16,
+          "label": "BASICFANTASYRPG.SideAft"
+        },
+        "forward": {
+          "value": 16,
+          "max": 16,
+          "label": "BASICFANTASYRPG.SideForward"
+        },
+        "port": {
+          "value": 16,
+          "max": 16,
+          "label": "BASICFANTASYRPG.SidePort"
+        },
+        "starboard": {
+          "value": 16,
+          "max": 16,
+          "label": "BASICFANTASYRPG.SideStarboard"
+        },
+        "label": "BASICFANTASYRPG.HitPoints",
+        "abbr": "BASICFANTASYRPG.HitPointsAbbr"
+      },
+      "length": {
+        "value": 35,
+        "label": "BASICFANTASYRPG.Length"
+      },
+      "maneuverability": {
+        "value": "15'",
+        "label": "BASICFANTASYRPG.Maneuverability"
+      },
+      "move": {
+        "value": 20,
+        "label": "BASICFANTASYRPG.Movement"
+      },
+      "width": {
+        "value": 8,
+        "label": "BASICFANTASYRPG.Width"
+      }
     }
   },
   "Item": {
-    "types": ["item", "weapon", "armor", "spell", "feature"],
+    "types": ["item", "weapon", "armor", "spell", "feature", "floor", "wall"],
     "templates": {
       "base": {
         "description": ""
@@ -237,9 +352,51 @@
         "value": "d100",
         "label": "BASICFANTASYRPG.Formula"
       },
+      "rollUnder": {
+        "value": true,
+        "label": "BASICFANTASYRPG.RollUnder"
+      },
       "targetNumber": {
         "value": "",
         "label": "BASICFANTASYRPG.TargetNumber"
+      }
+    },
+    "floor": {
+      "templates": ["base", "valuable"],
+      "area": {
+        "value": 0,
+        "label": "BASICFANTASYRPG.Area"
+      },
+      "height": {
+        "value": 10,
+        "label": "BASICFANTASYRPG.Height"
+      },
+      "material": {
+        "value": "floor",
+        "label": "BASICFANTASYRPG.Material"
+      }
+    },
+    "wall": {
+      "templates": ["base", "valuable"],
+      "floor": {
+        "value": 0,
+        "label": "TYPES.Item.floor"
+      },
+      "hardness": {
+        "value": 6,
+        "label": "BASICFANTASYRPG.Hardness"
+      },
+      "material": {
+        "value": "wood",
+        "label": "BASICFANTASYRPG.Material"
+      },
+      "quantity": {
+        "value": 1,
+        "label": "BASICFANTASYRPG.Quantity"
+      },
+      "thickness": {
+        "value": 1,
+        "label": "BASICFANTASYRPG.Thickness"
       }
     }
   }

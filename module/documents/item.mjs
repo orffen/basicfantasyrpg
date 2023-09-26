@@ -1,4 +1,4 @@
-import {successChatMessage} from "../helpers/chat.mjs";
+import {successChatMessage} from '../helpers/chat.mjs';
 
 /**
  * Extend the basic Item with some very simple modifications.
@@ -14,6 +14,17 @@ export class BasicFantasyRPGItem extends Item {
     super.prepareData();
   }
 
+  /** @override */
+  prepareBaseData() {
+    const itemData = this;
+
+    // Handle items which are missing system.rollUnder.value -- this will be handled in the system data model when it's implemented
+    if (itemData.type === 'feature' && !itemData.system.rollUnder) {
+      itemData.system.rollUnder.value = true;
+      itemData.system.rollUnder.label = 'BASICFANTASYRPG.RollUnder';
+    }
+  }
+
   /**
    * Prepare a data object which is passed to any Roll formulas which are created related to this Item
    * @private
@@ -21,10 +32,10 @@ export class BasicFantasyRPGItem extends Item {
    getRollData() {
     // If present, return the actor's roll data.
     if ( !this.actor ) return null;
-    const rollData = this.actor.getRollData();
-    rollData.item = foundry.utils.deepClone(this.system);
+    const data = this.actor.getRollData();
+    data.item = foundry.utils.deepClone(this.system);
 
-    return rollData;
+    return data;
   }
 
   /**
@@ -49,7 +60,7 @@ export class BasicFantasyRPGItem extends Item {
       });
     } else { // Otherwise, create a roll and send a chat message from it.
       let label = `<span class="chat-item-name">${game.i18n.localize('BASICFANTASYRPG.Roll')}: ${game.i18n.localize('ITEM.Type' + item.type.capitalize())} - ${item.name}</span>`;
-      if (item.type == 'feature' && item.system.description) {
+      if (item.type === 'feature' && item.system.description) {
         label += `<span class="chat-item-description">${item.system.description}</span>`;
       }
 
@@ -57,7 +68,20 @@ export class BasicFantasyRPGItem extends Item {
       const rollData = item.getRollData();
       const roll = new Roll(rollData.item.formula.value, rollData);
       await roll.roll();
-      label += successChatMessage(roll.total, rollData.item.targetNumber.value, true);
+
+      let targetParsed = rollData.item.targetNumber.value;
+      // targetNumber may be a formula - use a Roll object to parse it if it's not a number already
+      if (targetParsed && isNaN(targetParsed) && typeof targetParsed === 'string') {
+        try {
+          const rollTN = new Roll(targetParsed, rollData);
+          await rollTN.roll();
+          targetParsed = rollTN.total;
+        } catch {
+          ui.notifications.warn(`${game.i18n.localize('ERROR.InvalidTargetNumber')} ${game.i18n.localize('TYPES.Item.' + item.type)} - ${item.name}: ${targetParsed}`, {localize: false, permanent: true});
+          targetParsed = '';
+        }
+      }
+      label += successChatMessage(roll.total, targetParsed, rollData.item.rollUnder.value);
       roll.toMessage({
         speaker: speaker,
         rollMode: rollMode,

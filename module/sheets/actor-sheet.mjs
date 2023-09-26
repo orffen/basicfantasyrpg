@@ -1,5 +1,5 @@
-import {successChatMessage} from "../helpers/chat.mjs";
-import {onManageActiveEffect, prepareActiveEffectCategories} from "../helpers/effects.mjs";
+import {successChatMessage} from '../helpers/chat.mjs';
+import {onManageActiveEffect, prepareActiveEffectCategories} from '../helpers/effects.mjs';
 
 /**
  * Extend the basic ActorSheet with some very simple modifications
@@ -10,11 +10,11 @@ export class BasicFantasyRPGActorSheet extends ActorSheet {
   /** @override */
   static get defaultOptions() {
     return mergeObject(super.defaultOptions, {
-      classes: ["basicfantasyrpg", "sheet", "actor"],
-      template: "systems/basicfantasyrpg/templates/actor/actor-sheet.html",
+      classes: ['basicfantasyrpg', 'sheet', 'actor'],
+      template: 'systems/basicfantasyrpg/templates/actor/actor-sheet.html',
       width: 600,
       height: 600,
-      tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "combat" }]
+      tabs: [{ navSelector: '.sheet-tabs', contentSelector: '.sheet-body', initial: 'combat' }]
     });
   }
 
@@ -44,16 +44,26 @@ export class BasicFantasyRPGActorSheet extends ActorSheet {
     context.flags = actorData.flags;
 
     // Prepare character data and items.
-    if (actorData.type == 'character') {
+    if (actorData.type === 'character') {
       this._prepareItems(context);
       this._prepareCharacterData(context);
       this._prepareActorData(context);
     }
 
     // Prepare NPC data and items.
-    if (actorData.type == 'monster') {
+    if (actorData.type === 'monster') {
       this._prepareItems(context);
       this._prepareActorData(context);
+    }
+
+    // Prepare Stronghold data and items
+    if (actorData.type === 'stronghold') {
+      this._prepareItems(context);
+    }
+
+    // Prepare Vehicle data and items
+    if (actorData.type === 'vehicle') {
+      this._prepareItems(context);
     }
 
     // Add roll data for TinyMCE editors.
@@ -98,7 +108,7 @@ export class BasicFantasyRPGActorSheet extends ActorSheet {
   }
 
   /**
-   * Organize and classify Items for Character sheets.
+   * Organize and classify Items for Actor sheets.
    *
    * @param {Object} actorData The actor to prepare.
    *
@@ -118,12 +128,14 @@ export class BasicFantasyRPGActorSheet extends ActorSheet {
       6: []
     };
     const features = [];
+    const floors = [];
+    const walls = [];
 
     // Define an object to store carried weight.
     let carriedWeight = {
-      "value": 0,
+      'value': 0,
       _addWeight (moreWeight, quantity) {
-        if (!quantity || quantity == '' || Number.isNaN(quantity) || quantity < 0) {
+        if (!quantity || quantity === '' || Number.isNaN(quantity) || quantity < 0) {
           return; // check we have a valid quantity, and do nothing if we do not
         }
         let q = Math.floor(quantity / 20);
@@ -149,11 +161,18 @@ export class BasicFantasyRPGActorSheet extends ActorSheet {
         armors.push(i);
         carriedWeight._addWeight(i.system.weight.value, 1); // Armor is always quantity 1
       } else if (i.type === 'spell') { // Append to spells.
-        if (i.system.spellLevel.value != undefined) {
+        if (i.system.spellLevel.value !== undefined) {
           spells[i.system.spellLevel.value].push(i);
         }
       } else if (i.type === 'feature') { // Append to features.
         features.push(i);
+      } else if (i.type === 'floor') { // Append to floors for strongholds.
+        floors.push(i);
+      } else if (i.type === 'wall') { // Append to walls for strongholds.
+        if (i.system.floor.value !== undefined) {
+          if (!walls[i.system.floor.value]) walls[i.system.floor.value] = [];
+          walls[i.system.floor.value].push(i);
+        }
       }
     }
 
@@ -173,6 +192,8 @@ export class BasicFantasyRPGActorSheet extends ActorSheet {
     context.armors = armors;
     context.spells = spells;
     context.features = features;
+    context.floors = floors;
+    context.walls = walls;
     context.carriedWeight = Math.floor(carriedWeight.value); // we discard fractions of weight when we update the sheet
   }
 
@@ -184,8 +205,8 @@ export class BasicFantasyRPGActorSheet extends ActorSheet {
 
     // Render the item sheet for viewing/editing prior to the editable check.
     html.find('.item-edit').click(ev => {
-      const li = $(ev.currentTarget).parents(".item");
-      const item = this.actor.items.get(li.data("itemId"));
+      const li = $(ev.currentTarget).parents('.item');
+      const item = this.actor.items.get(li.data('itemId'));
       item.sheet.render(true);
     });
 
@@ -198,8 +219,8 @@ export class BasicFantasyRPGActorSheet extends ActorSheet {
 
     // Delete Inventory Item
     html.find('.item-delete').click(ev => {
-      const li = $(ev.currentTarget).parents(".item");
-      const item = this.actor.items.get(li.data("itemId"));
+      const li = $(ev.currentTarget).parents('.item');
+      const item = this.actor.items.get(li.data('itemId'));
       item.delete();
       li.slideUp(200, () => this.render(false));
     });
@@ -208,26 +229,42 @@ export class BasicFantasyRPGActorSheet extends ActorSheet {
     html.find('.spell-prepare').click(ev => {
       const change = ev.currentTarget.dataset.change;
       if (parseInt(change)) {
-        const li = $(ev.currentTarget).parents(".item");
-        const item = this.actor.items.get(li.data("itemId"));
+        const li = $(ev.currentTarget).parents('.item');
+        const item = this.actor.items.get(li.data('itemId'));
         let newValue = item.system.prepared.value + parseInt(change);
-        item.update({"system.prepared.value": newValue});
+        item.update({'system.prepared.value': newValue});
+      }
+    });
+
+    // Quantity
+    html.find('.quantity').click(ev => {
+      const change = ev.currentTarget.dataset.change;
+      if (parseInt(change)) {
+        const li = $(ev.currentTarget).parents('.item');
+        const item = this.actor.items.get(li.data('itemId'));
+        let newValue = item.system.quantity.value + parseInt(change);
+        item.update({'system.quantity.value': newValue});
       }
     });
 
     // Active Effect management
-    html.find(".effect-control").click(ev => onManageActiveEffect(ev, this.actor));
+    html.find('.effect-control').click(ev => onManageActiveEffect(ev, this.actor));
 
     // Rollable abilities.
     html.find('.rollable').click(this._onRoll.bind(this));
+
+    // Siege Engine range bonuses
+    if (this.actor.type === 'siegeEngine') {
+      html.find('input[name="rangeBonus"]').click(ev => this.actor.update({'system.rangeBonus.value': Number(ev.currentTarget.value)}));
+    }
 
     // Drag events for macros.
     if (this.actor.isOwner) {
       let handler = ev => this._onDragStart(ev);
       html.find('li.item').each((i, li) => {
-        if (li.classList.contains("inventory-header")) return;
-        li.setAttribute("draggable", true);
-        li.addEventListener("dragstart", handler, false);
+        if (li.classList.contains('inventory-header')) return;
+        li.setAttribute('draggable', true);
+        li.addEventListener('dragstart', handler, false);
       });
     }
   }
@@ -247,9 +284,14 @@ export class BasicFantasyRPGActorSheet extends ActorSheet {
     if (type === 'spell') {
       // Move dataset spellLevelValue into spellLevel.value
       data.spellLevel = {
-        "value": data.spellLevelValue
+        'value': data.spellLevelValue
       };
       delete data.spellLevelValue;
+    } else if (type === 'wall') {
+      data.floor = {
+        "value": data.floorNumber
+      };
+      delete data.floorNumber;
     }
     // Initialize a default name.
     const name = `New ${type.capitalize()}`;
@@ -260,7 +302,7 @@ export class BasicFantasyRPGActorSheet extends ActorSheet {
       data: data
     };
     // Remove the type from the dataset since it's in the itemData.type prop.
-    delete itemData.data["type"];
+    delete itemData.data['type'];
 
     // Finally, create the item!
     return await Item.create(itemData, {parent: this.actor});
@@ -278,15 +320,15 @@ export class BasicFantasyRPGActorSheet extends ActorSheet {
 
     if (dataset.rollType) {
       // Handle weapon rolls.
-      if (dataset.rollType == 'weapon') {
+      if (dataset.rollType === 'weapon') {
         const itemId = element.closest('.item').dataset.itemId;
         const item = this.actor.items.get(itemId);
         let label = dataset.label ? `<span class="chat-item-name">${game.i18n.localize('BASICFANTASYRPG.Roll')}: ${dataset.label}</span>` : `<span class="chat-item-name">${game.i18n.localize('BASICFANTASYRPG.Roll')}: ${dataset.attack.capitalize()} attack with ${item.name}</span>`;
         let rollFormula = 'd20+@ab';
-        if (this.actor.type == 'character') {
-          if (dataset.attack == 'melee') {
+        if (this.actor.type === 'character') {
+          if (dataset.attack === 'melee') {
             rollFormula += '+@str.bonus';
-          } else if (dataset.attack == 'ranged') {
+          } else if (dataset.attack === 'ranged') {
             rollFormula += '+@dex.bonus';
           }
         }
@@ -301,7 +343,7 @@ export class BasicFantasyRPGActorSheet extends ActorSheet {
       }
 
       // Handle item rolls.
-      if (dataset.rollType == 'item') {
+      if (dataset.rollType === 'item') {
         const itemId = element.closest('.item').dataset.itemId;
         const item = this.actor.items.get(itemId);
         if (item) return item.roll();
@@ -313,7 +355,7 @@ export class BasicFantasyRPGActorSheet extends ActorSheet {
       let label = dataset.label ? `<span class="chat-item-name">${game.i18n.localize('BASICFANTASYRPG.Roll')}: ${dataset.label}</span>` : '';
       let roll = new Roll(dataset.roll, this.actor.getRollData());
       await roll.roll();
-      label += successChatMessage(roll.total, dataset.targetNumber);
+      label += successChatMessage(roll.total, dataset.targetNumber, dataset.rollUnder);
       roll.toMessage({
         speaker: ChatMessage.getSpeaker({ actor: this.actor }),
         flavor: label,
