@@ -274,12 +274,12 @@ export class BasicFantasyRPGActor extends Actor {
     };
 
     data.cost = {
-      "value": (totalCost + (0.1 * data.floors.length * totalCost)) * data.costMultiplier.value,
+      "value": totalCost * data.costMultiplier.value * (totalHeight / 100), // each 10' of height adds 10% to the costs in both time and money
       "label": 'BASICFANTASYRPG.Cost'
     };
 
     data.buildTime = {
-      "value": Math.max(data.cost.value / data.workers.value, Math.sqrt(data.cost.value)), //TODO: check if this is correct!
+      "value": Math.ceil(Math.max(data.cost.value / data.workers.value, Math.sqrt(data.cost.value))), //TODO: check if this is correct!
       "label": 'BASICFANTASYRPG.BuildTime'
     };
   }
