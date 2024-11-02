@@ -69,8 +69,8 @@
 
             {{#each data.saves as |save key|}}
             <div class="ability flexrow flex-group-center">
-              <label for="data.saves.{{key}}.value" class="resource-label rollable flexlarge align-left" title="{{localize 'BASICFANTASYRPG.Roll'}} {{localize 'BASICFANTASYRPG.SavingThrow'}}" data-roll="d20" data-label="{{localize 'BASICFANTASYRPG.SavingThrow'}} - {{save.label}}" data-target-number="{{save.value}}">{{save.label}}</label>
-              <input type="text" name="data.saves.{{key}}.value" value="{{save.value}}" data-dtype="Number"/>
+              <label for="system.saves.{{key}}.value" class="resource-label rollable flexlarge align-left" title="{{localize 'BASICFANTASYRPG.Roll'}} {{localize 'BASICFANTASYRPG.SavingThrow'}}" data-roll="d20" data-label="{{localize 'BASICFANTASYRPG.SavingThrow'}} - {{save.label}}" data-target-number="{{save.value}}">{{save.label}}</label>
+              <input type="text" name="system.saves.{{key}}.value" value="{{save.value}}" data-dtype="Number"/>
             </div>
             {{/each}}
           </div>
