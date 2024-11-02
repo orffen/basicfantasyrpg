@@ -5,22 +5,22 @@
       <h1 class="charname"><input name="name" type="text" value="{{item.name}}" placeholder="{{localize 'BASICFANTASYRPG.Name'}}"/></h1>
       <div class="grid grid-5col">
         <div class="resource">
-          <label for="data.height.value" class="resource-label">{{localize data.height.label}}</label>
+          <label for="system.height.value" class="resource-label">{{localize data.height.label}}</label>
           <div class="resource-content flexrow flex-center flex-between">
-            <input type="number" name="data.height.value" value="{{data.height.value}}" data-dtype="Number"/>
+            <input type="number" name="system.height.value" value="{{data.height.value}}" data-dtype="Number"/>
             <span class="flexshrink flex-align-center">&nbsp;{{localize 'BASICFANTASYRPG.FeetAbbr'}}</span>
           </div>
         </div>
         <div class="resource">
-          <label for="data.area.value" class="resource-label">{{localize data.area.label}}</label>
+          <label for="system.area.value" class="resource-label">{{localize data.area.label}}</label>
           <div class="resource-content flexrow flex-center flex-between">
-            <input type="number" name="data.area.value" value="{{data.area.value}}" data-dtype="Number"/>
+            <input type="number" name="system.area.value" value="{{data.area.value}}" data-dtype="Number"/>
             <span class="flexshrink flex-align-center">&nbsp;{{localize 'BASICFANTASYRPG.FeetAbbr'}}<sup>2</sup></span>
           </div>
         </div>
         <div class="resource grid-span-2">
-          <label for="data.material.value" class="resource-label">{{localize data.material.label}}</label>
-          <select name="data.material.value" id="data.material.value">
+          <label for="system.material.value" class="resource-label">{{localize data.material.label}}</label>
+          <select name="system.material.value" id="system.material.value">
             <option value="floor" {{selected (eq data.material.value "floor")}}>{{localize 'ITEM.TypeFloor'}}</option>
             <option value="roofThatch" {{selected (eq data.material.value "roofThatch")}}>{{localize 'BASICFANTASYRPG.RoofThatched'}}</option>
             <option value="roofWood" {{selected (eq data.material.value "roofWood")}}>{{localize 'BASICFANTASYRPG.RoofWood'}}</option>
@@ -28,8 +28,8 @@
           </select>
         </div>
         <div class="resource">
-          <label for="data.price.value" class="resource-label">{{localize data.price.label}}</label>
-          <input type="number" name="data.price.value" value="{{data.price.value}}" data-dtype="Number" disabled/>
+          <label for="system.price.value" class="resource-label">{{localize data.price.label}}</label>
+          <input type="number" name="system.price.value" value="{{data.price.value}}" data-dtype="Number" disabled/>
         </div>
       </div>
     </div>
