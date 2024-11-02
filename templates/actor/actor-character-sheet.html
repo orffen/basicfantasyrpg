@@ -1,3 +1,4 @@
+{{log 'actor-sheet' this}}
 <form class="{{cssClass}} {{actor.type}} flexcol" autocomplete="off">
 
   {{!-- Sheet Header --}}
@@ -8,9 +9,9 @@
       <div class="resources grid grid-3col">
 
         <div class="resource flex-group-center">
-          <label for="data.hitPoints.value" class="resource-label">{{localize data.hitPoints.label}}</label>
+          <label for="system.hitPoints.value" class="resource-label">{{localize document.system.hitPoints.label}}</label>
           <div class="resource-content flexrow flex-center flex-between">
-            <input type="text" name="data.hitPoints.value" value="{{data.hitPoints.value}}" data-dtype="Number"/>
+            <input type="text" name="system.hitPoints.value" value="{{document.system.hitPoints.value}}" data-dtype="Number"/>
             <span class="flexshrink flex-align-center">&nbsp;/&nbsp;</span>
             <input type="text" name="data.hitPoints.max" value="{{data.hitPoints.max}}" data-dtype="Number"/>
           </div>
