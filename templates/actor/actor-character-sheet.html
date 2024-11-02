@@ -1,4 +1,4 @@
-{{log 'actor-sheet' this}}
+{{log 'actor-sheet' this}} 
 <form class="{{cssClass}} {{actor.type}} flexcol" autocomplete="off">
 
   {{!-- Sheet Header --}}
@@ -9,29 +9,29 @@
       <div class="resources grid grid-3col">
 
         <div class="resource flex-group-center">
-          <label for="system.hitPoints.value" class="resource-label">{{localize document.system.hitPoints.label}}</label>
+          <label for="system.hitPoints.value" class="resource-label">{{localize data.hitPoints.label}}</label>
           <div class="resource-content flexrow flex-center flex-between">
-            <input type="text" name="system.hitPoints.value" value="{{document.system.hitPoints.value}}" data-dtype="Number"/>
+            <input type="text" name="system.hitPoints.value" value="{{data.hitPoints.value}}" data-dtype="Number"/>
             <span class="flexshrink flex-align-center">&nbsp;/&nbsp;</span>
-            <input type="text" name="data.hitPoints.max" value="{{data.hitPoints.max}}" data-dtype="Number"/>
+            <input type="text" name="system.hitPoints.max" value="{{data.hitPoints.max}}" data-dtype="Number"/>
           </div>
         </div>
 
         <div class="resource flex-group-center">
-          <label for="data.level.value" class="resource-label">{{localize data.class.label}}&nbsp;/&nbsp;{{localize data.level.label}}</label>
+          <label for="system.level.value" class="resource-label">{{localize data.class.label}}&nbsp;/&nbsp;{{localize data.level.label}}</label>
           <div class="resource-content flexrow flex-center flex-between">
-            <input type="text" name="data.class.value" value="{{data.class.value}}" data-dtype="String"/>
+            <input type="text" name="system.class.value" value="{{data.class.value}}" data-dtype="String"/>
             <span class="flexshrink flex-align-center">&nbsp;</span>
-            <input type="text" name="data.level.value" value="{{data.level.value}}" data-dtype="Number"/>
+            <input type="text" name="system.level.value" value="{{data.level.value}}" data-dtype="Number"/>
           </div>
         </div>
 
         <div class="resource flex-group-center">
-          <label for="data.xp.value" class="resource-label">{{localize data.xp.abbr}}&nbsp;/&nbsp;{{localize 'BASICFANTASYRPG.NextLevel'}}</label>
+          <label for="system.xp.value" class="resource-label">{{localize data.xp.abbr}}&nbsp;/&nbsp;{{localize 'BASICFANTASYRPG.NextLevel'}}</label>
           <div class="resource-content flexrow flex-center flex-between">
-            <input type="text" name="data.xp.value" value="{{data.xp.value}}" data-dtype="Number"/>
+            <input type="text" name="system.xp.value" value="{{data.xp.value}}" data-dtype="Number"/>
             <span class="flexshrink flex-align-center">&nbsp;/&nbsp;</span>
-            <input type="text" name="data.xp.next" value="{{data.xp.next}}" data-dtype="Number"/>
+            <input type="text" name="system.xp.next" value="{{data.xp.next}}" data-dtype="Number"/>
           </div>
         </div>
 
