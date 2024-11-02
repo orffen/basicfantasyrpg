@@ -1,9 +1,9 @@
 <section class="resources grid grid-6col">
   {{#each data.spellsPerLevel.value as |spellsPerLevel level|}}
   <div class="resource flex-group-center">
-    <label for="data.spellsPerLevel.{{level}}" class="resource-label">{{level}}</label>
+    <label for="system.spellsPerLevel.{{level}}" class="resource-label">{{level}}</label>
     <div class="resource-content flexrow flex-center flex-between">
-      <input type="number" name="data.spellsPerLevel.value.{{level}}" value="{{spellsPerLevel}}" data-dtype="Number"/>
+      <input type="number" name="system.spellsPerLevel.value.{{level}}" value="{{spellsPerLevel}}" data-dtype="Number"/>
     </div>
   </div>
   {{/each}}
