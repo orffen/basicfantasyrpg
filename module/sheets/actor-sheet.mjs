@@ -9,7 +9,7 @@ export class BasicFantasyRPGActorSheet extends ActorSheet {
 
   /** @override */
   static get defaultOptions() {
-    return mergeObject(super.defaultOptions, {
+    return foundry.utils.mergeObject(super.defaultOptions, {
       classes: ['basicfantasyrpg', 'sheet', 'actor'],
       template: 'systems/basicfantasyrpg/templates/actor/actor-sheet.html',
       width: 600,
