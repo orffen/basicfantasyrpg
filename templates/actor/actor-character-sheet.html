@@ -1,3 +1,4 @@
+{{log 'actor-sheet' this}} 
 <form class="{{cssClass}} {{actor.type}} flexcol" autocomplete="off">
 
   {{!-- Sheet Header --}}
@@ -8,29 +9,29 @@
       <div class="resources grid grid-3col">
 
         <div class="resource flex-group-center">
-          <label for="data.hitPoints.value" class="resource-label">{{localize data.hitPoints.label}}</label>
+          <label for="system.hitPoints.value" class="resource-label">{{localize data.hitPoints.label}}</label>
           <div class="resource-content flexrow flex-center flex-between">
-            <input type="text" name="data.hitPoints.value" value="{{data.hitPoints.value}}" data-dtype="Number"/>
+            <input type="text" name="system.hitPoints.value" value="{{data.hitPoints.value}}" data-dtype="Number"/>
             <span class="flexshrink flex-align-center">&nbsp;/&nbsp;</span>
-            <input type="text" name="data.hitPoints.max" value="{{data.hitPoints.max}}" data-dtype="Number"/>
+            <input type="text" name="system.hitPoints.max" value="{{data.hitPoints.max}}" data-dtype="Number"/>
           </div>
         </div>
 
         <div class="resource flex-group-center">
-          <label for="data.level.value" class="resource-label">{{localize data.class.label}}&nbsp;/&nbsp;{{localize data.level.label}}</label>
+          <label for="system.level.value" class="resource-label">{{localize data.class.label}}&nbsp;/&nbsp;{{localize data.level.label}}</label>
           <div class="resource-content flexrow flex-center flex-between">
-            <input type="text" name="data.class.value" value="{{data.class.value}}" data-dtype="String"/>
+            <input type="text" name="system.class.value" value="{{data.class.value}}" data-dtype="String"/>
             <span class="flexshrink flex-align-center">&nbsp;</span>
-            <input type="text" name="data.level.value" value="{{data.level.value}}" data-dtype="Number"/>
+            <input type="text" name="system.level.value" value="{{data.level.value}}" data-dtype="Number"/>
           </div>
         </div>
 
         <div class="resource flex-group-center">
-          <label for="data.xp.value" class="resource-label">{{localize data.xp.abbr}}&nbsp;/&nbsp;{{localize 'BASICFANTASYRPG.NextLevel'}}</label>
+          <label for="system.xp.value" class="resource-label">{{localize data.xp.abbr}}&nbsp;/&nbsp;{{localize 'BASICFANTASYRPG.NextLevel'}}</label>
           <div class="resource-content flexrow flex-center flex-between">
-            <input type="text" name="data.xp.value" value="{{data.xp.value}}" data-dtype="Number"/>
+            <input type="text" name="system.xp.value" value="{{data.xp.value}}" data-dtype="Number"/>
             <span class="flexshrink flex-align-center">&nbsp;/&nbsp;</span>
-            <input type="text" name="data.xp.next" value="{{data.xp.next}}" data-dtype="Number"/>
+            <input type="text" name="system.xp.next" value="{{data.xp.next}}" data-dtype="Number"/>
           </div>
         </div>
 
@@ -59,8 +60,8 @@
           <div class="abilities flexcol">
             {{#each data.abilities as |ability key|}}
             <div class="ability flexrow flex-group-center">
-              <label for="data.abilities.{{key}}.value" class="resource-label rollable flexlarge align-left" title="{{localize 'BASICFANTASYRPG.Roll'}} {{localize 'BASICFANTASYRPG.AbilityCheck'}}" data-roll="d20{{numberFormat ability.bonus decimals=0 sign=true}}" data-label="{{ability.label}}" data-target-number="{{calculateAbilityTargetNumber ../data.level.value}}">{{ability.label}}</label>
-              <input type="text" name="data.abilities.{{key}}.value" value="{{ability.value}}" data-dtype="Number"/>
+              <label for="system.abilities.{{key}}.value" class="resource-label rollable flexlarge align-left" title="{{localize 'BASICFANTASYRPG.Roll'}} {{localize 'BASICFANTASYRPG.AbilityCheck'}}" data-roll="d20{{numberFormat ability.bonus decimals=0 sign=true}}" data-label="{{ability.label}}" data-target-number="{{calculateAbilityTargetNumber ../data.level.value}}">{{ability.label}}</label>
+              <input type="text" name="system.abilities.{{key}}.value" value="{{ability.value}}" data-dtype="Number"/>
               <span class="ability-mod rollable" title="{{localize 'BASICFANTASYRPG.Roll'}} {{localize 'BASICFANTASYRPG.AbilityCheck'}}" data-roll="d20{{numberFormat ability.bonus decimals=0 sign=true}}" data-label="{{ability.label}}" data-target-number="{{calculateAbilityTargetNumber ../data.level.value}}">{{numberFormat ability.bonus decimals=0 sign=true}}</span>
             </div>
             {{/each}}
@@ -69,8 +70,8 @@
 
             {{#each data.saves as |save key|}}
             <div class="ability flexrow flex-group-center">
-              <label for="data.saves.{{key}}.value" class="resource-label rollable flexlarge align-left" title="{{localize 'BASICFANTASYRPG.Roll'}} {{localize 'BASICFANTASYRPG.SavingThrow'}}" data-roll="d20" data-label="{{localize 'BASICFANTASYRPG.SavingThrow'}} - {{save.label}}" data-target-number="{{save.value}}">{{save.label}}</label>
-              <input type="text" name="data.saves.{{key}}.value" value="{{save.value}}" data-dtype="Number"/>
+              <label for="system.saves.{{key}}.value" class="resource-label rollable flexlarge align-left" title="{{localize 'BASICFANTASYRPG.Roll'}} {{localize 'BASICFANTASYRPG.SavingThrow'}}" data-roll="d20" data-label="{{localize 'BASICFANTASYRPG.SavingThrow'}} - {{save.label}}" data-target-number="{{save.value}}">{{save.label}}</label>
+              <input type="text" name="system.saves.{{key}}.value" value="{{save.value}}" data-dtype="Number"/>
             </div>
             {{/each}}
           </div>

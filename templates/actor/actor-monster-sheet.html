@@ -8,23 +8,23 @@
       <div class="resources grid grid-2col">
 
         <div class="resource flex-group-center">
-          <label for="data.hitPoints.value" class="resource-label">{{localize data.hitPoints.label}}</label>
+          <label for="system.hitPoints.value" class="resource-label">{{localize data.hitPoints.label}}</label>
           <div class="resource-content flexrow flex-center flex-between">
-            <input type="number" name="data.hitPoints.value" value="{{data.hitPoints.value}}" data-dtype="Number"/>
+            <input type="number" name="system.hitPoints.value" value="{{data.hitPoints.value}}" data-dtype="Number"/>
             <span class="flexshrink flex-align-center">&nbsp;/&nbsp;</span>
-            <input type="number" name="data.hitPoints.max" value="{{data.hitPoints.max}}" data-dtype="Number"/>
+            <input type="number" name="system.hitPoints.max" value="{{data.hitPoints.max}}" data-dtype="Number"/>
           </div>
         </div>
 
         <div class="resource flex-group-center">
-          <label for="data.hitDice" class="resource-label rollable" title="{{localize 'BASICFANTASYRPG.Roll'}} {{localize data.hitDice.label}}" data-roll="{{data.hitDice.number}}{{data.hitDice.size}}{{numberFormat data.hitDice.mod decimals=0 sign=true}}" data-label="{{localize data.hitDice.label}}">{{localize data.hitDice.abbr}}&nbsp;/&nbsp;{{localize data.specialAbility.label}}</label>
+          <label for="system.hitDice" class="resource-label rollable" title="{{localize 'BASICFANTASYRPG.Roll'}} {{localize data.hitDice.label}}" data-roll="{{data.hitDice.number}}{{data.hitDice.size}}{{numberFormat data.hitDice.mod decimals=0 sign=true}}" data-label="{{localize data.hitDice.label}}">{{localize data.hitDice.abbr}}&nbsp;/&nbsp;{{localize data.specialAbility.label}}</label>
           <div class="resource-content flexrow flex-center flex-between">
-            <input type="number" name="data.hitDice.number" value="{{data.hitDice.number}}" data-dtype="Number"/>
-            <input type="text" name="data.hitDice.size" value="{{data.hitDice.size}}" data-dtype="String"/>
+            <input type="number" name="system.hitDice.number" value="{{data.hitDice.number}}" data-dtype="Number"/>
+            <input type="text" name="system.hitDice.size" value="{{data.hitDice.size}}" data-dtype="String"/>
             <span class="flexshrink flex-align-center">+</span>
-            <input type="number" name="data.hitDice.mod" value="{{data.hitDice.mod}}" data-dtype="Number" sign="true"/>
+            <input type="number" name="system.hitDice.mod" value="{{data.hitDice.mod}}" data-dtype="Number" sign="true"/>
             <span class="flexshrink flex-align-center">&nbsp;/&nbsp;</span>
-            <input type="number" name="data.specialAbility.value" value="{{data.specialAbility.value}}" data-dtype="Number"/>
+            <input type="number" name="system.specialAbility.value" value="{{data.specialAbility.value}}" data-dtype="Number"/>
           </div>
         </div>
 
@@ -33,30 +33,30 @@
       <div class="resources grid grid-4col">
 
         <div class="resource flex-group-center">
-          <label for="data.numberAppearing.value" class="resource-label rollable" title="{{localize 'BASICFANTASYRPG.Roll'}} {{localize data.numberAppearing.label}}" data-roll="{{data.numberAppearing.value}}" data-label="{{localize data.numberAppearing.label}}">{{localize data.numberAppearing.label}}</label>
+          <label for="system.numberAppearing.value" class="resource-label rollable" title="{{localize 'BASICFANTASYRPG.Roll'}} {{localize data.numberAppearing.label}}" data-roll="{{data.numberAppearing.value}}" data-label="{{localize data.numberAppearing.label}}">{{localize data.numberAppearing.label}}</label>
           <div class="resource-content flexrow flex-center flex-between">
-            <input type="text" name="data.numberAppearing.value" value="{{data.numberAppearing.value}}" data-dtype="String"/>
+            <input type="text" name="system.numberAppearing.value" value="{{data.numberAppearing.value}}" data-dtype="String"/>
           </div>
         </div>
 
         <div class="resource flex-group-center">
-          <label for="data.morale.value" class="resource-label rollable" title="{{localize 'BASICFANTASYRPG.Roll'}} {{localize data.morale.label}}" data-roll="2d6" data-label="{{localize data.morale.label}}" data-target-number="{{data.morale.value}}" data-roll-under="true">{{localize data.morale.label}}</label>
+          <label for="system.morale.value" class="resource-label rollable" title="{{localize 'BASICFANTASYRPG.Roll'}} {{localize data.morale.label}}" data-roll="2d6" data-label="{{localize data.morale.label}}" data-target-number="{{data.morale.value}}" data-roll-under="true">{{localize data.morale.label}}</label>
           <div class="resource-content flexrow flex-center flex-between">
-            <input type="number" name="data.morale.value" value="{{data.morale.value}}" data-dtype="Number"/>
+            <input type="number" name="system.morale.value" value="{{data.morale.value}}" data-dtype="Number"/>
           </div>
         </div>
 
         <div class="resource flex-group-center">
-          <label for="data.treasureType.value" class="resource-label">{{localize data.treasureType.label}}</label>
+          <label for="system.treasureType.value" class="resource-label">{{localize data.treasureType.label}}</label>
           <div class="resource-content flexrow flex-center flex-between">
-            <input type="text" name="data.treasureType.value" value="{{data.treasureType.value}}" data-dtype="String"/>
+            <input type="text" name="system.treasureType.value" value="{{data.treasureType.value}}" data-dtype="String"/>
           </div>
         </div>
 
         <div class="resource flex-group-center">
-          <label for="data.xp.value" class="resource-label">{{localize data.xp.abbr}}</label>
+          <label for="system.xp.value" class="resource-label">{{localize data.xp.abbr}}</label>
           <div class="resource-content flexrow flex-center flex-between">
-            <input type="number" disabled="true" name="data.xp.value" value="{{data.xp.value}}" data-dtype="Number"/>
+            <input type="number" disabled="true" name="system.xp.value" value="{{data.xp.value}}" data-dtype="Number"/>
           </div>
         </div>
 
@@ -82,8 +82,8 @@
           <div class="abilities flexcol">
             {{#each data.saves as |save key|}}
             <div class="ability flexrow flex-group-center">
-              <label for="data.saves.{{key}}.value" class="resource-label rollable flexlarge align-left" title="{{localize 'BASICFANTASYRPG.Roll'}} {{localize 'BASICFANTASYRPG.SavingThrow'}}" data-roll="d20" data-label="Saving Throw - {{save.label}}" data-target-number="{{save.value}}">{{save.label}}</label>
-              <input type="text" name="data.saves.{{key}}.value" value="{{save.value}}" data-dtype="Number"/>
+              <label for="system.saves.{{key}}.value" class="resource-label rollable flexlarge align-left" title="{{localize 'BASICFANTASYRPG.Roll'}} {{localize 'BASICFANTASYRPG.SavingThrow'}}" data-roll="d20" data-label="Saving Throw - {{save.label}}" data-target-number="{{save.value}}">{{save.label}}</label>
+              <input type="text" name="system.saves.{{key}}.value" value="{{save.value}}" data-dtype="Number"/>
             </div>
             {{/each}}
           </div>
