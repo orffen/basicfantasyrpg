@@ -1,30 +1,30 @@
 <section class="resources grid grid-4col">
 
   <div class="resource flex-group-center">
-    <label for="data.armorClass.value" class="resource-label">{{localize data.armorClass.abbr}}</label>
+    <label for="system.armorClass.value" class="resource-label">{{localize data.armorClass.abbr}}</label>
     <div class="resource-content flexrow flex-center flex-between">
-      <input type="number" name="data.armorClass.value" value="{{data.armorClass.value}}" data-dtype="Number"/>
+      <input type="number" name="system.armorClass.value" value="{{data.armorClass.value}}" data-dtype="Number"/>
     </div>
   </div>
 
   <div class="resource flex-group-center">
-    <label for="data.attackBonus.value" class="resource-label">{{localize data.attackBonus.abbr}}</label>
+    <label for="system.attackBonus.value" class="resource-label">{{localize data.attackBonus.abbr}}</label>
     <div class="resource-content flexrow flex-center flex-between">
-      <input type="number" name="data.attackBonus.value" value="{{data.attackBonus.value}}" data-dtype="Number" {{#if (eq actor.type 'monster')}}disabled{{/if}}/>
+      <input type="number" name="system.attackBonus.value" value="{{data.attackBonus.value}}" data-dtype="Number" {{#if (eq actor.type 'monster')}}disabled{{/if}}/>
     </div>
   </div>
 
   <div class="resource flex-group-center">
-    <label for="data.move.value" class="resource-label">{{localize data.move.label}}</label>
+    <label for="system.move.value" class="resource-label">{{localize data.move.label}}</label>
     <div class="resource-content flexrow flex-center flex-between">
-      <input type="text" name="data.move.value" value="{{data.move.value}}" data-dtype="String"/>
+      <input type="text" name="system.move.value" value="{{data.move.value}}" data-dtype="String"/>
     </div>
   </div>
 
   <div class="resource flex-group-center">
-    <label for="data.initBonus.value" class="resource-label">{{localize data.initBonus.label}}</label>
+    <label for="system.initBonus.value" class="resource-label">{{localize data.initBonus.label}}</label>
     <div class="resource-content flexrow flex-center flex-between">
-      <input type="number" name="data.initBonus.value" value="{{data.initBonus.value}}" data-dtype="Number"/>
+      <input type="number" name="system.initBonus.value" value="{{data.initBonus.value}}" data-dtype="Number"/>
     </div>
   </div>
 

@@ -8,20 +8,20 @@
       <div class="resources grid grid-2col">
 
         <div class="resource flex-group-center">
-          <label for="data.hitPoints.value" class="resource-label">{{localize data.hitPoints.label}}</label>
+          <label for="system.hitPoints.value" class="resource-label">{{localize data.hitPoints.label}}</label>
           <div class="resource-content flexrow flex-center flex-between">
-            <input type="number" name="data.hitPoints.value" value="{{data.hitPoints.value}}" data-dtype="Number" disabled/>
+            <input type="number" name="system.hitPoints.value" value="{{data.hitPoints.value}}" data-dtype="Number" disabled/>
             <span class="flexshrink flex-align-center">&nbsp;/&nbsp;</span>
-            <input type="number" name="data.hitPoints.max" value="{{data.hitPoints.max}}" data-dtype="Number" disabled/>
+            <input type="number" name="system.hitPoints.max" value="{{data.hitPoints.max}}" data-dtype="Number" disabled/>
           </div>
         </div>
 
         <div class="resource flex-group-center">
-          <label for="data.move.value" class="resource-label">{{localize 'BASICFANTASYRPG.Movement'}}</label>
+          <label for="system.move.value" class="resource-label">{{localize 'BASICFANTASYRPG.Movement'}}</label>
           <div class="resource-content flexrow flex-center flex-between">
-            <input type="text" class="flexlarge{{#if (eq data.move.current 0)}} failure-text{{/if}}" name="data.move.current" value="{{#if (eq data.move.current 0)}}{{localize 'BASICFANTASYRPG.Immobilized'}}/{{localize 'BASICFANTASYRPG.Sunk'}}{{else}}{{data.move.current}}{{/if}}" data-dtype="String" disabled/>
+            <input type="text" class="flexlarge{{#if (eq data.move.current 0)}} failure-text{{/if}}" name="system.move.current" value="{{#if (eq data.move.current 0)}}{{localize 'BASICFANTASYRPG.Immobilized'}}/{{localize 'BASICFANTASYRPG.Sunk'}}{{else}}{{data.move.current}}{{/if}}" data-dtype="String" disabled/>
             <span class="flexshrink flex-align-center">&nbsp;/&nbsp;</span>
-            <input type="number" name="data.move.value" value="{{data.move.value}}" data-dtype="Number"/>
+            <input type="number" name="system.move.value" value="{{data.move.value}}" data-dtype="Number"/>
           </div>
         </div>
 
@@ -30,32 +30,32 @@
       <div class="resources grid grid-4col">
 
         <div class="resource flex-group-center">
-          <label for="data.maneuverability.value" class="resource-label">{{localize data.maneuverability.label}}</label>
+          <label for="system.maneuverability.value" class="resource-label">{{localize data.maneuverability.label}}</label>
           <div class="resource-content flexrow flex-center flex-between">
-            <input type="text" name="data.maneuverability.value" value="{{data.maneuverability.value}}" data-dtype="String"/>
+            <input type="text" name="system.maneuverability.value" value="{{data.maneuverability.value}}" data-dtype="String"/>
           </div>
         </div>
 
         <div class="resource flex-group-center">
-          <label for="data.length.value" class="resource-label">{{localize data.length.label}}</label>
+          <label for="system.length.value" class="resource-label">{{localize data.length.label}}</label>
           <div class="resource-content flexrow flex-center flex-between">
-            <input type="number" name="data.length.value" value="{{data.length.value}}" data-dtype="Number"/>
+            <input type="number" name="system.length.value" value="{{data.length.value}}" data-dtype="Number"/>
             <span class="flexshrink flex-align-center">&nbsp;{{localize 'BASICFANTASYRPG.FeetAbbr'}}</span>
           </div>
         </div>
 
         <div class="resource flex-group-center">
-          <label for="data.width.value" class="resource-label">{{localize data.width.label}}</label>
+          <label for="system.width.value" class="resource-label">{{localize data.width.label}}</label>
           <div class="resource-content flexrow flex-center flex-between">
-            <input type="number" name="data.width.value" value="{{data.width.value}}" data-dtype="Number"/>
+            <input type="number" name="system.width.value" value="{{data.width.value}}" data-dtype="Number"/>
             <span class="flexshrink flex-align-center">&nbsp;{{localize 'BASICFANTASYRPG.FeetAbbr'}}</span>
           </div>
         </div>
 
         <div class="resource flex-group-center">
-          <label for="data.cargo.value" class="resource-label">{{localize 'BASICFANTASYRPG.Cargo'}}</label>
+          <label for="system.cargo.value" class="resource-label">{{localize 'BASICFANTASYRPG.Cargo'}}</label>
           <div class="resource-content flexrow flex-center flex-between">
-            <input type="text" name="data.cargo.value" value="{{data.cargo.value}}" data-dtype="String"/>
+            <input type="text" name="system.cargo.value" value="{{data.cargo.value}}" data-dtype="String"/>
           </div>
         </div>
 
@@ -82,41 +82,41 @@
 
         <div class="resources">
           <div class="resource flexcol flex-group-center">
-            <label for="data.hitPoints.forward.value" class="resource-label">{{localize data.hitPoints.forward.label}} {{localize data.hitPoints.abbr}}</label>
+            <label for="system.hitPoints.forward.value" class="resource-label">{{localize data.hitPoints.forward.label}} {{localize data.hitPoints.abbr}}</label>
             <div class="flexrow">
-              <input type="text" name="data.hitPoints.forward.value" value="{{data.hitPoints.forward.value}}" data-dtype="Number"/>
+              <input type="text" name="system.hitPoints.forward.value" value="{{data.hitPoints.forward.value}}" data-dtype="Number"/>
               <span class="flexshrink flex-align-center">&nbsp;/&nbsp;</span>
-              <input type="number" name="data.hitPoints.forward.max" value="{{data.hitPoints.forward.max}}" data-dtype="Number"/>
+              <input type="number" name="system.hitPoints.forward.max" value="{{data.hitPoints.forward.max}}" data-dtype="Number"/>
             </div>
           </div>
         </div>
 
         <div class="resources flexcol grid grid-2col" >
           <div class="resource flexcol flex-group-center">
-            <label for="data.hitPoints.port.value" class="resource-label">{{localize data.hitPoints.port.label}} {{localize data.hitPoints.abbr}}</label>
+            <label for="system.hitPoints.port.value" class="resource-label">{{localize data.hitPoints.port.label}} {{localize data.hitPoints.abbr}}</label>
             <div class="flexrow">
-              <input type="text" name="data.hitPoints.port.value" value="{{data.hitPoints.port.value}}" data-dtype="Number"/>
+              <input type="text" name="system.hitPoints.port.value" value="{{data.hitPoints.port.value}}" data-dtype="Number"/>
               <span class="flexshrink flex-align-center">&nbsp;/&nbsp;</span>
-              <input type="number" name="data.hitPoints.port.max" value="{{data.hitPoints.port.max}}" data-dtype="Number"/>
+              <input type="number" name="system.hitPoints.port.max" value="{{data.hitPoints.port.max}}" data-dtype="Number"/>
             </div>
           </div>
           <div class="resource flexcol flex-group-center">
-            <label for="data.hitPoints.starboard.value" class="resource-label">{{localize data.hitPoints.starboard.label}} {{localize data.hitPoints.abbr}}</label>
+            <label for="system.hitPoints.starboard.value" class="resource-label">{{localize data.hitPoints.starboard.label}} {{localize data.hitPoints.abbr}}</label>
             <div class="flexrow">
-              <input type="text" name="data.hitPoints.starboard.value" value="{{data.hitPoints.starboard.value}}" data-dtype="Number"/>
+              <input type="text" name="system.hitPoints.starboard.value" value="{{data.hitPoints.starboard.value}}" data-dtype="Number"/>
               <span class="flexshrink flex-align-center">&nbsp;/&nbsp;</span>
-              <input type="number" name="data.hitPoints.starboard.max" value="{{data.hitPoints.starboard.max}}" data-dtype="Number"/>
+              <input type="number" name="system.hitPoints.starboard.max" value="{{data.hitPoints.starboard.max}}" data-dtype="Number"/>
             </div>
           </div>
         </div>
 
         <div class="resources">
           <div class="resource flexcol flex-group-center">
-            <label for="data.hitPoints.aft.value" class="resource-label">{{localize data.hitPoints.aft.label}} {{localize data.hitPoints.abbr}}</label>
+            <label for="system.hitPoints.aft.value" class="resource-label">{{localize data.hitPoints.aft.label}} {{localize data.hitPoints.abbr}}</label>
             <div class="flexrow">
-              <input type="text" name="data.hitPoints.aft.value" value="{{data.hitPoints.aft.value}}" data-dtype="Number"/>
+              <input type="text" name="system.hitPoints.aft.value" value="{{data.hitPoints.aft.value}}" data-dtype="Number"/>
               <span class="flexshrink flex-align-center">&nbsp;/&nbsp;</span>
-              <input type="number" name="data.hitPoints.aft.max" value="{{data.hitPoints.aft.max}}" data-dtype="Number"/>
+              <input type="number" name="system.hitPoints.aft.max" value="{{data.hitPoints.aft.max}}" data-dtype="Number"/>
             </div>
           </div>
         </div>
@@ -125,15 +125,15 @@
 
         <div class="resources">
           <div class="resource flexrow flex-group-center">
-            <label for="data.hardness.value" class="resource-label align-left">{{localize data.hardness.label}}</label>
-            <input type="text" name="data.hardness.value" value="{{data.hardness.value}}" data-dtype="Number"/>
+            <label for="system.hardness.value" class="resource-label align-left">{{localize data.hardness.label}}</label>
+            <input type="text" name="system.hardness.value" value="{{data.hardness.value}}" data-dtype="Number"/>
           </div>
         </div>
 
         <div class="resources">
           <div class="resource flexrow flex-group-center">
-            <label for="data.armorClass.value" class="resource-label align-left">{{localize data.armorClass.label}}</label>
-            <input type="text" name="data.armorClass.value" value="{{data.armorClass.value}}" data-dtype="Number"/>
+            <label for="system.armorClass.value" class="resource-label align-left">{{localize data.armorClass.label}}</label>
+            <input type="text" name="system.armorClass.value" value="{{data.armorClass.value}}" data-dtype="Number"/>
           </div>
         </div>
 

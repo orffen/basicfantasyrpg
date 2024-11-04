@@ -9,7 +9,7 @@ export class BasicFantasyRPGActorSheet extends ActorSheet {
 
   /** @override */
   static get defaultOptions() {
-    return mergeObject(super.defaultOptions, {
+    return foundry.utils.mergeObject(super.defaultOptions, {
       classes: ['basicfantasyrpg', 'sheet', 'actor'],
       template: 'systems/basicfantasyrpg/templates/actor/actor-sheet.html',
       width: 600,
@@ -179,10 +179,10 @@ export class BasicFantasyRPGActorSheet extends ActorSheet {
     // Iterate through money, add to carried weight
     if (context.data.money) {
       let gp = Number(context.data.money.gp.value);
-      gp += context.data.money.pp.value * 5;
-      gp += context.data.money.ep.value / 5;
-      gp += context.data.money.sp.value / 10;
-      gp += context.data.money.cp.value / 100;
+      gp += context.data.money.pp.value;
+      gp += context.data.money.ep.value;
+      gp += context.data.money.sp.value;
+      gp += context.data.money.cp.value;
       carriedWeight._addWeight('*', gp);  // '*' will calculate GP weight
     }
 
@@ -280,7 +280,7 @@ export class BasicFantasyRPGActorSheet extends ActorSheet {
     // Get the type of item to create.
     const type = header.dataset.type;
     // Grab any data associated with this control.
-    const data = duplicate(header.dataset);
+    const data = foundry.utils.duplicate(header.dataset);
     if (type === 'spell') {
       // Move dataset spellLevelValue into spellLevel.value
       data.spellLevel = {
