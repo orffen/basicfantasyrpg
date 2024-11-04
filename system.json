@@ -12,6 +12,11 @@
       "name": "Orffen",
       "email": "orffen@orffenspace.com",
       "discord": "Orffen"
+    },
+    {
+      "name": "JugglinDan",
+      "email": "jugglindan@gmail.com",
+      "discord": "JugglinDan"
     }
   ],
   "esmodules": ["module/basicfantasyrpg.mjs"],
