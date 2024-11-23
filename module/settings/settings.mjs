@@ -2,7 +2,12 @@
  * pseudo-enum to make setting ID references less error prone
  */
 export const SETTINGS = {
-  AUTO_ROLL_TOKEN_HP: 'autoRollTokenHP'
+  AUTO_ROLL_TOKEN_HP: 'autoRollTokenHP',
+  SAVE_DEATH_NAME: 'saveDeathName',
+  SAVE_WANDS_NAME: 'saveWandsName',
+  SAVE_PARALYSIS_NAME: 'saveParalysisName',
+  SAVE_BREATH_NAME: 'saveBreathName',
+  SAVE_SPELLS_NAME: 'saveSpellsName',
 }
 
 // Use this internally for now. Refactoring the whole system is too big a job!
@@ -21,6 +26,72 @@ export function registerSettings () {
     type: Boolean,
     default: true,
     requiresReload: false,
-    restricted: true,  // GM-only setting
+    restricted: true // GM-only setting
   })
+
+  /**
+   * Saving throw customisation.
+   * If we get too many settings, these could be broken out into a submenu.
+   * It's more coding work, but keeps things together for the users.
+   */
+  // Death Ray or Poison
+  game.settings.register(SYSTEM_ID, SETTINGS.SAVE_DEATH_NAME, {
+    name: 'BASICFANTASYRPG.SaveDeath',
+    hint: 'BASICFANTASYRPG.SaveName.hint',
+    scope: 'world',
+    config: true,
+    type: String,
+    default: game.i18n.localize('BASICFANTASYRPG.SaveDeath'),
+    requiresReload: true, // I assume this will need a reload to ensure everything is re-rendered
+    restricted: true // GM-only setting
+  })
+
+  //   "BASICFANTASYRPG.SaveWands": "Magic Wands",
+  game.settings.register(SYSTEM_ID, SETTINGS.SAVE_WANDS_NAME, {
+    name: 'BASICFANTASYRPG.SaveWands',
+    hint: 'BASICFANTASYRPG.SaveName.hint',
+    scope: 'world',
+    config: true,
+    type: String,
+    default: game.i18n.localize('BASICFANTASYRPG.SaveWands'),
+    requiresReload: true, // I assume this will need a reload to ensure everything is re-rendered
+    restricted: true // GM-only setting
+  })
+
+  //   "BASICFANTASYRPG.SaveParalysis": "Paralysis or Petrify",
+  game.settings.register(SYSTEM_ID, SETTINGS.SAVE_PARALYSIS_NAME, {
+    name: 'BASICFANTASYRPG.SaveParalysis',
+    hint: 'BASICFANTASYRPG.SaveName.hint',
+    scope: 'world',
+    config: true,
+    type: String,
+    default: game.i18n.localize('BASICFANTASYRPG.SaveParalysis'),
+    requiresReload: true, // I assume this will need a reload to ensure everything is re-rendered
+    restricted: true // GM-only setting
+  })
+
+  //   "BASICFANTASYRPG.SaveBreath": "Dragon Breath",
+  game.settings.register(SYSTEM_ID, SETTINGS.SAVE_BREATH_NAME, {
+    name: 'BASICFANTASYRPG.SaveBreath',
+    hint: 'BASICFANTASYRPG.SaveName.hint',
+    scope: 'world',
+    config: true,
+    type: String,
+    default: game.i18n.localize('BASICFANTASYRPG.SaveBreath'),
+    requiresReload: true, // I assume this will need a reload to ensure everything is re-rendered
+    restricted: true // GM-only setting
+  })
+
+  //   "BASICFANTASYRPG.SaveSpells": "Rods, Staves, and Spells",
+  game.settings.register(SYSTEM_ID, SETTINGS.SAVE_SPELLS_NAME, {
+    name: 'BASICFANTASYRPG.SaveSpells',
+    hint: 'BASICFANTASYRPG.SaveName.hint',
+    scope: 'world',
+    config: true,
+    type: String,
+    default: game.i18n.localize('BASICFANTASYRPG.SaveSpells'),
+    requiresReload: true, // I assume this will need a reload to ensure everything is re-rendered
+    restricted: true // GM-only setting
+  })
+
 }
