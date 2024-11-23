@@ -2,7 +2,7 @@
  * pseudo-enum to make setting ID references less error prone
  */
 export const SETTINGS = {
-  AUTO_ROLL_TOKEN_HP: 'autoRollTokenHP',
+//   AUTO_ROLL_TOKEN_HP: 'autoRollTokenHP',
   SAVE_DEATH_NAME: 'saveDeathName',
   SAVE_WANDS_NAME: 'saveWandsName',
   SAVE_PARALYSIS_NAME: 'saveParalysisName',
@@ -18,6 +18,9 @@ export function registerSettings () {
    * If we have any settings submenus, they'd be defined in separate files and called from here.
    */
 
+  /*
+  Disabled for now based on https://discord.com/channels/735808783493890058/1307906023444582430/1309772596103086081
+  Will delete later once confirmed that it's the wrong direction.
   game.settings.register(SYSTEM_ID, SETTINGS.AUTO_ROLL_TOKEN_HP, {
     name: 'BASICFANTASYRPG.AutoRollTokenHP.name',
     hint: 'BASICFANTASYRPG.AutoRollTokenHP.hint',
@@ -28,6 +31,7 @@ export function registerSettings () {
     requiresReload: false,
     restricted: true // GM-only setting
   })
+*/
 
   /**
    * Saving throw customisation.
