@@ -158,5 +158,7 @@
   "BASICFANTASYRPG.EffectCreate": "Create Effect",
   "BASICFANTASYRPG.EffectToggle": "Toggle Effect",
   "BASICFANTASYRPG.EffectEdit": "Edit Effect",
-  "BASICFANTASYRPG.EffectDelete": "Delete Effect"
+  "BASICFANTASYRPG.EffectDelete": "Delete Effect",
+  "BASICFANTASYRPG.AutoRollTokenHP.name": "Automatically Roll Token HP",
+  "BASICFANTASYRPG.AutoRollTokenHP.hint": "Based on HD value. If this setting is turned off, HP will be set to TODO WORK OUT WHAT"
 }
