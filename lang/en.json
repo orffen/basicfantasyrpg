@@ -160,8 +160,9 @@
   "BASICFANTASYRPG.EffectEdit": "Edit Effect",
   "BASICFANTASYRPG.EffectDelete": "Delete Effect",
 
-  "BASICFANTASYRPG.AutoRollTokenHP.name": "Automatically Roll Token HP",
-  "BASICFANTASYRPG.AutoRollTokenHP.hint": "Based on HD value. If this setting is turned off, HP will be set to TODO WORK OUT WHAT",
-
+  "BASICFANTASYRPG.Settings.SavesMenu.name": "Edit Saving Throw Names",
+  "BASICFANTASYRPG.Settings.SavesMenu.label": "Saving Throw Settings",
+  "BASICFANTASYRPG.Settings.SavesMenu.hint": "",
   "BASICFANTASYRPG.SaveName.hint": "Custom name for this saving throw. The same name is used for all players."
+
 }
