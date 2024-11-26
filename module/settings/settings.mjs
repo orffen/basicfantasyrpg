@@ -13,6 +13,31 @@ export const SETTINGS = {
 // Use this internally for now. Refactoring the whole system is too big a job!
 const SYSTEM_ID = 'basicfantasyrpg'
 
+/**
+ * Array of setting IDs for the settings that should be hidden from
+ * non-GM users. We iterate the array in the renderSettingsConfig
+ * hook and remove those settings from the DOM when required.
+ * This workaround is necessary because in Foundry v12, a restricted
+ * flag to show a setting to GM users is only supported for a setting 
+ * menu, not a setting itself.
+ */
+const GM_ONLY_SETTINGS = [
+  SETTINGS.SAVE_DEATH_NAME,
+  SETTINGS.SAVE_WANDS_NAME,
+  SETTINGS.SAVE_PARALYSIS_NAME,
+  SETTINGS.SAVE_BREATH_NAME,
+  SETTINGS.SAVE_SPELLS_NAME,
+]
+
+Hooks.on('renderSettingsConfig', (app, [html], context) => {
+    if (game.user.isGM) return
+
+    GM_ONLY_SETTINGS.forEach(id => {
+        html.querySelector(`.form-group[data-setting-id="${SYSTEM_ID}.${id}"]`)?.remove()
+    })
+})
+
+
 export function registerSettings () {
   /**
    * If we have any settings submenus, they'd be defined in separate files and called from here.
@@ -29,7 +54,6 @@ export function registerSettings () {
     type: Boolean,
     default: true,
     requiresReload: false,
-    restricted: true // GM-only setting
   })
 */
 
@@ -47,7 +71,6 @@ export function registerSettings () {
     type: String,
     default: game.i18n.localize('BASICFANTASYRPG.SaveDeath'),
     requiresReload: true, // I assume this will need a reload to ensure everything is re-rendered
-    restricted: true // GM-only setting
   })
 
   //   "BASICFANTASYRPG.SaveWands": "Magic Wands",
@@ -59,7 +82,6 @@ export function registerSettings () {
     type: String,
     default: game.i18n.localize('BASICFANTASYRPG.SaveWands'),
     requiresReload: true, // I assume this will need a reload to ensure everything is re-rendered
-    restricted: true // GM-only setting
   })
 
   //   "BASICFANTASYRPG.SaveParalysis": "Paralysis or Petrify",
@@ -71,7 +93,6 @@ export function registerSettings () {
     type: String,
     default: game.i18n.localize('BASICFANTASYRPG.SaveParalysis'),
     requiresReload: true, // I assume this will need a reload to ensure everything is re-rendered
-    restricted: true // GM-only setting
   })
 
   //   "BASICFANTASYRPG.SaveBreath": "Dragon Breath",
@@ -83,7 +104,6 @@ export function registerSettings () {
     type: String,
     default: game.i18n.localize('BASICFANTASYRPG.SaveBreath'),
     requiresReload: true, // I assume this will need a reload to ensure everything is re-rendered
-    restricted: true // GM-only setting
   })
 
   //   "BASICFANTASYRPG.SaveSpells": "Rods, Staves, and Spells",
@@ -95,7 +115,6 @@ export function registerSettings () {
     type: String,
     default: game.i18n.localize('BASICFANTASYRPG.SaveSpells'),
     requiresReload: true, // I assume this will need a reload to ensure everything is re-rendered
-    restricted: true // GM-only setting
   })
 
 }
