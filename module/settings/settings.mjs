@@ -1,17 +1,21 @@
+import { BASICFANTASYRPG } from "../helpers/config.mjs"
+
 /**
  * pseudo-enum to make setting ID references less error prone
  */
 export const SETTINGS = {
 //   AUTO_ROLL_TOKEN_HP: 'autoRollTokenHP',
-  SAVE_DEATH_NAME: 'saveDeathName',
-  SAVE_WANDS_NAME: 'saveWandsName',
-  SAVE_PARALYSIS_NAME: 'saveParalysisName',
-  SAVE_BREATH_NAME: 'saveBreathName',
-  SAVE_SPELLS_NAME: 'saveSpellsName',
+  // use the saves keys as the setting ID to make retrieval easy. 
+  // So long as the system.key is unique, it's fine.
+  SAVE_DEATH_NAME: 'death',
+  SAVE_WANDS_NAME: 'wands',
+  SAVE_PARALYSIS_NAME: 'paralysis',
+  SAVE_BREATH_NAME: 'breath',
+  SAVE_SPELLS_NAME: 'spells',
 }
 
 // Use this internally for now. Refactoring the whole system is too big a job!
-const SYSTEM_ID = 'basicfantasyrpg'
+export const SYSTEM_ID = 'basicfantasyrpg'
 
 /**
  * Array of setting IDs for the settings that should be hidden from
