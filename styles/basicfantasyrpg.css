@@ -371,6 +371,16 @@
   width: 0;
 }
 
+.form-row {
+  margin: 5px;
+}
+
+.button-container {
+  display: flex;
+  gap: 10px;
+  margin-top: 5px;
+}
+
 /* Styles limited to basicfantasyrpg sheets */
 
 .basicfantasyrpg.sheet.actor {
