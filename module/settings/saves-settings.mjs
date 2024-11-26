@@ -67,6 +67,8 @@ class SavesSettings extends FormApplication {
     const data = foundry.utils.expandObject(formData)
     const current = game.settings.get(SYSTEM_ID, SETTINGS.SAVES_SETTINGS)
 
+    // todo: trim whitespace from each string & escape html
+
     if (!objectsShallowEqual(data, current)) {
       game.settings.set(SYSTEM_ID, SETTINGS.SAVES_SETTINGS, data)
       SettingsConfig.reloadConfirm({ world: true })

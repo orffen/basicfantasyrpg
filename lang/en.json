@@ -160,7 +160,7 @@
   "BASICFANTASYRPG.EffectEdit": "Edit Effect",
   "BASICFANTASYRPG.EffectDelete": "Delete Effect",
 
-  "BASICFANTASYRPG.Settings.SavesMenu.name": "Edit Saving Throw Names",
+  "BASICFANTASYRPG.Settings.SavesMenu.name": "Configure Saving Throw Names",
   "BASICFANTASYRPG.Settings.SavesMenu.label": "Saving Throw Settings",
   "BASICFANTASYRPG.Settings.SavesMenu.hint": "",
   "BASICFANTASYRPG.SaveName.hint": "Custom name for this saving throw. The same name is used for all players."
