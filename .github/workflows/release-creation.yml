@@ -1,0 +1,42 @@
+name: Release Creation
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      # Substitute the Manifest and Download URLs in the system.json
+      - name: Substitute Manifest and Download Links For Versioned Ones
+        id: sub_manifest_link_version
+        uses: microsoft/variable-substitution@v1
+        with:
+          files: 'system.json'
+        env:
+          version: ${{github.event.release.tag_name}}
+          url: https://github.com/${{github.repository}}
+          manifest: https://github.com/${{github.repository}}/releases/latest/download/system.json
+          download: https://github.com/${{github.repository}}/releases/download/${{github.event.release.tag_name}}.zip
+
+      # Create a zip file with all files required by the module to add to the release
+      - run: zip -r ./${{github.event.release.tag_name}}.zip system.json template.json LICENSE lang/ module/ styles/ templates/
+
+      # Create a release for this specific version
+      - name: Update Release with Files
+        id: create_version_release
+        uses: ncipollo/release-action@v1.12.0
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          name: ${{ github.event.release.name }}
+          allowUpdates: true # Set this to false if you want to prevent updating existing releases
+          draft: true
+          prerelease: false
+          artifacts: './system.json, ./${{ github.event.release.tag_name }}.zip'
+          tag: ${{ github.event.release.tag_name }}
+          body: ${{ github.event.release.body }}
