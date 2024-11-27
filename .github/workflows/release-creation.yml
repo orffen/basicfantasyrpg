@@ -37,6 +37,7 @@ jobs:
           allowUpdates: true # Set this to false if you want to prevent updating existing releases
           draft: false
           prerelease: false
+          removeArtifacts: true  # does this remove the default artifacts?
           artifacts: './system.json, ./${{ github.event.release.tag_name }}.zip'
           tag: ${{ github.event.release.tag_name }}
           body: ${{ github.event.release.body }}
