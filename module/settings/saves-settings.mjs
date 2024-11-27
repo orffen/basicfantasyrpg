@@ -94,5 +94,6 @@ class SavesSettings extends FormApplication {
         element[0].value = game.i18n.localize(`BASICFANTASYRPG.Save${id.capitalize()}`)
       }
     })
+    ui.notifications.notify(game.i18n.localize('SETTINGS.ResetInfo'))
   }
 }
