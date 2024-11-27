@@ -14,7 +14,7 @@ This is the [Basic Fantasy RPG](https://www.basicfantasy.org/) system for Foundr
 This system is available within FoundryVTT, or you can manually install it by using the manifest link below:
 
 ```html
-https://github.com/DC23/basicfantasyrpg/releases/latest/download/system.json
+https://github.com/orffen/basicfantasyrpg/releases/latest/download/system.json
 ```
 
 ## Usage
