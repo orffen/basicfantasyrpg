@@ -1,4 +1,3 @@
-// import { Helpers } from './helpers.mjs'
 import { objectsShallowEqual } from '../helpers/settings.mjs'
 import { SYSTEM_ID, SETTINGS } from './settings.mjs'
 
@@ -13,7 +12,7 @@ export function registerSavesSettings () {
     hint: 'BASICFANTASYRPG.Settings.SavesMenu.hint',
     icon: 'fas fa-cog',
     type: SavesSettings,
-    restricted: true // GM-only
+    restricted: true, // GM-only
   })
 
   // the settings object
@@ -21,7 +20,7 @@ export function registerSavesSettings () {
     scope: 'world',
     config: false,
     type: Object,
-    default: SavesSettings.defaultSaves
+    default: SavesSettings.defaultSaves,
   })
 }
 
@@ -31,9 +30,7 @@ class SavesSettings extends FormApplication {
     if (!SavesSettings.#defaultSaves) {
       SavesSettings.#defaultSaves = {}
       saves.forEach(s => {
-        SavesSettings.#defaultSaves[s] = game.i18n.localize(
-          `BASICFANTASYRPG.Save${s.capitalize()}`
-        )
+        SavesSettings.#defaultSaves[s] = game.i18n.localize(`BASICFANTASYRPG.Save${s.capitalize()}`)
       })
     }
     return SavesSettings.#defaultSaves
@@ -45,7 +42,7 @@ class SavesSettings extends FormApplication {
       width: 400,
       template: `systems/${SYSTEM_ID}/templates/settings/saves-settings.hbs`,
       id: SETTINGS.SAVES_MENU,
-      title: 'BASICFANTASYRPG.Settings.SavesMenu.name'
+      title: 'BASICFANTASYRPG.Settings.SavesMenu.name',
     })
   }
 
@@ -57,7 +54,7 @@ class SavesSettings extends FormApplication {
       data[i] = {
         id: v,
         label: SavesSettings.defaultSaves[v],
-        value: initialValues[v]
+        value: initialValues[v],
       }
     })
     return data
@@ -67,7 +64,10 @@ class SavesSettings extends FormApplication {
     const data = foundry.utils.expandObject(formData)
     const current = game.settings.get(SYSTEM_ID, SETTINGS.SAVES_SETTINGS)
 
-    // todo: trim whitespace from each string & escape html
+    // todo: escape html
+    for (let [k, v] of Object.entries(data)) {
+      data[k] = v.trim()
+    }
 
     if (!objectsShallowEqual(data, current)) {
       game.settings.set(SYSTEM_ID, SETTINGS.SAVES_SETTINGS, data)
@@ -85,9 +85,7 @@ class SavesSettings extends FormApplication {
     saves.forEach(id => {
       const element = $(event.delegateTarget).find(`[name=${id}]`)
       if (element && element.length > 0) {
-        element[0].value = game.i18n.localize(
-          `BASICFANTASYRPG.Save${id.capitalize()}`
-        )
+        element[0].value = game.i18n.localize(`BASICFANTASYRPG.Save${id.capitalize()}`)
       }
     })
   }
