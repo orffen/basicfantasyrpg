@@ -7,6 +7,7 @@ import { BasicFantasyRPGItemSheet } from './sheets/item-sheet.mjs';
 // Import helper/utility classes and constants.
 import { preloadHandlebarsTemplates } from './helpers/templates.mjs';
 import { BASICFANTASYRPG } from './helpers/config.mjs';
+import { registerSettings } from './settings/settings.mjs';
 
 /* -------------------------------------------- */
 /*  Init Hook                                   */
@@ -109,6 +110,19 @@ Handlebars.registerPartial('iconRanged', `<i class="fa-solid fa-crosshairs fa-2x
 /* -------------------------------------------- */
 /*  Ready Hook & Others                         */
 /* -------------------------------------------- */
+
+/**
+ * Since feature #69 plans to have customisable saving throw names
+ * with localised default values, Register settings cannot be 
+ * called any earlier in the Foundry load process than i18Init.
+ * This event is early in the process, just after Init, but we 
+ * need to be careful that any initialisation which requires a setting
+ * can either handle the settings not being available, or is done after
+ * this event.
+ */ 
+Hooks.once('i18nInit', () => {
+  registerSettings()
+})
 
 Hooks.once('ready', async function() {
   // Wait to register hotbar drop hook on ready so that modules could register earlier if they want to

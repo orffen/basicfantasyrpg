@@ -158,5 +158,10 @@
   "BASICFANTASYRPG.EffectCreate": "Créer un Effet",
   "BASICFANTASYRPG.EffectToggle": "Effet On/Off",
   "BASICFANTASYRPG.EffectEdit": "Modifier l'Effet",
-  "BASICFANTASYRPG.EffectDelete": "Supprimer l'Effet"
+  "BASICFANTASYRPG.EffectDelete": "Supprimer l'Effet",
+
+  "BASICFANTASYRPG.AutoRollTokenHP.name": "Automatically Roll Token HP",
+  "BASICFANTASYRPG.AutoRollTokenHP.hint": "Based on HD value. If this setting is turned off, HP will be set to TODO WORK OUT WHAT",
+
+  "BASICFANTASYRPG.SaveName.hint": "Custom name for this saving throw. The same name is used for all players."
 }

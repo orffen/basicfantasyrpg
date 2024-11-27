@@ -1,5 +1,6 @@
 import {successChatMessage} from '../helpers/chat.mjs';
 import {onManageActiveEffect, prepareActiveEffectCategories} from '../helpers/effects.mjs';
+import { SYSTEM_ID, SETTINGS } from '../settings/settings.mjs';
 
 /**
  * Extend the basic ActorSheet with some very simple modifications
@@ -84,8 +85,9 @@ export class BasicFantasyRPGActorSheet extends ActorSheet {
    */
   _prepareActorData(context) {
     // Handle saves.
+    const savesNames = game.settings.get(SYSTEM_ID, SETTINGS.SAVES_SETTINGS)
     for (let [k, v] of Object.entries(context.data.saves)) {
-      v.label = game.i18n.localize(CONFIG.BASICFANTASYRPG.saves[k]) ?? k;
+      v.label = savesNames[k] ?? k
     }
   }
 

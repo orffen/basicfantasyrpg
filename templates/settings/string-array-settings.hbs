@@ -1,0 +1,25 @@
+{{!-- fa
+ --}}
+
+{{#*inline "stringFieldPartial"}}
+<div class="form-row flexrow">
+    <label for="{{id}}">{{label}}:</label>
+    <input name="{{id}}" type="text" {{#if required}}required="true"{{/if}} value="{{value}}" />
+</div>
+{{/inline}}
+
+{{log this}}
+<form class="form-group flexcol">
+    {{#each this}}
+    {{> stringFieldPartial}}
+    {{/each}}
+
+    <footer class="sheet-footer flexrow button-container">
+        <button class="reset-all" type="button" name="reset" data-action="reset">
+            <i class="fa-solid fa-undo"></i> {{localize "SETTINGS.Reset"}}
+        </button>
+        <button type="submit" name="submit">
+            <i class="fa-solid fa-save"></i> {{localize "SETTINGS.Save"}}
+        </button>
+    </footer>
+</form>

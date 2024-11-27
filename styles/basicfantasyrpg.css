@@ -371,6 +371,24 @@
   width: 0;
 }
 
+/* Styles used in the settings forms */
+.form-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 5px;
+
+  .label {
+    vertical-align: middle;
+  }
+}
+
+.button-container {
+  display: flex;
+  gap: 10px;
+  margin-top: 5px;
+}
+
 /* Styles limited to basicfantasyrpg sheets */
 
 .basicfantasyrpg.sheet.actor {
