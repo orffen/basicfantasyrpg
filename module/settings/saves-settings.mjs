@@ -65,8 +65,13 @@ class SavesSettings extends FormApplication {
     const data = foundry.utils.expandObject(formData)
     const current = game.settings.get(SYSTEM_ID, SETTINGS.SAVES_SETTINGS)
 
-    // todo: escape html
     for (let [k, v] of Object.entries(data)) {
+      // trim trailing and leading whitespace then strip out all HTML tags
+      // Has an unfortunate effect of deleting the entire string if someone types in '<Spells>'
+      // if we really want to strip HTML, then a library is the best bet.
+      // data[k] = v?.trim()?.replace(/<\/?[^>]+(>|$)/g, '')
+
+      // just do whitespace for now
       data[k] = v.trim()
     }
 
