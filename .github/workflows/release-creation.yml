@@ -25,7 +25,7 @@ jobs:
           download: https://github.com/${{github.repository}}/releases/download/${{github.event.release.tag_name}}/basicfantasyrpg.zip
 
       # Create a zip file with all files required by the module to add to the release
-      - run: zip -r ./${{github.event.release.tag_name}}.zip system.json template.json LICENSE lang/ module/ styles/ templates/
+      - run: zip -r ./basicfantasyrpg.zip system.json template.json LICENSE lang/ module/ styles/ templates/
 
       # Create a release for this specific version
       - name: Update Release with Files
@@ -37,7 +37,6 @@ jobs:
           allowUpdates: true # Set this to false if you want to prevent updating existing releases
           draft: false
           prerelease: false
-          removeArtifacts: true  # does this remove the default artifacts?
-          artifacts: './system.json, ./${{ github.event.release.tag_name }}.zip'
+          artifacts: './system.json, ./basicfantasyrpg.zip'
           tag: ${{ github.event.release.tag_name }}
           body: ${{ github.event.release.body }}
