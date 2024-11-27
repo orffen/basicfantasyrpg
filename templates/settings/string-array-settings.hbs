@@ -1,17 +1,18 @@
-{{#*inline "savePartial"}}
+{{!-- fa
+ --}}
+
+{{#*inline "stringFieldPartial"}}
 <div class="form-row flexrow">
     <label for="{{id}}">{{label}}:</label>
-    <input name="{{id}}" required=true value="{{value}}" />
+    <input name="{{id}}" {{#if required}}required="true"{{/if}} value="{{value}}" />
 </div>
 {{/inline}}
 
+{{log this}}
 <form class="form-group flexcol">
-    <fieldset>
-        <legend>{{localize "BASICFANTASYRPG.Settings.SavesMenu.name"}}:</legend>
-        {{#each this}}
-        {{> savePartial}}
-        {{/each}}
-    </fieldset>
+    {{#each this}}
+    {{> stringFieldPartial}}
+    {{/each}}
 
     <footer class="sheet-footer flexrow button-container">
         <button class="reset-all" type="button" name="reset" data-action="reset">

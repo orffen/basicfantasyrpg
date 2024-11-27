@@ -40,7 +40,7 @@ class SavesSettings extends FormApplication {
     return foundry.utils.mergeObject(super.defaultOptions, {
       popOut: true,
       width: 400,
-      template: `systems/${SYSTEM_ID}/templates/settings/saves-settings.hbs`,
+      template: `systems/${SYSTEM_ID}/templates/settings/string-array-settings.hbs`,
       id: SETTINGS.SAVES_MENU,
       title: 'BASICFANTASYRPG.Settings.SavesMenu.name',
     })
@@ -55,6 +55,7 @@ class SavesSettings extends FormApplication {
         id: v,
         label: SavesSettings.defaultSaves[v],
         value: initialValues[v],
+        required: true,
       }
     })
     return data
