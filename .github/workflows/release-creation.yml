@@ -35,8 +35,8 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           name: ${{ github.event.release.name }}
           allowUpdates: true # Set this to false if you want to prevent updating existing releases
-          draft: false
-          prerelease: false
+          draft: ${{ github.event.release.draft }}
+          prerelease: ${{ github.event.release.prerelease }}
           artifacts: './system.json, ./basicfantasyrpg.zip'
           tag: ${{ github.event.release.tag_name }}
           body: ${{ github.event.release.body }}
