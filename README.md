@@ -1,12 +1,21 @@
 # Basic Fantasy RPG for FoundryVTT
 
+![GitHub Release](https://img.shields.io/github/v/release/orffen/basicfantasyrpg?logo=GitHub&label=Release)
+[![Static Badge](https://img.shields.io/badge/Foundry%20Version-v11+-orange?logo=foundry-virtual-tabletop)](https://foundryvtt.com/)
+![GitHub Issues or Pull Requests](https://img.shields.io/github/issues/orffen/basicfantasyrpg?logo=GitHub&label=Issues)
+![GitHub Issues or Pull Requests by label](https://img.shields.io/github/issues/orffen/basicfantasyrpg/bug?logo=GitHub&label=Open%20Bugs&color=red)
+![GitHub Downloads (all assets, all releases)](https://img.shields.io/github/downloads/orffen/basicfantasyrpg/total?logo=GitHub&label=Total%20Downloads)
+![GitHub Downloads (all assets, latest release)](https://img.shields.io/github/downloads/orffen/basicfantasyrpg/latest/total?logo=GitHub&label=Downloads%3A%20Latest)
+
 This is the [Basic Fantasy RPG](https://www.basicfantasy.org/) system for FoundryVTT. Please also see the [companion compendium module](https://github.com/Stew-rt/basicfantasyrpg-corerules-en), which contains items, spells, monsters etc. for easy use with the system.
 
 ## Installation
 
 This system is available within FoundryVTT, or you can manually install it by using the manifest link below:
 
-https://raw.githubusercontent.com/orffen/basicfantasyrpg/main/system.json
+```html
+https://github.com/orffen/basicfantasyrpg/releases/latest/download/system.json
+```
 
 ## Usage
 
