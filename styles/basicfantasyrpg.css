@@ -3,55 +3,60 @@
     font-family: 'Soutane';
     src: url('soutane-webfont.eot');
     src: url('soutane-webfont.eot?#iefix') format('embedded-opentype'),
-         url('soutane-webfont.woff') format('woff'),
          url('soutane-webfont.ttf') format('truetype'),
-         url('soutane-webfont.svg#soutaneregular') format('svg');
+         url('soutane-webfont.svg#soutaneregular') format('svg'),
+         url('soutane-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
+    font-display: swap;
 }
 
 @font-face {
     font-family: 'Soutane';
     src: url('soutanebold-webfont.eot');
     src: url('soutanebold-webfont.eot?#iefix') format('embedded-opentype'),
-         url('soutanebold-webfont.woff') format('woff'),
          url('soutanebold-webfont.ttf') format('truetype'),
-         url('soutanebold-webfont.svg#soutanebold') format('svg');
+         url('soutanebold-webfont.svg#soutanebold') format('svg'),
+         url('soutanebold-webfont.woff') format('woff');
     font-weight: bold;
     font-style: normal;
+    font-display: swap;
 }
 
 @font-face {
     font-family: 'Soutane';
     src: url('soutanebolditalic-webfont.eot');
     src: url('soutanebolditalic-webfont.eot?#iefix') format('embedded-opentype'),
-         url('soutanebolditalic-webfont.woff') format('woff'),
          url('soutanebolditalic-webfont.ttf') format('truetype'),
-         url('soutanebolditalic-webfont.svg#soutanebold_italic') format('svg');
+         url('soutanebolditalic-webfont.svg#soutanebold_italic') format('svg'),
+         url('soutanebolditalic-webfont.woff') format('woff');
     font-weight: bold;
     font-style: italic;
+    font-display: swap;
 }
 
 @font-face {
     font-family: 'Soutane';
     src: url('soutaneitalic-webfont.eot');
     src: url('soutaneitalic-webfont.eot?#iefix') format('embedded-opentype'),
-         url('soutaneitalic-webfont.woff') format('woff'),
          url('soutaneitalic-webfont.ttf') format('truetype'),
-         url('soutaneitalic-webfont.svg#soutaneitalic') format('svg');
+         url('soutaneitalic-webfont.svg#soutaneitalic') format('svg'),
+         url('soutaneitalic-webfont.woff') format('woff');
     font-weight: normal;
     font-style: italic;
+    font-display: swap;
 }
 
 @font-face {
     font-family: 'SoutaneBlack';
     src: url('soutaneblack-webfont.eot');
     src: url('soutaneblack-webfont.eot?#iefix') format('embedded-opentype'),
-         url('soutaneblack-webfont.woff') format('woff'),
          url('soutaneblack-webfont.ttf') format('truetype'),
-         url('soutaneblack-webfont.svg#soutaneblackregular') format('svg');
+         url('soutaneblack-webfont.svg#soutaneblackregular') format('svg'),
+         url('soutaneblack-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
+    font-display: swap;
 }
 
 @font-face {
@@ -374,7 +379,7 @@
 /* Styles limited to basicfantasyrpg sheets */
 
 .basicfantasyrpg.sheet.actor {
-  font-family: "Century Gothic", "TeX Gyre Adventor", "Soutane", var(--font-primary);
+  font-family: "Soutane", "Century Gothic", "TeX Gyre Adventor", var(--font-primary);
 }
 
 .basicfantasyrpg .sheet-header {
