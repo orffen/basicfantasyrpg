@@ -103,6 +103,13 @@
     font-style: italic;
 }
 
+:root {
+    --font-primary: "Soutane";
+    --color-border-light-primary:  #b7b7af;   /* neutral light grey-brown */
+    --color-border-light-highlight: #ccc5b9;   /* warm light beige */
+}
+
+
 /* Global styles */
 .game {
   font-family: "Soutane", "Century Gothic", "TeX Gyre Adventor", var(--font-primary);
@@ -427,6 +434,7 @@
   width: 100%;
   height: 100%;
   margin: 0;
+  font-family: "Soutane", "Century Gothic", "TeX Gyre Adventor", var(--font-primary);
 }
 
 .basicfantasyrpg .sheet-tabs {
