@@ -4,6 +4,9 @@ import { BasicFantasyRPGItem } from './documents/item.mjs';
 // Import sheet classes.
 import { BasicFantasyRPGActorSheet } from './sheets/actor-sheet.mjs';
 import { BasicFantasyRPGItemSheet } from './sheets/item-sheet.mjs';
+import { SimpleActorSheet } from './sheets/simple-sheet.mjs';
+import { SimpleMonsterSheet } from './sheets/simple-monster-sheet.mjs';
+
 // Import helper/utility classes and constants.
 import { preloadHandlebarsTemplates } from './helpers/templates.mjs';
 import { BASICFANTASYRPG } from './helpers/config.mjs';
@@ -40,7 +43,17 @@ Hooks.once('init', async function() {
 
   // Register sheet application classes
   Actors.unregisterSheet('core', ActorSheet);
-  Actors.registerSheet('basicfantasyrpg', BasicFantasyRPGActorSheet, { makeDefault: true });
+  Actors.registerSheet('basicfantasyrpg', BasicFantasyRPGActorSheet,
+      { makeDefault: false }
+  );
+  Actors.registerSheet('basicfantasyrpg',
+      SimpleActorSheet,
+      { types: ['character'], makeDefault: true, label: "Simple Sheet"}
+  );
+    Actors.registerSheet('basicfantasyrpg',
+        SimpleMonsterSheet,
+        { types: ['monster'], makeDefault: true, label: "Simple Monster Sheet"}
+    );
   Items.unregisterSheet('core', ItemSheet);
   Items.registerSheet('basicfantasyrpg', BasicFantasyRPGItemSheet, { makeDefault: true });
 
@@ -94,7 +107,7 @@ Handlebars.registerHelper('toLowerCase', function(str) {
 });
 
 Handlebars.registerHelper('selected', function(value) {
-  return Boolean(value) ? "selected" : "";
+  return value ? "selected" : "";
 });
 
 Handlebars.registerPartial('iconDamage', `<i class="fa-solid fa-heart-crack fa-2xl" title="{{localize 'BASICFANTASYRPG.Roll'}} {{localize 'BASICFANTASYRPG.Damage'}}"></i>`);

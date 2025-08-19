@@ -1,0 +1,22 @@
+<section class="{{cssClass}} flexcol">
+
+    {{!-- Sheet Header --}}
+    <header class="sheet-header">
+        <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="100" width="100"/>
+        <div class="header-fields">
+            <h1 class="charname">
+                <input name="name" type="text" value="{{actor.name}}" placeholder="{{localize 'BASICFANTASYRPG.Name'}}" data-dtype="String"/>
+            </h1>
+
+        </div>
+    </header>
+
+    {{!-- Sheet Tab Navigation (if any) --}}
+    {{#if tabs}}
+    <nav class="sheet-tabs tabs" data-group="primary">
+        {{#each tabs as |tab|}}
+            <a class="item" data-tab="{{tab.id}}">{{localize tab.label}}</a>
+        {{/each}}
+    </nav>
+    {{/if}}
+</section>
