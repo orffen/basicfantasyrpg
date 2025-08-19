@@ -5,12 +5,6 @@ This codebase is the implementation of the RPG system Basic Fantasy RPG to Found
 The current task is to port it to Foundry v13, which introduce a number of API changes, including the
 usage of the Application v2. 
 
-# Foundry API
-
-One main limitation is that the code base does not run on its own, but is rather loaded by the Foundry app (which is not open source), and this severely limits what one can test. 
-
-In fact, I can only effectively test by opening the app and checking manually if stuff works in the UI.
-
 # Resources 
 
 Look for online documentation whenever necessary to understand how to migrate to Application v2 and how to properly implement necessary methods.

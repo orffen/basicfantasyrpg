@@ -1,4 +1,4 @@
-<section class="{{cssClass}} flexcol">
+<section class="{{actor.type}} flexcol">
 
     {{!-- Sheet Header --}}
     <header class="sheet-header">
@@ -7,16 +7,8 @@
             <h1 class="charname">
                 <input name="name" type="text" value="{{actor.name}}" placeholder="{{localize 'BASICFANTASYRPG.Name'}}" data-dtype="String"/>
             </h1>
-
+            {{> (lookup this "resourcesTemplate") }}
         </div>
     </header>
 
-    {{!-- Sheet Tab Navigation (if any) --}}
-    {{#if tabs}}
-    <nav class="sheet-tabs tabs" data-group="primary">
-        {{#each tabs as |tab|}}
-            <a class="item" data-tab="{{tab.id}}">{{localize tab.label}}</a>
-        {{/each}}
-    </nav>
-    {{/if}}
 </section>

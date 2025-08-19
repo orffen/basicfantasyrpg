@@ -4,8 +4,8 @@ import { BasicFantasyRPGItem } from './documents/item.mjs';
 // Import sheet classes.
 import { BasicFantasyRPGActorSheet } from './sheets/actor-sheet.mjs';
 import { BasicFantasyRPGItemSheet } from './sheets/item-sheet.mjs';
-import { SimpleActorSheet } from './sheets/simple-sheet.mjs';
-import { SimpleMonsterSheet } from './sheets/simple-monster-sheet.mjs';
+import { CharacterSheet } from './sheets/character-sheet.mjs';
+import { MonsterSheet } from './sheets/monster-sheet.mjs';
 
 // Import helper/utility classes and constants.
 import { preloadHandlebarsTemplates } from './helpers/templates.mjs';
@@ -47,13 +47,13 @@ Hooks.once('init', async function() {
       { makeDefault: false }
   );
   Actors.registerSheet('basicfantasyrpg',
-      SimpleActorSheet,
-      { types: ['character'], makeDefault: true, label: "Simple Sheet"}
+      CharacterSheet,
+      { types: ['character'], makeDefault: true, label: "Character Sheet V2"}
   );
-    Actors.registerSheet('basicfantasyrpg',
-        SimpleMonsterSheet,
-        { types: ['monster'], makeDefault: true, label: "Simple Monster Sheet"}
-    );
+  Actors.registerSheet('basicfantasyrpg',
+      MonsterSheet,
+      { types: ['monster'], makeDefault: true, label: "Monster Sheet V2"}
+  );
   Items.unregisterSheet('core', ItemSheet);
   Items.registerSheet('basicfantasyrpg', BasicFantasyRPGItemSheet, { makeDefault: true });
 
