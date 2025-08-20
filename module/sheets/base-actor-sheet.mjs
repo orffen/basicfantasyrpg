@@ -26,13 +26,6 @@ export class BaseActorSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     },
   };
 
-  // /** @override */
-  // static PARTS = {
-  //     header: {
-  //         template: "systems/basicfantasyrpg/templates/actor/header.hbs"
-  //     }
-  // };
-
   /** @override */
   async _prepareContext(options) {
       const context = await super._prepareContext(options);

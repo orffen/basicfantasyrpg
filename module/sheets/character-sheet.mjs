@@ -19,7 +19,7 @@ export class CharacterSheet extends BaseActorSheet {
 
   static PARTS = {
     header: {
-      template: "systems/basicfantasyrpg/templates/actor/header.hbs"
+      template: "systems/basicfantasyrpg/templates/actor/character.hbs"
     },
       resources: {
         template: "systems/basicfantasyrpg/templates/actor/parts/character-resources.hbs"
@@ -45,6 +45,8 @@ export class CharacterSheet extends BaseActorSheet {
         const context = await super._prepareContext(options);
 
         context.resourcesTemplate = "systems/basicfantasyrpg/templates/actor/parts/character-resources.hbs";
+
+        console.log("Available context data:", context);
         return context;
     }
 }

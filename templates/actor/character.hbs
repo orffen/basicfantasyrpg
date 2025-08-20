@@ -1,4 +1,4 @@
-<section class="{{actor.type}} flexcol">
+<div class="{{actor.type}} flexcol">
 
     {{!-- Sheet Header --}}
     <header class="sheet-header">
@@ -7,8 +7,11 @@
             <h1 class="charname">
                 <input name="name" type="text" value="{{actor.name}}" placeholder="{{localize 'BASICFANTASYRPG.Name'}}" data-dtype="String"/>
             </h1>
+            {{#if resourcesTemplate}}
             {{> (lookup this "resourcesTemplate") }}
+            {{/if}}
         </div>
     </header>
 
-</section>
+
+</div>

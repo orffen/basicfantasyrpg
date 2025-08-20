@@ -51,22 +51,28 @@
       "templates": ["base"],
       "abilities": {
         "str": {
-          "value": 10
+          "value": 10,
+          "label": "BASICFANTASYRPG.AbilityStr"
         },
         "int": {
-          "value": 10
+          "value": 10,
+          "label": "BASICFANTASYRPG.AbilityInt"
         },
         "wis": {
-          "value": 10
+          "value": 10,
+          "label": "BASICFANTASYRPG.AbilityWis"
         },
         "dex": {
-          "value": 10
+          "value": 10,
+          "label": "BASICFANTASYRPG.AbilityDex"
         },
         "con": {
-          "value": 10
+          "value": 10,
+          "label": "BASICFANTASYRPG.AbilityCon"
         },
         "cha": {
-          "value": 10
+          "value": 10,
+          "label": "BASICFANTASYRPG.AbilityCha"
         }
       },
       "age": {
