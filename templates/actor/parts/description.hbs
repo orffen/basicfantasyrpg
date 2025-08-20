@@ -1,0 +1,39 @@
+<section
+    class="tab description {{tabs.description.cssClass}}"
+    data-group="{{tabs.description.group}}"
+    data-tab="{{tabs.description.id}}">
+
+  <div class="resources grid tab-container">
+
+    <div class="resource flex-group-center">
+      <label for="system.race.value" class="resource-label">{{localize data.race.label}}</label>
+      <div class="resource-content flexrow flex-center flex-between">
+        <input type="text" name="system.race.value" value="{{data.race.value}}" data-dtype="String"/>
+      </div>
+    </div>
+
+    <div class="resource flex-group-center">
+      <label for="system.sex.value" class="resource-label">{{localize data.sex.label}}</label>
+      <div class="resource-content flexrow flex-center flex-between">
+        <input type="text" name="system.sex.value" value="{{data.sex.value}}" data-dtype="String"/>
+      </div>
+    </div>
+
+    <div class="resource flex-group-center">
+      <label for="system.age.value" class="resource-label">{{localize data.age.label}}</label>
+      <div class="resource-content flexrow flex-center flex-between">
+        <input type="text" name="system.age.value" value="{{data.age.value}}" data-dtype="String"/>
+      </div>
+    </div>
+
+  </div>
+
+  <text-editor name="system.biography"
+               value="{{system.biography}}"
+               button="true"
+               editable="{{editable}}">
+  </text-editor>
+
+
+</section>
+

@@ -17,7 +17,7 @@ export class CharacterSheet extends BaseActorSheet {
 
   static TABS = {
     primary: {
-      tabs: [{ id: "combat" }, { id: "items" }],
+      tabs: [{ id: "combat" }, { id: "description"}, { id: "items" }, { id: "spells"}, { id: "features" }],
       labelPrefix: "BASICFANTASYRPG.Tab",
       initial: "combat",
     },
@@ -34,8 +34,17 @@ export class CharacterSheet extends BaseActorSheet {
     combat: {
       template: "systems/basicfantasyrpg/templates/actor/parts/combat.hbs",
     },
+    description: {
+      template: "systems/basicfantasyrpg/templates/actor/parts/description.hbs",
+    },
     items: {
       template: "systems/basicfantasyrpg/templates/actor/parts/items.hbs",
+    },
+    spells: {
+      template: "systems/basicfantasyrpg/templates/actor/parts/spells.hbs",
+    },
+    features: {
+      template: "systems/basicfantasyrpg/templates/actor/parts/features.hbs",
     }
   };
 
