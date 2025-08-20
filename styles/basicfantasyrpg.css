@@ -455,6 +455,10 @@
   max-height: calc(100% - 53px);
 }
 
+.basicfantasyrpg.sheet .tab-container {
+    display: flex;
+}
+
 .basicfantasyrpg .editor-content {
   font-family: "Soutane", "Century Gothic", "TeX Gyre Adventor", var(--font-primary);
   font-size: 18px;
