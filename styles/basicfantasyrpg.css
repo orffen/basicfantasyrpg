@@ -558,6 +558,9 @@
   margin: 0;
   white-space: nowrap;
   overflow-x: hidden;
+  font-size: 13px;
+  font-family: "Soutane", "Century Gothic", "TeX Gyre Adventor", var(--font-primary);
+  font-weight: 400;
 }
 
 .basicfantasyrpg .items-list .item-controls {
