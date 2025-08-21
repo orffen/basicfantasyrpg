@@ -662,3 +662,19 @@
 .basicfantasyrpg .effects .item .effect-controls {
   border: none;
 }
+
+/* Item deletion animation */
+.basicfantasyrpg .items-list .item.item-deleting {
+  animation: itemDeleteFade 0.15s ease-out forwards;
+}
+
+@keyframes itemDeleteFade {
+  0% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+}

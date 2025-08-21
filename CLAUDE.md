@@ -16,8 +16,11 @@ Good sources can be found under the domains foundryvtt.com and foundryvtt.wiki
 In Foundry, there are top-level entities like "Actors" (which can be characters, monsters, 
 vehicles, etc.), and "Items" (which can be equipment, spells, special abilities, etc.).
 
-Usually, there is a single class for Actor and a single class for Items, and it also implements
-subtype-specific behavior (like for monsters or characters in the case of Actor).
+The old implementation (using Application v1) had a single class for Actor and a single class for Items, 
+and it also implements subtype-specific behavior (like for monsters or characters in the case of Actor).
+
+For the v2, I plan to have a base actor class and then inherit from it with specific classes for 
+subtypes.
 
 Besides the Actor and Item class, there are also corresponding Sheet classes, like an Actor Sheet and 
 Item Sheet, responsible for rendering the relevant information about that entity on a sheet, which is 

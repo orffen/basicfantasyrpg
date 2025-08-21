@@ -159,17 +159,16 @@ export class BaseActorSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
   _onRender(context, options) {
     super._onRender(context, options);
 
-    // Item editing - always available
-    this.element.addEventListener('click', this._onItemEdit.bind(this));
-
-    // -------------------------------------------------------------
-    // Everything below here is only needed if the sheet is editable
-    if (!this.isEditable) return;
-
-    // Use event delegation for better performance
-    this.element.addEventListener('click', this._onSheetClick.bind(this));
+    // Remove old listeners first to prevent duplicates
+    if (this._boundClickHandler) {
+      this.element.removeEventListener("click", this._boundClickHandler);
+    }
     
-    // Drag and drop for macros
+    // Add click listener with proper binding
+    this._boundClickHandler = this._onSheetClick.bind(this);
+    this.element.addEventListener("click", this._boundClickHandler);
+
+    // Drag and drop for macros - always refresh since items may have changed
     if (this.document.isOwner) {
       this._setupDragAndDrop();
     }
@@ -181,43 +180,55 @@ export class BaseActorSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
    */
   _onSheetClick(event) {
     const target = event.target;
+    // const control = target.closest('.item-control, .rollable, input[name="rangeBonus"]');
+    // Handle item editing first (always available)
+    const editControl = target.closest(".item-edit");
+    if (editControl) {
+      event.preventDefault();
+      this._onItemEdit(event);
+      return;
+    }
+
+    // Everything below here is only needed if the sheet is editable
+    if (!this.isEditable) return;
+
     const control = target.closest('.item-control, .rollable, input[name="rangeBonus"]');
-    
+
     if (!control) return;
 
     // Item creation
-    if (control.classList.contains('item-create')) {
+    if (control.classList.contains("item-create")) {
       event.preventDefault();
       this._onItemCreate(event);
     }
-    // Item deletion  
-    else if (control.classList.contains('item-delete')) {
+    // Item deletion
+    else if (control.classList.contains("item-delete")) {
       event.preventDefault();
       this._onItemDelete(event);
     }
     // Spell preparation
-    else if (control.classList.contains('spell-prepare')) {
+    else if (control.classList.contains("spell-prepare")) {
       event.preventDefault();
       this._onSpellPrepare(event);
     }
     // Quantity adjustment
-    else if (control.classList.contains('quantity')) {
+    else if (control.classList.contains("quantity")) {
       event.preventDefault();
       this._onQuantityAdjust(event);
     }
     // Active effect management
-    else if (control.classList.contains('effect-control')) {
+    else if (control.classList.contains("effect-control")) {
       event.preventDefault();
       onManageActiveEffect(event, this.document);
     }
     // Rollable abilities
-    else if (control.classList.contains('rollable')) {
+    else if (control.classList.contains("rollable")) {
       event.preventDefault();
       this._onRoll(event);
     }
     // Siege engine range bonus (specific to siege engines)
-    else if (control.matches('input[name="rangeBonus"]') && this.document.type === 'siegeEngine') {
-      this.document.update({'system.rangeBonus.value': Number(control.value)});
+    else if (control.matches('input[name="rangeBonus"]') && this.document.type === "siegeEngine") {
+      this.document.update({ "system.rangeBonus.value": Number(control.value) });
     }
   }
 
@@ -226,11 +237,8 @@ export class BaseActorSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
    * @param {Event} event The click event
    */
   _onItemEdit(event) {
-    if (!event.target.closest('.item-edit')) return;
-    
-    event.preventDefault();
-    const li = event.target.closest('.item');
-    if (!li) return;
+    const li = event.target.closest(".item");
+    if (!li?.dataset.itemId) return;
     
     const item = this.document.items.get(li.dataset.itemId);
     if (item) {
@@ -243,53 +251,55 @@ export class BaseActorSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
    * @param {Event} event The originating click event
    */
   async _onItemCreate(event) {
-    const header = event.target.closest('.item-create');
+    const header = event.target.closest(".item-create");
     const type = header.dataset.type;
     const data = foundry.utils.duplicate(header.dataset);
-    
-    if (type === 'spell') {
+
+    if (type === "spell") {
       data.spellLevel = {
-        'value': data.spellLevelValue
+        value: data.spellLevelValue,
       };
       delete data.spellLevelValue;
-    } else if (type === 'wall') {
+    } else if (type === "wall") {
       data.floor = {
-        "value": data.floorNumber
+        value: data.floorNumber,
       };
       delete data.floorNumber;
     }
-    
+
     const name = `New ${type.capitalize()}`;
     const itemData = {
       name: name,
       type: type,
-      system: data
+      system: data,
     };
-    delete itemData.system['type'];
+    delete itemData.system["type"];
 
-    return await Item.create(itemData, {parent: this.document});
+    return await Item.create(itemData, { parent: this.document });
   }
 
   /**
    * Handle item deletion with animation
    * @param {Event} event The click event
    */
-  _onItemDelete(event) {
-    const li = event.target.closest('.item');
+  async _onItemDelete(event) {
+    const li = event.target.closest(".item");
     if (!li) return;
-    
+
     const item = this.document.items.get(li.dataset.itemId);
     if (!item) return;
 
-    // Modern animation approach instead of jQuery slideUp
-    li.style.transition = 'opacity 0.2s ease-out, transform 0.2s ease-out';
-    li.style.opacity = '0';
-    li.style.transform = 'translateX(-100%)';
+    // Add deletion animation class
+    li.classList.add('item-deleting');
     
-    setTimeout(() => {
-      item.delete();
-      this.render(false);
-    }, 200);
+    // Listen for animation end
+    const handleAnimationEnd = async () => {
+      li.removeEventListener('animationend', handleAnimationEnd);
+      await item.delete();
+      // Sheet will auto-render due to document change
+    };
+    
+    li.addEventListener('animationend', handleAnimationEnd);
   }
 
   /**
@@ -297,17 +307,17 @@ export class BaseActorSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
    * @param {Event} event The click event
    */
   _onSpellPrepare(event) {
-    const change = event.target.closest('.spell-prepare').dataset.change;
+    const change = event.target.closest(".spell-prepare").dataset.change;
     if (!parseInt(change)) return;
-    
-    const li = event.target.closest('.item');
+
+    const li = event.target.closest(".item");
     if (!li) return;
-    
+
     const item = this.document.items.get(li.dataset.itemId);
     if (!item) return;
-    
+
     const newValue = item.system.prepared.value + parseInt(change);
-    item.update({'system.prepared.value': newValue});
+    item.update({ "system.prepared.value": newValue });
   }
 
   /**
@@ -315,17 +325,17 @@ export class BaseActorSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
    * @param {Event} event The click event
    */
   _onQuantityAdjust(event) {
-    const change = event.target.closest('.quantity').dataset.change;
+    const change = event.target.closest(".quantity").dataset.change;
     if (!parseInt(change)) return;
-    
-    const li = event.target.closest('.item');
+
+    const li = event.target.closest(".item");
     if (!li) return;
-    
+
     const item = this.document.items.get(li.dataset.itemId);
     if (!item) return;
-    
+
     const newValue = item.system.quantity.value + parseInt(change);
-    item.update({'system.quantity.value': newValue});
+    item.update({ "system.quantity.value": newValue });
   }
 
   /**
@@ -333,40 +343,40 @@ export class BaseActorSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
    * @param {Event} event The originating click event
    */
   async _onRoll(event) {
-    const element = event.target.closest('.rollable');
+    const element = event.target.closest(".rollable");
     const dataset = element.dataset;
 
     if (dataset.rollType) {
       // Handle weapon rolls
-      if (dataset.rollType === 'weapon') {
-        const itemId = element.closest('.item').dataset.itemId;
+      if (dataset.rollType === "weapon") {
+        const itemId = element.closest(".item").dataset.itemId;
         const item = this.document.items.get(itemId);
-        let label = dataset.label ? 
-          `<span class="chat-item-name">${game.i18n.localize('BASICFANTASYRPG.Roll')}: ${dataset.label}</span>` : 
-          `<span class="chat-item-name">${game.i18n.localize('BASICFANTASYRPG.Roll')}: ${dataset.attack.capitalize()} attack with ${item.name}</span>`;
-        
-        let rollFormula = 'd20+@ab';
-        if (this.document.type === 'character') {
-          if (dataset.attack === 'melee') {
-            rollFormula += '+@str.bonus';
-          } else if (dataset.attack === 'ranged') {
-            rollFormula += '+@dex.bonus';
+        let label = dataset.label
+          ? `<span class="chat-item-name">${game.i18n.localize("BASICFANTASYRPG.Roll")}: ${dataset.label}</span>`
+          : `<span class="chat-item-name">${game.i18n.localize("BASICFANTASYRPG.Roll")}: ${dataset.attack.capitalize()} attack with ${item.name}</span>`;
+
+        let rollFormula = "d20+@ab";
+        if (this.document.type === "character") {
+          if (dataset.attack === "melee") {
+            rollFormula += "+@str.bonus";
+          } else if (dataset.attack === "ranged") {
+            rollFormula += "+@dex.bonus";
           }
         }
-        rollFormula += '+' + item.system.bonusAb.value;
-        
+        rollFormula += "+" + item.system.bonusAb.value;
+
         let roll = new Roll(rollFormula, this.document.getRollData());
         roll.toMessage({
           speaker: ChatMessage.getSpeaker({ actor: this.document }),
           flavor: label,
-          rollMode: game.settings.get('core', 'rollMode'),
+          rollMode: game.settings.get("core", "rollMode"),
         });
         return roll;
       }
 
       // Handle item rolls
-      if (dataset.rollType === 'item') {
-        const itemId = element.closest('.item').dataset.itemId;
+      if (dataset.rollType === "item") {
+        const itemId = element.closest(".item").dataset.itemId;
         const item = this.document.items.get(itemId);
         if (item) return item.roll();
       }
@@ -374,15 +384,16 @@ export class BaseActorSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
 
     // Handle rolls that supply the formula directly
     if (dataset.roll) {
-      let label = dataset.label ? 
-        `<span class="chat-item-name">${game.i18n.localize('BASICFANTASYRPG.Roll')}: ${dataset.label}</span>` : '';
+      let label = dataset.label
+        ? `<span class="chat-item-name">${game.i18n.localize("BASICFANTASYRPG.Roll")}: ${dataset.label}</span>`
+        : "";
       let roll = new Roll(dataset.roll, this.document.getRollData());
       await roll.roll();
       label += successChatMessage(roll.total, dataset.targetNumber, dataset.rollUnder);
       roll.toMessage({
         speaker: ChatMessage.getSpeaker({ actor: this.document }),
         flavor: label,
-        rollMode: game.settings.get('core', 'rollMode'),
+        rollMode: game.settings.get("core", "rollMode"),
       });
       return roll;
     }
@@ -392,11 +403,12 @@ export class BaseActorSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
    * Setup drag and drop functionality for items
    */
   _setupDragAndDrop() {
-    const handler = ev => this._onDragStart(ev);
-    this.element.querySelectorAll('li.item').forEach(li => {
-      if (li.classList.contains('inventory-header')) return;
-      li.setAttribute('draggable', true);
-      li.addEventListener('dragstart', handler, false);
+    const handler = (ev) => this._onDragStart(ev);
+    this.element.querySelectorAll("li.item").forEach((li) => {
+      if (li.classList.contains("inventory-header")) return;
+      if (li.getAttribute("draggable") === "true") return;
+      li.setAttribute("draggable", true);
+      li.addEventListener("dragstart", handler, false);
     });
   }
 
@@ -406,7 +418,7 @@ export class BaseActorSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
    */
   _onDragStart(event) {
     const li = event.currentTarget;
-    if (event.target.classList.contains('content-link')) return;
+    if (event.target.classList.contains("content-link")) return;
 
     let dragData = null;
 
@@ -421,5 +433,4 @@ export class BaseActorSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     // Set data transfer
     event.dataTransfer.setData("text/plain", JSON.stringify(dragData));
   }
-
 }
