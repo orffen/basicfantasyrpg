@@ -27,13 +27,12 @@
     </div>
 
   </div>
-
-  <text-editor name="system.biography"
-               value="{{system.biography}}"
-               button="true"
-               editable="{{editable}}">
-  </text-editor>
-
+  {{ uuid }}
+  <prose-mirror name="system.biography"
+                value="{{enrichedBiography}}"
+                data-document-uuid="{{uuid}}"
+                {{#unless editable}}disabled{{/unless}}>
+  </prose-mirror>
 
 </section>
 

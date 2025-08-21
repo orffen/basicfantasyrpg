@@ -29,6 +29,7 @@ export class BaseActorSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
   /** @override */
   async _prepareContext(options) {
       const context = await super._prepareContext(options);
+    const TextEditor = foundry.applications.ux.TextEditor.implementation;
 
       // Add the actor's basic data to the context
       context.actor = this.document;
@@ -36,15 +37,15 @@ export class BaseActorSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       context.name = this.document.name;
       context.data = context.system;
 
-      // // biography editor
-      // context.enrichedBiography = await TextEditor.enrichHTML(
-      //   this.document.system.biography,
-      //   {
-      //     async: true,
-      //   }
-      // );
+      // biography editor
+      context.enrichedBiography = await TextEditor.enrichHTML(
+        this.document.system.biography,
+        {
+          async: true,
+        }
+      );
 
-      return context;
+    return context;
   }
 
   /**
