@@ -5,7 +5,6 @@ import { BasicFantasyRPGItem } from './documents/item.mjs';
 import { BasicFantasyRPGActorSheet } from './sheets/actor-sheet.mjs';
 import { BasicFantasyRPGItemSheet } from './sheets/item-sheet.mjs';
 import { CharacterSheet } from './sheets/character-sheet.mjs';
-import { MonsterSheet } from './sheets/monster-sheet.mjs';
 
 // Import helper/utility classes and constants.
 import { preloadHandlebarsTemplates } from './helpers/templates.mjs';
@@ -44,15 +43,11 @@ Hooks.once('init', async function() {
   // Register sheet application classes
   Actors.unregisterSheet('core', ActorSheet);
   Actors.registerSheet('basicfantasyrpg', BasicFantasyRPGActorSheet,
-      { makeDefault: false }
+      { makeDefault: true }
   );
   Actors.registerSheet('basicfantasyrpg',
       CharacterSheet,
       { types: ['character'], makeDefault: true, label: "Character Sheet V2"}
-  );
-  Actors.registerSheet('basicfantasyrpg',
-      MonsterSheet,
-      { types: ['monster'], makeDefault: true, label: "Monster Sheet V2"}
   );
   Items.unregisterSheet('core', ItemSheet);
   Items.registerSheet('basicfantasyrpg', BasicFantasyRPGItemSheet, { makeDefault: true });
