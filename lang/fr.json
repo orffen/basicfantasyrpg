@@ -29,6 +29,14 @@
   "TYPES.Item.floor": "Sol",
   "TYPES.Item.wall": "Mur",
 
+  "BASICFANTASYRPG.TabCargo": "Cargo",
+  "BASICFANTASYRPG.TabCombat": "Combat",
+  "BASICFANTASYRPG.TabDescription": "Description",
+  "BASICFANTASYRPG.TabFeatures": "Capacité spéciale",
+  "BASICFANTASYRPG.TabFloors": "Sols & Murs",
+  "BASICFANTASYRPG.TabItems": "Équipement",
+  "BASICFANTASYRPG.TabSpells": "Sortilèges",
+
   "BASICFANTASYRPG.Tab.cargo": "Cargo",
   "BASICFANTASYRPG.Tab.combat": "Combat",
   "BASICFANTASYRPG.Tab.description": "Description",
