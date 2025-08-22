@@ -37,6 +37,14 @@
   "BASICFANTASYRPG.TabItems": "Équipement",
   "BASICFANTASYRPG.TabSpells": "Sortilèges",
 
+  "BASICFANTASYRPG.Tab.cargo": "Cargo",
+  "BASICFANTASYRPG.Tab.combat": "Combat",
+  "BASICFANTASYRPG.Tab.description": "Description",
+  "BASICFANTASYRPG.Tab.features": "Capacité spéciale",
+  "BASICFANTASYRPG.Tab.floors": "Sols & Murs",
+  "BASICFANTASYRPG.Tab.items": "Équipement",
+  "BASICFANTASYRPG.Tab.spells": "Sortilèges",
+
   "BASICFANTASYRPG.AbilityStr": "Force",
   "BASICFANTASYRPG.AbilityCon": "Constitution",
   "BASICFANTASYRPG.AbilityDex": "Dextérité",

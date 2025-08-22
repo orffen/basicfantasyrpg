@@ -29,6 +29,14 @@
   "TYPES.Item.floor": "Floor",
   "TYPES.Item.wall": "Wall",
 
+  "BASICFANTASYRPG.Tab.cargo": "Cargo",
+  "BASICFANTASYRPG.Tab.combat": "Combat",
+  "BASICFANTASYRPG.Tab.description": "Description",
+  "BASICFANTASYRPG.Tab.features": "Special Abilities",
+  "BASICFANTASYRPG.Tab.floors": "Floors & Walls",
+  "BASICFANTASYRPG.Tab.items": "Equipment",
+  "BASICFANTASYRPG.Tab.spells": "Spells",
+
   "BASICFANTASYRPG.TabCargo": "Cargo",
   "BASICFANTASYRPG.TabCombat": "Combat",
   "BASICFANTASYRPG.TabDescription": "Description",

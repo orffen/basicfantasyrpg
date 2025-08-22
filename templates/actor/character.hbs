@@ -1,0 +1,49 @@
+<div class="{{actor.type}}">
+
+    {{!-- Sheet Header --}}
+    <header class="sheet-header">
+        <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="100" width="100"/>
+
+        <!-- Name -->
+        <div class="header-fields">
+            <h1 class="charname">
+              <input name="name" type="text" value="{{actor.name}}" placeholder="{{localize 'BASICFANTASYRPG.Name'}}" data-dtype="String"/>
+            </h1>
+            <section class="resources grid grid-3col">
+
+              <!-- HP -->
+              <div class="resource flex-group-center">
+                <label for="system.hitPoints.value" class="resource-label">{{localize data.hitPoints.label}}</label>
+                <div class="resource-content flexrow flex-center flex-between">
+                  <input type="text" name="system.hitPoints.value" value="{{data.hitPoints.value}}" data-dtype="Number"/>
+                  <span class="flexshrink flex-align-center">&nbsp;/&nbsp;</span>
+                  <input type="text" name="system.hitPoints.max" value="{{data.hitPoints.max}}" data-dtype="Number"/>
+                </div>
+              </div>
+
+              <!-- Class -->
+              <div class="resource flex-group-center">
+                <label for="system.level.value" class="resource-label">{{localize data.class.label}}&nbsp;/&nbsp;{{localize data.level.label}}</label>
+                <div class="resource-content flexrow flex-center flex-between">
+                  <input type="text" name="system.class.value" value="{{data.class.value}}" data-dtype="String"/>
+                  <span class="flexshrink flex-align-center">&nbsp;</span>
+                  <input type="text" name="system.level.value" value="{{data.level.value}}" data-dtype="Number"/>
+                </div>
+              </div>
+
+              <!-- XP -->
+              <div class="resource flex-group-center">
+                <label for="system.xp.value" class="resource-label">{{localize data.xp.abbr}}&nbsp;/&nbsp;{{localize 'BASICFANTASYRPG.NextLevel'}}</label>
+                <div class="resource-content flexrow flex-center flex-between">
+                  <input type="text" name="system.xp.value" value="{{data.xp.value}}" data-dtype="Number"/>
+                  <span class="flexshrink flex-align-center">&nbsp;/&nbsp;</span>
+                  <input type="text" name="system.xp.next" value="{{data.xp.next}}" data-dtype="Number"/>
+                </div>
+              </div>
+
+            </section>
+        </div>
+    </header>
+
+
+</div>

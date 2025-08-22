@@ -3,55 +3,60 @@
     font-family: 'Soutane';
     src: url('soutane-webfont.eot');
     src: url('soutane-webfont.eot?#iefix') format('embedded-opentype'),
-         url('soutane-webfont.woff') format('woff'),
          url('soutane-webfont.ttf') format('truetype'),
-         url('soutane-webfont.svg#soutaneregular') format('svg');
+         url('soutane-webfont.svg#soutaneregular') format('svg'),
+         url('soutane-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
+    font-display: swap;
 }
 
 @font-face {
     font-family: 'Soutane';
     src: url('soutanebold-webfont.eot');
     src: url('soutanebold-webfont.eot?#iefix') format('embedded-opentype'),
-         url('soutanebold-webfont.woff') format('woff'),
          url('soutanebold-webfont.ttf') format('truetype'),
-         url('soutanebold-webfont.svg#soutanebold') format('svg');
+         url('soutanebold-webfont.svg#soutanebold') format('svg'),
+         url('soutanebold-webfont.woff') format('woff');
     font-weight: bold;
     font-style: normal;
+    font-display: swap;
 }
 
 @font-face {
     font-family: 'Soutane';
     src: url('soutanebolditalic-webfont.eot');
     src: url('soutanebolditalic-webfont.eot?#iefix') format('embedded-opentype'),
-         url('soutanebolditalic-webfont.woff') format('woff'),
          url('soutanebolditalic-webfont.ttf') format('truetype'),
-         url('soutanebolditalic-webfont.svg#soutanebold_italic') format('svg');
+         url('soutanebolditalic-webfont.svg#soutanebold_italic') format('svg'),
+         url('soutanebolditalic-webfont.woff') format('woff');
     font-weight: bold;
     font-style: italic;
+    font-display: swap;
 }
 
 @font-face {
     font-family: 'Soutane';
     src: url('soutaneitalic-webfont.eot');
     src: url('soutaneitalic-webfont.eot?#iefix') format('embedded-opentype'),
-         url('soutaneitalic-webfont.woff') format('woff'),
          url('soutaneitalic-webfont.ttf') format('truetype'),
-         url('soutaneitalic-webfont.svg#soutaneitalic') format('svg');
+         url('soutaneitalic-webfont.svg#soutaneitalic') format('svg'),
+         url('soutaneitalic-webfont.woff') format('woff');
     font-weight: normal;
     font-style: italic;
+    font-display: swap;
 }
 
 @font-face {
     font-family: 'SoutaneBlack';
     src: url('soutaneblack-webfont.eot');
     src: url('soutaneblack-webfont.eot?#iefix') format('embedded-opentype'),
-         url('soutaneblack-webfont.woff') format('woff'),
          url('soutaneblack-webfont.ttf') format('truetype'),
-         url('soutaneblack-webfont.svg#soutaneblackregular') format('svg');
+         url('soutaneblack-webfont.svg#soutaneblackregular') format('svg'),
+         url('soutaneblack-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
+    font-display: swap;
 }
 
 @font-face {
@@ -97,6 +102,13 @@
     font-weight: bold;
     font-style: italic;
 }
+
+:root {
+    --font-primary: "Soutane";
+    --color-border-light-primary:  #b7b7af;   /* neutral light grey-brown */
+    --color-border-light-highlight: #ccc5b9;   /* warm light beige */
+}
+
 
 /* Global styles */
 .game {
@@ -374,7 +386,7 @@
 /* Styles limited to basicfantasyrpg sheets */
 
 .basicfantasyrpg.sheet.actor {
-  font-family: "Century Gothic", "TeX Gyre Adventor", "Soutane", var(--font-primary);
+  font-family: "Soutane", "Century Gothic", "TeX Gyre Adventor", var(--font-primary);
 }
 
 .basicfantasyrpg .sheet-header {
@@ -422,6 +434,7 @@
   width: 100%;
   height: 100%;
   margin: 0;
+  font-family: "Soutane", "Century Gothic", "TeX Gyre Adventor", var(--font-primary);
 }
 
 .basicfantasyrpg .sheet-tabs {
@@ -440,6 +453,10 @@
 
 .basicfantasyrpg .sheet-body .tab.biography {
   max-height: calc(100% - 53px);
+}
+
+.basicfantasyrpg.sheet .tab-container {
+    display: flex;
 }
 
 .basicfantasyrpg .editor-content {
@@ -541,6 +558,9 @@
   margin: 0;
   white-space: nowrap;
   overflow-x: hidden;
+  font-size: 13px;
+  font-family: "Soutane", "Century Gothic", "TeX Gyre Adventor", var(--font-primary);
+  font-weight: 400;
 }
 
 .basicfantasyrpg .items-list .item-controls {
@@ -641,4 +661,20 @@
 
 .basicfantasyrpg .effects .item .effect-controls {
   border: none;
+}
+
+/* Item deletion animation */
+.basicfantasyrpg .items-list .item.item-deleting {
+  animation: itemDeleteFade 0.15s ease-out forwards;
+}
+
+@keyframes itemDeleteFade {
+  0% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
 }
