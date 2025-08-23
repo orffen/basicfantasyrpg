@@ -428,6 +428,9 @@
   padding: 0px;
   margin: 5px 0;
   border-bottom: 0;
+  line-height: 48px;
+  font-size: 28px;
+  font-weight: 400;
 }
 
 .basicfantasyrpg .sheet-header h1.charname input {
