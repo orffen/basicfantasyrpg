@@ -2,10 +2,10 @@
   "id": "basicfantasyrpg",
   "title": "Basic Fantasy RPG",
   "description": "The Basic Fantasy RPG system for FoundryVTT!",
-  "version": "r14",
+  "version": "r15",
   "compatibility": {
     "minimum": "11",
-    "verified": "12"
+    "verified": "13"
   },
   "authors": [
     {
@@ -45,6 +45,6 @@
   "secondaryTokenAttribute": null,
   "url": "https://github.com/orffen/basicfantasyrpg",
   "manifest": "https://raw.githubusercontent.com/orffen/basicfantasyrpg/main/system.json",
-  "download": "https://github.com/orffen/basicfantasyrpg/archive/refs/tags/r14.zip",
+  "download": "https://github.com/orffen/basicfantasyrpg/archive/refs/tags/r15.zip",
   "license": "LICENSE.txt"
 }
