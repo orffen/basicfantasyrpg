@@ -1,116 +1,128 @@
 /* Custom Fonts */
 @font-face {
-    font-family: 'Soutane';
-    src: url('soutane-webfont.eot');
-    src: url('soutane-webfont.eot?#iefix') format('embedded-opentype'),
-         url('soutane-webfont.woff') format('woff'),
-         url('soutane-webfont.ttf') format('truetype'),
-         url('soutane-webfont.svg#soutaneregular') format('svg');
-    font-weight: normal;
-    font-style: normal;
+  font-family: 'Soutane';
+  src: url('soutane-webfont.eot');
+  src: url('soutane-webfont.eot?#iefix') format('embedded-opentype'),
+    url('soutane-webfont.woff') format('woff'),
+    url('soutane-webfont.ttf') format('truetype'),
+    url('soutane-webfont.svg#soutaneregular') format('svg');
+  font-weight: normal;
+  font-style: normal;
 }
 
 @font-face {
-    font-family: 'Soutane';
-    src: url('soutanebold-webfont.eot');
-    src: url('soutanebold-webfont.eot?#iefix') format('embedded-opentype'),
-         url('soutanebold-webfont.woff') format('woff'),
-         url('soutanebold-webfont.ttf') format('truetype'),
-         url('soutanebold-webfont.svg#soutanebold') format('svg');
-    font-weight: bold;
-    font-style: normal;
+  font-family: 'Soutane';
+  src: url('soutanebold-webfont.eot');
+  src: url('soutanebold-webfont.eot?#iefix') format('embedded-opentype'),
+    url('soutanebold-webfont.woff') format('woff'),
+    url('soutanebold-webfont.ttf') format('truetype'),
+    url('soutanebold-webfont.svg#soutanebold') format('svg');
+  font-weight: bold;
+  font-style: normal;
 }
 
 @font-face {
-    font-family: 'Soutane';
-    src: url('soutanebolditalic-webfont.eot');
-    src: url('soutanebolditalic-webfont.eot?#iefix') format('embedded-opentype'),
-         url('soutanebolditalic-webfont.woff') format('woff'),
-         url('soutanebolditalic-webfont.ttf') format('truetype'),
-         url('soutanebolditalic-webfont.svg#soutanebold_italic') format('svg');
-    font-weight: bold;
-    font-style: italic;
+  font-family: 'Soutane';
+  src: url('soutanebolditalic-webfont.eot');
+  src: url('soutanebolditalic-webfont.eot?#iefix') format('embedded-opentype'),
+    url('soutanebolditalic-webfont.woff') format('woff'),
+    url('soutanebolditalic-webfont.ttf') format('truetype'),
+    url('soutanebolditalic-webfont.svg#soutanebold_italic') format('svg');
+  font-weight: bold;
+  font-style: italic;
 }
 
 @font-face {
-    font-family: 'Soutane';
-    src: url('soutaneitalic-webfont.eot');
-    src: url('soutaneitalic-webfont.eot?#iefix') format('embedded-opentype'),
-         url('soutaneitalic-webfont.woff') format('woff'),
-         url('soutaneitalic-webfont.ttf') format('truetype'),
-         url('soutaneitalic-webfont.svg#soutaneitalic') format('svg');
-    font-weight: normal;
-    font-style: italic;
+  font-family: 'Soutane';
+  src: url('soutaneitalic-webfont.eot');
+  src: url('soutaneitalic-webfont.eot?#iefix') format('embedded-opentype'),
+    url('soutaneitalic-webfont.woff') format('woff'),
+    url('soutaneitalic-webfont.ttf') format('truetype'),
+    url('soutaneitalic-webfont.svg#soutaneitalic') format('svg');
+  font-weight: normal;
+  font-style: italic;
 }
 
 @font-face {
-    font-family: 'SoutaneBlack';
-    src: url('soutaneblack-webfont.eot');
-    src: url('soutaneblack-webfont.eot?#iefix') format('embedded-opentype'),
-         url('soutaneblack-webfont.woff') format('woff'),
-         url('soutaneblack-webfont.ttf') format('truetype'),
-         url('soutaneblack-webfont.svg#soutaneblackregular') format('svg');
-    font-weight: normal;
-    font-style: normal;
+  font-family: 'SoutaneBlack';
+  src: url('soutaneblack-webfont.eot');
+  src: url('soutaneblack-webfont.eot?#iefix') format('embedded-opentype'),
+    url('soutaneblack-webfont.woff') format('woff'),
+    url('soutaneblack-webfont.ttf') format('truetype'),
+    url('soutaneblack-webfont.svg#soutaneblackregular') format('svg');
+  font-weight: normal;
+  font-style: normal;
 }
 
 @font-face {
-    font-family: 'TeX Gyre Adventor';
-    src: url('texgyreadventor-regular-webfont.eot');
-    src: url('texgyreadventor-regular-webfont.eot?#iefix') format('embedded-opentype'),
-         url('texgyreadventor-regular-webfont.woff') format('woff'),
-         url('texgyreadventor-regular-webfont.ttf') format('truetype'),
-         url('texgyreadventor-regular-webfont.svg#tex_gyre_adventorregular') format('svg');
-    font-weight: normal;
-    font-style: normal;
+  font-family: 'TeX Gyre Adventor';
+  src: url('texgyreadventor-regular-webfont.eot');
+  src: url('texgyreadventor-regular-webfont.eot?#iefix') format('embedded-opentype'),
+    url('texgyreadventor-regular-webfont.woff') format('woff'),
+    url('texgyreadventor-regular-webfont.ttf') format('truetype'),
+    url('texgyreadventor-regular-webfont.svg#tex_gyre_adventorregular') format('svg');
+  font-weight: normal;
+  font-style: normal;
 }
 
 @font-face {
-    font-family: 'TeX Gyre Adventor';
-    src: url('texgyreadventor-italic-webfont.eot');
-    src: url('texgyreadventor-italic-webfont.eot?#iefix') format('embedded-opentype'),
-         url('texgyreadventor-italic-webfont.woff') format('woff'),
-         url('texgyreadventor-italic-webfont.ttf') format('truetype'),
-         url('texgyreadventor-italic-webfont.svg#tex_gyre_adventoritalic') format('svg');
-    font-weight: normal;
-    font-style: italic;
+  font-family: 'TeX Gyre Adventor';
+  src: url('texgyreadventor-italic-webfont.eot');
+  src: url('texgyreadventor-italic-webfont.eot?#iefix') format('embedded-opentype'),
+    url('texgyreadventor-italic-webfont.woff') format('woff'),
+    url('texgyreadventor-italic-webfont.ttf') format('truetype'),
+    url('texgyreadventor-italic-webfont.svg#tex_gyre_adventoritalic') format('svg');
+  font-weight: normal;
+  font-style: italic;
 }
 
 @font-face {
-    font-family: 'TeX Gyre Adventor';
-    src: url('texgyreadventor-bold-webfont.eot');
-    src: url('texgyreadventor-bold-webfont.eot?#iefix') format('embedded-opentype'),
-         url('texgyreadventor-bold-webfont.woff') format('woff'),
-         url('texgyreadventor-bold-webfont.ttf') format('truetype'),
-         url('texgyreadventor-bold-webfont.svg#tex_gyre_adventorbold') format('svg');
-    font-weight: bold;
-    font-style: normal;
+  font-family: 'TeX Gyre Adventor';
+  src: url('texgyreadventor-bold-webfont.eot');
+  src: url('texgyreadventor-bold-webfont.eot?#iefix') format('embedded-opentype'),
+    url('texgyreadventor-bold-webfont.woff') format('woff'),
+    url('texgyreadventor-bold-webfont.ttf') format('truetype'),
+    url('texgyreadventor-bold-webfont.svg#tex_gyre_adventorbold') format('svg');
+  font-weight: bold;
+  font-style: normal;
 }
 
 @font-face {
-    font-family: 'TeX Gyre Adventor';
-    src: url('texgyreadventor-bolditalic-webfont.eot');
-    src: url('texgyreadventor-bolditalic-webfont.eot?#iefix') format('embedded-opentype'),
-         url('texgyreadventor-bolditalic-webfont.woff') format('woff'),
-         url('texgyreadventor-bolditalic-webfont.ttf') format('truetype'),
-         url('texgyreadventor-bolditalic-webfont.svg#tex_gyre_adventorbold_italic') format('svg');
-    font-weight: bold;
-    font-style: italic;
+  font-family: 'TeX Gyre Adventor';
+  src: url('texgyreadventor-bolditalic-webfont.eot');
+  src: url('texgyreadventor-bolditalic-webfont.eot?#iefix') format('embedded-opentype'),
+    url('texgyreadventor-bolditalic-webfont.woff') format('woff'),
+    url('texgyreadventor-bolditalic-webfont.ttf') format('truetype'),
+    url('texgyreadventor-bolditalic-webfont.svg#tex_gyre_adventorbold_italic') format('svg');
+  font-weight: bold;
+  font-style: italic;
 }
 
 /* Global styles */
-.game {
-  font-family: "Soutane", "Century Gothic", "TeX Gyre Adventor", var(--font-primary);
+@layer variables.base {
+  body {
+    --font-body: "Soutane", "Century Gothic", "TeX Gyre Adventor", var(--font-sans);
+    --font-primary: "Soutane", "Century Gothic", "TeX Gyre Adventor", var(--font-sans);
+    --font-h1: "Soutane", "Century Gothic", "TeX Gyre Adventor", var(--font-sans);
+    --font-h2: "Century Gothic", "TeX Gyre Adventor", var(--font-sans);
+    --font-h3: "Soutane", "Century Gothic", "TeX Gyre Adventor", var(--font-sans);
+  }
+
+  body .game .app {
+    --font-primary: "Soutane", "Century Gothic", "TeX Gyre Adventor", var(--font-sans);
+  }
 }
 
-.rollable:hover, .rollable:focus {
+.rollable:hover,
+.rollable:focus {
   color: #000;
   text-shadow: 0 0 10px red;
   cursor: pointer;
 }
 
-.chat-message {
-  font-family: "Century Gothic", "TeX Gyre Adventor", var(--font-primary);
+.chat-message,
+.chat-message h4 {
+  font-family: "Century Gothic", "TeX Gyre Adventor", var(--font-sans);
 }
 
 .chat-message .chat-item-name {
@@ -122,8 +134,8 @@
 }
 
 .chat-message .chat-item-description {
-  font-family: "Soutane", "Century Gothic", "TeX Gyre Adventor", var(--font-primary);
-  font-size: 14px;
+  /* font-family: "Soutane", "Century Gothic", "TeX Gyre Adventor", var(--font-sans); */
+  font-size: 16px;
 }
 
 .basicfantasyrpg .success-text,
@@ -374,7 +386,7 @@
 /* Styles limited to basicfantasyrpg sheets */
 
 .basicfantasyrpg.sheet.actor {
-  font-family: "Century Gothic", "TeX Gyre Adventor", "Soutane", var(--font-primary);
+  font-family: "Century Gothic", "TeX Gyre Adventor", "Soutane", var(--font-sans);
 }
 
 .basicfantasyrpg .sheet-header {
@@ -443,7 +455,7 @@
 }
 
 .basicfantasyrpg .editor-content {
-  font-family: "Soutane", "Century Gothic", "TeX Gyre Adventor", var(--font-primary);
+  font-family: "Soutane", "Century Gothic", "TeX Gyre Adventor", var(--font-sans);
   font-size: 18px;
   overflow-y: hidden;
 }
@@ -476,7 +488,7 @@
   font-weight: bold;
 }
 
-.basicfantasyrpg .items-header > * {
+.basicfantasyrpg .items-header>* {
   font-size: 14px;
   text-align: center;
 }
@@ -537,10 +549,12 @@
   display: flex;
 }
 
-.basicfantasyrpg .items-list .item-name h3, .basicfantasyrpg .items-list .item-name h4 {
+.basicfantasyrpg .items-list .item-name h3,
+.basicfantasyrpg .items-list .item-name h4 {
   margin: 0;
   white-space: nowrap;
   overflow-x: hidden;
+  font-family: "Century Gothic", "TeX Gyre Adventor", var(--font-sans);
 }
 
 .basicfantasyrpg .items-list .item-controls {
@@ -613,7 +627,7 @@
   font-weight: bold;
 }
 
-.basicfantasyrpg .items-list .items-header > * {
+.basicfantasyrpg .items-list .items-header>* {
   font-size: 12px;
   text-align: center;
 }
