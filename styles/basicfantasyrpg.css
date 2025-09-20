@@ -386,7 +386,7 @@
 /* Styles limited to basicfantasyrpg sheets */
 
 .basicfantasyrpg.sheet.actor {
-  font-family: "Soutane", "Century Gothic", "TeX Gyre Adventor", var(--font-primary);
+  font-family: "Century Gothic", "TeX Gyre Adventor", "Soutane", var(--font-primary);
 }
 
 .basicfantasyrpg .sheet-header {
